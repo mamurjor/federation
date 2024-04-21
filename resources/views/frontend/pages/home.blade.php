@@ -1,0 +1,11 @@
+@extends('layouts.front')
+@section('title','Voting')
+@section('content')
+    @include('frontend.pages.home.hero_section')
+    @include('frontend.pages.home.presidents')
+    @include('frontend.pages.home.our_mission')
+    @include('frontend.pages.home.blog')
+    @include('frontend.pages.home.join_us_section')
+    @include('frontend.pages.home.service_section')
+    @include('frontend.pages.home.faq_section')
+@endsection
