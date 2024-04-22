@@ -43,16 +43,29 @@ class AuthController extends Controller
      */
     public function store(RegisterRequest $request)
     {
-        $role = Role::where('slug','user')->first();
+       // dd($request->all());
+
+        $role = Role::where('slug','client')->first();
         $verify_code = Str::random(64);
         $user = User::create([
             'role_id'            => $role->id,
+            'cnic_no'            => $request->cnic_no,
             'fname'              => $request->fname,
+            'mname'              => $request->mname,
             'lname'              => $request->lname,
+            'district'              => $request->select_district,
+            'tehsil'              => $request->select_tehsil,
+            'cast'              => $request->cast,
+            'gender'              => $request->gender,
+            'profession'              => $request->profession,
+            'country_residence'              => $request->country_residence,
+            'address_one'              => $request->address_one,
+            'address_two'              => $request->address_two,
+            'city'              => $request->your_city,
+            'phone'              => $request->phone,
             'email'              => $request->email,
             'password'           => Hash::make($request->password),
-            'phone'              => $request->phone,
-            'verify_code'        => $verify_code,
+            'phone'              => $request->phone            
         ]);
         $request['roleName'] = $role->name;
         $request['full_name'] = $request->fname . ' ' . $request->lname;
@@ -67,6 +80,75 @@ class AuthController extends Controller
         Mail::to($request->email)->send(new VerifyUserMail($userMail));
         Auth::login($user, true);
         return redirect()->route('login')->with('success', 'Registration Successfull!');
+    }
+
+
+    
+    public function updateuser(Request $request)
+    {
+        $user = Auth::user();
+
+
+        if ($request->hasFile('userimage')) {
+            $image = $request->file('userimage');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $path = '/admin/slider/'.$imageName;
+            $image_path =   $image->move(public_path('admin/slider'), $imageName);
+
+            $user = User::find($user->id)->update(
+                [
+                   
+                    'cnic_no'            => $request->cnic_no,
+                    'fname'              => $request->fname,
+                    'mname'              => $request->mname,
+                    'lname'              => $request->lname,
+                    'district'              => $request->select_district,
+                    'tehsil'              => $request->select_tehsil,
+                    'cast'              => $request->cast,
+                    'gender'              => $request->gender,
+                    'profession'              => $request->profession,
+                    'country_residence'              => $request->country_residence,
+                    'address_one'              => $request->address_one,
+                    'address_two'              => $request->address_two,
+                    'city'              => $request->your_city,
+                    'phone'              => $request->phone,
+                    'email'              => $request->email,
+                    'password'           => Hash::make($request->password),
+                    'phone'              => $request->phone,
+                    'userimage'          =>$path            
+                ]
+            );
+            return redirect()->back()->with('success', 'Registration Successfull!');
+
+        }
+        else{
+            
+        $user = User::find($user->id)->update(
+            [
+               
+                'cnic_no'            => $request->cnic_no,
+                'fname'              => $request->fname,
+                'mname'              => $request->mname,
+                'lname'              => $request->lname,
+                'district'              => $request->select_district,
+                'tehsil'              => $request->select_tehsil,
+                'cast'              => $request->cast,
+                'gender'              => $request->gender,
+                'profession'              => $request->profession,
+                'country_residence'              => $request->country_residence,
+                'address_one'              => $request->address_one,
+                'address_two'              => $request->address_two,
+                'city'              => $request->your_city,
+                'phone'              => $request->phone,
+                'email'              => $request->email,
+                'password'           => Hash::make($request->password),
+                'phone'              => $request->phone            
+            ]
+        );
+        return redirect()->back()->with('success', 'Registration Successfull!');
+        }
+
+       
     }
     /**
      * Forgot password create
@@ -163,5 +245,22 @@ class AuthController extends Controller
             session()->flash('error', 'Something went wrong.');
         }
         return back();
+    }
+
+
+
+
+    public function userUpdate(){
+
+        $user = User::where('id', Auth::id())->first();
+        return view("auth.user-update",compact('user'));
+    }
+
+
+    public function logout(){
+        //  session_destroy();
+        Auth::logout();
+        return redirect()->route('index')->with('success', 'Logout Successfully Done.');
+
     }
 }

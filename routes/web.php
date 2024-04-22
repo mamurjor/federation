@@ -3,7 +3,13 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\CastController;
 use App\Http\Controllers\VerifyUserController;
+use App\Http\Controllers\Admin\GenderController;
+use App\Http\Controllers\Admin\TehsilController;
+use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\Admin\ProfessionController;
+use App\Http\Controllers\Admin\HeroSectionController;
 use App\Http\Controllers\Frontend\MainIndexController;
 
 /*
@@ -28,7 +34,65 @@ Route::get('/',[MainIndexController::class,'index'])->name('index');
 
 //------------ Register Route ------------//
 Route::get('register', [AuthController::class, 'index'])->name('user.register');
+Route::get('user-update', [AuthController::class, 'userUpdate'])->name('user.update');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('register/store', [AuthController::class, 'store'])->name('user.register.store');
+Route::post('register/update', [AuthController::class, 'updateuser'])->name('user.register.update');
+
+
+Route::get('index', [CountryController::class, 'index'])->name('country.index');
+Route::get('create', [CountryController::class, 'create'])->name('country.create');
+Route::post('store', [CountryController::class, 'store'])->name('country.store');
+Route::post('update', [CountryController::class, 'update'])->name('country.update');
+
+Route::get('edit/{id}', [CountryController::class, 'edit'])->name('country.edit');
+
+Route::get('countrydelete/{id}', [CountryController::class, 'delete'])->name('country.delete');
+
+
+
+Route::get('cast/index', [CastController::class, 'index'])->name('cast.index');
+Route::get('cast/create', [CastController::class, 'create'])->name('cast.create');
+Route::post('cast/store', [CastController::class, 'store'])->name('cast.store');
+Route::post('cast/update', [CastController::class, 'update'])->name('cast.update');
+Route::get('cast/edit/{id}', [CastController::class, 'edit'])->name('cast.edit');
+Route::get('cast/countrydelete/{id}', [CastController::class, 'delete'])->name('cast.delete');
+
+
+Route::get('gender/index', [GenderController::class, 'index'])->name('gender.index');
+Route::get('gender/create', [GenderController::class, 'create'])->name('gender.create');
+Route::post('gender/store', [GenderController::class, 'store'])->name('gender.store');
+Route::post('gender/update', [GenderController::class, 'update'])->name('gender.update');
+Route::get('gender/edit/{id}', [GenderController::class, 'edit'])->name('gender.edit');
+Route::get('gender/countrydelete/{id}', [GenderController::class, 'delete'])->name('gender.delete');
+
+
+Route::get('profession/index', [ProfessionController::class, 'index'])->name('profession.index');
+Route::get('profession/create', [ProfessionController::class, 'create'])->name('profession.create');
+Route::post('profession/store', [ProfessionController::class, 'store'])->name('profession.store');
+Route::post('profession/update', [ProfessionController::class, 'update'])->name('profession.update');
+Route::get('profession/edit/{id}', [ProfessionController::class, 'edit'])->name('profession.edit');
+Route::get('profession/countrydelete/{id}', [ProfessionController::class, 'delete'])->name('profession.delete');
+
+
+Route::get('tehsil/index', [TehsilController::class, 'index'])->name('tehsil.index');
+Route::get('tehsil/create', [TehsilController::class, 'create'])->name('tehsil.create');
+Route::post('tehsil/store', [TehsilController::class, 'store'])->name('tehsil.store');
+Route::post('tehsil/update', [TehsilController::class, 'update'])->name('tehsil.update');
+Route::get('tehsil/edit/{id}', [TehsilController::class, 'edit'])->name('tehsil.edit');
+Route::get('tehsil/countrydelete/{id}', [TehsilController::class, 'delete'])->name('tehsil.delete');
+
+
+Route::get('herosection/index', [HeroSectionController::class, 'index'])->name('herosection.index');
+Route::get('herosection/create', [HeroSectionController::class, 'create'])->name('herosection.create');
+Route::post('herosection/store', [HeroSectionController::class, 'store'])->name('herosection.store');
+Route::post('herosection/update', [HeroSectionController::class, 'update'])->name('herosection.update');
+Route::get('herosection/edit/{id}', [HeroSectionController::class, 'edit'])->name('herosection.edit');
+Route::get('herosection/countrydelete/{id}', [HeroSectionController::class, 'delete'])->name('herosection.delete');
+
+
+
+
 
 //------------ Varify User ------------//
 Route::get('verify-code/{token}',[VerifyUserController::class,'verifiedCode'])->name('verify.code');

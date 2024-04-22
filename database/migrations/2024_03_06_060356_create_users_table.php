@@ -15,8 +15,17 @@ return new class extends Migration
             $table->id();
             $table->foreignId('role_id')->constrained('roles')->cascadeOnDelete();
             $table->string('fname')->nullable();
+            $table->string('mname')->nullable();
             $table->string('lname')->nullable();
             $table->string('email')->unique();
+            $table->string('district')->nullable();
+            $table->string('tehsil')->nullable();
+            $table->string('cast')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('profession')->nullable();
+            $table->string('country_residence')->nullable();
+            $table->string('address_one')->nullable();
+            $table->string('address_two')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('verify_code')->nullable();
@@ -25,6 +34,7 @@ return new class extends Migration
             $table->string('country')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
+            $table->string('userimage')->default('default/userimage.png');
             $table->string('zip_code')->nullable();
             $table->enum('status',[1,2,3])->comment('1 = Active, 2 = Pending, 3 = Cancel');
             $table->rememberToken();
