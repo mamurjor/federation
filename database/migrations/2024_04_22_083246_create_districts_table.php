@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tehsils', function (Blueprint $table) {
+        Schema::create('districts', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('');
-            $table->string('country')->default(0);
-            $table->string('district')->default(0);
-            $table->string('code')->default(0);
-            $table->string('slug');
+            $table->string("name", 300);
+            $table->string("country", 255);
+            $table->text("code", 300);
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tehsils');
+        Schema::dropIfExists('districts');
     }
 };

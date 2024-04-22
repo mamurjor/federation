@@ -46,6 +46,11 @@
                     </a>
                 </li>
                 <li class="menu-item">
+                    <a href="{{ route('district.index') }}" class="menu-link">
+                        <div data-i18n="CRM">district </div>
+                    </a>
+                </li>
+                <li class="menu-item">
                     <a href="{{ route('cast.index') }}" class="menu-link">
                         <div data-i18n="CRM">CAST  </div>
                     </a>
@@ -58,15 +63,32 @@
                 </li>
 
                 <li class="menu-item">
-                    <a href="dashboards-crm.html" class="menu-link">
+                    <a href="{{ route('profession.index') }}" class="menu-link">
                         <div data-i18n="CRM">Profession   </div>
                     </a>
                 </li>
 
 
                 <li class="menu-item">
-                    <a href="dashboards-crm.html" class="menu-link">
+                    <a href="{{ route('tehsil.index') }}" class="menu-link">
                         <div data-i18n="CRM">Tehsil  </div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('herosection.index') }}" class="menu-link">
+                        <div data-i18n="CRM"> Hero section  </div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('missionsection.index') }}" class="menu-link">
+                        <div data-i18n="CRM">Mission section  </div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('sliersection.index') }}" class="menu-link">
+                        <div data-i18n="CRM">Slier Section  </div>
                     </a>
                 </li>
 

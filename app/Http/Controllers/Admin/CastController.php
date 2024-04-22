@@ -27,8 +27,11 @@ class CastController extends Controller
  {
      $request->validate([
          'name' => 'required',
-         'code' => 'required',       
+         'code' => 'required',
+
+               
      ]);     
+   
      Cast::create($request->post());
      return redirect()->route('cast.index')->with('success','Created successfully.');
  }
@@ -64,6 +67,7 @@ class CastController extends Controller
         // Modify the attributes of the model
         $cast->name = $request->name;
         $cast->code =  $request->code;
+
         
         // Call the save() method to persist the changes
         $cast->save();

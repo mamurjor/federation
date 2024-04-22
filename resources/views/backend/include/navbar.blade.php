@@ -405,7 +405,6 @@
                                 <div class="flex-grow-1">
                                     <span class="fw-medium d-block"></span>
                                     <small class="text-muted">
-                                
                                     </small>
                                 </div>
                             </div>
@@ -455,10 +454,15 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{ route('logout') }}" target="_blank">
-                            <i class="ti ti-logout me-2 ti-sm"></i>
-                            <span class="align-middle">Log Out</span>
-                        </a>
+                        <button class="dropdown-item">
+                            <form action=" {{ route('logout') }}" method="POST">
+                            <button type="submit">
+                                <i class="ti ti-logout me-2 ti-sm"></i>
+                                <span class="align-middle">Log Out</span>
+                            </button>
+                            </form>
+                            
+                        </button>
                     </li>
                 </ul>
             </li>

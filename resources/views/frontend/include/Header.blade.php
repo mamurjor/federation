@@ -10,7 +10,8 @@
                             class="fa-brands fa-twitter"></i></a>
                     <a href="#" class="bg-white p-3 rounded-circle fw-normal me-2"><i
                             class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#" class="bg-white p-3 rounded-circle fw-normal"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="bg-white p-3 rounded-circle fw-normal"><i
+                            class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
             <div class="col-md-6 col-sm-7 col-lg-7 d-flex gap-5 justify-content-end align-items-center">
@@ -19,21 +20,17 @@
                     <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                         aria-expanded="false"><span class="fa-solid fa-earth-asia text-white me-1 all_flag"></span>
                         <span class="flag_Text">Country</span></a>
+
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
-                        <li>
-                            <a class="dropdown-item active" href="#"><span
-                                    class="flag_Text_dropdown">Bangladesh</span></a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"> <span class="flag_Text_dropdown">Canada</span></a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"><span class="flag_Text_dropdown">Palestine</span></a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"><span class="flag_Text_dropdown">Dubai</span></a>
-                        </li>
+                        @foreach ($countries as $index => $singlevalue)
+                            <li>
+                                <a class="dropdown-item active" href="{{ route('country.list',$singlevalue->name )}}"><span
+                                        class="flag_Text_dropdown">{{ $singlevalue->name }}</span></a>
+                            </li>
+                        @endforeach
+
+
                     </ul>
                 </div>
                 <span class="text-white">|</span>
@@ -41,19 +38,13 @@
                     <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                         aria-expanded="false"> <span class="flag_Text">District</span></a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        @foreach ($districts as $index => $singlevalue)
                         <li>
-                            <a class="dropdown-item active" href="#"><span
-                                    class="flag_Text_dropdown">District</span></a>
+                            <a class="dropdown-item active" href="{{ $singlevalue->name }}"><span
+                                    class="flag_Text_dropdown">{{ $singlevalue->name }}</span></a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="#"> <span class="flag_Text_dropdown">District</span></a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"><span class="flag_Text_dropdown">District</span></a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"><span class="flag_Text_dropdown">District</span></a>
-                        </li>
+                    @endforeach
+
                     </ul>
                 </div>
                 <span class="text-white">|</span>
@@ -61,18 +52,13 @@
                     <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                         aria-expanded="false"> <span class="flag_Text">Tehsil</span></a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        @foreach ($tehsils as $index => $singlevalue)
                         <li>
-                            <a class="dropdown-item active" href="#"><span class="flag_Text_dropdown">Tehsil</span></a>
+                            <a class="dropdown-item active" href="{{ $singlevalue->name }}"><span
+                                    class="flag_Text_dropdown">{{ $singlevalue->name }}</span></a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="#"> <span class="flag_Text_dropdown">Tehsil</span></a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"><span class="flag_Text_dropdown">Tehsil</span></a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"><span class="flag_Text_dropdown">Tehsil</span></a>
-                        </li>
+                    @endforeach
+
                     </ul>
                 </div>
                 <span class="text-white">|</span>
@@ -87,15 +73,18 @@
                                     class="flag_Text_dropdown">English</span></a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-fr me-1 all_flag"></span>
+                            <a class="dropdown-item" href="#"><span
+                                    class="flag-icon flag-icon-fr me-1 all_flag"></span>
                                 <span class="flag_Text_dropdown">French</span></a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-es me-1 all_flag"></span>
+                            <a class="dropdown-item" href="#"><span
+                                    class="flag-icon flag-icon-es me-1 all_flag"></span>
                                 <span class="flag_Text_dropdown">Spanich</span></a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-sa me-1 all_flag"></span>
+                            <a class="dropdown-item" href="#"><span
+                                    class="flag-icon flag-icon-sa me-1 all_flag"></span>
                                 <span class="flag_Text_dropdown">Arabic</span></a>
                         </li>
                     </ul>
@@ -126,7 +115,8 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle"
                                     href="file:///D:/mamurjor%20project%20live/Jutt_Federation/about_us.html"
-                                    id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
                                     About Us
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -142,19 +132,23 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle"
                                     href="file:///D:/mamurjor%20project%20live/Jutt_Federation/tehsil.html"
-                                    id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
                                     Tehsil
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item"
-                                            href="file:///D:/mamurjor%20project%20live/Jutt_Federation/international_chapters.html">international
-                                            chapters</a></li>
+                                    @foreach ($tehsils as $index => $singlevalue)
+                                    <li>
+                                        <a class="dropdown-item active" href="{{ $singlevalue->name }}"><span
+                                                class="flag_Text_dropdown">{{ $singlevalue->name }}</span></a>
+                                    </li>
+                                @endforeach
                                 </ul>
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="Matrimonial" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="Matrimonial" id="navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Matrimonial
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -166,13 +160,17 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle"
                                     href="file:///D:/mamurjor%20project%20live/Jutt_Federation/cast%20_page.html"
-                                    id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
                                     Cast
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item"
-                                            href="file:///D:/mamurjor%20project%20live/Jutt_Federation/cast_single.html">Cast
-                                            Single</a></li>
+                                    @foreach ($casts as $index => $singlevalue)
+                                    <li>
+                                        <a class="dropdown-item active" href="{{ $singlevalue->name }}"><span
+                                                class="flag_Text_dropdown">{{ $singlevalue->name }}</span></a>
+                                    </li>
+                                @endforeach
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -192,8 +190,8 @@
                         </ul>
                         <div class="common_button">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="Matrimonial" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="Matrimonial" id="navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-regular fa-circle-user me-2"></i>Account</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item mb-3" href="{{ route('login') }}">Login</a>

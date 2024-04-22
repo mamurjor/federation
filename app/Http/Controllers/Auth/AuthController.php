@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Cast;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Roles;
+use App\Models\Gender;
+use App\Models\Tehsil;
+use App\Models\Country;
+use App\Models\District;
+use App\Models\Profession;
 use Illuminate\Support\Str;
 use App\Mail\VerifyUserMail;
 use Illuminate\Http\Request;
@@ -30,8 +36,17 @@ class AuthController extends Controller
         if (Auth::check()) {
             return redirect()->route('login');
         }
+
+        $countries = Country::all();
+        $cast = Cast::all();
+        $genders = Gender::all();
+        $professions = Profession::all();
+        $districts = District::all();
+        $tehsils = Tehsil::all();
+
+
         $this->setPageTitle('Register');
-        return view('auth.register');
+        return view('auth.register',compact('countries','cast','genders','professions','districts','tehsils'));
     }
 
     /**

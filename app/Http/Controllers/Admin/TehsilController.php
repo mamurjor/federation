@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Tehsil;
+use App\Models\Country;
+use App\Models\District;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
 
 class TehsilController extends Controller
 {
@@ -18,10 +21,25 @@ class TehsilController extends Controller
      return view('backend.page.tehsil.index', compact('tehsils'));
  }
 
+ public function getcountry($country){
+
+       
+   
+       // $getuserbycountry = District::where('country',$request->country)->pluck("name", "id");
+        //$getuserbycountry =  District::where('country','bd')->get();
+       // $getuserbycountry = District::where('country', 'bd')->pluck("name", "id");
+        $getuserbycountry = District::where('country', $country)->get();
+       // \Log::info('Cities:', $getuserbycountry->toArray()); // Log the retrieved cities
+        return response()->json($getuserbycountry);
+       
+        
+
+ }
 
  public function create()
  {
-     return view('backend.page.tehsil.create');
+    $countries = Country::all();
+     return view('backend.page.tehsil.create',compact('countries'));
  }
 
  public function store(Request $request)
@@ -29,6 +47,8 @@ class TehsilController extends Controller
      $request->validate([
          'name' => 'required',
          'code' => 'required',       
+         'country' => 'required',       
+         'district' => 'required',       
      ]);     
      Tehsil::create($request->post());
      return redirect()->route('tehsil.index')->with('success','Created successfully.');
@@ -54,7 +74,9 @@ class TehsilController extends Controller
     
     $request->validate([
         'name' => 'required',
-        'code' => 'required',       
+        'code' => 'required',  
+        'country' => 'required',       
+         'district' => 'required',     
     ]);
 
 
@@ -65,6 +87,8 @@ class TehsilController extends Controller
         // Modify the attributes of the model
         $tehsil->name = $request->name;
         $tehsil->code =  $request->code;
+        $tehsil->country =  $request->country;
+        $tehsil->district =  $request->district;
         
         // Call the save() method to persist the changes
         $tehsil->save();
