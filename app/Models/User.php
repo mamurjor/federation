@@ -43,6 +43,7 @@ class User extends Authenticatable
         'state',
         'zip_code',
         'status',
+        'userimage'
     ];
 
     /**

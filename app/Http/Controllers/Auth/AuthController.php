@@ -80,7 +80,8 @@ class AuthController extends Controller
             'phone'              => $request->phone,
             'email'              => $request->email,
             'password'           => Hash::make($request->password),
-            'phone'              => $request->phone            
+            'phone'              => $request->phone,         
+            'status'              => 2,         
         ]);
         $request['roleName'] = $role->name;
         $request['full_name'] = $request->fname . ' ' . $request->lname;
@@ -98,6 +99,20 @@ class AuthController extends Controller
     }
 
 
+    public function userUpdate(){
+        
+        $countries = Country::all();
+        $cast = Cast::all();
+        $genders = Gender::all();
+        $professions = Profession::all();
+        $districts = District::all();
+        $tehsils = Tehsil::all();
+        $user = User::where('id', Auth::id())->first();
+        return view("auth.user-update",compact('user','countries','cast','genders','professions','districts','tehsils'));
+    }
+
+
+
     
     public function updateuser(Request $request)
     {
@@ -107,8 +122,8 @@ class AuthController extends Controller
         if ($request->hasFile('userimage')) {
             $image = $request->file('userimage');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $path = '/admin/slider/'.$imageName;
-            $image_path =   $image->move(public_path('admin/slider'), $imageName);
+            $path = '/admin/userimage/'.$imageName;
+            $image_path =   $image->move(public_path('admin/userimage'), $imageName);
 
             $user = User::find($user->id)->update(
                 [
@@ -265,12 +280,7 @@ class AuthController extends Controller
 
 
 
-    public function userUpdate(){
-
-        $user = User::where('id', Auth::id())->first();
-        return view("auth.user-update",compact('user'));
-    }
-
+    
 
     public function logout(){
         //  session_destroy();

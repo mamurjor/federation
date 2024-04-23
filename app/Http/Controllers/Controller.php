@@ -103,8 +103,11 @@ class Controller extends BaseController
      * @param $title
      * @return \Illuminate\Http\Response
      */
-    protected function setPageTitle($title = null)
+    protected function setPageTitle($title = null,$metaTitle='',$metaDesc='')
     {
-        view()->share(['title' => $title]);
+        view()->share(['title' => $title,'metaTitle'=>$metaTitle,'metaDesc'=>$metaDesc]);
     }
+   
+       
+   
 }

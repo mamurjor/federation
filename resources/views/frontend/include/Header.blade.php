@@ -23,12 +23,12 @@
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
-                        @foreach ($countries as $index => $singlevalue)
+                     
                             <li>
-                                <a class="dropdown-item active" href="{{ route('country.list',$singlevalue->name )}}"><span
-                                        class="flag_Text_dropdown">{{ $singlevalue->name }}</span></a>
+                                <a class="dropdown-item active" href="Pakistan"><span
+                                        class="flag_Text_dropdown">Pakistan</span></a>
                             </li>
-                        @endforeach
+                     
 
 
                     </ul>
@@ -38,12 +38,12 @@
                     <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                         aria-expanded="false"> <span class="flag_Text">District</span></a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        @foreach ($districts as $index => $singlevalue)
+                        {{-- @foreach ($districts as $index => $singlevalue)
                         <li>
                             <a class="dropdown-item active" href="{{ $singlevalue->name }}"><span
                                     class="flag_Text_dropdown">{{ $singlevalue->name }}</span></a>
                         </li>
-                    @endforeach
+                    @endforeach --}}
 
                     </ul>
                 </div>
@@ -52,12 +52,12 @@
                     <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                         aria-expanded="false"> <span class="flag_Text">Tehsil</span></a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        @foreach ($tehsils as $index => $singlevalue)
+                        {{-- @foreach ($tehsils as $index => $singlevalue)
                         <li>
                             <a class="dropdown-item active" href="{{ $singlevalue->name }}"><span
                                     class="flag_Text_dropdown">{{ $singlevalue->name }}</span></a>
                         </li>
-                    @endforeach
+                    @endforeach --}}
 
                     </ul>
                 </div>
@@ -137,12 +137,12 @@
                                     Tehsil
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    @foreach ($tehsils as $index => $singlevalue)
+                                    {{-- @foreach ($tehsils as $index => $singlevalue)
                                     <li>
                                         <a class="dropdown-item active" href="{{ $singlevalue->name }}"><span
                                                 class="flag_Text_dropdown">{{ $singlevalue->name }}</span></a>
                                     </li>
-                                @endforeach
+                                @endforeach --}}
                                 </ul>
                             </li>
 
@@ -165,12 +165,12 @@
                                     Cast
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    @foreach ($casts as $index => $singlevalue)
+                                    {{-- @foreach ($casts as $index => $singlevalue)
                                     <li>
                                         <a class="dropdown-item active" href="{{ $singlevalue->name }}"><span
                                                 class="flag_Text_dropdown">{{ $singlevalue->name }}</span></a>
                                     </li>
-                                @endforeach
+                                @endforeach --}}
                                 </ul>
                             </li>
                             <li class="nav-item">

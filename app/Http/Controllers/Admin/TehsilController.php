@@ -22,12 +22,7 @@ class TehsilController extends Controller
  }
 
  public function getcountry($country){
-
-       
-   
-       // $getuserbycountry = District::where('country',$request->country)->pluck("name", "id");
-        //$getuserbycountry =  District::where('country','bd')->get();
-       // $getuserbycountry = District::where('country', 'bd')->pluck("name", "id");
+      
         $getuserbycountry = District::where('country', $country)->get();
        // \Log::info('Cities:', $getuserbycountry->toArray()); // Log the retrieved cities
         return response()->json($getuserbycountry);

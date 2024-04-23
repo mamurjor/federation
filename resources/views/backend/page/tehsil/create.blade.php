@@ -47,9 +47,6 @@
 
                                     </div>
                                 </div>
-
-                              
-
                                 <div class="col-md-12">
                                     <div class="mb-6">
                                         <div class="form-group">
@@ -122,25 +119,5 @@
   //var value = $('#dropDownId').val();
 
 });
-    $(".submit-form").click(function(e){
-        e.preventDefault();
-        var data = $('#form-data').serialize();
-        $.ajax({
-            type: 'post',
-            url: "{{ route('tehsil.store') }}",
-            data: data,
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            beforeSend: function(){
-                //before sending the request
-            },
-            success: function(response){
-                //the request is success
-            },
-            complete: function(response){
-                //the request is completed
-            }
-        });
-	});
+   
 </script>

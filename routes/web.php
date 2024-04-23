@@ -8,7 +8,9 @@ use App\Http\Controllers\VerifyUserController;
 use App\Http\Controllers\Admin\GenderController;
 use App\Http\Controllers\Admin\TehsilController;
 use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\UserOperationController;
 use App\Http\Controllers\Admin\DistrictController;
+use App\Http\Controllers\CompanysettingController;
 use App\Http\Controllers\Admin\ProfessionController;
 use App\Http\Controllers\Admin\HeroSectionController;
 use App\Http\Controllers\Admin\SliersectionController;
@@ -41,6 +43,17 @@ Route::get('user-update', [AuthController::class, 'userUpdate'])->name('user.upd
 // Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('register/store', [AuthController::class, 'store'])->name('user.register.store');
 Route::post('register/update', [AuthController::class, 'updateuser'])->name('user.register.update');
+Route::get("get/registeruser",[UserOperationController::class,'getregisteruser'])->name('get.registeruser');
+
+Route::get('get/approved/{userid}', [UserOperationController::class, 'approved'])->name('user.approved');
+Route::get('get/cancel/{userid}', [UserOperationController::class, 'cancel'])->name('user.cancel');
+
+// Company Setting 
+Route::get('company/setting',[CompanysettingController::class,'companysettingform'])->name('company.setting');
+Route::post('company/setting/save',[CompanysettingController::class,'companysetting'])->name('company.setting.save');
+Route::post('company/setting/footer',[CompanysettingController::class,'companysettingfooter'])->name('company.setting.footer');
+
+
 
 
 Route::get('index', [CountryController::class, 'index'])->name('country.index');
