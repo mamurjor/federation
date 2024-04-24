@@ -5,13 +5,45 @@
             <div class="col-5 col-md-6 col-sm-5 col-lg-5">
                 <div class="social_icon">
                     <a href="#" class="bg-white p-3 rounded-circle fw-normal me-2"><i
-                            class="fa-brands fa-facebook"></i></a>
+                            class="<?php
+                        
+                            if (config('settings.ficon') != null) {
+                                echo config('settings.ficon');
+                            } else {
+                                echo 'fa-brands fa-facebook';
+                            }
+                            ?>">
+                            
+                        </i></a>
                     <a href="#" class="bg-white p-3 rounded-circle fw-normal me-2"><i
-                            class="fa-brands fa-twitter"></i></a>
+                            class="<?php
+                        
+                            if (config('settings.ticon') != null) {
+                                echo config('settings.ticon');
+                            } else {
+                                echo 'fa-brands fa-twitter';
+                            }
+                            ?>"></i></a>
+
                     <a href="#" class="bg-white p-3 rounded-circle fw-normal me-2"><i
-                            class="fa-brands fa-linkedin-in"></i></a>
+                            class=" <?php
+                        
+                            if (config('settings.licon') != null) {
+                                echo config('settings.licon');
+                            } else {
+                                echo 'fa-brands fa-linkedin-in';
+                            }
+                            ?>"></i></a>
+
                     <a href="#" class="bg-white p-3 rounded-circle fw-normal"><i
-                            class="fa-brands fa-youtube"></i></a>
+                            class="<?php
+                        
+                            if (config('settings.yicon') != null) {
+                                echo config('settings.yicon');
+                            } else {
+                                echo 'fa-brands fa-youtube';
+                            }
+                            ?>"></i></a>
                 </div>
             </div>
             <div class="col-md-6 col-sm-7 col-lg-7 d-flex gap-5 justify-content-end align-items-center">
@@ -99,7 +131,7 @@
         <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light py-4">
                 <div class="container-fluid">
-                    <img class="header_logo" src="{{ asset('frontend/assets/img/home_page/header/logo.png') }}"
+                    <img class="header_logo" src="{{ config('settings.hlogo') }}"
                         alt="logo" style="width: 8%;">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -198,6 +230,8 @@
                                     </li>
                                     <li><a class="dropdown-item" href="{{ route('user.register') }}">Registration</a>
                                     </li>
+
+                                   
                                 </ul>
                             </li>
 

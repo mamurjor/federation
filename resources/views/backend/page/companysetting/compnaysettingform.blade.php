@@ -17,61 +17,76 @@
                                 <small class="text-muted float-end">Default label</small>
                             </div>
                             <div class="card-body">
-                                <form id="myForm" >
-
+                                <form action="{{ route('company.setting.header') }}" method="POST"
+                                    enctype="multipart/form-data" id="">
+                                    @csrf
                                     <div class="form-group mt-3">
-                                        <label for="field1">Facebook</label>
-                                        <input type="file" class="form-control" id="icon" name="hlogo">
+                                        <label for="field1">Facebook icon</label>
+                                        {{-- <img width="150" height="150" src="<?php echo url('/') . config('settings.ficon'); ?>" alt="tst"> --}}
+                                        <input type="text" value="<?php echo config('settings.ficon'); ?>" class="form-control"
+                                            id="icon" name="ficon">
 
                                     </div>
 
                                     <div class="form-group mt-3">
                                         <label for="field1">Facebook Url</label>
-                                        <input type="text" class="form-control" id="icon" name="hlogo">
+                                        <input type="text" value="<?php echo config('settings.furl'); ?>" class="form-control"
+                                            id="icon" name="furl">
 
                                     </div>
 
                                     <div class="form-group mt-3">
-                                        <label for="field1">Twitter</label>
-                                        <input type="file" class="form-control" id="icon" name="hlogo">
+                                        <label for="field1">Twitter icon</label>
+                                        {{-- <img width="150" height="150" src="<?php echo url('/') . config('settings.ticon'); ?>" alt="tst"> --}}
+                                        <input type="text" value="<?php echo config('settings.ticon'); ?>" class="form-control"
+                                            id="icon" name="ticon">
 
                                     </div>
 
                                     <div class="form-group mt-3">
                                         <label for="field1">Twitter Url</label>
-                                        <input type="text" class="form-control" id="icon" name="hlogo">
+                                        <input type="text" value="<?php echo config('settings.turl'); ?>" class="form-control"
+                                            id="icon" name="turl">
 
                                     </div>
                                     <div class="form-group mt-3">
-                                        <label for="field1">Linkedin</label>
-                                        <input type="file" class="form-control" id="icon" name="hlogo">
+                                        <label for="field1">Linkedin icon</label>
+                                        {{-- <img width="150" height="150" src="<?php echo url('/') . config('settings.licon'); ?>" alt="tst"> --}}
+                                        <input type="text" value="<?php echo config('settings.licon'); ?>" class="form-control"
+                                            id="icon" name="licon">
 
                                     </div>
 
                                     <div class="form-group mt-3">
                                         <label for="field1">Linkedin Url</label>
-                                        <input type="text" class="form-control" id="icon" name="hlogo">
+                                        <input type="text" value="<?php echo config('settings.lurl'); ?>" class="form-control"
+                                            id="icon" name="hlogo">
 
                                     </div>
                                     <div class="form-group mt-3">
-                                        <label for="field1">Youtube</label>
-                                        <input type="file" class="form-control" id="icon" name="hlogo">
+                                        <label for="field1">Youtube icon</label>
+                                        {{-- <img width="150" height="150" src="<?php echo url('/') . config('settings.yicon'); ?>" alt="tst"> --}}
+                                        <input type="text" value="<?php echo config('settings.yicon'); ?>" class="form-control"
+                                            id="icon" name="yicon">
 
                                     </div>
 
                                     <div class="form-group mt-3">
                                         <label for="field1">Youtube Url</label>
-                                        <input type="text" class="form-control" id="icon" name="hlogo">
+                                        <input type="text" value="<?php echo config('settings.yurl'); ?>" class="form-control"
+                                            id="icon" name="yurl">
 
                                     </div>
 
                                     <div class="form-group mt-3">
                                         <label for="field1">Header logo</label>
-                                        <input type="file" class="form-control" id="icon" name="hlogo">
+                                        <img width="150" height="150" src="<?php echo url('/') . config('settings.hlogo'); ?>" alt="tst">
+                                        <input type="file" value="<?php echo config('settings.hlogo'); ?>" class="form-control"
+                                            id="icon" name="hlogo">
 
                                     </div>
 
-                                    <button type="button" class="btn btn-primary mt-3" id="submit">Submit</button>
+                                    <button type="submit" class="btn btn-primary mt-3" id="submit">Submit</button>
 
                                 </form>
 
@@ -84,7 +99,8 @@
                                 <small class="text-muted float-end">Default label</small>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('company.setting.save') }}" method="POST" id="myForm" enctype="multipart/form-data">
+                                <form action="{{ route('company.setting.save') }}" method="POST" id="myForm"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group mt-3">
                                         <label for="field1">Blog title</label>
@@ -256,13 +272,15 @@
                                 <small class="text-muted float-end">Merged input group</small>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('company.setting.footer') }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('company.setting.footer') }}" method="post"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group mt-3">
                                         <label for="field1">Footer logo</label>
 
-                                        <img width="150" height="150" src="<?php echo url('/').config('settings.flogo');?>" alt="tst">
-                                        <input type="file" value="<?php echo config('settings.flogo'); ?>" class="form-control" id="icon" name="flogo">
+                                        <img width="150" height="150" src="<?php echo url('/') . config('settings.flogo'); ?>" alt="tst">
+                                        <input type="file" value="<?php echo config('settings.flogo'); ?>" class="form-control"
+                                            id="icon" name="flogo">
 
                                     </div>
 
@@ -280,104 +298,134 @@
                                     </div>
 
 
-                                
+
                                     <div class="form-group mt-3">
                                         <label for="field1">Footer gmail</label>
-                                        <input type="email" value="<?php echo config('settings.footeremail'); ?>" class="form-control" id="" name="footeremail">
+                                        <input type="email" value="<?php echo config('settings.footeremail'); ?>" class="form-control"
+                                            id="" name="footeremail">
 
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">Footer address</label>
-                                        <input type="text" value="<?php echo config('settings.footeraddress'); ?>" class="form-control" id="" name="footeraddress">
+                                        <input type="text" value="<?php echo config('settings.footeraddress'); ?>" class="form-control"
+                                            id="" name="footeraddress">
 
                                     </div>
 
                                     <div class="form-group mt-3">
                                         <label for="field1">Home Url</label>
-                                        <input type="text" value="<?php echo config('settings.homeurl'); ?>" class="form-control" id="" name="homeurl">
+                                        <input type="text" value="<?php echo config('settings.homeurl'); ?>" class="form-control"
+                                            id="" name="homeurl">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">About Us Url</label>
-                                        <input type="text" value="<?php echo config('settings.abouturl'); ?>" class="form-control" id="" name="abouturl">
+                                        <input type="text" value="<?php echo config('settings.abouturl'); ?>" class="form-control"
+                                            id="" name="abouturl">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">Services Url</label>
-                                        <input type="text" value="<?php echo config('settings.servicesurl'); ?>" class="form-control" id="" name="servicesurl ">
+                                        <input type="text" value="<?php echo config('settings.serviceurl'); ?>" class="form-control"
+                                            id="" name="serviceurl">he
                                     </div>
+                                   
                                     <div class="form-group mt-3">
                                         <label for="field1">Contact us Url</label>
-                                        <input type="text" value="<?php echo config('settings.contacturl'); ?>" class="form-control" id="" name="contacturl">
+                                        <input type="text" value="<?php echo config('settings.contacturl'); ?>" class="form-control"
+                                            id="" name="contacturl">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">Help center Url</label>
-                                        <input type="text" value="<?php echo config('settings.helpcenterurl'); ?>" class="form-control" id="" name="helpcenterurl">
+                                        <input type="text" value="<?php echo config('settings.helpcenterurl'); ?>" class="form-control"
+                                            id="" name="helpcenterurl">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">How it works Url</label>
-                                        <input type="text" value="<?php echo config('settings.howitworksurl'); ?>" class="form-control" id="" name="howitworksurl">
+                                        <input type="text" value="<?php echo config('settings.howitworksurl'); ?>" class="form-control"
+                                            id="" name="howitworksurl">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">registration url</label>
-                                        <input type="text" value="<?php echo config('settings.registrationurl'); ?>" class="form-control" id="" name="registrationurl">
+                                        <input type="text" value="<?php echo config('settings.registrationurl'); ?>" class="form-control"
+                                            id="" name="registrationurl">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">Login url</label>
-                                        <input type="text" value="<?php echo config('settings.loginurl'); ?>" class="form-control" id="" name="loginurl">
+                                        <input type="text" value="<?php echo config('settings.loginurl'); ?>" class="form-control"
+                                            id="" name="loginurl">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">privacy policy url</label>
-                                        <input type="text" value="<?php echo config('settings.privacyurl'); ?>" class="form-control" id="" name="privacyurl">
+                                        <input type="text" value="<?php echo config('settings.privacyurl'); ?>" class="form-control"
+                                            id="" name="privacyurl">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">Terms and conditions url</label>
-                                        <input type="text" value="<?php echo config('settings.termsconditionurl'); ?>" class="form-control" id="" name="termsconditionurl">
+                                        <input type="text" value="<?php echo config('settings.termsconditionurl'); ?>" class="form-control"
+                                            id="" name="termsconditionurl">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">profession url</label>
-                                        <input type="text" value="<?php echo config('settings.professionurl'); ?>" class="form-control" id="" name="professionurl">
+                                        <input type="text" value="<?php echo config('settings.professionurl'); ?>" class="form-control"
+                                            id="" name="professionurl">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">Country page url</label>
-                                        <input type="text" value="<?php echo config('settings.countrypageurl'); ?>" class="form-control" id="" name="countrypageurl">
+                                        <input type="text" value="<?php echo config('settings.countrypageurl'); ?>" class="form-control"
+                                            id="" name="countrypageurl">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">All tehsil url</label>
-                                        <input type="text" value="<?php echo config('settings.tehsilurl'); ?>" class="form-control" id="" name="tehsilurl">
+                                        <input type="text" value="<?php echo config('settings.tehsilurl'); ?>" class="form-control"
+                                            id="" name="tehsilurl">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">footer last section text</label>
-                                        <input type="text" value="<?php echo config('settings.footerlastsectiontext'); ?>" class="form-control" id="" name="footerlastsectiontext">
+                                        <input type="text" value="<?php echo config('settings.footerlastsectiontext'); ?>" class="form-control"
+                                            id="" name="footerlastsectiontext">
                                     </div>
                                     <div class="form-group mt-3">
-                                        <label for="field1">Paypal</label>
+                                        <label for="field1">Payment method logo</label>
 
-                                        <img width="150" height="150" src="<?php echo url('/').config('settings.paypal');?>" alt="tst">
-                                        <input type="file" value="<?php echo config('settings.paypal'); ?>" class="form-control" id="icon" name="paypal">
+                                        <img width="150" height="150" src="<?php echo url('/') . config('settings.paymentmethod'); ?>" alt="tst">
+                                        <input type="file" value="<?php echo config('settings.paymentmethod'); ?>" class="form-control"
+                                            id="icon" name="paymentmethod">
 
                                     </div>
-                                    <div class="form-group mt-3">
+                                    {{-- <div class="form-group mt-3">
                                         <label for="field1">visa</label>
 
-                                        <img width="150" height="150" src="<?php echo url('/').config('settings.visa');?>" alt="tst">
-                                        <input type="file" value="<?php echo config('settings.visa'); ?>" class="form-control" id="icon" name="visa">
+                                        <img width="150" height="150" src="<?php echo url('/') . config('settings.visa'); ?>" alt="tst">
+                                        <input type="file" value="<?php echo config('settings.visa'); ?>" class="form-control"
+                                            id="icon" name="visa">
 
                                     </div>
 
                                     <div class="form-group mt-3">
                                         <label for="field1">mastercard</label>
 
-                                        <img width="150" height="150" src="<?php echo url('/').config('settings.mastercard');?>" alt="tst">
-                                        <input type="file" value="<?php echo config('settings.mastercard'); ?>" class="form-control" id="icon" name="mastercard">
+                                        <img width="150" height="150" src="<?php echo url('/') . config('settings.mastercard'); ?>" alt="tst">
+                                        <input type="file" value="<?php echo config('settings.mastercard'); ?>" class="form-control"
+                                            id="icon" name="mastercard">
 
                                     </div>
+
                                     <div class="form-group mt-3">
-                                        <label for="field1">Discover</label>
-                                        <input type="file" value="<?php echo config('settings.discover'); ?>" class="form-control" id="" name="discover">
+                                        <label for="field1">discover</label>
+
+                                        <img width="150" height="150" src="<?php echo url('/') . config('settings.discover'); ?>" alt="tst">
+                                        <input type="file" value="<?php echo config('settings.discover'); ?>" class="form-control"
+                                            id="icon" name="discover">
+
                                     </div>
+
                                     <div class="form-group mt-3">
-                                        <label for="field1">American express</label>
-                                        <input type="file" value="<?php echo config('settings.americanexpress'); ?>" class="form-control" id="" name="americanexpress">
-                                    </div>
+                                        <label for="field1">american</label>
+
+                                        <img width="150" height="150" src="<?php echo url('/') . config('settings.american'); ?>" alt="tst">
+                                        <input type="file" value="<?php echo config('settings.american'); ?>" class="form-control"
+                                            id="icon" name="american">
+
+                                    </div> --}}
 
                                     <div class="form-group mt-3">
                                         <label for="field1">copyright</label>

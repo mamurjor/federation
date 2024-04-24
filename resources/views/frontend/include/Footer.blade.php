@@ -8,50 +8,57 @@
                             alt="logo" style="width: 35%;">
                     </div>
                     <p class="footer_p mb-4">
+
+                        <?php
                         
-                        <?php 
-                            
-                            if(config('settings.footertext')!=null){
-                            echo  config('settings.footertext');
-                        }
-                        else{
+                        if (config('settings.footertext') != null) {
+                            echo config('settings.footertext');
+                        } else {
                             echo "We are many variations passages available have suffered alteration in some
-                        form by injected humour.";
-                        }
-                            ?>
-                        </p>
-                    <a href="tel:+966509231894" class="mb-4 text-decoration-none d-block footer_contacts"><i
-                            class="fa-solid fa-phone me-2"></i> 
-                        
-                            <?php 
-                            
-                            if(config('settings.number')!=null){
-                            echo  config('settings.number');
-                        }
-                        else{
-                            echo "966509231894";
+                                                form by injected humour.";
                         }
                         ?>
-                        </a>
+                    </p>
+                    <a href="tel:+966509231894" class="mb-4 text-decoration-none d-block footer_contacts"><i
+                            class="fa-solid fa-phone me-2"></i>
+
+                        <?php
+                        
+                        if (config('settings.number') != null) {
+                            echo config('settings.number');
+                        } else {
+                            echo '966509231894';
+                        }
+                        ?>
+                    </a>
                     <a href="mailto:juttfederationksa@gmail.com"
                         class="mb-4 text-decoration-none d-block footer_contacts"><i
                             class="fa-solid fa-envelope me-2"></i>
 
-                            
 
-                            <?php 
-                            
-                            if(config('settings.footeremail')!=null){
-                            echo  config('settings.footeremail');
-                        }
-                        else{
-                            echo " juttfederationksa@gmail.com";
+
+                        <?php
+                        
+                        if (config('settings.footeremail') != null) {
+                            echo config('settings.footeremail');
+                        } else {
+                            echo ' juttfederationksa@gmail.com';
                         }
                         ?>
 
-                        </a>
-                    <address class="footer_contacts"><i class="fa-solid fa-location-dot me-2"></i> 25/B Milford Road,
-                        New York</address>
+                    </a>
+                    <address class="footer_contacts"><i class="fa-solid fa-location-dot me-2"></i>
+                        <?php
+                        
+                        if (config('settings.footeraddress') != null) {
+                            echo config('settings.footeraddress');
+                        } else {
+                            echo ' 25/B Milford Road,
+                        New York';
+                        }
+                        ?>
+
+                       </address>
 
                 </div>
             </div>
@@ -63,11 +70,16 @@
                     <ul>
                         <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Home</a></li>
                         <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>About Us</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Services </a></li>
-                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Contact Us</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Help Center</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>How it Works</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Registration</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Services </a>
+                        </li>
+                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Contact Us</a>
+                        </li>
+                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Help Center</a>
+                        </li>
+                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>How it Works</a>
+                        </li>
+                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Registration</a>
+                        </li>
                         <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Login</a></li>
                     </ul>
                 </div>
@@ -79,14 +91,21 @@
                         src="{{ asset('frontend/assets/img/home_page/footer/footer_menu_border.png') }}" alt="">
                     <ul>
                         <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Login</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Registration</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Privacy Policy</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Terms and Condition</a>
+                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Registration</a>
                         </li>
-                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Profession</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Country Page</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Wings Page</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>All Tehsi</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Privacy
+                                Policy</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Terms and
+                                Condition</a>
+                        </li>
+                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Profession</a>
+                        </li>
+                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Country Page</a>
+                        </li>
+                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Wings Page</a>
+                        </li>
+                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>All Tehsi</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -105,25 +124,26 @@
                                 <input type="search" placeholder="Write email....." aria-describedby="button-addon1"
                                     class="form-control border-0 bg-light placeholder_search py-3 px-2">
                                 <div class="input-group-append align-self-center">
-                                    <button id="button-plane" type="submit" class="btn btn-link text-white bg-danger"><i
+                                    <button id="button-plane" type="submit"
+                                        class="btn btn-link text-white bg-danger"><i
                                             class="fa-solid fa-paper-plane"></i></button>
                                 </div>
                             </div>
                         </div>
                     </form>
-                    <h3 class="mb-4">                       
+                    <h3 class="mb-4">
                         We Accept</h3>
                     <div class="footer_card_account_image">
-                        <img src="{{ asset('frontend/assets/img/footer_page/paypal.png') }}" alt="paypal">
+                        <img src="{{ config('settings.paymentmethod') }}" alt="paypal">
 
-                        <img src="{{ asset('frontend/assets/img/footer_page/visa.png') }}" alt="visa">
+                        {{-- <img src="{{ asset('frontend/assets/img/footer_page/visa.png') }}" alt="visa">
 
                         <img src="{{ asset('frontend/assets/img/footer_page/mastercard 1.png') }}" alt="mastercard">
 
                         <img src="{{ asset('frontend/assets/img/footer_page/discover.png') }}" alt="discover">
 
                         <img src="{{ asset('frontend/assets/img/footer_page/american-express.png') }}"
-                            alt="american-express">
+                            alt="american-express"> --}}
                     </div>
                 </div>
             </div>
@@ -132,15 +152,47 @@
     <div class="footer_bottom_main">
         <div class="container py-5">
             <div class="footer_bottom_main_heading text-white d-flex justify-content-between">
-                <p class="mb-0 fw-bold footer_p"><?php echo config('settings.copyright')?></p>
+                <p class="mb-0 fw-bold footer_p"><?php echo config('settings.copyright'); ?></p>
                 <div class="social_icon footer_social">
                     <a href="#" class="bg-dark p-3 rounded-circle fw-normal me-2"><i
-                            class="fa-brands fa-facebook"></i></a>
+                            class="
+                            <?php
+                        
+                            if (config('settings.ficon') != null) {
+                                echo config('settings.ficon');
+                            } else {
+                                echo 'fa-brands fa-facebook';
+                            }
+                            ?>
+                            "></i></a>
                     <a href="#" class="bg-dark p-3 rounded-circle fw-normal me-2"><i
-                            class="fa-brands fa-twitter"></i></a>
+                            class="<?php
+                        
+                            if (config('settings.ticon') != null) {
+                                echo config('settings.ticon');
+                            } else {
+                                echo 'fa-brands fa-twitter';
+                            }
+                            ?>"></i></a>
+
                     <a href="#" class="bg-dark p-3 rounded-circle fw-normal me-2"><i
-                            class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#" class="bg-dark p-3 rounded-circle fw-normal"><i class="fa-brands fa-youtube"></i></a>
+                            class="<?php
+                        
+                            if (config('settings.licon') != null) {
+                                echo config('settings.licon');
+                            } else {
+                                echo 'fa-brands fa-linkedin-in';
+                            }
+                            ?>"></i></a>
+                    <a href="#" class="bg-dark p-3 rounded-circle fw-normal"><i
+                            class="<?php
+                        
+                            if (config('settings.yicon') != null) {
+                                echo config('settings.yicon');
+                            } else {
+                                echo 'fa-brands fa-youtube';
+                            }
+                            ?>"></i></a>
                 </div>
             </div>
         </div>

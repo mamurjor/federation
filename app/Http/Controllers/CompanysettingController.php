@@ -46,49 +46,28 @@ class CompanysettingController extends Controller
     }
     public function companysettingfooter(Request $request){
 
-        // $image = $request->file('flogo');
-        // $flogopath = null;
-        // if($image){
-
-        //     $imageName = time() . '.' . $image->getClientOriginalExtension();
-        //     $flogopath = '/admin/setting/'.$imageName;
-        //     $image->move(public_path('admin/setting'), $imageName);
-        // }
-       
-
-        // $imagepaypal = $request->file('paypal');
-        // $paypalpath = null;
-        // if($imagepaypal){
-
-        //     $imageNamepaypal = time() . '.' . $imagepaypal->getClientOriginalExtension();
-        //     $paypalpath = '/admin/setting/'.$imageNamepaypal;
-        //     $imagepaypal->move(public_path('admin/setting'), $imageNamepaypal);
-        // }
-
-
+     
    
         Setting::updateOrCreate(['key' => 'copyright'], ['value' => $request->copyright]);
         Setting::updateOrCreate(['key' => 'footerdescription'], ['value' => $request->footerdescription]);
         Setting::updateOrCreate(['key' => 'footertelnumber'], ['value' => $request->footertelnumber]);
         Setting::updateOrCreate(['key' => 'footeremail'], ['value' => $request->footeremail]);
+        Setting::updateOrCreate(['key' => 'footeraddress'], ['value' => $request->footeraddress]);
         Setting::updateOrCreate(['key' => 'homeurl'], ['value' => $request->homeurl]);
         Setting::updateOrCreate(['key' => 'abouturl'], ['value' => $request->abouturl]);
-        Setting::updateOrCreate(['key' => 'servicesurl'], ['value' => $request->servicesurl]);
+        Setting::updateOrCreate(['key' => 'serviceurl'], ['value' => $request->serviceurl]);
         Setting::updateOrCreate(['key' => 'contacturl'], ['value' => $request->contacturl]);
         Setting::updateOrCreate(['key' => 'helpcenterurl'], ['value' => $request->helpcenterurl]);
         Setting::updateOrCreate(['key' => 'howitworksurl'], ['value' => $request->howitworksurl]);
         Setting::updateOrCreate(['key' => 'registrationurl'], ['value' => $request->registrationurl]);
         Setting::updateOrCreate(['key' => 'loginurl'], ['value' => $request->loginurl]);
         Setting::updateOrCreate(['key' => 'privacyurl'], ['value' => $request->privacyurl]);
+        Setting::updateOrCreate(['key' => 'termsconditionurl'], ['value' => $request->termsconditionurl]);
         Setting::updateOrCreate(['key' => 'professionurl'], ['value' => $request->professionurl]);
         Setting::updateOrCreate(['key' => 'countrypageurl'], ['value' => $request->countrypageurl]);
         Setting::updateOrCreate(['key' => 'tehsilurl'], ['value' => $request->tehsilurl]);
         Setting::updateOrCreate(['key' => 'footerlastsectiontext'], ['value' => $request->footerlastsectiontext]);
-        Setting::updateOrCreate(['key' => 'paypal'], ['value' => $request->paypal]);
-        Setting::updateOrCreate(['key' => 'visa'], ['value' => $request->visa]);
-        Setting::updateOrCreate(['key' => 'mastercard'], ['value' => $request->mastercard]);
-        Setting::updateOrCreate(['key' => 'discover'], ['value' => $request->discover]);
-        Setting::updateOrCreate(['key' => 'americanexpress'], ['value' => $request->americanexpress]);
+      
 
 
         if ($request->hasFile('flogo')) {
@@ -99,31 +78,77 @@ class CompanysettingController extends Controller
         }
 
 
-        if ($request->hasFile('paypal')) {
-            $imagepaypal = $request->file('paypal');
-            $paypalpath = '/admin/setting/' . time() . '.' . $imagepaypal->getClientOriginalExtension();
-            $imagepaypal->move(public_path('admin/setting'), $paypalpath);
-            Setting::updateOrCreate(['key' => 'paypal'], ['value' => $paypalpath]);
+        if ($request->hasFile('paymentmethod')) {
+            $imagepaymentmethod = $request->file('paymentmethod');
+            $paymentmethodpath = '/admin/setting/' . time() . '.' . $imagepaymentmethod->getClientOriginalExtension();
+            $imagepaymentmethod->move(public_path('admin/setting'), $paymentmethodpath);
+            Setting::updateOrCreate(['key' => 'paymentmethod'], ['value' => $paymentmethodpath]);
         }
 
-        if ($request->hasFile('visa')) {
-            $imagevisa = $request->file('visa');
-            $visapath = '/admin/setting/' . time() . '.' . $imagevisa->getClientOriginalExtension();
-            $imagevisa->move(public_path('admin/setting'), $visapath);
-            Setting::updateOrCreate(['key' => 'visa'], ['value' => $visapath]);
-        }
+        // if ($request->hasFile('visa')) {
+        //     $imagevisa = $request->file('visa');
+        //     $visapath = '/admin/setting/' . time() . '.' . $imagevisa->getClientOriginalExtension();
+        //     $imagevisa->move(public_path('admin/setting'), $visapath);
+        //     Setting::updateOrCreate(['key' => 'visa'], ['value' => $visapath]);
+        // }
         
-        if ($request->hasFile('mastercard')) {
-            $imagemastercard = $request->file('mastercard');
-            $mastercardpath = '/admin/setting/' . time() . '.' . $imagemastercard->getClientOriginalExtension();
-            $imagemastercard->move(public_path('admin/setting'), $mastercardpath);
-            Setting::updateOrCreate(['key' => 'mastercard'], ['value' => $mastercardpath]);
-        }
+        // if ($request->hasFile('mastercard')) {
+        //     $imagemastercard = $request->file('mastercard');
+        //     $mastercardpath = '/admin/setting/' . time() . '.' . $imagemastercard->getClientOriginalExtension();
+        //     $imagemastercard->move(public_path('admin/setting'), $mastercardpath);
+        //     Setting::updateOrCreate(['key' => 'mastercard'], ['value' => $mastercardpath]);
+        // }
+        // if ($request->hasFile('discover')) {
+        //     $imagediscover = $request->file('discover');
+        //     $discoverpath = '/admin/setting/' . time() . '.' . $imagediscover->getClientOriginalExtension();
+        //     $imagediscover->move(public_path('admin/setting'), $discoverpath);
+        //     Setting::updateOrCreate(['key' => 'discover'], ['value' => $discoverpath]);
+        // }
+        // if ($request->hasFile('american')) {
+        //     $imageamerican = $request->file('american');
+        //     $americanpath = '/admin/setting/' . time() . '.' . $imageamerican->getClientOriginalExtension();
+        //     $imageamerican->move(public_path('admin/setting'), $americanpath);
+        //     Setting::updateOrCreate(['key' => 'american'], ['value' => $americanpath]);
+        // }
      
         
        
 
         return redirect()->route('company.setting')->with('success','Created successfully.');
+    }
+
+
+    public function companysettingheader(Request $request){
+
+      
+        Setting::updateOrCreate(['key' => 'ficon'], ['value' => $request->ficon]);
+        Setting::updateOrCreate(['key' => 'furl'], ['value' => $request->furl]);
+        
+       
+
+        Setting::updateOrCreate(['key' => 'ticon'], ['value' => $request->ticon]);
+        Setting::updateOrCreate(['key' => 'turl'], ['value' => $request->turl]);
+
+     
+
+        Setting::updateOrCreate(['key' => 'licon'], ['value' => $request->licon]);
+        Setting::updateOrCreate(['key' => 'lurl'], ['value' => $request->lurl]);
+
+    
+
+        Setting::updateOrCreate(['key' => 'yicon'], ['value' => $request->yicon]);
+        Setting::updateOrCreate(['key' => 'yurl'], ['value' => $request->yurl]);
+
+
+        if ($request->hasFile('hlogo')) {
+            $imagehlogo = $request->file('hlogo');
+            $hlogopath = '/admin/setting/' . time() . '.' . $imagehlogo->getClientOriginalExtension();
+            $imagehlogo->move(public_path('admin/setting'), $hlogopath);
+            Setting::updateOrCreate(['key' => 'hlogo'], ['value' => $hlogopath]);
+        }
+
+        return redirect()->route('company.setting')->with('success','Created successfully.');
+
     }
     
 }

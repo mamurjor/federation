@@ -88,7 +88,7 @@
 
                 <li class="menu-item">
                     <a href="{{ route('sliersection.index') }}" class="menu-link">
-                        <div data-i18n="CRM">Slier Section  </div>
+                        <div data-i18n="CRM">Slider Section  </div>
                     </a>
                 </li>
 

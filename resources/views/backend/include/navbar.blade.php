@@ -388,7 +388,7 @@
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      
+
                         <img src="assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
                     </div>
                 </a>
@@ -398,7 +398,7 @@
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
-                                     
+
                                         <img src="assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
                                     </div>
                                 </div>
@@ -455,18 +455,22 @@
                     </li>
                     <li>
                         <button class="dropdown-item">
-                            <form action=" {{ route('logout') }}" method="POST">
-                            <button type="submit">
-                                <i class="ti ti-logout me-2 ti-sm"></i>
-                                <span class="align-middle">Log Out</span>
-                            </button>
-                            </form>
-                            
-                        </button>
+
+
+                    <li>
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
-                </ul>
+
+
+                    </button>
             </li>
-            <!--/ User -->
+        </ul>
+        </li>
+        <!--/ User -->
         </ul>
     </div>
 

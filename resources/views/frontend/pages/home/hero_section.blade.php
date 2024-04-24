@@ -11,16 +11,19 @@
                 <div id="carouselExampleCaptions" class="carousel slide p-0">
                     <div class="carousel-inner">
 
-                                            
-                           
-                        @foreach ($data as  $index=>$singlevalue)
-                       
-                            <div class="carousel-item image_overly_color <?php if($index=="0"){
-                                echo "active";
-                            }?>">
-                                <img src=" <?php echo url('/').$singlevalue['imageurl'];?>" alt="tst">
+
+
+                        @foreach ($data as $index => $singlevalue)
+                            <div
+                                class="carousel-item image_overly_color 
+                            <?php
+                            if ($index == '0') {
+                                echo 'active';
+                            }
+                            ?>">
+                                <img src=" <?php echo url('/') . $singlevalue['imageurl']; ?>" alt="tst">
                                 {{-- <img src="{{ asset('frontend/assets/img/home_page/hero_section/image2.png') }}" --}}
-                                    class="d-block w-100" alt="...">
+                                class="d-block w-100" alt="...">
                                 <div class="carousel-caption  d-md-block">
                                     <h1 class="fw-bold mb-2">{{ $singlevalue['title'] }}</h1>
                                     <p class="fw-normal">{{ $singlevalue['slogan'] }}</p>

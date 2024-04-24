@@ -51,6 +51,7 @@ Route::get('get/cancel/{userid}', [UserOperationController::class, 'cancel'])->n
 // Company Setting 
 Route::get('company/setting',[CompanysettingController::class,'companysettingform'])->name('company.setting');
 Route::post('company/setting/save',[CompanysettingController::class,'companysetting'])->name('company.setting.save');
+Route::post('company/setting/header',[CompanysettingController::class,'companysettingheader'])->name('company.setting.header');
 Route::post('company/setting/footer',[CompanysettingController::class,'companysettingfooter'])->name('company.setting.footer');
 
 

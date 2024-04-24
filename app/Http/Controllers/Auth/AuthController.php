@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Carbon\Carbon;
 use App\Models\Cast;
 use App\Models\Role;
 use App\Models\User;
@@ -80,13 +81,14 @@ class AuthController extends Controller
             'phone'              => $request->phone,
             'email'              => $request->email,
             'password'           => Hash::make($request->password),
-            'phone'              => $request->phone,         
-            'status'              => 2,         
+            'phone'              => $request->phone,
+            'verify_code'       => $verify_code,         
+            'status'              => 2,      
         ]);
         $request['roleName'] = $role->name;
-        $request['full_name'] = $request->fname . ' ' . $request->lname;
-        $request['button_url'] = URL::temporarySignedRoute('verify.code', now()->addHours(1), ['token' => $verify_code]);
-        $request['button_title'] = 'Click Here To Verify Email';
+        $request['full_name'] = $request->fname . ' ' . $request->lname;      
+        $request['button_url'] = URL::temporarySignedRoute('verify.code',  Carbon::now()->addMinutes(60), ['token' =>$verify_code]);
+         $request['button_title'] = 'Click Here To Verify Email';
 
         // User mail
         $subject = emailSubjectTemplate('NEW_USER_MAIL', $request);
@@ -282,10 +284,12 @@ class AuthController extends Controller
 
     
 
-    public function logout(){
-        //  session_destroy();
-        Auth::logout();
-        return redirect()->route('index')->with('success', 'Logout Successfully Done.');
+    // public function logout(){
+    //     //  session_destroy();
+    //     Auth::logout();
+    //     return redirect()->route('index')->with('success', 'Logout Successfully Done.');
 
-    }
+    // }
+
+    
 }
