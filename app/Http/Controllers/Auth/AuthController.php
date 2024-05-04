@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 use App\Mail\VerifyUserMail;
 use Illuminate\Http\Request;
 use App\Mail\PasswordResetMail;
+use App\Events\NewUserRegistered;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
@@ -85,11 +86,14 @@ class AuthController extends Controller
             'verify_code'       => $verify_code,         
             'status'              => 2,      
         ]);
+
+        // dd($save);
+        
         $request['roleName'] = $role->name;
         $request['full_name'] = $request->fname . ' ' . $request->lname;      
         $request['button_url'] = URL::temporarySignedRoute('verify.code',  Carbon::now()->addMinutes(60), ['token' =>$verify_code]);
-         $request['button_title'] = 'Click Here To Verify Email';
-
+        $request['button_title'] = 'Click Here To Verify Email';
+        
         // User mail
         $subject = emailSubjectTemplate('NEW_USER_MAIL', $request);
         $body    = emailBodyTemplate('NEW_USER_MAIL', $request);
@@ -97,6 +101,9 @@ class AuthController extends Controller
         $userMail = ['subject' => $subject, 'body' => $body, 'heading' => $heading];
         Mail::to($request->email)->send(new VerifyUserMail($userMail));
         Auth::login($user, true);
+        
+        event(new NewUserRegistered($user));
+
         return redirect()->route('login')->with('success', 'Registration Successfull!');
     }
 
@@ -290,6 +297,10 @@ class AuthController extends Controller
     //     return redirect()->route('index')->with('success', 'Logout Successfully Done.');
 
     // }
+
+
+
+
 
     
 }

@@ -40,6 +40,7 @@ class HeroSectionController extends Controller
          'title' => 'required',
          'slogan' => 'required',       
          'button_one_text' => 'required',       
+         'button_two_text' => 'required',       
          'button_one_url' => 'required',       
          'button_two_url' => 'required',              
      ]);     
@@ -85,6 +86,7 @@ class HeroSectionController extends Controller
            'title' => 'required',
            'slogan' => 'required',       
            'button_one_text' => 'required',       
+           'button_two_text' => 'required',       
            'button_one_url' => 'required',       
            'button_two_url' => 'required',              
        ]);     

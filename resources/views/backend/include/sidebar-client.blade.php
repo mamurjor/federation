@@ -37,27 +37,65 @@
             <ul class="menu-sub">
                 <li class="menu-item active">
                     <a href="index.html" class="menu-link">
-                        <div data-i18n="Analytics">Analytics</div>
+                        <div data-i18n="Analytics">Classified ads</div>
                     </a>
                 </li>
                 <li class="menu-item">
                     <a href="dashboards-crm.html" class="menu-link">
-                        <div data-i18n="CRM">CRM</div>
+                        <div data-i18n="CRM">My Ads </div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="app-ecommerce-dashboard.html" class="menu-link">
-                        <div data-i18n="eCommerce">eCommerce</div>
+                    <a href="{{ route('classified.create') }}" class="menu-link">
+                        <div data-i18n="eCommerce"> Add New </div>
                     </a>
                 </li>
                 <li class="menu-item">
                     <a href="app-logistics-dashboard.html" class="menu-link">
-                        <div data-i18n="Logistics">Logistics</div>
+                        <div data-i18n="Logistics">Approved</div>
                     </a>
                 </li>
                 <li class="menu-item">
                     <a href="app-academy-dashboard.html" class="menu-link">
-                        <div data-i18n="Academy">Academy</div>
+                        <div data-i18n="Academy">Pending</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="app-academy-dashboard.html" class="menu-link">
+                        <div data-i18n="Academy">Reject</div>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="menu-sub">
+                <li class="menu-item active">
+                    <a href="index.html" class="menu-link">
+                        <div data-i18n="Analytics">Matromonial</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="dashboards-crm.html" class="menu-link">
+                        <div data-i18n="CRM">My matromonial </div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('matromonial.create') }}" class="menu-link">
+                        <div data-i18n="eCommerce"> Add New </div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="app-logistics-dashboard.html" class="menu-link">
+                        <div data-i18n="Logistics">Approved</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="app-academy-dashboard.html" class="menu-link">
+                        <div data-i18n="Academy">Pending</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="app-academy-dashboard.html" class="menu-link">
+                        <div data-i18n="Academy">Reject</div>
                     </a>
                 </li>
             </ul>

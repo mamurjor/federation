@@ -14,7 +14,7 @@ class ProfessionController extends Controller
  public function index()
  {
      $professions = Profession::all();
-     return view('backend.page.cast.index', compact('professions'));
+     return view('backend.page.profession.index', compact('professions'));
  }
 
 

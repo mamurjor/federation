@@ -5,11 +5,8 @@
         <div class="col-xl">
             <div class="card mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">Basic Layout</h5>
-                    <small class="text-muted float-end">Default label
-                        {{-- {{ 
-                var_dump($user) }} --}}
-                    </small>
+                    <h5 class="mb-0">Update user information</h5>
+                    
                 </div>
                 <div class="card-body">
                     <form action="{{ route('user.register.update') }}" method="POST" enctype="multipart/form-data">

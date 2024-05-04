@@ -31,6 +31,21 @@ class TehsilController extends Controller
 
  }
 
+
+    public function getdistrict($country){
+      
+        $getdistrict = District::where('country', $country)->get();
+        return response()->json($getdistrict);
+
+    }
+    public function gettehsil($district){
+      
+        $gettehsil = Tehsil::where('district', $district)->get();
+        return response()->json($gettehsil);
+
+    }
+
+    
  public function create()
  {
     $countries = Country::all();

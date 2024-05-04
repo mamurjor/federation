@@ -179,15 +179,11 @@
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="Matrimonial" id="navbarDropdown"
-                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link" href="{{ route('matromonial') }}" id=""
+                                    role="button">
                                     Matrimonial
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item"
-                                            href="file:///D:/mamurjor%20project%20live/Jutt_Federation/single_matrimonial.html">Single
-                                            Matrimonial</a></li>
-                                </ul>
+                            
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle"
@@ -207,7 +203,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link"
-                                    href="file:///D:/mamurjor%20project%20live/Jutt_Federation/classified_ads.html">Classified
+                                    href="{{ route('classified') }}">Classified
                                     Ads</a>
                             </li>
                             <li class="nav-item">

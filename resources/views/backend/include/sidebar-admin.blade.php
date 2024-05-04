@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="index.html" class="app-brand-link">
+        <a href="{{ route('index') }}" class="app-brand-link">
             <span class="app-brand-logo demo">
                 <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -14,6 +14,7 @@
                         d="M7.77295 16.3566L23.6563 0H32V6.88383C32 6.88383 31.8262 9.17836 30.6591 10.4057L19.7824 22H13.6938L7.77295 16.3566Z"
                         fill="#7367F0" />
                 </svg>
+                {{-- <img  width="32" height="22" src="C:\Users\Developer Tarek\Desktop\Screenshot_4.png" alt=""> --}}
             </span>
             <span class="app-brand-text demo menu-text fw-bold">Federation</span>
         </a>
@@ -26,6 +27,8 @@
 
     <div class="menu-inner-shadow"></div>
 
+
+
     <ul class="menu-inner py-1">
         <!-- Dashboards -->
         <li class="menu-item active open">
@@ -34,8 +37,8 @@
                 <div data-i18n="Dashboards">Dashboards</div>
                 <div class="badge bg-primary rounded-pill ms-auto">5</div>
             </a>
-            <ul class="menu-sub">
-                <li class="menu-item active">
+            <ul class="menu-sub mb-3">
+                <li class="menu-item">
                     <a href="index.html" class="menu-link">
                         <div data-i18n="Analytics">User manage</div>
                     </a>
@@ -51,29 +54,33 @@
                     </a>
                 </li>
                 <li class="menu-item">
+                    <a href="{{ route('tehsil.index') }}" class="menu-link">
+                        <div data-i18n="CRM">Tehsil  </div>
+                    </a>
+                </li>
+                <li class="menu-item">
                     <a href="{{ route('cast.index') }}" class="menu-link">
                         <div data-i18n="CRM">CAST  </div>
                     </a>
                 </li>
-
-                <li class="menu-item">
-                    <a href="dashboards-crm.html" class="menu-link">
-                        <div data-i18n="CRM">Gender  </div>
-                    </a>
-                </li>
-
                 <li class="menu-item">
                     <a href="{{ route('profession.index') }}" class="menu-link">
                         <div data-i18n="CRM">Profession   </div>
                     </a>
                 </li>
-
-
-                <li class="menu-item">
-                    <a href="{{ route('tehsil.index') }}" class="menu-link">
-                        <div data-i18n="CRM">Tehsil  </div>
-                    </a>
-                </li>
+                <!-- Other submenu items -->
+            </ul>
+        </li>
+        <!-- Other top-level menu items -->
+    
+        <!-- WEb Site Setting -->
+        <li class="menu-item active ">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Dashboards">WEb Site Setting</div>
+                <div class="badge bg-primary rounded-pill ms-auto">5</div>
+            </a>
+            <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="{{ route('herosection.index') }}" class="menu-link">
                         <div data-i18n="CRM"> Hero section  </div>
@@ -91,83 +98,96 @@
                         <div data-i18n="CRM">Slider Section  </div>
                     </a>
                 </li>
-
-
+                <!-- Other submenu items -->
+            </ul>
+        </li>
+        <!-- Other top-level menu items -->
+    
+        <!-- Blog -->
+        <li class="menu-item active ">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Dashboards">Classified Ads</div>
+                <div class="badge bg-primary rounded-pill ms-auto">5</div>
+            </a>
+            <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="app-ecommerce-dashboard.html" class="menu-link">
+                    <a href="{{ route('classified.indexforadmin') }}" class="menu-link">
                         <div data-i18n="eCommerce">Classified ads</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="app-logistics-dashboard.html" class="menu-link">
+                    <a href="{{ route('classifiedcategory.index') }}" class="menu-link">
+                        <div data-i18n="eCommerce">Classified category</div>
+                    </a>
+                </li>
+                <!-- Other submenu items -->
+            </ul>
+        </li>
+        <!-- Other top-level menu items -->
+    
+        <!-- Cast -->
+        <li class="menu-item active ">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Dashboards">Matromonial</div>
+                <div class="badge bg-primary rounded-pill ms-auto">5</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('matromonialreligion.index') }}" class="menu-link">
+                        <div data-i18n="eCommerce">Matromonial religion</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('matromonialmarital.index') }}" class="menu-link">
+                        <div data-i18n="eCommerce">Matromonial marital</div>
+                    </a>
+                </li>
+                <li class="menu-item" style="">
+                    <a href="{{ route('matromonial.indexforadmin') }}" class="menu-link">
                         <div data-i18n="Logistics">Matromonial</div>
                     </a>
                 </li>
-               
+                <!-- Other submenu items -->
             </ul>
         </li>
-        <li class="menu-item active open">
+        <li class="menu-item active ">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                <div data-i18n="Dashboards">WEb Site Setting</div>
+                <div data-i18n="Dashboards">Vote</div>
                 <div class="badge bg-primary rounded-pill ms-auto">5</div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item active">
-                    <a href="index.html" class="menu-link">
-                        <div data-i18n="Analytics">Hero section</div>
+                <li class="menu-item" style="">
+                    <a href="{{ route('votetype.index') }}" class="menu-link">
+                        <div data-i18n="Logistics">Vote type</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="dashboards-crm.html" class="menu-link">
-                        <div data-i18n="CRM">Our Mission</div>
+                <li class="menu-item" style="">
+                    <a href="{{ route('votepositiontype.index') }}" class="menu-link">
+                        <div data-i18n="Logistics">Vote position type</div>
                     </a>
                 </li>
-               
+                <li class="menu-item" style="">
+                    <a href="{{ route('voteannounce.index') }}" class="menu-link">
+                        <div data-i18n="Logistics">Vote Announcement</div>
+                    </a>
+                </li>
+                <!-- Other submenu items -->
             </ul>
         </li>
-
-        <li class="menu-item active open">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                <div data-i18n="Dashboards">Blog</div>
-                <div class="badge bg-primary rounded-pill ms-auto">5</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item active">
-                    <a href="index.html" class="menu-link">
-                        <div data-i18n="Analytics">Category</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="dashboards-crm.html" class="menu-link">
-                        <div data-i18n="CRM">Blog</div>
-                    </a>
-                </li>
-               
-            </ul>
-        </li>
-
-        <li class="menu-item active open">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                <div data-i18n="Dashboards">Cast</div>
-                <div class="badge bg-primary rounded-pill ms-auto">5</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item active">
-                    <a href="index.html" class="menu-link">
-                        <div data-i18n="Analytics">category</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="dashboards-crm.html" class="menu-link">
-                        <div data-i18n="CRM">cast</div>
-                    </a>
-                </li>
-               
-            </ul>
-        </li>
-
+        <!-- Other top-level menu items -->
     </ul>
+    
+    <script>
+        // Add click event listeners to menu-toggle links
+        document.querySelectorAll('.menu-toggle').forEach(function(item) {
+            item.addEventListener('click', function() {
+                // Toggle the 'open' class on the parent menu item
+                this.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+    
 </aside>

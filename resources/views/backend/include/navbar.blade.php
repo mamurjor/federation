@@ -420,13 +420,13 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="pages-account-settings-account.html">
+                        <a class="dropdown-item" href="{{ route('settings.index') }}">
                             <i class="ti ti-settings me-2 ti-sm"></i>
                             <span class="align-middle">Settings</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="pages-account-settings-billing.html">
+                        <a class="dropdown-item" href="{{ route('billing.index') }}">
                             <span class="d-flex align-items-center align-middle">
                                 <i class="flex-shrink-0 ti ti-credit-card me-2 ti-sm"></i>
                                 <span class="flex-grow-1 align-middle">Billing</span>

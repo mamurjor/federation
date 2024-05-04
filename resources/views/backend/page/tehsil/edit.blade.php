@@ -1,13 +1,9 @@
 @extends('backend.dash')
 
 @section('main-content')
+    @php
 
-@php
-
-
-
-
-@endphp
+    @endphp
 
     <div class="row">
         <div class="col-xl">
@@ -18,14 +14,17 @@
 
                 </div>
                 <div class="card-body">
+
+
+
                     <form action="{{ route('tehsil.update') }}" method="POST">
                         @csrf
-                       
+
                         @php
-                            $data = json_decode($tehsils, true);                           
+                            $data = json_decode($tehsils, true);
 
                         @endphp
-                     
+
 
                         <div class="row">
                             <div class="col-md-12">
@@ -33,18 +32,24 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label">Name. <span
                                                 class="text-danger">*</span></label>
-                                                <input type="hidden" value="{{ $data['id']  }}" name="id"
+                                        <input type="hidden" value="{{ $data['id'] }}" name="id"
                                             class="form-control py-3 input_color" placeholder="35220 - 1506373 -1">
-                                        <input type="text" value="{{ $data['name']  }}" name="name"
+                                        <input type="text" value="{{ $data['name'] }}" name="name"
                                             class="form-control py-3 input_color" placeholder="35220 - 1506373 -1">
+                                        @error('name')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="mb-6">
                                     <div class="form-group">
                                         <label for="form-label" class="form-label">Code <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" value="{{ $data['code']  }}" name="code"
+                                        <input type="text" value="{{ $data['code'] }}" name="code"
                                             class="form-control py-3 input_color" placeholder="35220 - 1506373 -1">
+                                        @error('code')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>

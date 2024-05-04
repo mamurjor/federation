@@ -24,12 +24,18 @@
                                         <div class="form-group">
                                             <label for="form-label" class="form-label">title. <span class="text-danger">*</span></label>
                                             <input type="text" value="" name="title" class="form-control py-3 input_color" placeholder="Enter Name">
+                                            @error('title')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                         </div>
                                     </div>
                                     <div class="mb-6">
                                         <div class="form-group">
                                             <label for="form-label" class="form-label">slogan  <span class="text-danger">*</span></label>
                                             <input type="text" value="" name="slogan" class="form-control py-3 input_color" placeholder="Enter slogan">
+                                            @error('slogan')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                         </div>
                                     </div>
                                
@@ -37,12 +43,18 @@
                                         <div class="form-group">
                                             <label for="form-label" class="form-label">Button One Text <span class="text-danger">*</span></label>
                                             <input type="text" value="" name="button_one_text" class="form-control py-3 input_color" placeholder="Enter button one text">
+                                            @error('button_one_text')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                         </div>
                                     </div>
                                     <div class="mb-6">
                                         <div class="form-group">
                                             <label for="form-label" class="form-label">Button One Url  <span class="text-danger">*</span></label>
                                             <input type="text" value="" name="button_one_url" class="form-control py-3 input_color" placeholder="Enter button one url">
+                                            @error('button_one_url')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                         </div>
                                     </div>
 
@@ -51,12 +63,18 @@
                                         <div class="form-group">
                                             <label for="form-label" class="form-label">Button Two Text <span class="text-danger">*</span></label>
                                             <input type="text" value="" name="button_two_text" class="form-control py-3 input_color" placeholder="Enter button Two text">
+                                            @error('button_two_text')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                         </div>
                                     </div>
                                     <div class="mb-6">
                                         <div class="form-group">
                                             <label for="form-label" class="form-label">Button Two Url  <span class="text-danger">*</span></label>
                                             <input type="text" value="" name="button_two_url" class="form-control py-3 input_color" placeholder="Enter button Two url">
+                                            @error('button_two_url')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                         </div>
                                     </div>
 
@@ -64,6 +82,9 @@
                                         <div class="form-group">
                                             <label for="form-label" class="form-label"> Slider Image Upload  <span class="text-danger">*</span></label>
                                             <input type="file" value="" name="sliderimage" class="form-control py-3 input_color" placeholder="Enter button Two url">
+                                            @error('sliderimage')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                         </div>
                                     </div>
 

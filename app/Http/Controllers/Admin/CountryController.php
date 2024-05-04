@@ -52,8 +52,8 @@ class CountryController extends Controller
  public function store(Request $request)
  {
      $request->validate([
-         'name' => 'required',
-         'code' => 'required',       
+         'name' => 'required|string|max:255',
+         'code' =>  'required|string|max:255',      
      ]);     
      Country::create($request->post());
      return redirect()->route('country.index')->with('success','Created successfully.');

@@ -2,20 +2,26 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExcelCSVController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\CastController;
 use App\Http\Controllers\VerifyUserController;
 use App\Http\Controllers\Admin\GenderController;
 use App\Http\Controllers\Admin\TehsilController;
+use App\Http\Controllers\admin\BillingController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\UserOperationController;
 use App\Http\Controllers\Admin\DistrictController;
+use App\Http\Controllers\admin\SettingsController;
 use App\Http\Controllers\CompanysettingController;
+use App\Http\Controllers\admin\ClassifiedController;
 use App\Http\Controllers\Admin\ProfessionController;
 use App\Http\Controllers\Admin\HeroSectionController;
+use App\Http\Controllers\admin\MatromonialController;
 use App\Http\Controllers\Admin\SliersectionController;
 use App\Http\Controllers\Frontend\MainIndexController;
 use App\Http\Controllers\Admin\MissionSectionController;
+use App\Http\Controllers\VoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,6 +98,8 @@ Route::get('profession/countrydelete/{id}', [ProfessionController::class, 'delet
 
 Route::get('tehsil/index', [TehsilController::class, 'index'])->name('tehsil.index');
 Route::get('tehsil/getcountry/{country}', [TehsilController::class, 'getcountry'])->name('tehsil.getcountry');
+Route::get('tehsil/getdistrict/{country}', [TehsilController::class, 'getdistrict'])->name('tehsil.getdistrict');
+Route::get('tehsil/gettehsil/{district}', [TehsilController::class, 'gettehsil'])->name('tehsil.gettehsil');
 Route::get('tehsil/create', [TehsilController::class, 'create'])->name('tehsil.create');
 Route::post('tehsil/store', [TehsilController::class, 'store'])->name('tehsil.store');
 Route::post('tehsil/update', [TehsilController::class, 'update'])->name('tehsil.update');
@@ -138,6 +146,7 @@ Route::get('district/countrydelete/{id}', [DistrictController::class, 'delete'])
 
 
 
+
 //------------ Varify User ------------//
 Route::get('verify-code/{token}',[VerifyUserController::class,'verifiedCode'])->name('verify.code');
 
@@ -146,3 +155,85 @@ Route::get('verify-code/{token}',[VerifyUserController::class,'verifiedCode'])->
 //------------ Home Page Route ------------//
 
 Route::get('country/{country}', [CountryController::class, 'GetuserBycontry'])->name('country.list');
+
+
+// Route::get('index', [CountryController::class, 'index']);
+Route::post('import-excel-csv-file-country', [ExcelCSVController::class, 'importExcelCSVCountry']);
+Route::post('import-excel-csv-file-district', [ExcelCSVController::class, 'importExcelCSVDistrict']);
+Route::post('import-excel-csv-file-tehsil', [ExcelCSVController::class, 'importExcelCSVTehsil']);
+Route::get('export-excel-csv-file/{slug}', [ExcelCSVController::class, 'exportExcelCSV']);
+
+
+Route::get('settings/index', [SettingsController::class, 'settingsform'])->name('settings.index');
+Route::get('billing/index', [BillingController::class, 'billingform'])->name('billing.index');
+
+Route::get('classified/indexforadmin', [ClassifiedController::class, 'indexforadmin'])->name('classified.indexforadmin');
+Route::post('classified/approve/{id}', [ClassifiedController::class, 'approve'])->name('classified.approve');
+
+Route::get('classified/index', [ClassifiedController::class, 'index'])->name('classified.index');
+Route::get('classified/create', [ClassifiedController::class, 'classifiedform'])->name('classified.create');
+Route::post('classified/store', [ClassifiedController::class, 'store'])->name('classified.store');
+Route::post('classified/update', [ClassifiedController::class, 'update'])->name('classified.update');
+Route::get('classified/edit/{id}', [ClassifiedController::class, 'edit'])->name('classified.edit');
+Route::get('classified/delete/{id}', [ClassifiedController::class, 'delete'])->name('classified.delete');
+
+Route::get('classifiedcategory/index', [ClassifiedController::class, 'categoryindex'])->name('classifiedcategory.index');
+Route::get('classifiedcategory/create', [ClassifiedController::class, 'categorycreate'])->name('classifiedcategory.create');
+Route::post('classifiedcategory/store', [ClassifiedController::class, 'categorystore'])->name('classifiedcategory.store');
+Route::post('classifiedcategory/update', [ClassifiedController::class, 'categoryupdate'])->name('classifiedcategory.update');
+Route::get('classifiedcategory/edit/{id}', [ClassifiedController::class, 'categoryedit'])->name('classifiedcategory.edit');
+Route::get('classifiedcategory/delete/{id}', [ClassifiedController::class, 'categorydelete'])->name('classifiedcategory.delete');
+
+Route::get('classifiedall',[MainIndexController::class,'classified'])->name('classified');
+Route::get('classifiedaddsingle/{id}',[MainIndexController::class,'classifiedaddsingle'])->name('classified.single');
+
+
+Route::get('matromonial/indexforadmin', [MatromonialController::class, 'indexforadmin'])->name('matromonial.indexforadmin');
+Route::post('matromonial/approve/{id}', [MatromonialController::class, 'approve'])->name('matromonial.approve');
+
+Route::get('matromonial/index', [MatromonialController::class, 'index'])->name('matromonial.index');
+Route::get('matromonial/create', [MatromonialController::class, 'matromonialform'])->name('matromonial.create');
+Route::post('matromonial/store', [MatromonialController::class, 'store'])->name('matromonial.store');
+Route::post('matromonial/update', [MatromonialController::class, 'update'])->name('matromonial.update');
+Route::get('matromonial/edit/{id}', [MatromonialController::class, 'edit'])->name('matromonial.edit');
+Route::get('matromonial/delete/{id}', [MatromonialController::class, 'delete'])->name('matromonial.delete');
+
+Route::get('matromonialall',[MainIndexController::class,'matromonial'])->name('matromonial');
+Route::get('matromonialsingle/{id}',[MainIndexController::class,'matromonialsingle'])->name('matromonial.single');
+
+
+Route::get('matromonialreligion/index', [MatromonialController::class, 'religionindex'])->name('matromonialreligion.index');
+Route::get('matromonialreligion/create', [MatromonialController::class, 'religioncreate'])->name('matromonialreligion.create');
+Route::post('matromonialreligion/store', [MatromonialController::class, 'religionstore'])->name('matromonialreligion.store');
+Route::post('matromonialreligion/update', [MatromonialController::class, 'religionupdate'])->name('matromonialreligion.update');
+Route::get('matromonialreligion/edit/{id}', [MatromonialController::class, 'religionedit'])->name('matromonialreligion.edit');
+Route::get('matromonialreligion/delete/{id}', [MatromonialController::class, 'religiondelete'])->name('matromonialreligion.delete');
+
+Route::get('matromonialmarital/index', [MatromonialController::class, 'maritalindex'])->name('matromonialmarital.index');
+Route::get('matromonialmarital/create', [MatromonialController::class, 'maritalcreate'])->name('matromonialmarital.create');
+Route::post('matromonialmarital/store', [MatromonialController::class, 'maritalstore'])->name('matromonialmarital.store');
+Route::post('matromonialmarital/update', [MatromonialController::class, 'maritalupdate'])->name('matromonialmarital.update');
+Route::get('matromonialmarital/edit/{id}', [MatromonialController::class, 'maritaledit'])->name('matromonialmarital.edit');
+Route::get('matromonialmarital/delete/{id}', [MatromonialController::class, 'maritaldelete'])->name('matromonialmarital.delete');
+
+Route::get('votetype/index', [VoteController::class, 'voteindex'])->name('votetype.index');
+Route::get('votetype/create', [VoteController::class, 'votecreate'])->name('votetype.create');
+Route::post('votetype/store', [VoteController::class, 'votestore'])->name('votetype.store');
+Route::post('votetype/update', [VoteController::class, 'voteupdate'])->name('votetype.update');
+Route::get('votetype/edit/{id}', [VoteController::class, 'voteedit'])->name('votetype.edit');
+Route::get('votetype/delete/{id}', [VoteController::class, 'votedelete'])->name('votetype.delete');
+
+Route::get('votepositiontype/index', [VoteController::class, 'votepositionindex'])->name('votepositiontype.index');
+Route::get('votepositiontype/create', [VoteController::class, 'votepositioncreate'])->name('votepositiontype.create');
+Route::post('votepositiontype/store', [VoteController::class, 'votepositionstore'])->name('votepositiontype.store');
+Route::post('votepositiontype/update', [VoteController::class, 'votepositionupdate'])->name('votepositiontype.update');
+Route::get('votepositiontype/edit/{id}', [VoteController::class, 'votepositionedit'])->name('votepositiontype.edit');
+Route::get('votepositiontype/delete/{id}', [VoteController::class, 'votepositiondelete'])->name('votepositiontype.delete');
+
+
+Route::get('voteannounce/index', [VoteController::class, 'voteannounceindex'])->name('voteannounce.index');
+Route::get('voteannounce/create', [VoteController::class, 'voteannouncecreate'])->name('voteannounce.create');
+Route::post('voteannounce/store', [VoteController::class, 'voteannouncestore'])->name('voteannounce.store');
+Route::post('voteannounce/update', [VoteController::class, 'voteannounceupdate'])->name('voteannounce.update');
+Route::get('voteannounce/edit/{id}', [VoteController::class, 'voteannounceedit'])->name('voteannounce.edit');
+Route::get('voteannounce/delete/{id}', [VoteController::class, 'voteannouncedelete'])->name('voteannounce.delete');

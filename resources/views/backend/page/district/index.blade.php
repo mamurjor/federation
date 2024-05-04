@@ -10,6 +10,7 @@
           <tr>
             <th>SL No. </th>
             <th>Name</th>
+            <th>Country</th>
             <th>Code</th>
             <th>Action </th>
             
@@ -28,6 +29,7 @@
               <span class="fw-medium">{{ $index+1 }}</span>
             </td>
             <td>{{ $singlevalue->name }}</td>
+            <td>{{ $singlevalue->country }}</td>
          
             <td><span class="badge bg-label-success me-1">{{ $singlevalue->code }}</span></td>
             <td>
@@ -47,5 +49,47 @@
       </table>
     </div>
   </div>
+
+  @if (session('status'))
+  <div class="alert alert-success">
+      {{ session('status') }}
+  </div>
+@endif
+
+<div class="card">
+
+  <div class="card-header font-weight-bold">
+      <h2 class="float-left">Import Export Excel</h2>
+      <h2 class="float-right"><a href="{{ url('export-excel-csv-file/xlsx') }}" class="btn btn-success mr-1">Export
+              Excel</a><a href="{{ url('export-excel-csv-file/csv') }}" class="btn btn-success">Export CSV</a></h2>
+  </div>
+
+  <div class="card-body">
+
+      <form id="excel-csv-import-form" method="POST" action="{{ url('import-excel-csv-file-district') }}"
+          accept-charset="utf-8" enctype="multipart/form-data">
+
+          @csrf
+
+          <div class="row">
+
+              <div class="col-md-12">
+                  <div class="form-group">
+                      <input type="file" name="file" placeholder="Choose file">
+                  </div>
+                  @error('file')
+                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                  @enderror
+              </div>
+
+              <div class="col-md-12">
+                  <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+              </div>
+          </div>
+      </form>
+
+  </div>
+
+</div>
 
 @endsection

@@ -3,7 +3,7 @@
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header"> <a href="{{ route('profession.create') }}"> Add New</a>  </h5>
+    <h5 class="card-header"> <a href="{{ route('cast.create') }}"> Add New</a>  </h5>
     <div class="table-responsive text-nowrap">
       <table class="table">
         <thead>
@@ -16,7 +16,7 @@
           </tr>
         </thead>
         <tbody class="table-border-bottom-0">
-            @foreach ($professions as  $index=>$singlevalue )              
+            @foreach ($cast as  $index=>$singlevalue )              
            
             <tr>
               <td>
@@ -32,8 +32,8 @@
                   <i class="ti ti-dots-vertical"></i>
                 </button>
                 
-                <a class="btn btn-primary" href="{{ route('profession.edit',$singlevalue->id) }}"><i class="ti ti-pencil me-2"></i> Edit</a>
-                  <a class="btn btn-danger" href="{{ route('profession.delete',$singlevalue->id)}}" onclick="return confirm('Are Your Suere')">  Delete</a>
+                <a class="btn btn-primary" href="{{ route('cast.edit',$singlevalue->id) }}"><i class="ti ti-pencil me-2"></i> Edit</a>
+                  <a class="btn btn-danger" href="{{ route('cast.delete',$singlevalue->id)}}" onclick="return confirm('Are Your Suere')">  Delete</a>
                 
               </div>
             </td>
