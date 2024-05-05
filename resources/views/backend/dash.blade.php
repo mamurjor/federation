@@ -74,7 +74,7 @@
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-                @include('backend.include.navbar')
+                @include('backend.include.navbar-admin')
                 <!-- / Navbar -->
 
                 <!-- Content wrapper -->

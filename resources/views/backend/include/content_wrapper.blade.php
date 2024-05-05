@@ -1,9 +1,9 @@
 @extends('backend.dash')
 @section('main-content')
-<div class="content-wrapper">
-    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Content -->
 
-    {{-- <div class="container-xxl flex-grow-1 container-p-y">
+        {{-- <div class="container-xxl flex-grow-1 container-p-y">
         <div class="row">
             <!-- Website Analytics -->
             <div class="col-lg-6 mb-4">
@@ -803,92 +803,93 @@
         </div>
     </div> --}}
 
-    <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1 ms-5">
-        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"
-            data-bs-auto-close="outside" aria-expanded="false">
-            <i class="ti ti-bell ti-md"></i>
-            <span class="badge bg-danger rounded-pill badge-notifications">5</span>
-        </a>
-        <ul class="dropdown-menu py-0">
-            <li class="dropdown-menu-header border-bottom">
-                <div class="dropdown-header d-flex align-items-center py-3">
-                    <h5 class="text-body mb-0 me-auto">Notification</h5>
-                    <a href="javascript:void(0)" class="dropdown-notifications-all text-body"
-                        data-bs-toggle="tooltip" data-bs-placement="top" title="Mark all as read"><i
-                            class="ti ti-mail-opened fs-4"></i></a>
-                </div>
-            </li>
-            <li class="dropdown-notifications-list scrollable-container">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-action dropdown-notifications-item">
-                        <div class="d-flex">
-                            <div class="flex-shrink-0 me-3">
-                                <div class="avatar">
-                                    <img src="assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+        <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1 ms-5">
+            <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"
+                data-bs-auto-close="outside" aria-expanded="false">
+                <i class="ti ti-bell ti-md"></i>
+                <span class="badge bg-danger rounded-pill badge-notifications">5</span>
+            </a>
+            <ul class="dropdown-menu py-0">
+                <li class="dropdown-menu-header border-bottom">
+                    <div class="dropdown-header d-flex align-items-center py-3">
+                        <h5 class="text-body mb-0 me-auto">Notification</h5>
+                        <a href="javascript:void(0)" class="dropdown-notifications-all text-body" data-bs-toggle="tooltip"
+                            data-bs-placement="top" title="Mark all as read"><i class="ti ti-mail-opened fs-4"></i></a>
+                    </div>
+                </li>
+                <li class="dropdown-notifications-list scrollable-container">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item list-group-item-action dropdown-notifications-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="avatar">
+                                        <img src="assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                                    </div>
                                 </div>
-                            </div>
-                            @foreach ($notifications as $notification)
-                                
-                           <div class="d-block">
-                            <div class="p-2">
-                                <h5 class="mb-1">Congratulation {{ $notification->data['user_name'] }} 🎉</h5>
-                                <p>Email is {{ $notification->data['user_email'] }}</p>
-                                {{-- <small class="text-muted">{{ $notification->created_at->diffForHumans() }}</small> --}}
-                            </div>
-                           </div>
+                               <div>
+                                @foreach ($notifications as $notification)
+                               <div class="d-flex">
+                                <div class="">
+                                    <div class="p-2">
+                                        <h5 class="mb-1">Congratulation {{ $notification->data['user_name'] }} 🎉</h5>
+                                        <p>Email is {{ $notification->data['user_email'] }}</p>
+                                    </div>
+                                </div>
+                                <div class="flex-shrink-0 dropdown-notifications-actions mt-2 ms-1">
+                                    <a href="javascript:void(0)" class="dropdown-notifications-read"><span
+                                            class="badge badge-dot"></span></a>
+                                    <a href="javascript:void(0)" class="dropdown-notifications-archive"><span
+                                            class="ti ti-x"></span></a>
+                                </div>
+                               </div>
                             @endforeach
-                            <div class="flex-shrink-0 dropdown-notifications-actions">
-                                <a href="javascript:void(0)" class="dropdown-notifications-read"><span
-                                        class="badge badge-dot"></span></a>
-                                <a href="javascript:void(0)" class="dropdown-notifications-archive"><span
-                                        class="ti ti-x"></span></a>
+                               </div>
                             </div>
-                        </div>
-                    </li>
-                   
-                </ul>
-            </li>
-            <li class="dropdown-menu-footer border-top">
-                <a href="javascript:void(0);"
-                    class="dropdown-item d-flex justify-content-center text-primary p-2 h-px-40 mb-1 align-items-center">
-                    View all notifications
-                </a>
-            </li>
-        </ul>
-    </li>
-    <!-- / Content -->
+                        </li>
 
-    <!-- Footer -->
-    <footer class="content-footer footer bg-footer-theme">
-        <div class="container-xxl">
-            <div
-                class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
-                <div>
-                    ©
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script>
-                    , made with ❤️ by
-                    <a href="https://pixinvent.com" target="_blank"
-                        class="footer-link text-primary fw-medium">Pixinvent</a>
-                </div>
-                <div class="d-none d-lg-inline-block">
-                    <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
-                        target="_blank">License</a>
-                    <a href="https://1.envato.market/pixinvent_portfolio" target="_blank" class="footer-link me-4">More
-                        Themes</a>
+                    </ul>
+                </li>
+                <li class="dropdown-menu-footer border-top">
+                    <a href="javascript:void(0);"
+                        class="dropdown-item d-flex justify-content-center text-primary p-2 h-px-40 mb-1 align-items-center">
+                        View all notifications
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- / Content -->
 
-                    <a href="https://demos.pixinvent.com/vuexy-html-admin-template/documentation/" target="_blank"
-                        class="footer-link me-4">Documentation</a>
+        <!-- Footer -->
+        <footer class="content-footer footer bg-footer-theme">
+            <div class="container-xxl">
+                <div
+                    class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
+                    <div>
+                        ©
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                        , made with ❤️ by
+                        <a href="https://pixinvent.com" target="_blank"
+                            class="footer-link text-primary fw-medium">Pixinvent</a>
+                    </div>
+                    <div class="d-none d-lg-inline-block">
+                        <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
+                            target="_blank">License</a>
+                        <a href="https://1.envato.market/pixinvent_portfolio" target="_blank" class="footer-link me-4">More
+                            Themes</a>
 
-                    <a href="https://pixinvent.ticksy.com/" target="_blank"
-                        class="footer-link d-none d-sm-inline-block">Support</a>
+                        <a href="https://demos.pixinvent.com/vuexy-html-admin-template/documentation/" target="_blank"
+                            class="footer-link me-4">Documentation</a>
+
+                        <a href="https://pixinvent.ticksy.com/" target="_blank"
+                            class="footer-link d-none d-sm-inline-block">Support</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- / Footer -->
+        </footer>
+        <!-- / Footer -->
 
-    <div class="content-backdrop fade"></div>
-</div>
+        <div class="content-backdrop fade"></div>
+    </div>
 @endsection

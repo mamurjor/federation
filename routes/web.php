@@ -2,12 +2,14 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VoteController;
 use App\Http\Controllers\ExcelCSVController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\CastController;
 use App\Http\Controllers\VerifyUserController;
 use App\Http\Controllers\Admin\GenderController;
 use App\Http\Controllers\Admin\TehsilController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\admin\BillingController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\UserOperationController;
@@ -21,7 +23,6 @@ use App\Http\Controllers\admin\MatromonialController;
 use App\Http\Controllers\Admin\SliersectionController;
 use App\Http\Controllers\Frontend\MainIndexController;
 use App\Http\Controllers\Admin\MissionSectionController;
-use App\Http\Controllers\VoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -237,3 +238,8 @@ Route::post('voteannounce/store', [VoteController::class, 'voteannouncestore'])-
 Route::post('voteannounce/update', [VoteController::class, 'voteannounceupdate'])->name('voteannounce.update');
 Route::get('voteannounce/edit/{id}', [VoteController::class, 'voteannounceedit'])->name('voteannounce.edit');
 Route::get('voteannounce/delete/{id}', [VoteController::class, 'voteannouncedelete'])->name('voteannounce.delete');
+
+
+// Notification 
+
+Route::post('notifications/mark-as-read/{id}', NotificationController::class, 'markAsRead')->name('notifications.markAsRead');
