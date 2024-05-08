@@ -1,8 +1,8 @@
 @extends('backend.dash')
 
 @section('main-content')
-    <div class="card">
-        {{-- <h5 class="card-header"> <a href=""> Add New</a> </h5> --}}
+    <div class="card m-3">
+        <h5 class="card-header m-1"> Classified list </h5>
         <div class="table-responsive text-nowrap">
             <table class="table">
                 <thead>
@@ -20,14 +20,14 @@
                     @foreach ($classified as $index => $singlevalue)
                         <tr>
                             <td>
-                               <span class="fw-medium">{{ $index + 1 }}</span>
+                               <span class="fw-medium ms-2">{{ $index + 1 }}</span>
                             </td>
                             <td>{{ $singlevalue->title }}</td>
                             <td>{{ $singlevalue->price }}</td>
                             <td>{{ $singlevalue->expiredate }}</td>
 
                             <td>
-                                <img width="150" height="150" src=" <?php echo url('/') . $singlevalue['image']; ?>" alt="tst">
+                                <img width="100" height="100" src=" <?php echo url('/') . $singlevalue['image']; ?>" alt="tst">
                             </td>
 
                             <td>

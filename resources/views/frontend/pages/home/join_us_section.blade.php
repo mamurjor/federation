@@ -35,37 +35,37 @@
                     </div>
                     <div class="col-md-6 col-sm-6 col-lg-3 mb-3 bg-white feature_box px-3 py-4">
                             <a href="#">
-                                <div class="feature_heading py-4 px-3 mb-3 rounded">
+                                <div class="feature_heading py-3 px-3 mb-3 rounded">
                                    <h6>Govt. Permission</h6>
                                 </div>
                             </a>
                             <a href="#">
-                                <div class="feature_heading py-4 px-3 mb-3 rounded">
+                                <div class="feature_heading py-3 px-3 mb-3 rounded">
                                    <h6>Matrimonials</h6>
                                 </div>
                             </a>
                             <a href="#">
-                                <div class="feature_heading py-4 px-3 mb-3 rounded">
+                                <div class="feature_heading py-3 px-3 mb-3 rounded">
                                    <h6>Latest Ads</h6>
                                 </div>
                             </a>
                             <a href="#">
-                                <div class="feature_heading py-4 px-3 mb-3 rounded">
+                                <div class="feature_heading py-3 px-3 mb-3 rounded">
                                    <h6>Report Polution</h6>
                                 </div>
                             </a>
                             <a href="#">
-                                <div class="feature_heading py-4 px-3 mb-3 rounded">
+                                <div class="feature_heading py-3 px-3 mb-3 rounded">
                                    <h6>Transcending geographical </h6>
                                 </div>
                             </a>
                             <a href="#">
-                                <div class="feature_heading py-4 px-3 mb-3 rounded">
+                                <div class="feature_heading py-3 px-3 mb-3 rounded">
                                    <h6>Meet Chairmen</h6>
                                 </div>
                             </a>
                             <a href="#">
-                                <div class="feature_heading py-4 px-3 mb-3 rounded">
+                                <div class="feature_heading py-3 px-3 mb-3 rounded">
                                    <h6>Meet Presidents</h6>
                                 </div>
                             </a>

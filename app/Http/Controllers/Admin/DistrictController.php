@@ -6,6 +6,10 @@ use App\Models\Country;
 use App\Models\District;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Gender;
+use App\Models\Tehsil;
+
+use function Laravel\Prompts\alert;
 
 class DistrictController extends Controller
 {
@@ -17,6 +21,34 @@ class DistrictController extends Controller
      return view('backend.page.district.index', compact('districts'));
  }
 
+
+ public function getdistrictbycnic($cnic){
+   
+
+   
+     $districtcode =substr($cnic,1,1);
+     $tehsilcode =substr($cnic,2,1);
+    $length = strlen($cnic);
+    $gendercode = $cnic[$length -1];  
+    
+    
+
+
+    $district = District::where('code', $districtcode)->first();
+    $tehsil = Tehsil::where('code', $tehsilcode)->first();
+    $getgender = Gender::where('code', $gendercode)->first();
+
+
+    if ($district) {
+   
+    return response()->json(['district' => $district->name,'tehsil' => $tehsil->name,'gender' => $getgender->name]);
+    } else {
+        return response()->json(['error' => 'not Found'], 404);
+    }
+
+
+   
+ }
 
  public function create()
  {
@@ -88,5 +120,23 @@ class DistrictController extends Controller
     return redirect()->route('district.index')->with('success','deleted successfully');
  }
 
+
+ public function fetchDistrict(Request $request)
+ {
+     $cnic = $request->input('cnic_no');    
+     dd($cnic);
+     
+     // Match CNIC number with district code
+     $districtCode = substr($cnic, 1, 1); 
+     
+     // Fetch district name based on district code
+     $district = District::where('code', $districtCode)->first();
+
+     if ($district) {
+         return response()->json(['name' => $district->name]);
+     } else {
+         return response()->json(['error' => 'District not found'], 404);
+     }
+ }
 
 }   

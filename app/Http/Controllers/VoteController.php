@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Tehsil;
 use App\Models\Country;
 use App\Models\District;
-use App\Models\Voteannounce;
 use App\Models\Votetype;
-use App\Models\VotingPositionType;
+use App\Models\Voteannounce;
 use Illuminate\Http\Request;
+use App\Models\VotingPositionType;
+use App\Events\VoteAnnouncementPosted;
 
 class VoteController extends Controller
 {
@@ -196,13 +197,11 @@ public function voteannouncestore(Request $request)
     $image_path =   $image->move(public_path('admin/vote'), $imageName);
     
     $request->validate([
-        'country'  => 'required',
+  
         'district'  => 'required',
         'tehsil'  =>'required',
         'announce'  => 'required',
-        'votetype'  => 'required',
         'date'  => 'required',
-        'image'  => 'required',
         'votepositiontype'        =>'required',
     ]);
 
@@ -218,6 +217,8 @@ public function voteannouncestore(Request $request)
       ];
   
      $saveinfo= Voteannounce::create($voteannounceinfo);
+     event(new VoteAnnouncementPosted($saveinfo));
+
 
     //  dd($saveinfo);
       return redirect()->route('voteannounce.index')->with('success','Created successfully.');
@@ -254,13 +255,13 @@ public function voteannouncestore(Request $request)
 
 
     $request->validate([
-        'country'  => 'required',
+    
         'district'  => 'required',
         'tehsil'  =>'required',
         'announce'  => 'required',
-        'votetype'  => 'required',
+
         'date'  => 'required',
-        'image'  => 'required',
+
         'votepositiontype'        =>'required',
     ]);
      if ($voteannounce) {
@@ -276,10 +277,10 @@ public function voteannouncestore(Request $request)
         'image' => isset($path) ? $path : $voteannounce->image,
          ]);
  
-         return redirect()->back()->with('success', 'Update Successful!');
+         return redirect()->route('voteannounce.index')->with('success', 'Update Successful!');
      } 
      else {
-         return redirect()->back()->with('error', 'Record not found!');
+         return redirect()->route('voteannounce.index')->with('error', 'Record not found!');
      }
  }
 
@@ -295,6 +296,14 @@ public function voteannouncestore(Request $request)
 
     return redirect()->route('voteannounce.index')->with('success','deleted successfully');
  }
+
+
+ public function getCharge(Request $request) {
+    $positionName = $request->positionName;
+    // Fetch charge value from Votepositiontype table based on $positionName
+    $charge = VotingPositionType::where('name', $positionName)->value('charge');
+    return response()->json(['charge' => $charge]);
+}
 
 
 

@@ -7,11 +7,9 @@
 
     <div class="row">
         <div class="col-xl">
-            <div class="card mb-4">
+            <div class="card m-3">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0"><a href="{{ route('missionsection.index') }}"> List </a></h5>
-
-
+                    <h5>Edit slider section</h5>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('sliersection.update') }}" method="POST" enctype="multipart/form-data">
@@ -79,7 +77,7 @@
                                     <div class="mb-6">
                                         <div class="form-group">
 
-                                            <img width="150" height="150" src=" <?php echo url('/') . $data['imageurl']; ?>" alt="tst">
+                                            <img width="100" height="100" src=" <?php echo url('/') . $data['imageurl']; ?>" alt="tst">
                                             <label for="form-label" class="form-label"> Slider Image Upload <span
                                                     class="text-danger">*</span></label>
                                             <input type="file" name="sliderimage" class="form-control py-3 input_color"
@@ -92,8 +90,8 @@
 
 
                                 </div>
-                                <div class="mb-3">
-                                    <button type="submit" class="py-4 w-100 border-0 resgiter_button rounded">Update<i
+                                <div class="my-3">
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Update<i
                                             class="fa-solid fa-circle-plus ms-2"></i></button>
                                 </div>
                             </div>

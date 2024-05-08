@@ -4,14 +4,15 @@ namespace App\Http\Controllers\admin;
 
 
 use Carbon\Carbon;
+use App\Models\Cast;
 use App\Models\User;
+use App\Models\Profession;
 use App\Models\Matromonial;
 use Illuminate\Http\Request;
 use App\Models\Matromonialmarital;
+use App\Events\MatrimonialAdPosted;
 use App\Models\Matromonialreligion;
 use App\Http\Controllers\Controller;
-use App\Models\Cast;
-use App\Models\Profession;
 use Illuminate\Support\Facades\Auth;
 
 class MatromonialController extends Controller
@@ -67,16 +68,9 @@ class MatromonialController extends Controller
        
 //  dd($matromonialimagepath);
         $request->validate([
-            'matromonialid'              => 'required',
+         'matromonialid'       => 'required',
          'name'              => 'required',
          'location'              => 'required',
-         'gender'              => 'required',
-         'religion'              => 'required',
-         'marital'              => 'required',
-         'caste'              => 'required',
-         'country_residence'              => 'required',
-         'district'              => 'required',
-         'tehsil'              => 'required',
          'height'              => 'required',
          'partnerage' => 'required',
          'partnerlocation' => 'required',
@@ -86,13 +80,12 @@ class MatromonialController extends Controller
          'buisness_des' => 'required',
          'education'              => 'required',
          'familydetails'              => 'required',
-         'occupation'              => 'required',
          'income'              => 'required',
          'aboutme'              => 'required',
          'age'              => 'required',
          'email'              => 'required',
          'dateofbirth'             => 'required',
-         'matromonialimage'              => 'required',
+     
         ]);
 
      $matromonial = Matromonial::create([
@@ -125,6 +118,7 @@ class MatromonialController extends Controller
          'matromonialimage'              => $matromonialimagepath,
               
      ]);
+     event(new MatrimonialAdPosted($matromonial));
     
      return redirect()->route('matromonial.create')->with('success', 'Add Successfull!');
 
@@ -212,9 +206,9 @@ public function edit($id)
              'matromonialimage' => isset($matromonialimagepath) ? $matromonialimagepath : $matromonial->matromonialimage,
          ]);
  
-         return redirect()->back()->with('success', 'Update Successful!');
+         return redirect()->route('backend.matromonial.index')->with('success', 'Update Successful!');
      } else {
-         return redirect()->back()->with('error', 'Record not found!');
+         return redirect()->route('backend.matromonial.index')->with('error', 'Record not found!');
      }
  }
 

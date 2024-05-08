@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <button type="submit" class="py-4 w-100 border-0 resgiter_button rounded">Login<i class="fa-solid fa-circle-plus ms-2"></i></button>
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Login<i class="fa-solid fa-circle-plus ms-2"></i></button>
                                         </div>
                                     </div>
                                     

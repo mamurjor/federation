@@ -4,20 +4,19 @@
         <div class="row justify-content-between">
             <div class="col-5 col-md-6 col-sm-5 col-lg-5">
                 <div class="social_icon">
-                    <a href="#" class="bg-white p-3 rounded-circle fw-normal me-2"><i
-                            class="<?php
-                        
-                            if (config('settings.ficon') != null) {
-                                echo config('settings.ficon');
-                            } else {
-                                echo 'fa-brands fa-facebook';
-                            }
-                            ?>">
-                            
+                    <a href="#" class="bg-white p-2 rounded-circle fw-normal me-2"><i class="<?php
+                    
+                    if (config('settings.ficon') != null) {
+                        echo config('settings.ficon');
+                    } else {
+                        echo 'fa-brands fa-facebook';
+                    }
+                    ?>">
+
                         </i></a>
-                    <a href="#" class="bg-white p-3 rounded-circle fw-normal me-2"><i
+                    <a href="#" class="bg-white p-2 rounded-circle fw-normal me-2"><i
                             class="<?php
-                        
+                            
                             if (config('settings.ticon') != null) {
                                 echo config('settings.ticon');
                             } else {
@@ -25,9 +24,9 @@
                             }
                             ?>"></i></a>
 
-                    <a href="#" class="bg-white p-3 rounded-circle fw-normal me-2"><i
+                    <a href="#" class="bg-white p-2 rounded-circle fw-normal me-2"><i
                             class=" <?php
-                        
+                            
                             if (config('settings.licon') != null) {
                                 echo config('settings.licon');
                             } else {
@@ -35,9 +34,9 @@
                             }
                             ?>"></i></a>
 
-                    <a href="#" class="bg-white p-3 rounded-circle fw-normal"><i
+                    <a href="#" class="bg-white p-2 rounded-circle fw-normal"><i
                             class="<?php
-                        
+                            
                             if (config('settings.yicon') != null) {
                                 echo config('settings.yicon');
                             } else {
@@ -55,12 +54,12 @@
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
-                     
-                            <li>
-                                <a class="dropdown-item active" href="Pakistan"><span
-                                        class="flag_Text_dropdown">Pakistan</span></a>
-                            </li>
-                     
+
+                        <li>
+                            <a class="dropdown-item active" href="Pakistan"><span
+                                    class="flag_Text_dropdown">Pakistan</span></a>
+                        </li>
+
 
 
                     </ul>
@@ -131,8 +130,7 @@
         <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light py-4">
                 <div class="container-fluid">
-                    <img class="header_logo" src="{{ config('settings.hlogo') }}"
-                        alt="logo" style="width: 8%;">
+                    <img class="header_logo" src="{{ config('settings.hlogo') }}" alt="logo" style="width: 8%;">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -179,11 +177,10 @@
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="{{ route('matromonial') }}" id=""
-                                    role="button">
+                                <a class="nav-link" href="{{ route('matromonial') }}" id="" role="button">
                                     Matrimonial
                                 </a>
-                            
+
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle"
@@ -202,8 +199,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ route('classified') }}">Classified
+                                <a class="nav-link" href="{{ route('classified') }}">Classified
                                     Ads</a>
                             </li>
                             <li class="nav-item">
@@ -216,22 +212,51 @@
                                     href="file:///D:/mamurjor%20project%20live/Jutt_Federation/contact.html">Contact</a>
                             </li>
                         </ul>
-                        <div class="common_button">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="Matrimonial" id="navbarDropdown"
-                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-regular fa-circle-user me-2"></i>Account</a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item mb-3" href="{{ route('login') }}">Login</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="{{ route('user.register') }}">Registration</a>
-                                    </li>
+                        @guest
+                            <div class="common_button">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="Matrimonial" id="navbarDropdown"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-regular fa-circle-user me-2"></i>Account</a>
 
-                                   
-                                </ul>
-                            </li>
 
-                        </div>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item jut_login mb-2" href="{{ route('login') }}">Login</a>
+                                        </li>
+                                        <hr class="my-1">
+                                        <li><a class="dropdown-item jut_login" href="{{ route('user.register') }}">Registration</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </div>
+                        @endguest
+
+
+                        @auth
+                            <div class="common_button">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="Matrimonial" id="navbarDropdown"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-regular fa-circle-user me-2"></i>Account</a>
+
+
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item mb-3" href="{{ auth()->user()->role_id == 1 ? route('admin.dashboard') : route('client.dashboard') }}">Dashboard</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="">
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+                                                    <button class="nav-link dropdown-item" type="submit">Logout</button>
+                                                </form>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </div>
+
+                        @endauth
                     </div>
 
                 </div>

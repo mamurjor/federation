@@ -74,12 +74,14 @@
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-                @include('backend.include.navbar-admin')
+                @include('backend.include.navbar')
                 <!-- / Navbar -->
 
-                <!-- Content wrapper -->
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <!-- Content wrapper -->
                 @yield('main-content')
                 <!-- Content wrapper -->
+                </div>
             </div>
             <!-- / Layout page -->
         </div>

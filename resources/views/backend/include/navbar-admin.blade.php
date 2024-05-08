@@ -169,9 +169,9 @@
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"
                     data-bs-auto-close="outside" aria-expanded="false">
                     <i class="ti ti-bell ti-md"></i>
-                    <span class="badge bg-danger rounded-pill badge-notifications">{{ $unreadcount }}</span>
+                    <span class="badge bg-danger rounded-pill badge-notifications">{{ $unreadcount? $unreadcount: '0' }}</span>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end py-0">
+                <ul class="dropdown-menu dropdown-menu-end py-0 " style="overflow-y: auto; height: 400px; width: 300px;" >
                     <li class="dropdown-menu-header border-bottom">
                         <div class="dropdown-header d-flex align-items-center py-3">
                             <h5 class="text-body mb-0 me-auto">Notification</h5>
@@ -184,42 +184,47 @@
                         <ul class="list-group list-group-flush">
 
                             @foreach ($notifications as $notification)
-                                
-                            <li class="list-group-item list-group-item-action dropdown-notifications-item">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0 me-3">
-                                        <div class="avatar">
-                                            <img src="assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                                <li class="list-group-item list-group-item-action dropdown-notifications-item">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 me-3">
+                                            <div class="avatar">
+                                                <img src="assets/img/avatars/1.png" alt
+                                                    class="h-auto rounded-circle" />
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1">Congratulation {{ $notification->data['user_name']?$notification->data['user_name']:'no data' }} 🎉
+                                            </h6>
+                                            <p>Email is {{ $notification->data['user_email']?$notification->data['user_email']:'no data' }}</p>
+                                            <small class="text-muted">1h ago</small>
+
+                                        </div>
+                                        <div class="flex-shrink-0 dropdown-notifications-actions">
+                                            <a href="javascript:void(0)" class="dropdown-notifications-read"><span
+                                                    class="badge badge-dot"></span></a>
+                                            @if (is_null($notification->read_at))
+                                                <form
+                                                    action="{{ route('notifications.markAsRead', $notification->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <button type="submit"> <a href=""
+                                                            class="dropdown-notifications-archive"><span
+                                                                class="ti ti-x"></span></a></button>
+                                                </form>
+                                            @endif
                                         </div>
                                     </div>
-                                    <div class="flex-grow-1">
-                                        <h6 class="mb-1">Congratulation {{ $notification->data['user_name'] }} 🎉</h6>
-                                        <p>Email is {{ $notification->data['user_email'] }}</p>
-                                        <small class="text-muted">1h ago</small>
-
-                                    </div>
-                                    <div class="flex-shrink-0 dropdown-notifications-actions">
-                                        <a href="javascript:void(0)" class="dropdown-notifications-read"><span
-                                                class="badge badge-dot"></span></a>
-                                       
-                                                <form action="{{ route('notifications.markAsRead', $notification->id) }}" method="POST">
-                                                    @csrf
-                                                    <button type="submit"> <a href="" class="dropdown-notifications-archive"><span
-                                                        class="ti ti-x"></span></a></button>
-                                                </form>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
                             @endforeach
-                  
+
                         </ul>
                     </li>
-                    <li class="dropdown-menu-footer border-top">
-                        <a href="javascript:void(0);"
+                    {{-- <li class="dropdown-menu-footer border-top">
+                        <a href=""
                             class="dropdown-item d-flex justify-content-center text-primary p-2 h-px-40 mb-1 align-items-center">
                             View all notifications
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
             <!--/ Notification -->

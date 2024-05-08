@@ -11,7 +11,7 @@
                 <!-- Basic Layout -->
                 <div class="row">
                     <div class="col-xl">
-                        <div class="card mb-4">
+                        <div class="card m-3">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h5 class="mb-0">Header</h5>
                                 <small class="text-muted float-end">Default label</small>
@@ -22,7 +22,7 @@
                                     @csrf
                                     <div class="form-group mt-3">
                                         <label for="field1">Facebook icon</label>
-                                        {{-- <img width="150" height="150" src="<?php echo url('/') . config('settings.ficon'); ?>" alt="tst"> --}}
+                                        {{-- <img width="100" height="100" src="<?php echo url('/') . config('settings.ficon'); ?>" alt="tst"> --}}
                                         <input type="text" value="<?php echo config('settings.ficon'); ?>" class="form-control"
                                             id="icon" name="ficon">
 
@@ -37,7 +37,7 @@
 
                                     <div class="form-group mt-3">
                                         <label for="field1">Twitter icon</label>
-                                        {{-- <img width="150" height="150" src="<?php echo url('/') . config('settings.ticon'); ?>" alt="tst"> --}}
+                                        {{-- <img width="100" height="100" src="<?php echo url('/') . config('settings.ticon'); ?>" alt="tst"> --}}
                                         <input type="text" value="<?php echo config('settings.ticon'); ?>" class="form-control"
                                             id="icon" name="ticon">
 
@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">Linkedin icon</label>
-                                        {{-- <img width="150" height="150" src="<?php echo url('/') . config('settings.licon'); ?>" alt="tst"> --}}
+                                        {{-- <img width="100" height="100" src="<?php echo url('/') . config('settings.licon'); ?>" alt="tst"> --}}
                                         <input type="text" value="<?php echo config('settings.licon'); ?>" class="form-control"
                                             id="icon" name="licon">
 
@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">Youtube icon</label>
-                                        {{-- <img width="150" height="150" src="<?php echo url('/') . config('settings.yicon'); ?>" alt="tst"> --}}
+                                        {{-- <img width="100" height="100" src="<?php echo url('/') . config('settings.yicon'); ?>" alt="tst"> --}}
                                         <input type="text" value="<?php echo config('settings.yicon'); ?>" class="form-control"
                                             id="icon" name="yicon">
 
@@ -80,7 +80,7 @@
 
                                     <div class="form-group mt-3">
                                         <label for="field1">Header logo</label>
-                                        <img width="150" height="150" src="<?php echo url('/') . config('settings.hlogo'); ?>" alt="tst">
+                                        <img width="100" height="100" src="<?php echo url('/') . config('settings.hlogo'); ?>" alt="tst">
                                         <input type="file" value="<?php echo config('settings.hlogo'); ?>" class="form-control"
                                             id="icon" name="hlogo">
 
@@ -93,7 +93,7 @@
                             </div>
                         </div>
 
-                        <div class="card mb-4">
+                        <div class="card m-3">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h5 class="mb-0">page setting</h5>
                                 <small class="text-muted float-end">Default label</small>
@@ -266,7 +266,7 @@
 
 
                     <div class="col-xl">
-                        <div class="card mb-4">
+                        <div class="card m-3">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h5 class="mb-0">Footer</h5>
                                 <small class="text-muted float-end">Merged input group</small>
@@ -278,7 +278,7 @@
                                     <div class="form-group mt-3">
                                         <label for="field1">Footer logo</label>
 
-                                        <img width="150" height="150" src="<?php echo url('/') . config('settings.flogo'); ?>" alt="tst">
+                                        <img width="100" height="100" src="<?php echo url('/') . config('settings.flogo'); ?>" alt="tst">
                                         <input type="file" value="<?php echo config('settings.flogo'); ?>" class="form-control"
                                             id="icon" name="flogo">
 
@@ -386,7 +386,7 @@
                                     <div class="form-group mt-3">
                                         <label for="field1">Payment method logo</label>
 
-                                        <img width="150" height="150" src="<?php echo url('/') . config('settings.paymentmethod'); ?>" alt="tst">
+                                        <img width="100" height="100" src="<?php echo url('/') . config('settings.paymentmethod'); ?>" alt="tst">
                                         <input type="file" value="<?php echo config('settings.paymentmethod'); ?>" class="form-control"
                                             id="icon" name="paymentmethod">
 
@@ -394,7 +394,7 @@
                                     {{-- <div class="form-group mt-3">
                                         <label for="field1">visa</label>
 
-                                        <img width="150" height="150" src="<?php echo url('/') . config('settings.visa'); ?>" alt="tst">
+                                        <img width="100" height="100" src="<?php echo url('/') . config('settings.visa'); ?>" alt="tst">
                                         <input type="file" value="<?php echo config('settings.visa'); ?>" class="form-control"
                                             id="icon" name="visa">
 
@@ -403,7 +403,7 @@
                                     <div class="form-group mt-3">
                                         <label for="field1">mastercard</label>
 
-                                        <img width="150" height="150" src="<?php echo url('/') . config('settings.mastercard'); ?>" alt="tst">
+                                        <img width="100" height="100" src="<?php echo url('/') . config('settings.mastercard'); ?>" alt="tst">
                                         <input type="file" value="<?php echo config('settings.mastercard'); ?>" class="form-control"
                                             id="icon" name="mastercard">
 
@@ -412,7 +412,7 @@
                                     <div class="form-group mt-3">
                                         <label for="field1">discover</label>
 
-                                        <img width="150" height="150" src="<?php echo url('/') . config('settings.discover'); ?>" alt="tst">
+                                        <img width="100" height="100" src="<?php echo url('/') . config('settings.discover'); ?>" alt="tst">
                                         <input type="file" value="<?php echo config('settings.discover'); ?>" class="form-control"
                                             id="icon" name="discover">
 
@@ -421,7 +421,7 @@
                                     <div class="form-group mt-3">
                                         <label for="field1">american</label>
 
-                                        <img width="150" height="150" src="<?php echo url('/') . config('settings.american'); ?>" alt="tst">
+                                        <img width="100" height="100" src="<?php echo url('/') . config('settings.american'); ?>" alt="tst">
                                         <input type="file" value="<?php echo config('settings.american'); ?>" class="form-control"
                                             id="icon" name="american">
 

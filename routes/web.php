@@ -17,12 +17,15 @@ use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\admin\SettingsController;
 use App\Http\Controllers\CompanysettingController;
 use App\Http\Controllers\admin\ClassifiedController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfessionController;
 use App\Http\Controllers\Admin\HeroSectionController;
 use App\Http\Controllers\admin\MatromonialController;
 use App\Http\Controllers\Admin\SliersectionController;
 use App\Http\Controllers\Frontend\MainIndexController;
 use App\Http\Controllers\Admin\MissionSectionController;
+use App\Http\Controllers\AllNotifiController;
+use App\Http\Controllers\NominiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -243,3 +246,14 @@ Route::get('voteannounce/delete/{id}', [VoteController::class, 'voteannouncedele
 // Notification 
 
 Route::post('notifications/mark-as-read/{id}', NotificationController::class, 'markAsRead')->name('notifications.markAsRead');
+
+// Nomini 
+
+Route::get('nomini/form/{id}', [NominiController::class, 'nominiform'])->name('nomini.form');
+Route::post('nomini/store', [NominiController::class, 'noministore'])->name('nomini.store');
+
+
+Route::get('/getCharge', [VoteController::class,'getCharge']);
+
+Route::GET('/getdistrictbycnic/{cnic_no}', [DistrictController::class,'getdistrictbycnic'])->name('getdistrictbycnic');
+

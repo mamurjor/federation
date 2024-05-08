@@ -69,7 +69,7 @@
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-                @include('backend.include.navbar')
+                @include('backend.include.navbar_cliient')
                 <!-- / Navbar -->
 
                 <!-- Content wrapper -->

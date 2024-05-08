@@ -23,7 +23,7 @@
                             ?>">
                                 <img src=" <?php echo url('/') . $singlevalue['imageurl']; ?>" alt="tst">
                                 {{-- <img src="{{ asset('frontend/assets/img/home_page/hero_section/image2.png') }}" --}}
-                                class="d-block w-100" alt="...">
+                                
                                 <div class="carousel-caption  d-md-block">
                                     <h1 class="fw-bold mb-2">{{ $singlevalue['title'] }}</h1>
                                     <p class="fw-normal">{{ $singlevalue['slogan'] }}</p>

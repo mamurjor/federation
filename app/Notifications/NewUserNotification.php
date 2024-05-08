@@ -17,7 +17,7 @@ class NewUserNotification extends Notification
      */
 
 
-     public $user;
+    public $user;
 
     public function __construct(User $user)
     {

@@ -1,14 +1,16 @@
 @extends('backend.dash')
 
 @section('main-content')
-    <div class="card">
-        <div class="d-flex justify-between">
-            <h5 class="card-header"> <a href="{{ route('matromonialmarital.create') }}"> Add New </a> </h5>
-
-
-
-
-        </div>
+    <div class="card m-3">
+      
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5>Matromonial marital List</h5>
+                <h5>
+                    <a class="btn btn-primary waves-effect waves-light" href="{{ route('matromonialmarital.create') }}">
+                        Add New
+                    </a>
+                </h5>
+            </div>
         <div class="table-responsive text-nowrap">
             <table class="table">
                 <thead>
@@ -28,7 +30,7 @@
                         <tr>
                             <td>
 
-                                <span class="fw-medium">{{ $index + 1 }}</span>
+                                <span class="fw-medium ms-2">{{ $index + 1 }}</span>
                             </td>
                             <td>{{ $singlevalue->name }}</td>
 
@@ -40,9 +42,11 @@
                                         <i class="ti ti-dots-vertical"></i>
                                     </button>
 
-                                    <a class="btn btn-primary" href="{{ route('matromonialmarital.edit', $singlevalue->id) }}"><i
+                                    <a class="btn btn-primary"
+                                        href="{{ route('matromonialmarital.edit', $singlevalue->id) }}"><i
                                             class="ti ti-pencil me-2"></i> Edit</a>
-                                    <a class="btn btn-danger" href="{{ route('matromonialmarital.delete', $singlevalue->id) }}"
+                                    <a class="btn btn-danger"
+                                        href="{{ route('matromonialmarital.delete', $singlevalue->id) }}"
                                         onclick="return confirm('Are Your Suere')"> Delete</a>
 
                                 </div>

@@ -33,16 +33,24 @@
                                     <div class="card-body text-center">
                                         <h5 class="card-title pt-4 border-top single_matrimonial_common">
                                             {{ $matromonialsingle->name }}</h5>
-                                        <p class="card-text mt-2 single_matrimonial_common">Hello there,<br>
-                                            My name is Abdullah, and I am delighted to introduce myself to you through this
-                                            platform. With a hopeful heart and a sincere intention,</p>
+                                        <p class="card-text mt-2 single_matrimonial_common">{{ $matromonialsingle->aboutme }}</p>
 
                                         <div class="classified_add_btn  justify-content-between pt-3">
                                             <p class="card-text single_matrimonial_common"><i
-                                                    class="fa-solid fa-location-dot"></i>{{ $matromonialsingle->location }}
+                                                    class="fa-solid fa-location-dot"></i> {{ $matromonialsingle->location }}
                                             </p>
                                             <p class="card-text mt-2 single_matrimonial_common"><i
-                                                    class="fa-regular fa-clock"></i> 10 Days Ago</p>
+                                                    class="fa-regular fa-clock"></i>
+                                                <?php
+                                                
+                                                $currentDate = date('Y-m-d'); // Add a semicolon here
+                                                $date2 = new DateTime($matromonialsingle->created_at);
+                                                
+                                                $interval = $date2->diff(new DateTime($currentDate)); // Call diff() on $date2
+                                                
+                                                echo $interval->format('%a days ago'); // Output: -9 days
+                                                ?>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="{{ route('index') }}" class="app-brand-link">
+        <a href="{{ route('index') }}" class="app-brand-link menu-link">
             <span class="app-brand-logo demo">
                 <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -16,7 +16,7 @@
                 </svg>
                 {{-- <img  width="32" height="22" src="C:\Users\Developer Tarek\Desktop\Screenshot_4.png" alt=""> --}}
             </span>
-            <span class="app-brand-text demo menu-text fw-bold">Federation</span>
+            <span class="app-brand-text demo menu-link menu-text fw-bold">Federation</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -25,24 +25,23 @@
         </a>
     </div>
 
+    <div style="font-size: 23px;" class="my-2 ms-3">
+        <a style="text-decoration: none;" href="{{ route('admin.dashboard') }}">Main Dashboard</a>
+    </div>
+
     <div class="menu-inner-shadow"></div>
 
 
 
     <ul class="menu-inner py-1">
         <!-- Dashboards -->
-        <li class="menu-item active open">
+        <li class="menu-item active">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
-                <div class="badge bg-primary rounded-pill ms-auto">5</div>
             </a>
             <ul class="menu-sub mb-3">
-                <li class="menu-item">
-                    <a href="index.html" class="menu-link">
-                        <div data-i18n="Analytics">User manage</div>
-                    </a>
-                </li>
+
                 <li class="menu-item">
                     <a href="{{ route('country.index') }}" class="menu-link">
                         <div data-i18n="CRM">Country </div>
@@ -78,7 +77,6 @@
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Dashboards">WEb Site Setting</div>
-                <div class="badge bg-primary rounded-pill ms-auto">5</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
@@ -108,7 +106,6 @@
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Dashboards">Classified Ads</div>
-                <div class="badge bg-primary rounded-pill ms-auto">5</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
@@ -131,7 +128,6 @@
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Dashboards">Matromonial</div>
-                <div class="badge bg-primary rounded-pill ms-auto">5</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
@@ -156,7 +152,6 @@
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Dashboards">Vote</div>
-                <div class="badge bg-primary rounded-pill ms-auto">5</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item" style="">

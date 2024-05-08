@@ -7,16 +7,11 @@
 
     <div class="row">
         <div class="col-xl">
-            <div class="card mb-4">
+            <div class="card m-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0"><a href="{{ route('tehsil.index') }}"> List </a></h5>
-
-
+                    <h5>Edit Tehsil</h5>
                 </div>
                 <div class="card-body">
-
-
-
                     <form action="{{ route('tehsil.update') }}" method="POST">
                         @csrf
 
@@ -56,8 +51,8 @@
 
 
                             <div class="col-md-12">
-                                <div class="mb-3">
-                                    <button type="submit" class="py-4 w-100 border-0 resgiter_button rounded">Update<i
+                                <div class="my-3">
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Update<i
                                             class="fa-solid fa-circle-plus ms-2"></i></button>
                                 </div>
                             </div>

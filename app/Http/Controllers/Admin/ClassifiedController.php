@@ -6,9 +6,11 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Classified;
 use Illuminate\Http\Request;
+use App\Models\AdsNotification;
 use App\Models\Classifiedcategory;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Events\ClassifiedAdSubmitted;
 
 class ClassifiedController extends Controller
 {
@@ -56,26 +58,19 @@ class ClassifiedController extends Controller
 
         $request->validate([
           
-          'user_id'            => 'required',
           'adid'              => 'required',
           'title'              =>'required',
           'description'              =>'required',
-          'category'              => 'required',
           'price'              => 'required',
-          'country'              => 'required',
-          'district'              => 'required',
-          'tehsil'              => 'required',
           'location'              => 'required',
           'email'              => 'required',
           'dateposted'             =>'required',
-          'expiredate'              =>'required',
+          'expirationdate'              =>'required',
           'condition'              => 'required',
           'keywords'              => 'required',
-          'image'              => 'required',
 
         ]);
 
-//  dd($classifiedimagepath);
      $classified = Classified::create([
          'user_id'            => $userId,
          'adid'              => $request->adid,
@@ -95,8 +90,12 @@ class ClassifiedController extends Controller
          'image'              => $classifiedimagepath,
               
      ]);
+    //  dd($classified);
+
+    event(new ClassifiedAdSubmitted($classified));
+    //  dd($as);
     
-     return redirect()->route('classified.create')->with('success', 'Add Successfull!');
+     return redirect()->route('backend.classified.index')->with('success', 'Add Successfull!');
  
 
 
@@ -161,10 +160,10 @@ public function update(Request $request){
       'image'              => isset($classifiedimagepath) ? $classifiedimagepath : $classified->image,
     ]);
     
-    return redirect()->back()->with('success','Update successfully');
+    return redirect()->route('backend.classified.index')->with('success','Update successfully');
   }
   else{
-    return redirect()->back()->with('error','record not found');
+    return redirect()->route('backend.classified.index')->with('error','record not found');
   }
 }
 

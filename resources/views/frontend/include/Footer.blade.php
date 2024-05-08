@@ -33,7 +33,7 @@
                     </a>
                     <a href="mailto:juttfederationksa@gmail.com"
                         class="mb-4 text-decoration-none d-block footer_contacts"><i
-                            class="fa-solid fa-envelope me-2"></i>
+                            class="fa-solid fa-envelope"></i>
 
 
 
@@ -150,11 +150,11 @@
         </div>
     </div>
     <div class="footer_bottom_main">
-        <div class="container py-5">
+        <div class="container py-3">
             <div class="footer_bottom_main_heading text-white d-flex justify-content-between">
                 <p class="mb-0 fw-bold footer_p"><?php echo config('settings.copyright'); ?></p>
                 <div class="social_icon footer_social">
-                    <a href="#" class="bg-dark p-3 rounded-circle fw-normal me-2"><i
+                    <a href="#" class="bg-dark p-2 rounded-circle fw-normal me-2"><i
                             class="
                             <?php
                         
@@ -165,7 +165,7 @@
                             }
                             ?>
                             "></i></a>
-                    <a href="#" class="bg-dark p-3 rounded-circle fw-normal me-2"><i
+                    <a href="#" class="bg-dark p-2 rounded-circle fw-normal me-2"><i
                             class="<?php
                         
                             if (config('settings.ticon') != null) {
@@ -175,7 +175,7 @@
                             }
                             ?>"></i></a>
 
-                    <a href="#" class="bg-dark p-3 rounded-circle fw-normal me-2"><i
+                    <a href="#" class="bg-dark p-2 rounded-circle fw-normal me-2"><i
                             class="<?php
                         
                             if (config('settings.licon') != null) {
@@ -184,7 +184,7 @@
                                 echo 'fa-brands fa-linkedin-in';
                             }
                             ?>"></i></a>
-                    <a href="#" class="bg-dark p-3 rounded-circle fw-normal"><i
+                    <a href="#" class="bg-dark p-2 rounded-circle fw-normal"><i
                             class="<?php
                         
                             if (config('settings.yicon') != null) {

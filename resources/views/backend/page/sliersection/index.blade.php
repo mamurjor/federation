@@ -2,15 +2,18 @@
 
 @section('main-content')
 
-<div class="card">
-    <h5 class="card-header"> <a href="{{ route('sliersection.create') }}"> Add New</a>  </h5>
+<div class="card m-3">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h5>All slider</h5>
+    <h5><a class="btn btn-primary waves-effect waves-light" href="{{ route('sliersection.create') }}"> Add New </a></h5>
+</div>
     <div class="table-responsive text-nowrap">
       <table class="table">
         <thead>
           <tr>
             <th>SL No. </th>
             <th>Title</th>
-            <th>Slogan</th>
+            {{-- <th>Slogan</th> --}}
             <th>Image </th>
             <th>Action </th>
             
@@ -22,13 +25,13 @@
             <tr>
               <td>
                 
-                <span class="fw-medium">{{ $index+1 }}</span>
+                <span class="fw-medium ms-2">{{ $index+1 }}</span>
             </td>
             <td>{{ $singlevalue->title }}</td>
          
-            <td><span class="badge bg-label-success me-1">{{ $singlevalue->slogan }}</span></td>
+            {{-- <td><span class="badge bg-label-success me-1">{{ $singlevalue->slogan }}</span></td> --}}
             <td>
-              <img width="150" height="150" src=" <?php echo url('/').$singlevalue['imageurl'];?>" alt="tst">
+              <img width="100" height="100" src=" <?php echo url('/').$singlevalue['imageurl'];?>" alt="tst">
             </td>
             
             <td>

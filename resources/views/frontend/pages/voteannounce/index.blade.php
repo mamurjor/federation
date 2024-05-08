@@ -2,12 +2,9 @@
 
 @section('main-content')
     <div class="card">
-        <div class="d-flex justify-between">
-            <h5 class="card-header"> <a href="{{ route('voteannounce.create') }}"> Add New </a> </h5>
-
-
-
-
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5>Vote announce List</h5>
+            <h5><a class="btn btn-primary waves-effect waves-light" href="{{ route('voteannounce.create') }}"> Add New </a></h5>
         </div>
         <div class="table-responsive text-nowrap">
             <table class="table">
@@ -28,11 +25,28 @@
                         <tr>
                             <td>
 
-                                <span class="fw-medium">{{ $index + 1 }}</span>
+                                <span class="fw-medium ms-2">{{ $index + 1 }}</span>
                             </td>
                             <td>{{ $singlevalue->votetype }}</td>
 
-                            <td><span class=" me-1">{{ $singlevalue->votepositiontype }}</span></td>
+                            <td>
+                             
+
+                                @php
+                                $positionlist =  unserialize($singlevalue->votepositiontype);
+
+                                foreach ( $positionlist as $key => $position) {
+                                ?>
+                               
+                         
+                                <input type='radio' name="position" class="childChk" value="<?php echo $position;?>" />  <?php echo $position?>
+                                <?php 
+                                }
+
+                             @endphp
+
+
+                            </td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow"

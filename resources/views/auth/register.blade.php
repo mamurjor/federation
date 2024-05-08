@@ -27,9 +27,9 @@
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <div class="form-group">
-                                                <label for="form-label" class="form-label">CNIC No. <span
+                                                <label for="form-label"  class="form-label">CNIC No. <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" name="cnic_no" class="form-control py-3 input_color"
+                                                <input type="text" id="cnic_no" name="cnic_no" class="form-control py-3 input_color"
                                                     placeholder="35220 - 1506373 -1">
                                             </div>
                                         </div>
@@ -67,35 +67,38 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <div class="form-group">
-                                                <label for="form-label" class="form-label">Select District <span
+                                                <label for="form-label" class="form-label">District <span
                                                         class="text-danger">*</span></label>
-                                                <select name="select_district" id="select_district"
-                                                    class="form-control input_color py-3">
-                                                    <option value="">your District</option>
-                                                    @foreach ($districts as $index => $singlevalue)
-                                                    <option value="{{ $singlevalue->name }}"> {{ $singlevalue->name }}
-                                                    </option>
-                                                @endforeach
-                                                </select>
+                                                <input type="text" id="district"  name="district" value=""
+                                                    class="form-control py-3 input_color" placeholder="">
+
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <div class="form-group">
-                                                <label for="form-label" class="form-label">Select Tehsil <span
+                                                <label for="form-label" class="form-label">Tehsil <span
                                                         class="text-danger">*</span></label>
-                                                <select name="select_tehsil" id="select_tehsil"
-                                                    class="form-control input_color py-3">
-                                                    <option value="">your Tehsil</option>
-                                                    @foreach ($tehsils as $index => $singlevalue)
-                                                    <option value="{{ $singlevalue->name }}"> {{ $singlevalue->name }}
-                                                    </option>
-                                                @endforeach
-                                                </select>
+                                                <input type="text"  id="tehsil" name="tehsil" value=""
+                                                    class="form-control py-3 input_color" placeholder="">
+
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <div class="form-group">
+                                                <label for="form-label" class="form-label">Gender <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="text" readonly name="gender" id="gender"
+                                                    value="" class="form-control py-3 input_color" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <div class="form-group">
@@ -113,22 +116,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <div class="form-group">
-                                                <label for="form-label" class="form-label">Gender <span
-                                                        class="text-danger">*</span></label>
-                                                <select name="gender" id="select_gender"
-                                                    class="form-control input_color py-3">
-                                                    <option value="">Select gender</option>
-                                                    @foreach ($genders as $index => $singlevalue)
-                                                        <option value="{{ $singlevalue->name }}"> {{ $singlevalue->name }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
+                                 
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <div class="form-group">
@@ -248,7 +236,7 @@
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <button type="submit"
-                                                class="py-4 w-100 border-0 resgiter_button rounded">Register<i
+                                                class="btn btn-primary waves-effect waves-light">Register<i
                                                     class="fa-solid fa-circle-plus ms-2"></i></button>
                                         </div>
                                     </div>
@@ -274,3 +262,63 @@
         </section>
     </main>
 @endsection
+
+
+
+<!-- Include jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- JavaScript code -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#cnic_no").change(function() {
+
+            var cnic_no = $('#cnic_no').val();
+          
+            $.ajax({
+                url: '{{ route('getdistrictbycnic', ':cnic_no') }}'.replace(':cnic_no',cnic_no
+                    ),
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+
+                     //alert(response.gender)
+                    $('#district').val(response.district);
+                    $('#tehsil').val(response.tehsil);
+                    $('#gender').val(response.gender);
+
+                    // alert(response.tehsil)
+                    //alert(response.gender)
+                    // alert(response.tehname)
+
+                    // //Check if response is not empty
+                    // if ($.isEmptyObject(response)) {
+                    //     $('#district').empty();
+                    //     var option = "<option value='" + response.district + "'>" + 'no data found' +
+                    //         response.district+
+                    //         "</option>";
+                    //     $("#district").append(option);
+                    //     return;
+                    // }
+
+                    // // Clear existing options
+                    // $('#district').empty();
+
+                    // // Append new options
+                    // $.each(response, function(id, data) {
+                    //     var option = "<option  value='" + data.name + "'>" + data
+                    //         .name + "</option>";
+                    //     $("#district").append(option);
+                    // });
+
+                }
+            });
+
+        });
+        //var value = $('#dropDownId').val();
+
+    });
+</script>
+    
