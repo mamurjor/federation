@@ -33,7 +33,20 @@
                                     <div class="card-body text-center">
                                         <h5 class="card-title pt-4 border-top single_matrimonial_common">
                                             {{ $matromonialsingle->name }}</h5>
-                                        <p class="card-text mt-2 single_matrimonial_common">{{ $matromonialsingle->aboutme }}</p>
+                                        <p class="card-text mt-2 single_matrimonial_common">
+
+                                            <?php
+                                            
+                                            // Assuming $matromonialsingle->aboutme contains the full text
+                                            
+                                            $about_me = $matromonialsingle->aboutme;
+                                            $desired_part = substr($about_me, 0, strpos($about_me, 'intention') + strlen('intention.'));
+                                            
+                                            echo $desired_part;
+                                            
+                                            ?>
+                                            {{-- {{ $matromonialsingle->aboutme }} --}}
+                                        </p>
 
                                         <div class="classified_add_btn  justify-content-between pt-3">
                                             <p class="card-text single_matrimonial_common"><i

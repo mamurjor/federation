@@ -1,4 +1,4 @@
-@extends('backend.dash')
+@extends('backend.client')
 
 @section('main-content')
     <div class="card m-3">

@@ -95,6 +95,17 @@
                                 </div>
                                 <div class="mb-6">
                                     <div class="form-group">
+                                        <label for="form-label" class="form-label">Video url <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" value="" name="video"
+                                            class="form-control py-3 input_color" placeholder="Enter video url">
+                                        @error('video')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="mb-6">
+                                    <div class="form-group">
                                         <label for="form-label" class="form-label">Email <span
                                                 class="text-danger">*</span></label>
                                         <input type="email" value="" name="email"
@@ -131,6 +142,17 @@
                                         <label for="form-label" class="form-label">Image<span
                                                 class="text-danger">*</span></label>
                                         <input type="file" value="" name="classifiedimage"
+                                            class="form-control py-3 input_color" placeholder="Enter ">
+                                        @error('classifiedimage')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="mb-6">
+                                    <div class="form-group">
+                                        <label for="form-label" class="form-label">Multiple Image for singlaAds page<span
+                                                class="text-danger">*</span></label>
+                                        <input type="file" multiple value="" name="classifiedimages[]"
                                             class="form-control py-3 input_color" placeholder="Enter ">
                                         @error('classifiedimage')
                                             <div class="text-danger">{{ $message }}</div>

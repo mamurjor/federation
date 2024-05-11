@@ -242,7 +242,7 @@
 
 
                     <li>
-                        <a href="{{ route('logout') }}"
+                        <a class="btn btn-primary waves-effect waves-light" href="{{ route('logout') }}"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf

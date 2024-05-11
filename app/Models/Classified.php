@@ -26,5 +26,8 @@ class Classified extends Model
    'expiredate', 
    'condition', 
    'keyword', 
-   'image'];
+   'image',
+   'multipleimage',
+   'video'
+];
 }

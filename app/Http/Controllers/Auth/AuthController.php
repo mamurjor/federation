@@ -60,7 +60,7 @@ class AuthController extends Controller
      */
     public function store(RegisterRequest $request)
     {
-       // dd($request->all());
+    //    dd($request->all());
 
         $role = Role::where('slug','client')->first();
         $verify_code = Str::random(64);
@@ -70,8 +70,8 @@ class AuthController extends Controller
             'fname'              => $request->fname,
             'mname'              => $request->mname,
             'lname'              => $request->lname,
-            'district'              => $request->select_district,
-            'tehsil'              => $request->select_tehsil,
+            'district'              => $request->district,
+            'tehsil'              => $request->tehsil,
             'cast'              => $request->cast,
             'gender'              => $request->gender,
             'profession'              => $request->profession,

@@ -6,6 +6,7 @@ namespace App\Http\Controllers\admin;
 use Carbon\Carbon;
 use App\Models\Cast;
 use App\Models\User;
+use App\Models\Tehsil;
 use App\Models\Profession;
 use App\Models\Matromonial;
 use Illuminate\Http\Request;
@@ -149,33 +150,25 @@ public function edit($id)
     //  dd($matromonial);
 
     $request->validate([
-        'matromonialid'              => 'required',
-     'name'              => 'required',
-     'location'              => 'required',
-     'gender'              => 'required',
-     'religion'              => 'required',
-     'marital'              => 'required',
-     'caste'              => 'required',
-     'country_residence'              => 'required',
-     'district'              => 'required',
-     'tehsil'              => 'required',
-     'height'              => 'required',
-     'partnerage' => 'required',
-     'partnerlocation' => 'required',
-     'partnercompatibility' => 'required',
-     'partnercommunication' => 'required',
-     'requirment_text' => 'required',
-     'buisness_des' => 'required',
-     'education'              => 'required',
-     'familydetails'              => 'required',
-     'occupation'              => 'required',
-     'income'              => 'required',
-     'aboutme'              => 'required',
-     'age'              => 'required',
-     'email'              => 'required',
-     'dateofbirth'             => 'required',
-     'matromonialimage'              => 'required',
-    ]);
+        'matromonialid'       => 'required',
+        'name'              => 'required',
+        'location'              => 'required',
+        'height'              => 'required',
+        'partnerage' => 'required',
+        'partnerlocation' => 'required',
+        'partnercompatibility' => 'required',
+        'partnercommunication' => 'required',
+        'requirment_text' => 'required',
+        'buisness_des' => 'required',
+        'education'              => 'required',
+        'familydetails'              => 'required',
+        'income'              => 'required',
+        'aboutme'              => 'required',
+        'age'              => 'required',
+        'email'              => 'required',
+        'dateofbirth'             => 'required',
+    
+       ]);
  
      if ($matromonial) {
          // Update the record
@@ -206,9 +199,9 @@ public function edit($id)
              'matromonialimage' => isset($matromonialimagepath) ? $matromonialimagepath : $matromonial->matromonialimage,
          ]);
  
-         return redirect()->route('backend.matromonial.index')->with('success', 'Update Successful!');
+         return redirect()->route('matromonial.index')->with('success', 'Update Successful!');
      } else {
-         return redirect()->route('backend.matromonial.index')->with('error', 'Record not found!');
+         return redirect()->route('matromonial.index')->with('error', 'Record not found!');
      }
  }
 
@@ -370,4 +363,76 @@ public function maritalstore(Request $request)
     return redirect()->route('matromonialmarital.index')->with('success','deleted successfully');
  }
 
+ public function getmatromonialbysearch(Request $request){
+
+
+    $getalltehsil = Tehsil::all();
+    $marital = Matromonialmarital::all();
+    $allreligion = Matromonialreligion::all();
+    $allcast = Cast::all();
+    $allprofession = Profession::all();
+
+
+    $single= $request->Single;
+    $religion= $request->religion;
+    $caste_sect= $request->caste_sect;
+    $profession= $request->profession;
+
+    $matromonial = Matromonial::where('status', 'active')
+    ->where('religion',$religion)
+    ->where('caste',$caste_sect)
+    ->where('occupation',$profession)
+    ->where('marital',$single)
+    ->get();
+
+    
+    return response()->json($matromonial);
+    return view('frontend.pages.matromonialall.matromonialall',compact('matromonial','getalltehsil','marital','allreligion','allcast','allprofession'));
+ }
+
+
+//  public function getmatromonialbytehsil(Request $request){
+    
+//     $checkedValues = $request->input('checkedValues');
+
+  
+//     $matromonial = Matromonial::where('status', 'active')
+//            ->whereIn('tehsil',$checkedValues)
+//            ->get();
+
+//     dd($matromonial);
+  
+
+//      return view('frontend.pages.matromonialall.matromonialall',compact('matromonial'));
+
+//  }
+
+
+public function getTehsilData(Request $request)
+{
+    $tehsilNames = $request->input('names');
+
+    $tehsilData = Matromonial::where('status', 'active')
+    ->whereIn('tehsil', $tehsilNames)->get();
+
+    return response()->json($tehsilData);
+}
+
+
+public function getProfessionData(Request $request)
+{
+    $professionNames = $request->input('names');
+
+    $professionData = Matromonial::where('status', 'active')
+    ->whereIn('occupation', $professionNames)->get();
+
+    return response()->json($professionData);
+}
+
+
+public function getsorteddata(){
+    
+    $sortedData = Matromonial::orderBy('created_at', 'desc')->get();
+    return response()->json($sortedData);
+}
 }

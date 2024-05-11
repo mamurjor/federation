@@ -26,11 +26,10 @@ class DistrictController extends Controller
    
 
    
-     $districtcode =substr($cnic,1,1);
-     $tehsilcode =substr($cnic,2,1);
+    $districtcode =substr($cnic,1,1);
+    $tehsilcode =substr($cnic,2,1);
     $length = strlen($cnic);
     $gendercode = $cnic[$length -1];  
-    
     
 
 
@@ -39,12 +38,12 @@ class DistrictController extends Controller
     $getgender = Gender::where('code', $gendercode)->first();
 
 
-    if ($district) {
-   
-    return response()->json(['district' => $district->name,'tehsil' => $tehsil->name,'gender' => $getgender->name]);
-    } else {
-        return response()->json(['error' => 'not Found'], 404);
-    }
+    return response()->json([
+
+        'district' => $district->name,
+        'tehsil' => $tehsil->name,
+        'gender' => $getgender->name
+    ]);
 
 
    

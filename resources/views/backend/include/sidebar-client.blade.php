@@ -26,7 +26,7 @@
 
     <div class="menu-inner-shadow"></div>
 
-    <ul class="menu-inner py-1">
+    {{-- <ul class="menu-inner py-1">
         <!-- Dashboards -->
         <li class="menu-item active open">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -101,5 +101,61 @@
             </ul>
         </li>
 
+    </ul> --}}
+
+
+
+    <ul class="menu-inner py-1">
+        <!-- Dashboards -->
+        <li class="menu-item active open">
+            <a href="{{ route('client.dashboard') }}" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Dashboards">Dashboards</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('classified.index') }}" class="menu-link">
+                        <div data-i18n="Analytics">Classified ads</div>
+                    </a>
+                </li>
+                <!-- Other menu items -->
+                
+            </ul>
+    
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('matromonial.index') }}" class="menu-link">
+                        <div data-i18n="Analytics">Matrimonial</div>
+                    </a>
+                </li>
+                <!-- Other menu items -->
+            </ul>
+        </li>
     </ul>
+    
+    
+    
+    
+
 </aside>
+    <style>
+        .menu-sub {
+            display: none;
+        }
+    
+        .menu-sub.show {
+            display: block;
+        }
+    </style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var menuToggles = document.querySelectorAll('.menu-toggle');
+        
+        menuToggles.forEach(function(toggle) {
+            toggle.addEventListener('click', function() {
+                var submenu = toggle.nextElementSibling;
+                submenu.classList.toggle('show');
+            });
+        });
+    });
+</script>

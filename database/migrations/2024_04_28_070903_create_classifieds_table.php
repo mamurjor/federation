@@ -24,9 +24,11 @@ return new class extends Migration
             $table->string("district", 255);
             $table->string("tehsil", 255);
             $table->string("email", 255);
+            $table->string("video", 255);
             $table->date("dateposted");
             $table->date("expiredate");
             $table->string("image", 255);
+            $table->string("multipleimage", 255);
             $table->string("condition", 255);
             $table->string("keyword", 255);
             $table->enum('status', ['active', 'inactive', 'pending'])->default('pending');

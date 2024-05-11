@@ -69,7 +69,7 @@
                                             <div class="form-group">
                                                 <label for="form-label" class="form-label">District <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" id="district"  name="district" value=""
+                                                <input type="text" readonly id="district"  name="district" value=""
                                                     class="form-control py-3 input_color" placeholder="">
 
                                             </div>
@@ -81,7 +81,7 @@
                                             <div class="form-group">
                                                 <label for="form-label" class="form-label">Tehsil <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text"  id="tehsil" name="tehsil" value=""
+                                                <input type="text" readonly id="tehsil" name="tehsil" value=""
                                                     class="form-control py-3 input_color" placeholder="">
 
                                             </div>

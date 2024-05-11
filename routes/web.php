@@ -257,3 +257,11 @@ Route::get('/getCharge', [VoteController::class,'getCharge']);
 
 Route::GET('/getdistrictbycnic/{cnic_no}', [DistrictController::class,'getdistrictbycnic'])->name('getdistrictbycnic');
 
+Route::post('/getmatromonialbysearch', [MatromonialController::class,'getmatromonialbysearch'])->name('getmatromonialbysearch');
+Route::get('/getTehsilData', [MatromonialController::class,'getTehsilData'])->name('getTehsilData');
+Route::get('/getsorteddata', [MatromonialController::class,'getsorteddata'])->name('getsorteddata');
+Route::get('/getProfessionData', [MatromonialController::class,'getProfessionData'])->name('getProfessionData');
+
+
+
+Route::get('/getTehsilClassifiedData', [ClassifiedController::class,'getTehsilClassifiedData'])->name('getTehsilClassifiedData');

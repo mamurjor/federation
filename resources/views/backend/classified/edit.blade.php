@@ -86,6 +86,19 @@
                                 </div>
                                 <div class="mb-6">
                                     <div class="form-group">
+                                        <label for="form-label" class="form-label">Video url <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text"
+                                            value="{{ $classified->video ? $classified->video : 'no data' }}"
+                                            name="video" class="form-control py-3 input_color"
+                                            placeholder="Enter video url">
+                                        @error('video')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="mb-6">
+                                    <div class="form-group">
                                         <label for="form-label" class="form-label">Email <span
                                                 class="text-danger">*</span></label>
                                         <input type="email" value="{{ $classified->email }}" name="email"
@@ -122,8 +135,32 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label">Image<span
                                                 class="text-danger">*</span></label>
-                                        <img height="150" width="150" src="<?php echo url('/') . $classified->image; ?>" alt="">
+                                        <img height="100" width="100" src="<?php echo url('/') . $classified->image; ?>" alt="">
                                         <input type="file" value="" name="classifiedimage"
+                                            class="form-control py-3 input_color" placeholder="Enter ">
+                                        @error('classifiedimage')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="mb-6">
+                                    <div class="form-group">
+                                        <label for="form-label" class="form-label">Multiple Image for singlaAds page<span
+                                                class="text-danger">*</span></label>
+                                        {{-- @php
+                                            $classified->multipleimage = json_decode($classified->multipleimage);
+                                        @endphp
+
+                                        {{ $classified->multipleimage }}
+                                        <div>
+                                            <img src=" {{ $classified->multipleimage[0] }}">
+                                            <img src=" {{ $classified->multipleimage[1] }}">
+                                            <img src=" {{ $classified->multipleimage[2] }}">
+                                            <img src=" {{ $classified->multipleimage[3] }}">
+                                            <img src=" {{ $classified->multipleimage[4] }}">
+                                        </div> --}}
+
+                                        <input type="file" multiple value="" name="classifiedimages[]"
                                             class="form-control py-3 input_color" placeholder="Enter ">
                                         @error('classifiedimage')
                                             <div class="text-danger">{{ $message }}</div>
@@ -146,17 +183,16 @@
                                             value="{{ $classified->keyword ? $classified->keyword : 'no data' }}"
                                             name="keywords" class="form-control py-3 input_color"
                                             placeholder="Enter keywords">
-                                            @error('keywords')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
+                                        @error('keywords')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
 
                                 <div class="col-md-12">
                                     <div class="mt-3 text-end">
-                                        <button type="submit"
-                                            class="btn btn-primary waves-effect waves-light">Update<i
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Update<i
                                                 class="fa-solid fa-circle-plus ms-2"></i></button>
                                     </div>
                                 </div>
