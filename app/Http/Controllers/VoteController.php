@@ -259,11 +259,12 @@ public function voteannouncestore(Request $request)
         'district'  => 'required',
         'tehsil'  =>'required',
         'announce'  => 'required',
-
         'date'  => 'required',
-
         'votepositiontype'        =>'required',
+
+
     ]);
+    
      if ($voteannounce) {
          // Update the record
          $voteannounce->update([

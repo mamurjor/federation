@@ -135,7 +135,8 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label">Image<span
                                                 class="text-danger">*</span></label>
-                                        <img height="100" width="100" src="<?php echo url('/') . $classified->image; ?>" alt="">
+                                        <img height="100" width="100" class="m-1" src="<?php echo url('/') . $classified->image; ?>"
+                                            alt="">
                                         <input type="file" value="" name="classifiedimage"
                                             class="form-control py-3 input_color" placeholder="Enter ">
                                         @error('classifiedimage')
@@ -147,18 +148,16 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label">Multiple Image for singlaAds page<span
                                                 class="text-danger">*</span></label>
-                                        {{-- @php
+                                        @php
                                             $classified->multipleimage = json_decode($classified->multipleimage);
                                         @endphp
 
-                                        {{ $classified->multipleimage }}
-                                        <div>
-                                            <img src=" {{ $classified->multipleimage[0] }}">
-                                            <img src=" {{ $classified->multipleimage[1] }}">
-                                            <img src=" {{ $classified->multipleimage[2] }}">
-                                            <img src=" {{ $classified->multipleimage[3] }}">
-                                            <img src=" {{ $classified->multipleimage[4] }}">
-                                        </div> --}}
+                                        <div class="d-flex gap-1 m-1">
+                                            @foreach ($classified->multipleimage as $image)
+                                                <img width="70" height="70" class=""
+                                                    src=" {{ $image }}">
+                                            @endforeach
+                                        </div>
 
                                         <input type="file" multiple value="" name="classifiedimages[]"
                                             class="form-control py-3 input_color" placeholder="Enter ">

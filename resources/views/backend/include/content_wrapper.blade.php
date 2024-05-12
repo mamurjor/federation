@@ -2,8 +2,11 @@
 @section('main-content')
     <div class="content-wrapper">
         <!-- Content -->
-        <div class="m-5">
-            <div class="table-responsive text-nowrap">
+        <div class="card m-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h4 class="mt-3"> All Vote</h4>
+            </div>
+            <div class="p-2 table-responsive text-nowrap">
                 <table class="table table-bordered">
                     <thead>
                         <tr>

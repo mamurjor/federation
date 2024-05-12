@@ -182,21 +182,14 @@
                                 </a>
 
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle"
-                                    href="file:///D:/mamurjor%20project%20live/Jutt_Federation/cast%20_page.html"
+                            <li class="nav-item ">
+                                <a class="nav-link "
+                                    href=""
                                     id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     Cast
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    {{-- @foreach ($casts as $index => $singlevalue)
-                                    <li>
-                                        <a class="dropdown-item active" href="{{ $singlevalue->name }}"><span
-                                                class="flag_Text_dropdown">{{ $singlevalue->name }}</span></a>
-                                    </li>
-                                @endforeach --}}
-                                </ul>
+                         
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('classified') }}">Classified

@@ -172,8 +172,29 @@
                 <!-- Other submenu items -->
             </ul>
         </li>
+        <li class="menu-item active ">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Dashboards">Blog</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item" style="">
+                    <a href="{{ route('blogcategories.index') }}" class="menu-link">
+                        <div data-i18n="Logistics">Blog Categories</div>
+                    </a>
+                </li>
+                <li class="menu-item" style="">
+                    <a href="{{ route('blogpost.index') }}" class="menu-link">
+                        <div data-i18n="Logistics">Blog Post</div>
+                    </a>
+                </li>
+                <!-- Other submenu items -->
+            </ul>
+        </li>
         <!-- Other top-level menu items -->
     </ul>
+
+
     
     <script>
         // Add click event listeners to menu-toggle links

@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin\SliersectionController;
 use App\Http\Controllers\Frontend\MainIndexController;
 use App\Http\Controllers\Admin\MissionSectionController;
 use App\Http\Controllers\AllNotifiController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\NominiController;
 
 /*
@@ -265,3 +266,24 @@ Route::get('/getProfessionData', [MatromonialController::class,'getProfessionDat
 
 
 Route::get('/getTehsilClassifiedData', [ClassifiedController::class,'getTehsilClassifiedData'])->name('getTehsilClassifiedData');
+
+
+// Blog 
+
+// Blog categories
+
+Route::get('blogcategories/index', [BlogController::class, 'blogcategoriesindex'])->name('blogcategories.index');
+Route::get('blogcategories/create', [BlogController::class, 'blogcategoriescreate'])->name('blogcategories.create');
+Route::post('blogcategories/store', [BlogController::class, 'blogcategoriesstore'])->name('blogcategories.store');
+Route::post('blogcategories/update', [BlogController::class, 'blogcategoriesupdate'])->name('blogcategories.update');
+Route::get('blogcategories/edit/{id}', [BlogController::class, 'blogcategoriesedit'])->name('blogcategories.edit');
+Route::get('blogcategories/delete/{id}', [BlogController::class, 'blogcategoriesdelete'])->name('blogcategories.delete');
+
+// Blog post
+
+Route::get('blogpost/index', [BlogController::class, 'blogpostindex'])->name('blogpost.index');
+Route::get('blogpost/create', [BlogController::class, 'blogpostcreate'])->name('blogpost.create');
+Route::post('blogpost/store', [BlogController::class, 'blogpoststore'])->name('blogpost.store');
+Route::post('blogpost/update', [BlogController::class, 'blogpostupdate'])->name('blogpost.update');
+Route::get('blogpost/edit/{id}', [BlogController::class, 'blogpostedit'])->name('blogpost.edit');
+Route::get('blogpost/delete/{id}', [BlogController::class, 'blogpostdelete'])->name('blogpost.delete');
