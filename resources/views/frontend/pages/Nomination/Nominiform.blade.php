@@ -3,10 +3,10 @@
       <div class="row m-5">
         <div class="col-xl">
             <div class="card m-3">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                  
+                <di class="card-header d-flex justify-content-between align-items-center">
+                  <h5>Nomini Form</h5>
+                </di v>
 
-                </div>
                 <div class="card-body">
 
                          
@@ -14,7 +14,14 @@
                     <form action="{{ route('nomini.store') }}" method="POST">
                         @csrf
                         <div class="row">
+                            @if(session('success'))
+                                <div class = "my-3 fw-bold text-success">
+                                    {{ session('success') }}
+                               
+                                </div>
+                            @endif
                             <div class="col-md-12">
+
 
                                 @foreach ($voteannouncement as $singlevalue )
                                 <div class="mb-6">
@@ -36,7 +43,7 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span
                                                 class="text-danger">*</span> Country </label>
-                                        <input type="text" readonly value="{{ $singlevalue->country }}" name="votetype"
+                                        <input type="text" readonly value="{{ $singlevalue->country }}" name="country"
                                             class="form-control py-3 input_color" placeholder="Enter votetype">
                                         @error('votetype')
                                             <div class="text-danger">{{ $message }}</div>
@@ -47,7 +54,7 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span
                                                 class="text-danger">*</span> district </label>
-                                        <input type="text" readonly value="{{ $singlevalue->district }}" name="votetype"
+                                        <input type="text" readonly value="{{ $singlevalue->district }}" name="district"
                                             class="form-control py-3 input_color" placeholder="Enter votetype">
                                         @error('votetype')
                                             <div class="text-danger">{{ $message }}</div>
@@ -58,7 +65,7 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span
                                                 class="text-danger">*</span> tehsil </label>
-                                        <input type="text" readonly value="{{ $singlevalue->tehsil }}" name="votetype"
+                                        <input type="text" readonly value="{{ $singlevalue->tehsil }}" name="tehsil"
                                             class="form-control py-3 input_color" placeholder="Enter votetype">
                                         @error('votetype')
                                             <div class="text-danger">{{ $message }}</div>
@@ -69,7 +76,7 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span
                                                 class="text-danger">*</span> announce </label>
-                                        <input type="text" readonly value="{{ $singlevalue->announce }}" name="votetype"
+                                        <input type="text" readonly value="{{ $singlevalue->announce }}" name="announce"
                                             class="form-control py-3 input_color" placeholder="Enter votetype">
                                         @error('votetype')
                                             <div class="text-danger">{{ $message }}</div>
@@ -80,7 +87,7 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span
                                                 class="text-danger">*</span> Date </label>
-                                        <input type="text" readonly value="{{ $singlevalue->votingdate }}" name="votetype"
+                                        <input type="text" readonly value="{{ $singlevalue->votingdate }}" name="date"
                                             class="form-control py-3 input_color" placeholder="Enter votetype">
                                         @error('votetype')
                                             <div class="text-danger">{{ $message }}</div>
@@ -126,8 +133,8 @@
 
 
                                 <div class="col-md-12">
-                                    <div class="mt-3 text-end">
-                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Create<i
+                                    <div class="mt-3">
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Payment and Apply<i
                                                 class="fa-solid fa-circle-plus ms-2"></i></button>
                                     </div>
                                 </div>

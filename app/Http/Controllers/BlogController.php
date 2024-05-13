@@ -183,4 +183,17 @@ public function blogpostindex()
             }           
         }
 
+
+        public function blogpostdelete(Request $request){
+
+            $blogpost = Blogpost::find($request->id);
+        
+            if ($blogpost) {
+              
+                $blogpost->delete();
+            }
+        
+            return redirect()->route('blogpost.index')->with('success','deleted successfully');
+         }
+
 }

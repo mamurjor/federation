@@ -253,6 +253,13 @@ Route::post('notifications/mark-as-read/{id}', NotificationController::class, 'm
 Route::get('nomini/form/{id}', [NominiController::class, 'nominiform'])->name('nomini.form');
 Route::post('nomini/store', [NominiController::class, 'noministore'])->name('nomini.store');
 
+//create a 
+
+
+Route::get('stripe', [NominiController::class, 'stripe'])->name('stripe');
+
+Route::post('stripe/post', [NominiController::class, 'stripestore'])->name('stripe.post');
+
 
 Route::get('/getCharge', [VoteController::class,'getCharge']);
 
@@ -287,3 +294,16 @@ Route::post('blogpost/store', [BlogController::class, 'blogpoststore'])->name('b
 Route::post('blogpost/update', [BlogController::class, 'blogpostupdate'])->name('blogpost.update');
 Route::get('blogpost/edit/{id}', [BlogController::class, 'blogpostedit'])->name('blogpost.edit');
 Route::get('blogpost/delete/{id}', [BlogController::class, 'blogpostdelete'])->name('blogpost.delete');
+
+
+Route::get('blog', [MainIndexController::class, 'blog'])->name('blog');
+Route::get('blogsingle/{id}',[MainIndexController::class,'blogsingle'])->name('blog.single');
+
+
+
+//Cast post
+
+Route::get('cast', [MainIndexController::class, 'cast'])->name('cast');
+Route::get('castsingle/{id}',[MainIndexController::class,'castsingle'])->name('cast.single');
+
+

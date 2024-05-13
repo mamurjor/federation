@@ -35,6 +35,26 @@
                                     </div>
                                 </div>
 
+                                <div class="mb-6">
+                                    <div class="form-group">
+                                        <label for="form-label" class="form-label">Content. <span
+                                                class="text-danger">*</span></label>
+                                        <textarea name="content" id="summernote"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="mb-6">
+                                    <div class="form-group">
+                                        <label for="form-label" class="form-label">Image <span
+                                                class="text-danger">*</span></label>
+                                        <input type="file" value="" name="castimage"
+                                            class="form-control py-3 input_color" placeholder="Enter Code">
+                                        @error('castimage')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
                                 <div class="col-md-12">
                                     <div class="mt-3 text-end">
                                         <button type="submit" class="btn btn-primary waves-effect waves-light">Create<i
@@ -50,3 +70,23 @@
 
     </div>
 @endsection
+
+
+@push('scripts')
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Enter content',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
+@endpush

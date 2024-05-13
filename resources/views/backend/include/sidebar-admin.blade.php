@@ -57,11 +57,7 @@
                         <div data-i18n="CRM">Tehsil  </div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="{{ route('cast.index') }}" class="menu-link">
-                        <div data-i18n="CRM">CAST  </div>
-                    </a>
-                </li>
+            
                 <li class="menu-item">
                     <a href="{{ route('profession.index') }}" class="menu-link">
                         <div data-i18n="CRM">Profession   </div>
@@ -186,6 +182,20 @@
                 <li class="menu-item" style="">
                     <a href="{{ route('blogpost.index') }}" class="menu-link">
                         <div data-i18n="Logistics">Blog Post</div>
+                    </a>
+                </li>
+                <!-- Other submenu items -->
+            </ul>
+        </li>
+        <li class="menu-item active ">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Dashboards">Cast</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('cast.index') }}" class="menu-link">
+                        <div data-i18n="CRM">Cast category</div>
                     </a>
                 </li>
                 <!-- Other submenu items -->

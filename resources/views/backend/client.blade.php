@@ -56,6 +56,8 @@
     <script src="{{ asset('backend/assets/vendor/js/template-customizer.js') }}"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     {{-- <script src="{{ asset('backend/assets/js/config.js') }}"></script> --}}
+   
+
 </head>
 
 <body>
@@ -112,6 +114,9 @@
 
     <!-- Page JS -->
     <script src="{{ asset('backend/assets/js/dashboards-analytics.js') }}"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    @stack('stripe')
 </body>
 
 </html>

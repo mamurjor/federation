@@ -151,7 +151,7 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item"
-                                            href="file:///D:/mamurjor%20project%20live/Jutt_Federation/blog.html">Blog</a>
+                                            href="{{ route('blog') }}">Blog</a>
                                     </li>
                                 </ul>
                             </li>
@@ -184,9 +184,8 @@
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link "
-                                    href=""
-                                    id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                    href="{{ route('cast') }}"
+                                    id="" role="">
                                     Cast
                                 </a>
                          

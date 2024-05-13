@@ -8,89 +8,105 @@ use App\Http\Controllers\Controller;
 
 class CastController extends Controller
 {
-    //
-
-   
- public function index()
- {
-     $cast = Cast::all();
-     return view('backend.page.cast.index', compact('cast'));
- }
-
-
- public function create()
- {
-     return view('backend.page.cast.create');
- }
-
- public function store(Request $request)
- {
-     $request->validate([
-         'name' => 'required',
-         'code' => 'required',
-
-               
-     ]);     
-   
-     Cast::create($request->post());
-     return redirect()->route('cast.index')->with('success','Created successfully.');
- }
-
- public function edit($id)
-
- {
-
-    // dd($id);
- 
-
-    $cast = Cast::where('id', $id)->first();
-       
- 
-    //$country = Country::where('id',1)->get();
-
-     return view('backend.page.cast.edit',compact('cast'));
- }
-
- public function update(Request $request)
- {
     
-    $request->validate([
-        'name' => 'required',
-        'code' => 'required',       
-    ]);
+        public function index()
+        {
+            $cast = Cast::all();
+            return view('backend.page.cast.index', compact('cast'));
+        }
 
 
+        public function create()
+        {
+            return view('backend.page.cast.create');
+        }
 
- 
-    $cast = Cast::find($request->id);
-    if ($cast) {
-        // Modify the attributes of the model
-        $cast->name = $request->name;
-        $cast->code =  $request->code;
+        public function store(Request $request)
+        {
+            $request->validate([
+                'name' => 'required',
+                'code' => 'required',
+            ]);     
+            
+
+            $image      = $request->file('castimage');
+            $imageName  = time() . '.' . $image->getClientOriginalExtension();
+            $path       = '/admin/Cast/'.$imageName;
+            $image_path = $image->move(public_path('admin/Cast'), $imageName);
+                
+
+            Cast::create([
+                'name'  => $request->name,
+                'code'  => $request->code,
+                'content'  => $request->content,
+                'image' => $path,
+            ]);
+            return redirect()->route('cast.index')->with('success','Created successfully.');
+        }
+
+        public function edit($id)
+
+        {
+            $cast = Cast::where('id', $id)->first();
+            return view('backend.page.cast.edit',compact('cast'));
+        }
+
+
+        public function update(Request $request)
+        {
+            
+            $request->validate([
+                'name' => 'required',
+                'code' => 'required',
+            ]);
+            
+
+            if ($request->hasFile('castimage')) {
+                  // Handle image upload
+                $image      = $request->file('castimage');
+                $imageName  = time() . '.' . $image->getClientOriginalExtension();
+                $path       = '/admin/Cast/'.$imageName;
+                $image_path = $image->move(public_path('admin/Cast'), $imageName);
+            }
 
         
-        // Call the save() method to persist the changes
-        $cast->save();
-    }
+            $cast = Cast::find($request->id);
+             
+            if ($cast) {
+                // Update the record
+                $cast->update([
+                    
+                    'name' => $request->name,
+                    'code' => $request->code,
+                    'content' => $request->content,
+                    'image'  => isset($path) ? $path : $cast->image,
+                  
+                ]);
+        
+                return redirect()->route('cast.index')->with('success','Updated successfully');
+            } 
+            else {
+                return redirect()->route('cast.index')->with('error', 'Record not found!');
+            } 
     
 
-     
-    
 
-     return redirect()->route('cast.index')->with('success','Updated successfully');
- }
+                
+            
+           
+        }
 
 
- public function delete(Request $request){
+        public function delete(Request $request){
 
-    $cast = Cast::find($request->id);
+            $cast = Cast::find($request->id);
 
-    if ($cast) {
-      
-        $cast->delete();
-    }
+            if ($cast) {
+            
+                $cast->delete();
+            }
 
-    return redirect()->route('cast.index')->with('success','deleted successfully');
- }
+            return redirect()->route('cast.index')->with('success','deleted successfully');
+        }
 
 }

@@ -13,6 +13,7 @@
                         <th>SL No. </th>
                         <th>Name</th>
                         <th>Code</th>
+                        <th>Image</th>
                         <th>Action </th>
 
                     </tr>
@@ -27,6 +28,10 @@
                             <td>{{ $singlevalue->name }}</td>
 
                             <td><span class="badge bg-label-success me-1">{{ $singlevalue->code }}</span></td>
+
+                            <td>
+                                <img height="70" width="70" src="{{ $singlevalue->image }}" alt="">    
+                            </td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
