@@ -2,18 +2,19 @@
 @section('main-content')
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <div class="panel panel-default credit-card-box">
+        <div class="panel panel-default credit-card-box m-5">
             <div class="panel-heading display-table" >
                     <h3 class="panel-title" >Payment Details</h3>
             </div>
             <div class="panel-body">
 
                 @if (Session::has('success'))
-                    <div class="alert alert-success text-center">
+                    <div class="text-success fw-bold my-2 text-center">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                         <p>{{ Session::get('success') }}</p>
                     </div>
                 @endif
+        
 
                 <form 
                         role="form" 
@@ -33,9 +34,9 @@
                     </div>
 
                     <div class='form-row row'>
-                        <div class='col-xs-12 form-group card required'>
+                        <div class='col-xs-12 form-group required'>
                             <label class='control-label'>Card Number</label> <input
-                                autocomplete='off' class='form-control card-number' size='20'
+                                autocomplete='off' name="cardNumber" class='form-control card-number' size='20'
                                 type='text'>
                         </div>
                     </div>
@@ -59,7 +60,7 @@
                     </div>
 
                     <div class='form-row row'>
-                        <div class='col-md-12 error form-group hide'>
+                        <div class='col-md-12 error form-group'>
                             <div class='alert-danger alert'>Please correct the errors and try
                                 again.</div>
                         </div>
@@ -67,7 +68,7 @@
 
                     <div class="row">
                         <div class="col-xs-12">
-                            <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now ($100)</button>
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now (${{ Session::get('charge') }})</button>
                         </div>
                     </div>
                         

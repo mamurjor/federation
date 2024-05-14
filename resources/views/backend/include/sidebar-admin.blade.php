@@ -165,6 +165,11 @@
                         <div data-i18n="Logistics">Vote Announcement</div>
                     </a>
                 </li>
+                <li class="menu-item" style="">
+                    <a href="{{ route('nomini.index') }}" class="menu-link">
+                        <div data-i18n="Logistics">Nomini</div>
+                    </a>
+                </li>
                 <!-- Other submenu items -->
             </ul>
         </li>
@@ -195,7 +200,7 @@
             <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="{{ route('cast.index') }}" class="menu-link">
-                        <div data-i18n="CRM">Cast category</div>
+                        <div data-i18n="CRM">Cast Post</div>
                     </a>
                 </li>
                 <!-- Other submenu items -->

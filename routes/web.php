@@ -252,6 +252,11 @@ Route::post('notifications/mark-as-read/{id}', NotificationController::class, 'm
 
 Route::get('nomini/form/{id}', [NominiController::class, 'nominiform'])->name('nomini.form');
 Route::post('nomini/store', [NominiController::class, 'noministore'])->name('nomini.store');
+Route::get('nominiindex', [NominiController::class, 'nominiindex'])->name('nomini.index');
+Route::post('nomini/approve/{id}', [NominiController::class, 'approve'])->name('nomini.approve');
+Route::post('nomini/declined/{id}', [NominiController::class, 'declined'])->name('nomini.declined');
+Route::post('nomini/delete/{id}', [NominiController::class, 'nominidelete'])->name('nomini.delete');
+
 
 //create a 
 

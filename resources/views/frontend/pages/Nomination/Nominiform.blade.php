@@ -29,8 +29,8 @@
                                         <label for="form-label" class="form-label"><span
                                                 class="text-danger">*</span> Votetype </label>
 
-                                                <input type="hidden" value="{{ $singlevalue->id }}" name="id"
-                                                class="form-control py-3 input_color" placeholder="">
+                                        <input type="hidden" value="{{ $singlevalue->id }}" name="id"
+                                        class="form-control py-3 input_color" placeholder="">
                                         <input type="text" readonly value="{{ $singlevalue->votetype }}" name="votetype"
                                             class="form-control py-3 input_color" placeholder="Enter votetype">
                                         @error('votetype')
