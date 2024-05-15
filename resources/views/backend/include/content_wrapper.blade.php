@@ -14,27 +14,31 @@
                             <th>Tehsil Name</th>
                             <th>Votetype</th>
                             <th>Action </th>
-    
+
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-    
-    
-    
+
+
+
                         @foreach ($vote as $index => $singlevalue)
                             <tr>
                                 <td>
-    
+
                                     <span class="fw-medium ms-2">{{ $index + 1 }}</span>
                                 </td>
                                 <td>{{ $singlevalue->tehsil }}</td>
-    
+
                                 <td><span class="badge bg-label-success me-1">{{ $singlevalue->votetype }}</span></td>
                                 <td>
                                     <div class="dropdown">
-                                       
-                                        <a class="btn btn-primary" href="{{ route('nomini.form',$singlevalue->id) }}"><i
-                                                class="ti ti-pencil me-2"></i> Apply</a>
+
+                                        <a class="btn btn-primary" href="{{ route('nomini.form', $singlevalue->id) }}"><i
+                                                class=" me-2"></i> Apply</a>
+                                        <a href="{{ route('vote.details',$singlevalue->votetype) }}">
+                                            <h4 class="mt-3 btn btn-primary">Vote now</h4>
+                                        </a>
+
                                     </div>
                                 </td>
                             </tr>
@@ -43,7 +47,13 @@
                 </table>
             </div>
         </div>
-       
+
+
+        {{-- <div class="m-4">
+            <h5>Voting system</h5>
+        </div> --}}
+
+
         <!-- / Content -->
 
         <!-- Footer -->

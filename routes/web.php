@@ -244,6 +244,11 @@ Route::get('voteannounce/edit/{id}', [VoteController::class, 'voteannounceedit']
 Route::get('voteannounce/delete/{id}', [VoteController::class, 'voteannouncedelete'])->name('voteannounce.delete');
 
 
+Route::get('vote/details/{votetype}', [VoteController::class, 'votedetails'])->name('vote.details');
+Route::get('vote/nomini/{voteposition}', [VoteController::class, 'voteposition'])->name('vote.nomini');
+Route::post('vote/result', [VoteController::class, 'voteresult'])->name('voteresult.store');
+
+
 // Notification 
 
 Route::post('notifications/mark-as-read/{id}', NotificationController::class, 'markAsRead')->name('notifications.markAsRead');
