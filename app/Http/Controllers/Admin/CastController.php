@@ -24,8 +24,9 @@ class CastController extends Controller
         public function store(Request $request)
         {
             $request->validate([
-                'name' => 'required',
-                'code' => 'required',
+                'name'    => 'required|unique:casts,name',
+                'code'    => 'required',
+                'content' => 'required'
             ]);     
             
 
@@ -36,10 +37,10 @@ class CastController extends Controller
                 
 
             Cast::create([
-                'name'  => $request->name,
-                'code'  => $request->code,
-                'content'  => $request->content,
-                'image' => $path,
+                'name'    => $request->name,
+                'code'    => $request->code,
+                'content' => $request->content,
+                'image'   => $path,
             ]);
             return redirect()->route('cast.index')->with('success','Created successfully.');
         }
@@ -56,13 +57,14 @@ class CastController extends Controller
         {
             
             $request->validate([
-                'name' => 'required',
-                'code' => 'required',
+                'name'    => 'required|unique:casts,name',
+                'code'    => 'required',
+                'content' => 'required'
             ]);
             
 
             if ($request->hasFile('castimage')) {
-                  // Handle image upload
+                    // Handle image upload
                 $image      = $request->file('castimage');
                 $imageName  = time() . '.' . $image->getClientOriginalExtension();
                 $path       = '/admin/Cast/'.$imageName;
@@ -73,13 +75,13 @@ class CastController extends Controller
             $cast = Cast::find($request->id);
              
             if ($cast) {
-                // Update the record
+                  // Update the record
                 $cast->update([
                     
-                    'name' => $request->name,
-                    'code' => $request->code,
+                    'name'    => $request->name,
+                    'code'    => $request->code,
                     'content' => $request->content,
-                    'image'  => isset($path) ? $path : $cast->image,
+                    'image'   => isset($path) ? $path : $cast->image,
                   
                 ]);
         

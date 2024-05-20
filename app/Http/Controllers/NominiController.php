@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Nomini;
-use Session;
 use Stripe;
+use Session;
+use App\Models\Nomini;
 use App\Models\Voteannounce;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class NominiController extends Controller
@@ -19,7 +20,7 @@ class NominiController extends Controller
 
     public function nominiform($id){
         
-        $voteannouncement =  Voteannounce::where('id',$id)->get();
+        $voteannouncement = Voteannounce::where('id',$id)->get();
         return view('frontend.pages.Nomination.Nominiform',compact('voteannouncement'));
     }
 
@@ -35,7 +36,7 @@ class NominiController extends Controller
         $request->session()->put('charge', $request->charge);
         $request->session()->put('position', $request->position);
 
-        // $request->session()->put('formData', $request->all());
+          // $request->session()->put('formData', $request->all());
 
         return redirect()->route('stripe')->with('success','Please Payment $'.Session::get('charge'));
 
@@ -56,12 +57,12 @@ class NominiController extends Controller
                 "description" => "Thanks for the payment."
         ]);
         
-        // Session::get('amount');
+          // Session::get('amount');
         Session::flash('success', 'Payment successful!');
 
 
        $nomini = Nomini::create([
-            'nomini_id'          => Session::get('id'),
+            'nomini_id'        => Auth::id(),
             'country'          => Session::get('country'),
             'district'         => Session::get('district'),
             'tehsil'           => Session::get('tehsil'),
@@ -74,7 +75,7 @@ class NominiController extends Controller
             'stripe_token'     => 'see your stripe account',
             'payment_type'     => 'Stripe',
         ]);
-        // dd($nomini);
+          // dd($nomini);
     
         return back();
     }
@@ -83,8 +84,8 @@ class NominiController extends Controller
     public function approve(Request $request){
 
         $nomini = Nomini::find($request->id);
-        // dd($nomini); 
-        $nomini->status = '1';    
+          // dd($nomini); 
+        $nomini->status = '1';
         $nomini->save();
       
         return redirect()->back()->with('success', 'Nomination approved successfully.');
@@ -93,8 +94,8 @@ class NominiController extends Controller
     public function declined(Request $request){
 
         $nomini = Nomini::find($request->id);
-        // dd($nomini); 
-        $nomini->status = '0';    
+          // dd($nomini); 
+        $nomini->status = '0';
         $nomini->save();
       
         return redirect()->back()->with('success', 'Nomination declined successfully.');

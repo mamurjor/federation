@@ -3,9 +3,9 @@
       <div class="row m-5">
         <div class="col-xl">
             <div class="card m-3">
-                <di class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-header d-flex justify-content-between align-items-center">
                   <h5>Nomini Form</h5>
-                </di v>
+                </div>
 
                 <div class="card-body">
 
@@ -20,8 +20,8 @@
                                
                                 </div>
                             @endif
-                            <div class="col-md-12">
 
+                            <div class="col-md-12">
 
                                 @foreach ($voteannouncement as $singlevalue )
                                 <div class="mb-6">

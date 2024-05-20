@@ -9,12 +9,15 @@ use App\Models\Country;
 use App\Models\District;
 use App\Models\Votetype;
 use App\Models\Voteannounce;
-use Illuminate\Http\Request;
 use App\Models\VotingPositionType;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 use App\Events\VoteAnnouncementPosted;
+use App\Mail\OtpMail;
 use App\Models\VoteResult;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class VoteController extends Controller
 {
@@ -33,7 +36,7 @@ class VoteController extends Controller
             public function votestore(Request $request)
             {
                 $request->validate([
-                    'name' => 'required',
+                    'name' => 'required|unique:votetypes,name',
                     'code' => 'required',
                 ]);     
                 Votetype::create($request->post());
@@ -55,17 +58,17 @@ class VoteController extends Controller
             {
                 
                 $request->validate([
-                    'name' => 'required',
+                    'name' => 'required|unique:votetypes,name',
                     'code' => 'required',
                 ]);
 
                 $votetype = Votetype::find($request->id);
                 if ($votetype) {
-                    // Modify the attributes of the model
+                          // Modify the attributes of the model
                     $votetype->name = $request->name;
                     $votetype->code = $request->code;
                     
-                    // Call the save() method to persist the changes
+                          // Call the save() method to persist the changes
                     $votetype->save();
                 }
                 
@@ -88,7 +91,7 @@ class VoteController extends Controller
             }
 
 
-            //  vote position 
+                  //  vote position 
 
 
 
@@ -107,7 +110,7 @@ class VoteController extends Controller
             public function votepositionstore(Request $request)
             {
                 $request->validate([
-                    'name'   => 'required',
+                    'name'   => 'required|unique:voting_position_types,name',
                     'code'   => 'required',
                     'charge' => 'required',
                 ]);     
@@ -130,19 +133,19 @@ class VoteController extends Controller
             {
                 
                 $request->validate([
-                    'name'   => 'required',
+                    'name'   => 'required|unique:voting_position_types,name',
                     'code'   => 'required',
                     'charge' => 'required',
                 ]);
 
                 $votepositiontype = VotingPositionType::find($request->id);
                 if ($votepositiontype) {
-                    // Modify the attributes of the model
+                          // Modify the attributes of the model
                     $votepositiontype->name   = $request->name;
                     $votepositiontype->code   = $request->code;
                     $votepositiontype->charge = $request->charge;
                     
-                    // Call the save() method to persist the changes
+                          // Call the save() method to persist the changes
                     $votepositiontype->save();
                 }
                 
@@ -166,7 +169,7 @@ class VoteController extends Controller
 
 
 
-            //  voteannounce
+                  //  voteannounce
 
             public function voteannounceindex()
             {
@@ -226,7 +229,7 @@ class VoteController extends Controller
                 event(new VoteAnnouncementPosted($saveinfo));
 
 
-                //  dd($saveinfo);
+                      //  dd($saveinfo);
                 return redirect()->route('voteannounce.index')->with('success','Created successfully.');
             }
 
@@ -245,7 +248,7 @@ class VoteController extends Controller
             public function voteannounceupdate(Request $request)
             {
                 if ($request->hasFile('votemage')) {
-                    // Handle image upload
+                          // Handle image upload
                     $image      = $request->file('voteimage');
                     $imageName  = time() . '.' . $image->getClientOriginalExtension();
                     $path       = '/admin/vote/'.$imageName;
@@ -256,7 +259,7 @@ class VoteController extends Controller
 
 
 
-                //  dd($matromonial);
+                      //  dd($matromonial);
                 $position_type = serialize($request->votepositiontype);
 
 
@@ -272,7 +275,7 @@ class VoteController extends Controller
                 ]);
                 
                 if ($voteannounce) {
-                    // Update the record
+                          // Update the record
                     $voteannounce->update([
                     'country'          => $request->country,
                     'district'         => $request->district,
@@ -307,56 +310,97 @@ class VoteController extends Controller
 
             public function getCharge(Request $request) {
                 $positionName = $request->positionName;
-                // Fetch charge value from Votepositiontype table based on $positionName
+                      // Fetch charge value from Votepositiontype table based on $positionName
                 $charge = VotingPositionType::where('name', $positionName)->value('charge');
                 return response()->json(['charge' => $charge]);
             }
 
 
-            public function votedetails($votetype){
+            public function votedetails(){
                         
-                    
+                $user = User::where('id', Auth::id())->first();
 
-                $client      = User::where('id', Auth::id())->first();
-                $nomini_list = Nomini::select('votepositiontype', DB::raw('count(*) as total_votes'))
-                ->where('votetype', $votetype)
-                ->groupBy('votepositiontype')
-                ->get();
                 
+                $nomini_list = Nomini::where('tehsil' , $user->tehsil)->with('user')->get();
                 
-                ///Nomini::where('tehsil', $client->tehsil)->where('votetype',$votetype)->groupBy('votepositiontype')->get();
                 return view('frontend.pages.votedetails.votedetails',compact('nomini_list'));
 
             }
 
-            public function voteposition($voteposition){
-                
+
+            //vote result
+
+            public function sendOtp(Request $request)
+            {
+                $otp = rand(100000, 999999);
+        
+                // Store OTP in session
+                session()->put('otp', $otp);
+        
+                // Send OTP via email
+                $email = $request->email;
+        
+                try {
+                    Mail::to($email)->send(new OtpMail($otp));
+                    Log::info('OTP email sent successfully');
+                    return response()->json(['success' => true]);
+                } catch (\Exception $e) {
+                    Log::error('Failed to send OTP email:', ['error' => $e->getMessage()]);
+                    return response()->json(['success' => false, 'message' => 'Failed to send OTP email.']);
+                }
+            }
+        
+            public function verifyOtp(Request $request)
+            {
+                $enteredOtp = $request->otp;
+                $storedOtp = session('otp');
+        
+                // Log the entered OTP and stored OTP for debugging
+                Log::info('Entered OTP: ' . $enteredOtp);
+                Log::info('Stored OTP: ' . $storedOtp);
+        
+                if ($enteredOtp == $storedOtp) {
+                    return response()->json(['success' => true]);
+                } else {
+                    return response()->json(['success' => false, 'message' => 'Invalid OTP']);
+                }
+            }
+        
+            public function storeVoteData(Request $request)
+            {
+                try {
+                    // Log the request data for debugging
+                    
+                    Log::info('Store Vote Data Request:', $request->all());
             
-                $client      = User::where('id', Auth::id())->first();
-                $nomini_list = Nomini::where('votepositiontype', $voteposition)
-                ->get();
-
-                // foreach($nomini_list as $nomini){
-
-                //     $user = User::where('id',$nomini->nomini_id)->first();
-                // }
-
-                return response($nomini_list);
-                
+                    // Create a new vote result entry
+                    VoteResult::create([
+                        'user_id' => Auth::id(),
+                        'nomini_id' => $request->nomini_id,
+                        'votepositiontype' => $request->votepositiontype,
+                        'votetype' => $request->votetype,
+                        'votingdate' => $request->votingdate,
+                        'country' => $request->country,
+                        'district' => $request->district,
+                        'tehsil' => $request->tehsil,
+                    ]);
+            
+                    // Log success message
+                    Log::info('Vote data stored successfully');
+            
+                    return response()->json(['success' => true]);
+                } catch (\Exception $e) {
+                    // Log the error message
+                    Log::error('Failed to store vote data:', ['error' => $e->getMessage()]);
+                    return response()->json(['success' => false, 'message' => 'Failed to store vote data.']);
+                } 
             }
 
-
-            public function voteresult(Request $request){
-
-                VoteResult::create([
-                    'user_id' => Auth::id(),
-                    'nomini_id' => $request->vote,
-                    'position' => $request->positiontype,
-                ]);
-
-                return redirect()->back();
-
+            public function __construct()
+            {
+                $this->middleware('auth');
             }
+
 
 
 }

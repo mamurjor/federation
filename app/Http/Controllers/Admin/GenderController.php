@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 class GenderController extends Controller
 {
-    //
+      //
     
     
  public function index()
@@ -28,7 +28,7 @@ class GenderController extends Controller
  {
      $request->validate([
          'name' => 'required',
-         'code' => 'required',       
+         'code' => 'required',
      ]);     
      Gender::create($request->post());
      return redirect()->route('gender.index')->with('success','Created successfully.');
@@ -38,13 +38,13 @@ class GenderController extends Controller
 
  {
 
-    // dd($id);
+      // dd($id);
  
 
     $genders = Gender::where('id', $id)->first();
        
  
-    //$country = Country::where('id',1)->get();
+      //$country = Country::where('id',1)->get();
 
      return view('backend.page.gender.edit',compact('genders'));
  }
@@ -54,7 +54,7 @@ class GenderController extends Controller
     
     $request->validate([
         'name' => 'required',
-        'code' => 'required',       
+        'code' => 'required',
     ]);
 
 
@@ -62,11 +62,11 @@ class GenderController extends Controller
  
     $gender = Gender::find($request->id);
     if ($gender) {
-        // Modify the attributes of the model
+          // Modify the attributes of the model
         $gender->name = $request->name;
-        $gender->code =  $request->code;
+        $gender->code = $request->code;
         
-        // Call the save() method to persist the changes
+          // Call the save() method to persist the changes
         $gender->save();
     }
     

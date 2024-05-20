@@ -11,6 +11,12 @@ class VoteResult extends Model
 
     protected $fillable = [
         'user_id',
+        'votepositiontype',
+        'votetype',
+        'votingdate',
+        'country',
+        'district',
+        'tehsil',
         'nomini_id',
         'position'
     ];

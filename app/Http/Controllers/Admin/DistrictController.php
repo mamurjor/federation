@@ -13,7 +13,7 @@ use function Laravel\Prompts\alert;
 
 class DistrictController extends Controller
 {
-    //
+      //
     
  public function index()
  {
@@ -26,23 +26,23 @@ class DistrictController extends Controller
    
 
    
-    $districtcode =substr($cnic,1,1);
-    $tehsilcode =substr($cnic,2,1);
-    $length = strlen($cnic);
-    $gendercode = $cnic[$length -1];  
+    $districtcode = substr($cnic,1,1);
+    $tehsilcode   = substr($cnic,2,1);
+    $length       = strlen($cnic);
+    $gendercode   = $cnic[$length -1];
     
 
 
-    $district = District::where('code', $districtcode)->first();
-    $tehsil = Tehsil::where('code', $tehsilcode)->first();
+    $district  = District::where('code', $districtcode)->first();
+    $tehsil    = Tehsil::where('code', $tehsilcode)->first();
     $getgender = Gender::where('code', $gendercode)->first();
 
 
     return response()->json([
 
         'district' => $district->name,
-        'tehsil' => $tehsil->name,
-        'gender' => $getgender->name
+        'tehsil'   => $tehsil->name,
+        'gender'   => $getgender->name
     ]);
 
 
@@ -58,9 +58,9 @@ class DistrictController extends Controller
  public function store(Request $request)
  {
      $request->validate([
-         'name' => 'required',
-         'code' => 'required',       
-         'country' => 'required',       
+         'name'    => 'required|unique:districts,name',
+         'code'    => 'required',
+         'country' => 'required',
      ]);     
      District::create($request->post());
      return redirect()->route('district.index')->with('success','Created successfully.');
@@ -82,8 +82,8 @@ class DistrictController extends Controller
  {
     
     $request->validate([
-        'name' => 'required',
-        'code' => 'required',
+        'name'    => 'required|unique:districts,name',
+        'code'    => 'required',
         'country' => 'required',
             
     ]);
@@ -93,12 +93,12 @@ class DistrictController extends Controller
  
     $district = District::find($request->id);
     if ($district) {
-        // Modify the attributes of the model
-        $district->name = $request->name;
-        $district->code =  $request->code;
-        $district->country =  $request->country;
+          // Modify the attributes of the model
+        $district->name    = $request->name;
+        $district->code    = $request->code;
+        $district->country = $request->country;
         
-        // Call the save() method to persist the changes
+          // Call the save() method to persist the changes
         $district->save();
     }
     
@@ -122,13 +122,13 @@ class DistrictController extends Controller
 
  public function fetchDistrict(Request $request)
  {
-     $cnic = $request->input('cnic_no');    
+     $cnic = $request->input('cnic_no');
      dd($cnic);
      
-     // Match CNIC number with district code
-     $districtCode = substr($cnic, 1, 1); 
+       // Match CNIC number with district code
+     $districtCode = substr($cnic, 1, 1);
      
-     // Fetch district name based on district code
+       // Fetch district name based on district code
      $district = District::where('code', $districtCode)->first();
 
      if ($district) {

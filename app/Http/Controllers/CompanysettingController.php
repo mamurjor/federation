@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class CompanysettingController extends Controller
 {
-    //
+      //
     public function __construct()
     {
-       // $this->middleware('auth');
+         // $this->middleware('auth');
     }
 
     public function companysettingform(){
@@ -71,7 +71,7 @@ class CompanysettingController extends Controller
 
 
         if ($request->hasFile('flogo')) {
-            $image = $request->file('flogo');
+            $image     = $request->file('flogo');
             $flogopath = '/admin/setting/' . time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('admin/setting'), $flogopath);
             Setting::updateOrCreate(['key' => 'flogo'], ['value' => $flogopath]);
@@ -80,36 +80,36 @@ class CompanysettingController extends Controller
 
         if ($request->hasFile('paymentmethod')) {
             $imagepaymentmethod = $request->file('paymentmethod');
-            $paymentmethodpath = '/admin/setting/' . time() . '.' . $imagepaymentmethod->getClientOriginalExtension();
+            $paymentmethodpath  = '/admin/setting/' . time() . '.' . $imagepaymentmethod->getClientOriginalExtension();
             $imagepaymentmethod->move(public_path('admin/setting'), $paymentmethodpath);
             Setting::updateOrCreate(['key' => 'paymentmethod'], ['value' => $paymentmethodpath]);
         }
 
-        // if ($request->hasFile('visa')) {
-        //     $imagevisa = $request->file('visa');
-        //     $visapath = '/admin/setting/' . time() . '.' . $imagevisa->getClientOriginalExtension();
-        //     $imagevisa->move(public_path('admin/setting'), $visapath);
-        //     Setting::updateOrCreate(['key' => 'visa'], ['value' => $visapath]);
-        // }
+          // if ($request->hasFile('visa')) {
+          //     $imagevisa = $request->file('visa');
+          //     $visapath = '/admin/setting/' . time() . '.' . $imagevisa->getClientOriginalExtension();
+          //     $imagevisa->move(public_path('admin/setting'), $visapath);
+          //     Setting::updateOrCreate(['key' => 'visa'], ['value' => $visapath]);
+          // }
         
-        // if ($request->hasFile('mastercard')) {
-        //     $imagemastercard = $request->file('mastercard');
-        //     $mastercardpath = '/admin/setting/' . time() . '.' . $imagemastercard->getClientOriginalExtension();
-        //     $imagemastercard->move(public_path('admin/setting'), $mastercardpath);
-        //     Setting::updateOrCreate(['key' => 'mastercard'], ['value' => $mastercardpath]);
-        // }
-        // if ($request->hasFile('discover')) {
-        //     $imagediscover = $request->file('discover');
-        //     $discoverpath = '/admin/setting/' . time() . '.' . $imagediscover->getClientOriginalExtension();
-        //     $imagediscover->move(public_path('admin/setting'), $discoverpath);
-        //     Setting::updateOrCreate(['key' => 'discover'], ['value' => $discoverpath]);
-        // }
-        // if ($request->hasFile('american')) {
-        //     $imageamerican = $request->file('american');
-        //     $americanpath = '/admin/setting/' . time() . '.' . $imageamerican->getClientOriginalExtension();
-        //     $imageamerican->move(public_path('admin/setting'), $americanpath);
-        //     Setting::updateOrCreate(['key' => 'american'], ['value' => $americanpath]);
-        // }
+          // if ($request->hasFile('mastercard')) {
+          //     $imagemastercard = $request->file('mastercard');
+          //     $mastercardpath = '/admin/setting/' . time() . '.' . $imagemastercard->getClientOriginalExtension();
+          //     $imagemastercard->move(public_path('admin/setting'), $mastercardpath);
+          //     Setting::updateOrCreate(['key' => 'mastercard'], ['value' => $mastercardpath]);
+          // }
+          // if ($request->hasFile('discover')) {
+          //     $imagediscover = $request->file('discover');
+          //     $discoverpath = '/admin/setting/' . time() . '.' . $imagediscover->getClientOriginalExtension();
+          //     $imagediscover->move(public_path('admin/setting'), $discoverpath);
+          //     Setting::updateOrCreate(['key' => 'discover'], ['value' => $discoverpath]);
+          // }
+          // if ($request->hasFile('american')) {
+          //     $imageamerican = $request->file('american');
+          //     $americanpath = '/admin/setting/' . time() . '.' . $imageamerican->getClientOriginalExtension();
+          //     $imageamerican->move(public_path('admin/setting'), $americanpath);
+          //     Setting::updateOrCreate(['key' => 'american'], ['value' => $americanpath]);
+          // }
      
         
        
@@ -142,7 +142,7 @@ class CompanysettingController extends Controller
 
         if ($request->hasFile('hlogo')) {
             $imagehlogo = $request->file('hlogo');
-            $hlogopath = '/admin/setting/' . time() . '.' . $imagehlogo->getClientOriginalExtension();
+            $hlogopath  = '/admin/setting/' . time() . '.' . $imagehlogo->getClientOriginalExtension();
             $imagehlogo->move(public_path('admin/setting'), $hlogopath);
             Setting::updateOrCreate(['key' => 'hlogo'], ['value' => $hlogopath]);
         }

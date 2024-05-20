@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\MissionSectionController;
 use App\Http\Controllers\AllNotifiController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\NominiController;
+use App\Http\Controllers\OtpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -157,7 +158,6 @@ Route::get('verify-code/{token}',[VerifyUserController::class,'verifiedCode'])->
 
 
 
-//------------ Home Page Route ------------//
 
 Route::get('country/{country}', [CountryController::class, 'GetuserBycontry'])->name('country.list');
 
@@ -244,9 +244,15 @@ Route::get('voteannounce/edit/{id}', [VoteController::class, 'voteannounceedit']
 Route::get('voteannounce/delete/{id}', [VoteController::class, 'voteannouncedelete'])->name('voteannounce.delete');
 
 
-Route::get('vote/details/{votetype}', [VoteController::class, 'votedetails'])->name('vote.details');
-Route::get('vote/nomini/{voteposition}', [VoteController::class, 'voteposition'])->name('vote.nomini');
+Route::get('vote/details', [VoteController::class, 'votedetails'])->name('vote.details');
 Route::post('vote/result', [VoteController::class, 'voteresult'])->name('voteresult.store');
+
+
+// OTP
+Route::post('/send-otp', [VoteController::class, 'sendOtp'])->name('send.otp');
+Route::post('/verify-otp', [VoteController::class, 'verifyOtp'])->name('verify.otp');
+Route::post('/store-vote-data', [VoteController::class, 'storeVoteData'])->name('store.vote.data');
+
 
 
 // Notification 

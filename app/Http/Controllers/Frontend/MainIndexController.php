@@ -27,12 +27,12 @@ class MainIndexController extends Controller
 
         $countries = Country::all();
         $districts = District::all();
-        $tehsils = Tehsil::all();
-        $casts = Cast::all();
+        $tehsils   = Tehsil::all();
+        $casts     = Cast::all();
 
-        $HeroSections = HeroSection::all();
+        $HeroSections    = HeroSection::all();
         $MissionSections = MissionSection::all();
-        $sliersections = sliersection::all();
+        $sliersections   = sliersection::all();
         
 
 
@@ -42,9 +42,9 @@ class MainIndexController extends Controller
 
 
     public function classified(){
-        $classified = Classified::where('status', 'active')->get();
+        $classified    = Classified::where('status', 'active')->get();
         $allprofession = Profession::all();
-        $getalltehsil = Tehsil::all();
+        $getalltehsil  = Tehsil::all();
         return view('frontend.pages.classifiedall.classifiedall',compact('classified','allprofession','getalltehsil'));
     }
 
@@ -52,10 +52,10 @@ class MainIndexController extends Controller
 
         $matromonial = Matromonial::where('status', 'active')->get();
 
-        $getalltehsil = Tehsil::all();
-        $marital = Matromonialmarital::all();
-        $allreligion = Matromonialreligion::all();
-        $allcast = Cast::all();
+        $getalltehsil  = Tehsil::all();
+        $marital       = Matromonialmarital::all();
+        $allreligion   = Matromonialreligion::all();
+        $allcast       = Cast::all();
         $allprofession = Profession::all();
         
         return view('frontend.pages.matromonialall.matromonialall',compact('matromonial','getalltehsil','marital','allreligion','allcast','allprofession'));
@@ -85,8 +85,8 @@ class MainIndexController extends Controller
 
     public function blogsingle($id){
         $singleblog = BlogPost::where('id', $id)->first();
-        $user = User::where('id', $singleblog->user_id)->first();
-        $category = Blogcategories::where('id', $singleblog->category_id)->first();
+        $user       = User::where('id', $singleblog->user_id)->first();
+        $category   = Blogcategories::where('id', $singleblog->category_id)->first();
         return view('backend.blog.singleblog',compact('singleblog','user','category'));
     }
 

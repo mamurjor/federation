@@ -21,17 +21,30 @@
                                             src="./img/home_page/our_misson_section/leftiimg.png" alt=""></div>
                                 </div>
                             </div>
+
+
+                            @if (Session::has('success'))
+                                <div class="text-success fw-bold my-2 text-center">
+                                    {{-- <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a> --}}
+                                    <p>{{ Session::get('success') }}</p>
+                                </div>
+                            @endif
+
+
                             <form action="{{ route('user.register.store') }}" method="POST">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <div class="form-group">
-                                                <label for="form-label"  class="form-label">CNIC No. <span
+                                                <label for="form-label" class="form-label">CNIC No. <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" id="cnic_no" name="cnic_no" class="form-control py-3 input_color"
-                                                    placeholder="35220 - 1506373 -1">
+                                                <input type="text" id="cnic_no" name="cnic_no"
+                                                    class="form-control py-3 input_color" placeholder="35220 - 1506373 -1">
                                             </div>
+                                            @error('cnic_no')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -41,6 +54,9 @@
                                                         class="text-danger">*</span></label>
                                                 <input type="text" name="fname" class="form-control py-3 input_color"
                                                     placeholder="Write your First name">
+                                                @error('fname')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -51,6 +67,9 @@
                                                         class="text-danger">*</span></label>
                                                 <input type="text" name="mname" class="form-control py-3 input_color"
                                                     placeholder="Write your Middle Name">
+                                                @error('mname')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -61,6 +80,9 @@
                                                         class="text-danger">*</span></label>
                                                 <input type="text" name="lname" class="form-control py-3 input_color"
                                                     placeholder="Write your last name">
+                                                @error('lname')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -69,8 +91,11 @@
                                             <div class="form-group">
                                                 <label for="form-label" class="form-label">District <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" readonly id="district"  name="district" value=""
+                                                <input type="text" readonly id="district" name="district" value=""
                                                     class="form-control py-3 input_color" placeholder="">
+                                                @error('district')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
 
                                             </div>
                                         </div>
@@ -83,7 +108,9 @@
                                                         class="text-danger">*</span></label>
                                                 <input type="text" readonly id="tehsil" name="tehsil" value=""
                                                     class="form-control py-3 input_color" placeholder="">
-
+                                                @error('tehsil')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -95,6 +122,9 @@
                                                         class="text-danger">*</span></label>
                                                 <input type="text" readonly name="gender" id="gender"
                                                     value="" class="form-control py-3 input_color" placeholder="">
+                                                @error('gender')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -113,10 +143,14 @@
                                                     @endforeach
 
                                                 </select>
+                                                @error('cast')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+
                                             </div>
                                         </div>
                                     </div>
-                                 
+
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <div class="form-group">
@@ -126,10 +160,14 @@
                                                     class="form-control input_color py-3">
                                                     <option value="">Select Profession</option>
                                                     @foreach ($professions as $index => $singlevalue)
-                                                        <option value="{{ $singlevalue->name }}"> {{ $singlevalue->name }}
+                                                        <option value="{{ $singlevalue->name }}">
+                                                            {{ $singlevalue->name }}
                                                         </option>
                                                     @endforeach
                                                 </select>
+                                                @error('profession')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -143,11 +181,15 @@
                                                     class="form-control input_color py-3">
                                                     <option value="">Select country of Residence</option>
                                                     @foreach ($countries as $index => $singlevalue)
-                                                        <option value="{{ $singlevalue->name }}"> {{ $singlevalue->name }}
+                                                        <option value="{{ $singlevalue->name }}">
+                                                            {{ $singlevalue->name }}
                                                         </option>
                                                     @endforeach
 
                                                 </select>
+                                                @error('country_residence')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
 
                                             </div>
                                         </div>
@@ -159,6 +201,9 @@
                                                         class="text-danger">*</span></label>
                                                 <input type="text" name="address_one"
                                                     class="form-control py-3 input_color" placeholder="Address Line 1">
+                                                @error('address_one')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -169,6 +214,9 @@
                                                         class="text-danger">*</span></label>
                                                 <input type="text" name="address_two"
                                                     class="form-control py-3 input_color" placeholder="Address Line 2">
+                                                @error('address_two')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -179,6 +227,9 @@
                                                         class="text-danger">*</span></label>
                                                 <input type="text" name="your_city"
                                                     class="form-control py-3 input_color" placeholder="Your City">
+                                                @error('your_city')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -189,6 +240,9 @@
                                                         class="text-danger">*</span></label>
                                                 <input type="text" name="phone"
                                                     class="form-control py-3 input_color" placeholder="Phone No">
+                                                @error('phone')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -199,6 +253,9 @@
                                                         class="text-danger">*</span></label>
                                                 <input type="text" name="email"
                                                     class="form-control py-3 input_color" placeholder="Write your Email">
+                                                @error('email')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -209,6 +266,9 @@
                                                         class="text-danger">*</span></label>
                                                 <input type="password" name="password"
                                                     class="form-control py-3 input_color" placeholder="#######">
+                                                @error('password')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -219,17 +279,21 @@
                                                         class="text-danger">*</span></label>
                                                 <input type="password" name="password_confirmation"
                                                     class="form-control py-3 input_color" placeholder="#######">
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <div class="form-group align-items-center">
-                                                <input class="form-check-input p-3" type="checkbox" value=""
-                                                    id="flexCheckChecked" checked>
+                                                <input name="agree" class="form-check-input p-3" type="checkbox"
+                                                    value="" id="flexCheckChecked">
                                                 <label class="form-check-label pt-2" for="flexCheckChecked">
                                                     I hereby accept the <span>Terms and conditions</span>
                                                 </label>
+                                                @error('agree')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -276,15 +340,15 @@
         $("#cnic_no").change(function() {
 
             var cnic_no = $('#cnic_no').val();
-          
+
             $.ajax({
-                url: '{{ route('getdistrictbycnic', ':cnic_no') }}'.replace(':cnic_no',cnic_no
-                    ),
+                url: '{{ route('getdistrictbycnic', ':cnic_no') }}'.replace(':cnic_no',
+                    cnic_no),
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
 
-                     //alert(response.gender)
+                    //alert(response.gender)
                     $('#district').val(response.district);
                     $('#tehsil').val(response.tehsil);
                     $('#gender').val(response.gender);
@@ -317,8 +381,6 @@
             });
 
         });
-        //var value = $('#dropDownId').val();
 
     });
 </script>
-    

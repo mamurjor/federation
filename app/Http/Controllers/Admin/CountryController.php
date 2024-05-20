@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Cast;
+use App\Models\User;
 use App\Models\Tehsil;
 use App\Models\Country;
 use App\Models\District;
@@ -12,11 +13,11 @@ use Illuminate\Http\Request;
 use App\Models\MissionSection;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Http\Requests\StoreCountryRequest;
 
 class CountryController extends Controller
 {
-    //
+      //
 
     
  public function index()
@@ -35,12 +36,12 @@ class CountryController extends Controller
     $countries = Country::all();
    
     $districts = District::all();
-    $tehsils = Tehsil::all();
-    $casts = Cast::all();
+    $tehsils   = Tehsil::all();
+    $casts     = Cast::all();
 
-    $HeroSections = HeroSection::all();
+    $HeroSections    = HeroSection::all();
     $MissionSections = MissionSection::all();
-    $sliersections = sliersection::all();
+    $sliersections   = sliersection::all();
      return view('frontend.pages.homepage.countrylist',compact('getuserbycountry','countries','districts','tehsils','HeroSections','MissionSections','sliersections','casts'));
  }
 
@@ -52,8 +53,8 @@ class CountryController extends Controller
  public function store(Request $request)
  {
      $request->validate([
-         'name' => 'required|string|max:255',
-         'code' =>  'required|string|max:255',      
+         'name' => 'required|string|max:255|unique:countries,name',
+         'code' => 'required|string|max:255',
      ]);     
      Country::create($request->post());
      return redirect()->route('country.index')->with('success','Created successfully.');
@@ -74,8 +75,8 @@ class CountryController extends Controller
  {
     
     $request->validate([
-        'name' => 'required',
-        'code' => 'required',       
+        'name' => 'required|unique:countries,name',
+        'code' => 'required',
     ]);
 
 
@@ -83,11 +84,11 @@ class CountryController extends Controller
  
     $country = Country::find($request->id);
     if ($country) {
-        // Modify the attributes of the model
+          // Modify the attributes of the model
         $country->name = $request->name;
-        $country->code =  $request->code;
+        $country->code = $request->code;
         
-        // Call the save() method to persist the changes
+          // Call the save() method to persist the changes
         $country->save();
     }
     

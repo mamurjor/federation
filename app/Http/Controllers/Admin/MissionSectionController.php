@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 
 class MissionSectionController extends Controller
 {
-    //
+      //
     
  public function index()
  {
@@ -28,38 +28,38 @@ class MissionSectionController extends Controller
  {
 
     
-      $image = $request->file('sliderimage');
-      $imageName = time() . '.' . $image->getClientOriginalExtension();
-      $path = '/admin/slider/'.$imageName;
-      $image_path =   $image->move(public_path('admin/slider'), $imageName);
+      $image      = $request->file('sliderimage');
+      $imageName  = time() . '.' . $image->getClientOriginalExtension();
+      $path       = '/admin/slider/'.$imageName;
+      $image_path = $image->move(public_path('admin/slider'), $imageName);
       
   
      $request->validate([
-        'title' => 'required',
-        'slogan' => 'required',    
-        'description' =>'required',
-        'button_one_text' => 'required',  
-        'button_one_url' => 'required',       
-        'button_two_url' => 'required',              
-        'button_two_text' => 'required',              
+        'title'           => 'required',
+        'slogan'          => 'required',
+        'description'     => 'required',
+        'button_one_text' => 'required',
+        'button_one_url'  => 'required',
+        'button_two_url'  => 'required',
+        'button_two_text' => 'required',
      ]);     
      
      $data =[
 
-        'title' => $request->title,
-        'slogan' => $request->slogan, 
-        'slug' =>  Str::slug($request->title),
-        'imageurl' => $path,
-        'button_one_text' => $request->button_one_text, 
-        'description' =>  $request->description,     
-        'button_one_url' => $request->button_one_url,       
-        'button_two_text' => $request->button_two_text, 
-        'button_two_url' => $request->button_two_url,
+        'title'           => $request->title,
+        'slogan'          => $request->slogan,
+        'slug'            => Str::slug($request->title),
+        'imageurl'        => $path,
+        'button_one_text' => $request->button_one_text,
+        'description'     => $request->description,
+        'button_one_url'  => $request->button_one_url,
+        'button_two_text' => $request->button_two_text,
+        'button_two_url'  => $request->button_two_url,
         
         
     ];
     
-    //dd($data);
+      //dd($data);
     MissionSection::create($data);
     return redirect()->route('missionsection.index')->with('success','Created successfully.');
 }
@@ -68,7 +68,7 @@ public function edit($id)
 
 {
     
-    $missionSections = MissionSection::where('id', $id)->first();  
+    $missionSections = MissionSection::where('id', $id)->first();
     
     return view('backend.page.missionsection.edit',compact('missionSections'));
 }
@@ -77,21 +77,21 @@ public function update(Request $request)
 {
     
     $request->validate([
-       'title' => 'required',
-       'slogan' => 'required',    
-       'description' =>'required',
-       'button_one_text' => 'required',  
-       'button_one_url' => 'required',       
-       'button_two_url' => 'required',              
-       'button_two_text' => 'required',              
+       'title'           => 'required',
+       'slogan'          => 'required',
+       'description'     => 'required',
+       'button_one_text' => 'required',
+       'button_one_url'  => 'required',
+       'button_two_url'  => 'required',
+       'button_two_text' => 'required',
     ]);   
     
     
     if ($request->hasFile('sliderimage')) {
-        $image = $request->file('sliderimage');
-        $imageName = time() . '.' . $image->getClientOriginalExtension();
-        $path = '/admin/slider/'.$imageName;
-        $image_path =   $image->move(public_path('admin/slider'), $imageName);
+        $image      = $request->file('sliderimage');
+        $imageName  = time() . '.' . $image->getClientOriginalExtension();
+        $path       = '/admin/slider/'.$imageName;
+        $image_path = $image->move(public_path('admin/slider'), $imageName);
         
     
      
@@ -101,16 +101,16 @@ public function update(Request $request)
      
         $missonsestion = MissionSection::find($request->id);
         if ($missonsestion) {
-            // Modify the attributes of the model
-            $missonsestion->title = $request->title;
-            $missonsestion->slogan =  $request->slogan;
-            $missonsestion->slug =  $request->title;
-            $missonsestion->imageurl =  $path;
-            $missonsestion->button_one_text =  $request->button_one_text;
-            $missonsestion->description =  $request->description;
-            $missonsestion->button_one_url =  $request->button_one_url;
-            $missonsestion->button_two_text =  $request->button_two_text;
-            $missonsestion->button_two_url =  $request->button_two_url;   
+              // Modify the attributes of the model
+            $missonsestion->title           = $request->title;
+            $missonsestion->slogan          = $request->slogan;
+            $missonsestion->slug            = $request->title;
+            $missonsestion->imageurl        = $path;
+            $missonsestion->button_one_text = $request->button_one_text;
+            $missonsestion->description     = $request->description;
+            $missonsestion->button_one_url  = $request->button_one_url;
+            $missonsestion->button_two_text = $request->button_two_text;
+            $missonsestion->button_two_url  = $request->button_two_url;
             
             
             $missonsestion->save();
@@ -121,27 +121,27 @@ public function update(Request $request)
     }
     else{
         $request->validate([
-            'title' => 'required',
-            'slogan' => 'required',       
-            'button_one_text' => 'required',       
-            'button_one_url' => 'required',       
-            'button_two_text' => 'required',       
-            'button_two_url' => 'required',              
+            'title'           => 'required',
+            'slogan'          => 'required',
+            'button_one_text' => 'required',
+            'button_one_url'  => 'required',
+            'button_two_text' => 'required',
+            'button_two_url'  => 'required',
         ]);     
      
      
       
          $missonsestion = MissionSection::find($request->id);
          if ($missonsestion) {
-             // Modify the attributes of the model
-             $missonsestion->title = $request->title;
-             $missonsestion->slogan =  $request->slogan;
-             $missonsestion->slug =  $request->title;     
-             $missonsestion->button_one_text =  $request->button_one_text;
-             $missonsestion->description =  $request->description;
-             $missonsestion->button_one_url =  $request->button_one_url;
-             $missonsestion->button_two_text =  $request->button_two_text;
-             $missonsestion->button_two_url =  $request->button_two_url;   
+               // Modify the attributes of the model
+             $missonsestion->title           = $request->title;
+             $missonsestion->slogan          = $request->slogan;
+             $missonsestion->slug            = $request->title;
+             $missonsestion->button_one_text = $request->button_one_text;
+             $missonsestion->description     = $request->description;
+             $missonsestion->button_one_url  = $request->button_one_url;
+             $missonsestion->button_two_text = $request->button_two_text;
+             $missonsestion->button_two_url  = $request->button_two_url;
              
              
              $missonsestion->save();

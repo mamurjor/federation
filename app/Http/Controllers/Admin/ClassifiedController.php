@@ -16,7 +16,7 @@ class ClassifiedController extends Controller
 {
     public function __construct()
     {
-       // $this->middleware('auth');
+         // $this->middleware('auth');
     }
 
   public function classifiedform(){
@@ -39,7 +39,7 @@ class ClassifiedController extends Controller
  public function approve(Request $request){
 
   $classified = Classified::find($request->id);
-  // dd($classified); 
+    // dd($classified); 
   $classified->status = 'active';
   $classified->save();
 
@@ -49,63 +49,63 @@ class ClassifiedController extends Controller
 
  public function store(Request $request)
  {
-     $userId = Auth::id();
+     $userId      = Auth::id();
      $getuserinfo = User::where('id', $userId)->first();
      
      $request->validate([
-         'adid' => 'required',
-         'title' => 'required',
-         'description' => 'required',
-         'price' => 'required',
-         'location' => 'required',
-         'email' => 'required',
-         'dateposted' => 'required',
+         'adid'           => 'required',
+         'title'          => 'required',
+         'description'    => 'required',
+         'price'          => 'required',
+         'location'       => 'required',
+         'email'          => 'required',
+         'dateposted'     => 'required',
          'expirationdate' => 'required',
-         'condition' => 'required',
-         'keywords' => 'required',
-         'video' => 'required',
+         'condition'      => 'required',
+         'keywords'       => 'required',
+         'video'          => 'required',
         
      ]);
  
-     // Store the path of the single classified image
+       // Store the path of the single classified image
      $classifiedimagepath = '';
      if ($request->hasFile('classifiedimage')) {
-         $image = $request->file('classifiedimage');
-         $imageName = time() . '.' . $image->getClientOriginalExtension();
+         $image               = $request->file('classifiedimage');
+         $imageName           = time() . '.' . $image->getClientOriginalExtension();
          $classifiedimagepath = '/admin/classifiedimage/' . $imageName;
          $image->move(public_path('admin/classifiedimage'), $imageName);
      }
  
-     // Store the paths of the multiple classified images
+       // Store the paths of the multiple classified images
      $classifiedimagespaths = [];
      if ($request->hasfile('classifiedimages')) {
          foreach ($request->file('classifiedimages') as $image) {
              $imageName = time() . '_' . $image->getClientOriginalName();
-             $path = '/admin/classifiedimage/' . $imageName;
+             $path      = '/admin/classifiedimage/' . $imageName;
              $image->move(public_path('admin/classifiedimage'), $imageName);
              $classifiedimagespaths[] = $path;
          }
      }
  
      $classified = Classified::create([
-         'user_id' => $userId,
-         'adid' => $request->adid,
-         'title' => $request->title,
-         'description' => $request->description,
-         'category' => $request->category,
-         'price' => $request->price,
-         'video' => $request->video,
-         'country' => $getuserinfo->country_residence,
-         'district' => $getuserinfo->district,
-         'tehsil' => $getuserinfo->tehsil,
-         'location' => $request->location,
-         'email' => $request->email,
-         'dateposted' => Carbon::parse($request->dateposted),
-         'expiredate' => Carbon::parse($request->dateposted),
-         'condition' => $request->condition,
-         'keyword' => $request->keywords,
-         'image' => $classifiedimagepath,
-         'multipleimage' =>json_encode($classifiedimagespaths),
+         'user_id'       => $userId,
+         'adid'          => $request->adid,
+         'title'         => $request->title,
+         'description'   => $request->description,
+         'category'      => $request->category,
+         'price'         => $request->price,
+         'video'         => $request->video,
+         'country'       => $getuserinfo->country_residence,
+         'district'      => $getuserinfo->district,
+         'tehsil'        => $getuserinfo->tehsil,
+         'location'      => $request->location,
+         'email'         => $request->email,
+         'dateposted'    => Carbon::parse($request->dateposted),
+         'expiredate'    => Carbon::parse($request->dateposted),
+         'condition'     => $request->condition,
+         'keyword'       => $request->keywords,
+         'image'         => $classifiedimagepath,
+         'multipleimage' => json_encode($classifiedimagespaths),
      ]);
  
      event(new ClassifiedAdSubmitted($classified));
@@ -127,34 +127,34 @@ public function edit($id)
 
 public function update(Request $request){
   if($request->hasFile('classifiedimage')){
-    $image = $request->file('classifiedimage');
-    $imageName = time() . '.' . $image->getClientOriginalExtension();
+    $image               = $request->file('classifiedimage');
+    $imageName           = time() . '.' . $image->getClientOriginalExtension();
     $classifiedimagepath = '/admin/classifiedimage/'.$imageName;
-    $image_path =   $image->move(public_path('admin/classifiedimage'), $imageName);
+    $image_path          = $image->move(public_path('admin/classifiedimage'), $imageName);
   }
 
   $classifiedimagespaths = [];
   if ($request->hasfile('classifiedimages')) {
       foreach ($request->file('classifiedimages') as $image) {
           $imageName = time() . '_' . $image->getClientOriginalName();
-          $path = '/admin/classifiedimage/' . $imageName;
+          $path      = '/admin/classifiedimage/' . $imageName;
           $image->move(public_path('admin/classifiedimage'), $imageName);
           $classifiedimagespaths[] = $path;
       }
   }
 
   $request->validate([
-    'adid' => 'required',
-    'title' => 'required',
-    'description' => 'required',
-    'price' => 'required',
-    'location' => 'required',
-    'email' => 'required',
-    'dateposted' => 'required',
+    'adid'           => 'required',
+    'title'          => 'required',
+    'description'    => 'required',
+    'price'          => 'required',
+    'location'       => 'required',
+    'email'          => 'required',
+    'dateposted'     => 'required',
     'expirationdate' => 'required',
-    'condition' => 'required',
-    'keywords' => 'required',
-    'video' => 'required',
+    'condition'      => 'required',
+    'keywords'       => 'required',
+    'video'          => 'required',
    
 ]);
 
@@ -162,20 +162,20 @@ public function update(Request $request){
 
   if($classified){
     $classified->update([
-      'adid'              => $request->adid,
-      'title'              => $request->title,
-      'description'              => $request->description,
-      'category'              => $request->category,
-      'price'              => $request->price,
-      'location'              => $request->location,
-      'video'                => $request->video,
-      'email'              => $request->email,
-      'dateposted'             => Carbon::parse($request->dateposted),
-      'expiredate'              => Carbon::parse($request->dateposted),
-      'condition'              => $request->condition,
-      'keyword'              => $request->keywords,
-      'image'              => isset($classifiedimagepath) ? $classifiedimagepath : $classified->image,
-      'multipleimage' =>json_encode($classifiedimagespaths),
+      'adid'          => $request->adid,
+      'title'         => $request->title,
+      'description'   => $request->description,
+      'category'      => $request->category,
+      'price'         => $request->price,
+      'location'      => $request->location,
+      'video'         => $request->video,
+      'email'         => $request->email,
+      'dateposted'    => Carbon::parse($request->dateposted),
+      'expiredate'    => Carbon::parse($request->dateposted),
+      'condition'     => $request->condition,
+      'keyword'       => $request->keywords,
+      'image'         => isset($classifiedimagepath) ? $classifiedimagepath : $classified->image,
+      'multipleimage' => json_encode($classifiedimagespaths),
 
     ]);
     
@@ -200,7 +200,7 @@ public function delete(Request $request){
 }
 
 
-// category 
+  // category 
 
 public function categoryindex()
  {
@@ -217,8 +217,8 @@ public function categorycreate(){
 public function categorystore(Request $request)
  {
      $request->validate([
-         'name' => 'required',
-         'code' => 'required',       
+         'name' => 'required|unique:classifiedcategories,name',
+         'code' => 'required',
      ]);     
      Classifiedcategory::create($request->post());
      return redirect()->route('classifiedcategory.index')->with('success','Created successfully.');
@@ -239,17 +239,17 @@ public function categorystore(Request $request)
  {
     
     $request->validate([
-        'name' => 'required',
-        'code' => 'required',       
+        'name' => 'required|unique:classifiedcategories,name',
+        'code' => 'required',
     ]);
 
     $classifiedcategory = Classifiedcategory::find($request->id);
     if ($classifiedcategory) {
-        // Modify the attributes of the model
+          // Modify the attributes of the model
         $classifiedcategory->name = $request->name;
-        $classifiedcategory->code =  $request->code;
+        $classifiedcategory->code = $request->code;
         
-        // Call the save() method to persist the changes
+          // Call the save() method to persist the changes
         $classifiedcategory->save();
     }
     

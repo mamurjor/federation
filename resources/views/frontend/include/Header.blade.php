@@ -140,7 +140,7 @@
                         <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page"
-                                    href="file:///D:/mamurjor%20project%20live/Jutt_Federation/home.html">Home</a>
+                                    href="{{ route('index') }}">Home</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle"
@@ -234,12 +234,12 @@
 
 
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item mb-3" href="{{ auth()->user()->role_id == 1 ? route('admin.dashboard') : route('client.dashboard') }}">Dashboard</a>
+                                        <li><a class="dropdown-item mb-3 jut_login" href="{{ auth()->user()->role_id == 1 ? route('admin.dashboard') : route('client.dashboard') }}">Dashboard</a>
                                         </li>
                                         <li><a class="dropdown-item" href="">
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
-                                                    <button class="nav-link dropdown-item" type="submit">Logout</button>
+                                                    <button class="nav-link jut_login dropdown-item" type="submit">Logout</button>
                                                 </form>
                                             </a>
                                         </li>

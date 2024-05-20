@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->default('');
             $table->string('code')->default(0);
-            $table->string('slug');
+            // $table->string('slug');
             $table->timestamps();
         });
     }

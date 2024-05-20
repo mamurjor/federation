@@ -26,7 +26,7 @@ class ProfessionController extends Controller
  public function store(Request $request)
  {
      $request->validate([
-         'name' => 'required',
+         'name' => 'required|unique:professions,name',
          'code' => 'required',       
      ]);     
      Profession::create($request->post());
@@ -52,7 +52,7 @@ class ProfessionController extends Controller
  {
     
     $request->validate([
-        'name' => 'required',
+        'name' => 'required|unique:professions,name',
         'code' => 'required',       
     ]);
 

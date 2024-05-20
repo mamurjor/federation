@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 
 class SliersectionController extends Controller
 {
-    //
+      //
       
  public function index()
  {
@@ -28,34 +28,34 @@ class SliersectionController extends Controller
  {
 
     
-      $image = $request->file('sliderimage');
-      $imageName = time() . '.' . $image->getClientOriginalExtension();
-      $path = '/admin/slider/'.$imageName;
-      $image_path =   $image->move(public_path('admin/slider'), $imageName);
+      $image      = $request->file('sliderimage');
+      $imageName  = time() . '.' . $image->getClientOriginalExtension();
+      $path       = '/admin/slider/'.$imageName;
+      $image_path = $image->move(public_path('admin/slider'), $imageName);
       
   
      $request->validate([
-         'title' => 'required',
-         'slogan' => 'required',
-         'button_text' => 'required',  
-         'button_url' => 'required',       
+         'title'       => 'required',
+         'slogan'      => 'required',
+         'button_text' => 'required',
+         'button_url'  => 'required',
                        
      ]);     
 
      $data =[
 
-        'title' => $request->title,
-         'slogan' => $request->slogan, 
-         'slug' =>  Str::slug($request->title),
-         'imageurl' => $path,
-         'button_text' => $request->button_text,         
-         'button_url' => $request->button_url,       
+        'title'       => $request->title,
+        'slogan'      => $request->slogan,
+        'slug'        => Str::slug($request->title),
+        'imageurl'    => $path,
+        'button_text' => $request->button_text,
+        'button_url'  => $request->button_url,
      
          
         
      ];
   
-     //dd($data);
+       //dd($data);
      sliersection::create($data);
      return redirect()->route('sliersection.index')->with('success','Created successfully.');
  }
@@ -64,7 +64,7 @@ class SliersectionController extends Controller
 
  {
     
-    $sliersections = sliersection::where('id', $id)->first();  
+    $sliersections = sliersection::where('id', $id)->first();
 
      return view('backend.page.sliersection.edit',compact('sliersections'));
  }
@@ -72,17 +72,17 @@ class SliersectionController extends Controller
  public function update(Request $request)
  {
     if ($request->hasFile('sliderimage')) {
-        $image = $request->file('sliderimage');
-        $imageName = time() . '.' . $image->getClientOriginalExtension();
-        $path = '/admin/slider/'.$imageName;
-        $image_path =   $image->move(public_path('admin/slider'), $imageName);
+        $image      = $request->file('sliderimage');
+        $imageName  = time() . '.' . $image->getClientOriginalExtension();
+        $path       = '/admin/slider/'.$imageName;
+        $image_path = $image->move(public_path('admin/slider'), $imageName);
         
     
        $request->validate([
-           'title' => 'required',
-           'slogan' => 'required',       
-           'button_text' => 'required',       
-           'button_url' => 'required',               
+           'title'       => 'required',
+           'slogan'      => 'required',
+           'button_text' => 'required',
+           'button_url'  => 'required',
        ]);     
     
      
@@ -90,13 +90,13 @@ class SliersectionController extends Controller
      
         $missonsestion = sliersection::find($request->id);
         if ($missonsestion) {
-            // Modify the attributes of the model
-            $missonsestion->title = $request->title;
-            $missonsestion->slogan =  $request->slogan;
-            $missonsestion->slug =  $request->title;
-            $missonsestion->imageurl =  $path;
-            $missonsestion->button_text =  $request->button_text;         
-            $missonsestion->button_url =  $request->button_url;
+              // Modify the attributes of the model
+            $missonsestion->title       = $request->title;
+            $missonsestion->slogan      = $request->slogan;
+            $missonsestion->slug        = $request->title;
+            $missonsestion->imageurl    = $path;
+            $missonsestion->button_text = $request->button_text;
+            $missonsestion->button_url  = $request->button_url;
             
             
             $missonsestion->save();
@@ -107,10 +107,10 @@ class SliersectionController extends Controller
     }
     else{
         $request->validate([
-            'title' => 'required',
-            'slogan' => 'required',       
-            'button_text' => 'required',       
-            'button_url' => 'required',               
+            'title'       => 'required',
+            'slogan'      => 'required',
+            'button_text' => 'required',
+            'button_url'  => 'required',
         ]);      
      
      
@@ -118,12 +118,12 @@ class SliersectionController extends Controller
        
         $missonsestion = sliersection::find($request->id);
         if ($missonsestion) {
-            // Modify the attributes of the model
-            $missonsestion->title = $request->title;
-            $missonsestion->slogan =  $request->slogan;
-            $missonsestion->slug =  $request->title;           
-            $missonsestion->button_text =  $request->button_text;         
-            $missonsestion->button_url =  $request->button_url;
+              // Modify the attributes of the model
+            $missonsestion->title       = $request->title;
+            $missonsestion->slogan      = $request->slogan;
+            $missonsestion->slug        = $request->title;
+            $missonsestion->button_text = $request->button_text;
+            $missonsestion->button_url  = $request->button_url;
             
             
             $missonsestion->save();

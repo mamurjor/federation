@@ -53,6 +53,9 @@
                                         <label for="form-label" class="form-label">Content. <span
                                                 class="text-danger">*</span></label>
                                         <textarea name="content" id="summernote">{{ $data['content'] }}</textarea>
+                                        @error('content')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 

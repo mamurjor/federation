@@ -25,7 +25,7 @@ public function blogcategoriescreate(){
 public function blogcategoriesstore(Request $request)
  {
      $request->validate([
-         'name'   => 'required',
+         'name'   => 'required|unique:blogcategories,name',
          'status' => 'required',
      ]);     
      Blogcategories::create($request->post());
@@ -47,18 +47,18 @@ public function blogcategoriesstore(Request $request)
  {
     
     $request->validate([
-        'name'   => 'required',
+        'name'   => 'required|unique:blogcategories,name',
         'status' => 'required',
 
     ]);
 
     $blogcategory = Blogcategories::find($request->id);
     if ($blogcategory) {
-          // Modify the attributes of the model
+              // Modify the attributes of the model
         $blogcategory->name   = $request->name;
         $blogcategory->status = $request->status;
         
-          // Call the save() method to persist the changes
+              // Call the save() method to persist the changes
         $blogcategory->save();
     }
     
@@ -82,7 +82,7 @@ public function blogcategoriesstore(Request $request)
 
 
 
-//  Blog post 
+    //  Blog post 
 
 
 public function blogpostindex()
@@ -99,21 +99,21 @@ public function blogpostindex()
 
       public function blogpoststore(Request $request)
         {
-            // dd($request->all());
+                // dd($request->all());
             
 
             $request->validate([
-                'description' =>'required',
-                'content' =>'required',
+                'description' => 'required',
+                'content'     => 'required',
                 'category_id' => 'required',
-                'title'        => 'required',
+                'title'       => 'required',
                 'status'      => 'required',
                 ]); 
 
-                $image = $request->file('blogimage');
-                $imageName = time() . '.' . $image->getClientOriginalExtension();
+                $image         = $request->file('blogimage');
+                $imageName     = time() . '.' . $image->getClientOriginalExtension();
                 $blogimagepath = '/admin/Blog/'.$imageName;
-                $image_path =   $image->move(public_path('admin/Blog'), $imageName);
+                $image_path    = $image->move(public_path('admin/Blog'), $imageName);
           
      
             BlogPost::create([
@@ -134,7 +134,7 @@ public function blogpostindex()
 
         {
            $categorys = Blogcategories::where('status','active')->get();
-           $blogpost = BlogPost::where('id', $id)->first();
+           $blogpost  = BlogPost::where('id', $id)->first();
            return view('frontend.pages.blogpost.edit',compact('blogpost','categorys'));
        
         }
@@ -143,36 +143,36 @@ public function blogpostindex()
 
         public function blogpostupdate(Request $request)
         {
-            // dd($request->all());
+                // dd($request->all());
             
             if ($request->hasFile('blogimage')) {
-                // Handle image upload
-                $image = $request->file('blogimage');
-                $imageName = time() . '.' . $image->getClientOriginalExtension();
+                    // Handle image upload
+                $image         = $request->file('blogimage');
+                $imageName     = time() . '.' . $image->getClientOriginalExtension();
                 $blogimagepath = '/admin/Blog/'.$imageName;
-                $image_path =   $image->move(public_path('admin/Blog'), $imageName);
+                $image_path    = $image->move(public_path('admin/Blog'), $imageName);
             }
         
             $blogpost = BlogPost::find($request->id);
        
             $request->validate([
-                'description' =>'required',
-                'content' =>'required',
+                'description' => 'required',
+                'content'     => 'required',
                 'category_id' => 'required',
-                'title'        => 'required',
+                'title'       => 'required',
                 'status'      => 'required',
                 ]); 
            
             if ($blogpost) {
-                // Update the record
+                    // Update the record
                 $blogpost->update([
                     'user_id'     => Auth::id(),
                     'category_id' => $request->category_id,
                     'title'       => $request->title,
                     'description' => $request->description,
                     'content'     => $request->content,
-                    'status' => $request->status,
-                    'image'  => isset($blogimagepath) ? $blogimagepath : $blogpost->image,
+                    'status'      => $request->status,
+                    'image'       => isset($blogimagepath) ? $blogimagepath : $blogpost->image,
                   
                 ]);
         

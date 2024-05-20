@@ -15,7 +15,12 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('nomini_id');
-            $table->string('position');
+            $table->string('votepositiontype',255);
+            $table->string('votetype',255);
+            $table->string('votingdate',255);
+            $table->string('country',255);
+            $table->string('district',255);
+            $table->string('tehsil',255);
             $table->timestamps();
         });
     }
