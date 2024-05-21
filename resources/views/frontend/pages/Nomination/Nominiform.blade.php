@@ -9,8 +9,6 @@
 
                 <div class="card-body">
 
-                         
-
                     <form action="{{ route('nomini.store') }}" method="POST">
                         @csrf
                         <div class="row">
@@ -21,17 +19,15 @@
                                 </div>
                             @endif
 
-                            <div class="col-md-12">
-
-                                @foreach ($voteannouncement as $singlevalue )
+                            <div class="col-md-12">                     
                                 <div class="mb-6">
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span
                                                 class="text-danger">*</span> Votetype </label>
 
-                                        <input type="hidden" value="{{ $singlevalue->id }}" name="id"
+                                        <input type="hidden" value="{{ $voteannouncement->id }}" name="id"
                                         class="form-control py-3 input_color" placeholder="">
-                                        <input type="text" readonly value="{{ $singlevalue->votetype }}" name="votetype"
+                                        <input type="text" readonly value="{{ $voteannouncement->votetype }}" name="votetype"
                                             class="form-control py-3 input_color" placeholder="Enter votetype">
                                         @error('votetype')
                                             <div class="text-danger">{{ $message }}</div>
@@ -43,7 +39,7 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span
                                                 class="text-danger">*</span> Country </label>
-                                        <input type="text" readonly value="{{ $singlevalue->country }}" name="country"
+                                        <input type="text" readonly value="{{ $voteannouncement->country }}" name="country"
                                             class="form-control py-3 input_color" placeholder="Enter votetype">
                                         @error('votetype')
                                             <div class="text-danger">{{ $message }}</div>
@@ -54,7 +50,7 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span
                                                 class="text-danger">*</span> district </label>
-                                        <input type="text" readonly value="{{ $singlevalue->district }}" name="district"
+                                        <input type="text" readonly value="{{ $voteannouncement->district }}" name="district"
                                             class="form-control py-3 input_color" placeholder="Enter votetype">
                                         @error('votetype')
                                             <div class="text-danger">{{ $message }}</div>
@@ -65,7 +61,7 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span
                                                 class="text-danger">*</span> tehsil </label>
-                                        <input type="text" readonly value="{{ $singlevalue->tehsil }}" name="tehsil"
+                                        <input type="text" readonly value="{{ $voteannouncement->tehsil }}" name="tehsil"
                                             class="form-control py-3 input_color" placeholder="Enter votetype">
                                         @error('votetype')
                                             <div class="text-danger">{{ $message }}</div>
@@ -76,7 +72,7 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span
                                                 class="text-danger">*</span> announce </label>
-                                        <input type="text" readonly value="{{ $singlevalue->announce }}" name="announce"
+                                        <input type="text" readonly value="{{ $voteannouncement->announce }}" name="announce"
                                             class="form-control py-3 input_color" placeholder="Enter votetype">
                                         @error('votetype')
                                             <div class="text-danger">{{ $message }}</div>
@@ -87,7 +83,7 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span
                                                 class="text-danger">*</span> Date </label>
-                                        <input type="text" readonly value="{{ $singlevalue->votingdate }}" name="date"
+                                        <input type="text" readonly value="{{ $voteannouncement->votingdate }}" name="date"
                                             class="form-control py-3 input_color" placeholder="Enter votetype">
                                         @error('votetype')
                                             <div class="text-danger">{{ $message }}</div>
@@ -100,7 +96,7 @@
                                         <label for="form-label" class="form-label"><span class="text-danger">*</span> Vote Position type </label>
                                         <div class="mt-1 mb-2">
                                             @php
-                                                $positionlist = unserialize($singlevalue->votepositiontype);
+                                                $positionlist = unserialize($voteannouncement->votepositiontype);
                                                 foreach ($positionlist as $key => $position) {
                                             @endphp
                                             <input type='radio' class="position" name="position" value="<?php echo $position?>" /> <?php echo $position?>
@@ -125,13 +121,6 @@
                                     </div>
                                 </div>
 
-
-                                
-                                @endforeach
-                              
-                                
-
-
                                 <div class="col-md-12">
                                     <div class="mt-3">
                                         <button type="submit" class="btn btn-primary waves-effect waves-light">Payment and Apply<i
@@ -141,6 +130,8 @@
 
                             </div>
                     </form>
+
+                    
                 </div>
             </div>
         </div>

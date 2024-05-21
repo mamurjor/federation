@@ -72,12 +72,14 @@
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
+                
                 @include('backend.include.navbar_cliient')
                 <!-- / Navbar -->
-
+                <div class="container-xxl flex-grow-1 container-p-y">
                 <!-- Content wrapper -->
-                @yield('main-content')
+                    @yield('main-content')
                 <!-- Content wrapper -->
+                </div>
             </div>
             <!-- / Layout page -->
         </div>

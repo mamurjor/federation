@@ -73,7 +73,9 @@
                 <!-- / Navbar -->
 
                 <!-- Content wrapper -->
-                @yield('main-content')
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    @yield('main-content')
+                </div>
                 <!-- Content wrapper -->
             </div>
             <!-- / Layout page -->

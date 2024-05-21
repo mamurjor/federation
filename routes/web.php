@@ -247,6 +247,7 @@ Route::get('voteannounce/delete/{id}', [VoteController::class, 'voteannouncedele
 Route::get('vote/details', [VoteController::class, 'votedetails'])->name('vote.details');
 Route::post('vote/result', [VoteController::class, 'voteresult'])->name('voteresult.store');
 
+Route::get('voteclick/index', [VoteController::class, 'voteclick'])->name('voteclick.index');
 
 // OTP
 Route::post('/send-otp', [VoteController::class, 'sendOtp'])->name('send.otp');

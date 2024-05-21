@@ -319,9 +319,8 @@ class VoteController extends Controller
             public function votedetails(){
                         
                 $user = User::where('id', Auth::id())->first();
-
-                
                 $nomini_list = Nomini::where('tehsil' , $user->tehsil)->with('user')->get();
+                // $singlevalue = Voteannounce::where('id', Auth::id())->first();
                 
                 return view('frontend.pages.votedetails.votedetails',compact('nomini_list'));
 
@@ -399,6 +398,15 @@ class VoteController extends Controller
             public function __construct()
             {
                 $this->middleware('auth');
+            }
+
+            public function voteclick(){
+                $voteclick = VoteResult::select('users.*','nominis.votepositiontype as votepositiontype', 'nominis.votetype as votetype', DB::raw('count(*) as vote_count'))
+                ->join('nominis', 'vote_results.nomini_id', '=', 'nominis.id')
+                ->join('users', 'users.id', '=', 'nominis.nomini_id')
+                ->groupBy('vote_results.nomini_id')
+                ->get();
+                return view('frontend.pages.voteclick.index', compact('voteclick'));
             }
 
 

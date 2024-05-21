@@ -17,9 +17,10 @@ class DashboardController extends Controller
             $client = User::where('id', Auth::id())->first();
             $vote   = Voteannounce::where('tehsil', $client->tehsil)->get();
        
-
+            
         $notifications = $client->notifications()->get();
         $unreadcount   = $client->unreadNotifications()->count();
+        // $singlevalue = Voteannounce::where('id', Auth::id())->first();
             return view('backend.include.content_wrapper',compact('unreadcount','notifications','vote'));
           // } else {
           //     abort(401);

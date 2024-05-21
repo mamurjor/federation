@@ -20,7 +20,8 @@ class NominiController extends Controller
 
     public function nominiform($id){
         
-        $voteannouncement = Voteannounce::where('id',$id)->get();
+        $voteannouncement = Voteannounce::where('id',$id)->first();
+        // dd($voteannouncement);
         return view('frontend.pages.Nomination.Nominiform',compact('voteannouncement'));
     }
 

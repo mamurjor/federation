@@ -170,6 +170,11 @@
                         <div data-i18n="Logistics">Nomini</div>
                     </a>
                 </li>
+                <li class="menu-item" style="">
+                    <a href="{{ route('voteclick.index') }}" class="menu-link">
+                        <div data-i18n="Logistics">Vote click</div>
+                    </a>
+                </li>
                 <!-- Other submenu items -->
             </ul>
         </li>
@@ -206,6 +211,7 @@
                 <!-- Other submenu items -->
             </ul>
         </li>
+     
         <!-- Other top-level menu items -->
     </ul>
 
