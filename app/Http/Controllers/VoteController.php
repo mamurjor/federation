@@ -401,7 +401,7 @@ class VoteController extends Controller
             }
 
             public function voteclick(){
-                $voteclick = VoteResult::select('users.*','nominis.votepositiontype as votepositiontype', 'nominis.votetype as votetype', DB::raw('count(*) as vote_count'))
+                $voteclick = VoteResult::select('users.*','nominis.votepositiontype as votepositiontype', 'nominis.votetype as votetype', 'nominis.tehsil as tehsil', DB::raw('count(*) as vote_count'))
                 ->join('nominis', 'vote_results.nomini_id', '=', 'nominis.id')
                 ->join('users', 'users.id', '=', 'nominis.nomini_id')
                 ->groupBy('vote_results.nomini_id')

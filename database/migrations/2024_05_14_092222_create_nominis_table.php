@@ -20,12 +20,18 @@ return new class extends Migration
             $table->string('announce',255);
             $table->string('votetype',255);
             $table->string('votepositiontype',255);
+            $table->string('emailone',255);
+            $table->string('emailtwo',255);
+            $table->boolean('email_one_verified')->default(false);
+            $table->boolean('email_two_verified')->default(false);
+            $table->string('token_one')->nullable();
+            $table->string('token_two')->nullable();
             $table->date('votingdate');
             $table->string('charge',255);
             $table->string('card_number',255);
             $table->string('stripe_token',255);
             $table->string('payment_type',255);
-            $table->enum('status',[0,1])->default(0);
+            $table->enum('status',[0,1])->default(0)->comment('0 = Pending, 1 = Active');
             $table->timestamps();
         });
     }

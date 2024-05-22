@@ -211,6 +211,20 @@
                 <!-- Other submenu items -->
             </ul>
         </li>
+        <li class="menu-item active ">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Dashboards">Settings</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('paymentsettings.index') }}" class="menu-link">
+                        <div data-i18n="CRM">Payment Settings</div>
+                    </a>
+                </li>
+                <!-- Other submenu items -->
+            </ul>
+        </li>
      
         <!-- Other top-level menu items -->
     </ul>

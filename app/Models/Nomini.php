@@ -20,15 +20,21 @@ class Nomini extends Model
         'votetype',   
         'votepositiontype',   
         'votingdate',   
+        'emailone',   
+        'emailtwo',   
         'charge',     
         'card_number',   
         'stripe_token',   
-        'payment_type'
+        'payment_type',
+        'email_one_verified',
+        'email_two_verified',
+        'token_one',
+        'token_two'
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'nomini_id');
+        return $this->belongsTo(User::class, 'nomini_id', 'id');
     }
 
 }

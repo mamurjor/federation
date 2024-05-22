@@ -54,9 +54,9 @@
                                 <td>
                                     <div class="dropdown">
 
-                                        <a class="btn btn-primary"
+                                        {{-- <a class="btn btn-primary"
                                             href="{{ route('nomini.form', $singlevalue->id) }}"><i class=" me-2"></i>
-                                            Apply</a>
+                                            Apply</a> --}}
                                         <a href="{{ route('vote.details') }}">
                                             <h4 class="mt-3 btn btn-primary">Vote now</h4>
                                         </a>

@@ -194,7 +194,7 @@
                                         </div>
                                         <div class="flex-grow-1">
                                             <h6 class="mb-1">Congratulation {{ $notification->data['user_name']?$notification->data['user_name']:'no data' }} 🎉
-                                            </h6>
+                                            </h6> <a href="{{ route('nomini.form', $singlevalue->id) }}">Apply Now</a>
 
                                         </div>
                                         <div class="flex-shrink-0 dropdown-notifications-actions">

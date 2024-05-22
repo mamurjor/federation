@@ -12,10 +12,12 @@
                 <thead>
                     <tr>
                         <th>SL No. </th>
+                        <th>Name</th>
                         <th>Vote type</th>
                         <th>Vote position type</th>
                         <th>Charge</th>
                         <th>payment type</th>
+                        <th>Endorsment</th>
                         <th>status</th>
                         <th>Action </th>
 
@@ -30,11 +32,13 @@
                             <td>
                                 <span class="fw-medium ms-2">{{ $index + 1 }}</span>
                             </td>
+                            <td>{{ $singlevalue->user->fname }}</td>
                             <td>{{ $singlevalue->votetype }}</td>
                             <td>{{ $singlevalue->votepositiontype }}</td>
                             <td>{{ $singlevalue->charge }}</td>
 
                             <td><span>{{ $singlevalue->payment_type }}</span></td>
+                            <td><span>2</span></td>
 
                             <td>
                                 @if ($singlevalue->status == 1)
@@ -74,51 +78,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
-
-    {{-- excel --}}
-
-    {{-- @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif
-
-    <div class="card">
-
-        <div class="card-header font-weight-bold">
-            <h2 class="float-left">Import Export Excel</h2>
-            <h2 class="float-right"><a href="{{ url('export-excel-csv-file/xlsx') }}" class="btn btn-success mr-1">Export
-                    Excel</a><a href="{{ url('export-excel-csv-file/csv') }}" class="btn btn-success">Export CSV</a></h2>
-        </div>
-
-        <div class="card-body">
-
-            <form id="excel-csv-import-form" method="POST" action="{{ url('import-excel-csv-file-country') }}"
-                accept-charset="utf-8" enctype="multipart/form-data">
-
-                @csrf
-
-                <div class="row">
-
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <input type="file" name="file" placeholder="Choose file">
-                        </div>
-                        @error('file')
-                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                    </div>
-                </div>
-            </form>
-
-        </div>
-
-    </div> --}}
-
     </div>
 @endsection

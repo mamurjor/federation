@@ -16,4 +16,8 @@ class SettingsController extends Controller
     public function settingsform(){
         return view('backend.settings.settings');
     }
+
+    public function paymentSettings(){
+        return view('frontend.pages.Settings.PaymentSettings.index');
+    }
 }

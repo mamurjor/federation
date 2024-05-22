@@ -2,8 +2,12 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OtpController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\VoteController;
+use App\Http\Controllers\NominiController;
 use App\Http\Controllers\ExcelCSVController;
+use App\Http\Controllers\AllNotifiController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\CastController;
 use App\Http\Controllers\VerifyUserController;
@@ -16,18 +20,15 @@ use App\Http\Controllers\UserOperationController;
 use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\admin\SettingsController;
 use App\Http\Controllers\CompanysettingController;
-use App\Http\Controllers\admin\ClassifiedController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\admin\ClassifiedController;
 use App\Http\Controllers\Admin\ProfessionController;
 use App\Http\Controllers\Admin\HeroSectionController;
 use App\Http\Controllers\admin\MatromonialController;
+use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\Admin\SliersectionController;
 use App\Http\Controllers\Frontend\MainIndexController;
 use App\Http\Controllers\Admin\MissionSectionController;
-use App\Http\Controllers\AllNotifiController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\NominiController;
-use App\Http\Controllers\OtpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -322,5 +323,16 @@ Route::get('blogsingle/{id}',[MainIndexController::class,'blogsingle'])->name('b
 
 Route::get('cast', [MainIndexController::class, 'cast'])->name('cast');
 Route::get('castsingle/{id}',[MainIndexController::class,'castsingle'])->name('cast.single');
+
+
+// Settings 
+
+Route::get('payment/settings', [SettingsController::class, 'paymentSettings'])->name('paymentsettings.index');
+
+// email notification
+Route::get('/verify/email', [EmailVerificationController::class, 'verify'])->name('verify.email');
+
+
+
 
 
