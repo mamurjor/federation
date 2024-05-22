@@ -38,7 +38,7 @@
                             <td>{{ $singlevalue->charge }}</td>
 
                             <td><span>{{ $singlevalue->payment_type }}</span></td>
-                            <td><span>2</span></td>
+                            <td> <span>{{ (int) $singlevalue->email_one_verified + (int) $singlevalue->email_two_verified }}</span></td>
 
                             <td>
                                 @if ($singlevalue->status == 1)
