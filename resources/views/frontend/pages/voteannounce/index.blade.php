@@ -3,8 +3,9 @@
 @section('main-content')
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5>Vote announce List</h5>
-            <h5><a class="btn btn-primary waves-effect waves-light" href="{{ route('voteannounce.create') }}"> Add New </a></h5>
+            <h5>Tehsil Vote announce List</h5>
+            <h5><a class="btn btn-success waves-effect waves-light" href="{{ route('voteannounce.create') }}"> Add New </a>
+            </h5>
         </div>
         <div class="table-responsive text-nowrap">
             <table class="table">
@@ -30,20 +31,16 @@
                             <td>{{ $singlevalue->votetype }}</td>
 
                             <td>
-                             
+
 
                                 @php
-                                $positionlist =  unserialize($singlevalue->votepositiontype);
+                                    $positionlist = unserialize($singlevalue->votepositiontype);
+                                @endphp
 
-                                foreach ( $positionlist as $key => $position) {
-                                ?>
-                               
-                         
-                                <input type='radio' name="position" class="childChk" value="<?php echo $position;?>" />  <?php echo $position?>
-                                <?php 
-                                }
-
-                             @endphp
+                                @foreach ($positionlist as $key => $position)
+                                    <input type='radio' class="childChk" value="{{ $position }}" checked readonly/>
+                                    {{ $position }}
+                                @endforeach
 
 
                             </td>
@@ -68,49 +65,70 @@
         </div>
     </div>
 
-    {{-- excel --}}
 
-    {{-- @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
+    <div class="card mt-5">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5>Wings Vote announce List</h5>
+            <h5><a class="btn btn-warning waves-effect waves-light" href="{{ route('wingsvoteannounce.create') }}"> Add New </a>
+            </h5>
         </div>
-    @endif
+        <div class="table-responsive text-nowrap">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>SL No. </th>
+                        <th>votetype</th>
+                        <th>position</th>
+                        <th>Action </th>
 
-    <div class="card">
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
 
-        <div class="card-header font-weight-bold">
-            <h2 class="float-left">Import Export Excel</h2>
-            <h2 class="float-right"><a href="{{ url('export-excel-csv-file/xlsx') }}" class="btn btn-success mr-1">Export
-                    Excel</a><a href="{{ url('export-excel-csv-file/csv') }}" class="btn btn-success">Export CSV</a></h2>
+
+
+                    @foreach ($voteannounce as $index => $singlevalue)
+                        <tr>
+                            <td>
+
+                                <span class="fw-medium ms-2">{{ $index + 1 }}</span>
+                            </td>
+                            <td>{{ $singlevalue->votetype }}</td>
+
+                            <td>
+
+
+                                @php
+                                    $positionlist = unserialize($singlevalue->votepositiontype);
+                                @endphp
+
+                                @foreach ($positionlist as $key => $position)
+                                    <input type='radio' readonly class="childChk" value="{{ $position }}" checked/>
+                                    {{ $position }}
+                                @endforeach
+
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                        data-bs-toggle="dropdown">
+                                        <i class="ti ti-dots-vertical"></i>
+                                    </button>
+
+                                    <a class="btn btn-primary" href="{{ route('wingsvoteannounce.edit', $singlevalue->id) }}"><i
+                                            class="ti ti-pencil me-2"></i> Edit</a>
+                                    <a class="btn btn-danger" href="{{ route('wingsvoteannounce.delete', $singlevalue->id) }}"
+                                        onclick="return confirm('Are Your Suere')"> Delete</a>
+
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
+    </div>
 
-        <div class="card-body">
-
-            <form id="excel-csv-import-form" method="POST" action="{{ url('import-excel-csv-file-country') }}"
-                accept-charset="utf-8" enctype="multipart/form-data">
-
-                @csrf
-
-                <div class="row">
-
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <input type="file" name="file" placeholder="Choose file">
-                        </div>
-                        @error('file')
-                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                    </div>
-                </div>
-            </form>
-
-        </div>
-
-    </div> --}}
 
     </div>
 @endsection

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('cast')->nullable();
             $table->string('gender')->nullable();
             $table->string('profession')->nullable();
-            $table->string('country_residence')->nullable();
+            $table->string('country')->nullable();
             $table->string('address_one')->nullable();
             $table->string('address_two')->nullable();
             $table->timestamp('email_verified_at')->nullable();
@@ -31,7 +31,6 @@ return new class extends Migration
             $table->string('verify_code')->nullable();
             $table->string('avatar')->nullable();
             $table->string('phone')->nullable();
-            $table->string('country')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('userimage')->default('default/userimage.png');

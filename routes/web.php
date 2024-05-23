@@ -29,6 +29,7 @@ use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\Admin\SliersectionController;
 use App\Http\Controllers\Frontend\MainIndexController;
 use App\Http\Controllers\Admin\MissionSectionController;
+use App\Http\Controllers\WingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -333,6 +334,15 @@ Route::get('payment/settings', [SettingsController::class, 'paymentSettings'])->
 Route::get('/verify/email', [EmailVerificationController::class, 'verify'])->name('verify.email');
 
 
+// Wings 
+
+// Route::get('wingsvoteannounce/index', [WingsController::class, 'wingsvoteannounceindex'])->name('wingsvoteannounce.index');
+Route::get('wingsvoteannounce/create', [WingsController::class, 'wingsvoteannouncecreate'])->name('wingsvoteannounce.create');
+Route::post('wingsvoteannounce/store', [WingsController::class, 'wingsvoteannouncestore'])->name('wingsvoteannounce.store');
+Route::post('wingsvoteannounce/update', [WingsController::class, 'wingsvoteannounceupdate'])->name('wingsvoteannounce.update');
+Route::get('wingsvoteannounce/edit/{id}', [WingsController::class, 'wingsvoteannounceedit'])->name('wingsvoteannounce.edit');
+Route::get('wingsvoteannounce/delete/{id}', [WingsController::class, 'wingsvoteannouncedelete'])->name('wingsvoteannounce.delete');
 
 
-
+Route::get('/get-names', [WingsController::class, 'getNames']);
+Route::get('/get-professions', [WingsController::class, 'getProfessions']);

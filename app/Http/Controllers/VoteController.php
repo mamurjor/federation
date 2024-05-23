@@ -168,8 +168,7 @@ class VoteController extends Controller
             }
 
 
-
-                  //  voteannounce
+  //  voteannounce
 
             public function voteannounceindex()
             {
