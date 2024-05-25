@@ -335,52 +335,77 @@
 <!-- JavaScript code -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
 <script>
     $(document).ready(function() {
-        $("#cnic_no").change(function() {
-
+        $("#cnic_no").on('input', function() {
             var cnic_no = $('#cnic_no').val();
+            var length = cnic_no.length;
 
-            $.ajax({
-                url: '{{ route('getdistrictbycnic', ':cnic_no') }}'.replace(':cnic_no',
-                    cnic_no),
-                type: 'GET',
-                dataType: 'json',
-                success: function(response) {
+            console.log(cnic_no);
 
-                    //alert(response.gender)
-                    $('#district').val(response.district);
-                    $('#tehsil').val(response.tehsil);
-                    $('#gender').val(response.gender);
+            // Check for district code (length >= 2 because substr starts at index 1)
+            if (length >= 2) {
+                var districtcode = cnic_no.substr(1, 1);
+                var url = '{{ route('getdistrictbycnic', ':cnic_no') }}';
+                url = url.replace(':cnic_no', districtcode);
 
-                    // alert(response.tehsil)
-                    //alert(response.gender)
-                    // alert(response.tehname)
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log(response);
+                        $('#district').val(response.district);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            }
 
-                    // //Check if response is not empty
-                    // if ($.isEmptyObject(response)) {
-                    //     $('#district').empty();
-                    //     var option = "<option value='" + response.district + "'>" + 'no data found' +
-                    //         response.district+
-                    //         "</option>";
-                    //     $("#district").append(option);
-                    //     return;
-                    // }
+            // Check for tehsil code (length >= 3 because substr starts at index 2)
+            if (length >= 3) {
+                var tehsilcode = cnic_no.substr(2, 1);
+                var url = '{{ route('gettehsilbycnic', ':cnic_no') }}';
+                url = url.replace(':cnic_no', tehsilcode);
 
-                    // // Clear existing options
-                    // $('#district').empty();
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log(response);
+                        $('#tehsil').val(response.tehsil);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            }
 
-                    // // Append new options
-                    // $.each(response, function(id, data) {
-                    //     var option = "<option  value='" + data.name + "'>" + data
-                    //         .name + "</option>";
-                    //     $("#district").append(option);
-                    // });
+            // Check for gender code (length is enough to determine gender)
+            if (length >= 13) { 
+                var gendercode = cnic_no.substr(length - 1, 1);
+                var url = '{{ route('getgenderbycnic', ':cnic_no') }}';
+                url = url.replace(':cnic_no', gendercode);
 
-                }
-            });
-
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log(response);
+                        $('#gender').val(response.gender);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            }
         });
-
     });
 </script>
+

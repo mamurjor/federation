@@ -17,8 +17,13 @@
                                         <label for="form-label" class="form-label"> Select Country <span
                                                 class="text-danger">*</span></label>
                                         <select name="country" id="country" class="form-control input_color py-3">
-                                            <option value="{{ $voteannounce->country }}" selected>
-                                                {{ $voteannounce->country }}</option>
+
+                                            @foreach ($country as $data)
+                                                <option value="{{ $data->name }}"
+                                                    {{ $voteannounce->country == $data->name ? 'selected' : '' }}>
+                                                    {{ $data->name }}</option>
+                                            @endforeach
+
                                         </select>
 
                                         @error('country')
@@ -32,8 +37,11 @@
                                         <label for="form-label" class="form-label"> Select District <span
                                                 class="text-danger">*</span></label>
                                         <select name="district" id="district" class="form-control input_color py-3">
-                                            <option value="{{ $voteannounce->district }}" selected>
-                                                {{ $voteannounce->district }}</option>
+                                            @foreach ($district as $data)
+                                                <option value="{{ $data->name }}"
+                                                    {{ $voteannounce->country == $data->name ? 'selected' : '' }}>
+                                                    {{ $data->name }}</option>
+                                            @endforeach
                                         </select>
                                         @error('district')
                                             <div class="text-danger">{{ $message }}</div>
@@ -47,7 +55,11 @@
                                                 class="text-danger">*</span></label>
                                         <select name="tehsil" id="tehsil" class="form-control input_color py-3">
 
-                                            <option value="{{ $voteannounce->tehsil }}">{{ $voteannounce->tehsil }}</option>
+                                            @foreach ($tehsil as $data)
+                                                <option value="{{ $data->name }}"
+                                                    {{ $voteannounce->country == $data->name ? 'selected' : '' }}>
+                                                    {{ $data->name }}</option>
+                                            @endforeach
                                         </select>
                                         @error('tehsil')
                                             <div class="text-danger">{{ $message }}</div>
@@ -70,9 +82,14 @@
                                         <label for="form-label" class="form-label"> Select vote type <span
                                                 class="text-danger">*</span></label>
                                         <select name="votetype" id="" class="form-control input_color py-3">
-                                            <option value="{{ $voteannounce->votetype }}" selected>
-                                                {{ $voteannounce->votetype }}</option>
+                                            <option value="">Select</option>
+                                            @foreach ($votetype as $data)
+                                                <option value="{{ $data->name }}"
+                                                    {{ $voteannounce->votetype == $data->name ? 'selected' : '' }}>
+                                                    {{ $data->name }}</option>
+                                            @endforeach
                                         </select>
+
                                         @error('votetype')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -88,18 +105,9 @@
                                             class="selectpicker form-control input_color py-3">
 
                                             @foreach ($votepositiontype as $data)
-                                                <option value="{{ $data->name }}">{{ $data->name }} </option>
-                                            @endforeach
-
-
-                                            @php
-                                                $votepositiontype = unserialize($voteannounce->votepositiontype);
-                                            @endphp
-
-                                            @foreach ($votepositiontype as $option)
-                                                <option value="{{ $option }}" selected>
-                                                    {{ $option }}
-                                                </option>
+                                                <option value="{{ $data->name }}"
+                                                    {{ in_array($data->name, $voteannounce->votepositiontype) ? 'selected' : '' }}>
+                                                    {{ $data->name }}</option>
                                             @endforeach
 
                                         </select>
@@ -141,8 +149,7 @@
 
                                 <div class="col-md-12">
                                     <div class="mt-3 text-end">
-                                        <button type="submit"
-                                            class="btn btn-primary waves-effect waves-light">Update<i
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Update<i
                                                 class="fa-solid fa-circle-plus ms-2"></i></button>
                                     </div>
                                 </div>

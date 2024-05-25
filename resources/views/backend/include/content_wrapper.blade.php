@@ -15,6 +15,7 @@
     </style>
 
     <div class="content-wrapper">
+        {{-- {{ $filters }} --}}
         <!-- Content -->
         <div class="card m-4">
             <div class="card-header d-flex justify-content-between align-items-center border-1 pb-0">

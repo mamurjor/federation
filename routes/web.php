@@ -282,7 +282,15 @@ Route::post('stripe/post', [NominiController::class, 'stripestore'])->name('stri
 
 Route::get('/getCharge', [VoteController::class,'getCharge']);
 
-Route::GET('/getdistrictbycnic/{cnic_no}', [DistrictController::class,'getdistrictbycnic'])->name('getdistrictbycnic');
+// Route::get('/getdistrictbycnic/{cnic_no}', [DistrictController::class,'getdistrictbycnic'])->name('getdistrictbycnic');
+// Route::get('/getdistrictbycnic/{cnic}', [DistrictController::class, 'getdistrictbycnic'])->name('getdistrictbycnic');
+
+
+Route::get('/getdistrictbycnic/{code}', [DistrictController::class, 'getDistrictByCode'])->name('getdistrictbycnic');
+Route::get('/gettehsilbycnic/{code}', [DistrictController::class, 'getTehsilByCode'])->name('gettehsilbycnic');
+Route::get('/getgenderbycnic/{code}', [DistrictController::class, 'getGenderByCode'])->name('getgenderbycnic');
+
+
 
 Route::post('/getmatromonialbysearch', [MatromonialController::class,'getmatromonialbysearch'])->name('getmatromonialbysearch');
 Route::get('/getTehsilData', [MatromonialController::class,'getTehsilData'])->name('getTehsilData');

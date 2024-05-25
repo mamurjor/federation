@@ -18,10 +18,11 @@ class DashboardController extends Controller
             $vote   = Voteannounce::where('tehsil', $client->tehsil)->get();
        
             
-        $notifications = $client->notifications()->get();
-        $unreadcount   = $client->unreadNotifications()->count();
+        $notifications = $client->notifications()->where('type', 'App\Notifications\VoteAnnouncementNotification')->get();
+        $filters =  $client->notifications()->where('type', 'App\Notifications\WingsVoteAnnouncementNotification')->whereJsonContains('data->user_name', $client->profession)->get();
+        $unreadcount   = $client->unreadNotifications()->where('type', 'App\Notifications\VoteAnnouncementNotification')->count();
         // $singlevalue = Voteannounce::where('id', Auth::id())->first();
-            return view('backend.include.content_wrapper',compact('unreadcount','notifications','vote'));
+            return view('backend.include.content_wrapper',compact('unreadcount','notifications','vote','filters'));
           // } else {
           //     abort(401);
           // }

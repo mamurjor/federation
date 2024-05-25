@@ -77,6 +77,8 @@
                 <thead>
                     <tr>
                         <th>SL No. </th>
+                        <th>Type</th>
+                        <th>Profession</th>
                         <th>votetype</th>
                         <th>position</th>
                         <th>Action </th>
@@ -87,12 +89,14 @@
 
 
 
-                    @foreach ($voteannounce as $index => $singlevalue)
+                    @foreach ($wingsvoteannounce as $index => $singlevalue)
                         <tr>
                             <td>
 
                                 <span class="fw-medium ms-2">{{ $index + 1 }}</span>
                             </td>
+                            <td>{{ $singlevalue->type }}</td>
+                            <td>{{ $singlevalue->profession_name }}</td>
                             <td>{{ $singlevalue->votetype }}</td>
 
                             <td>

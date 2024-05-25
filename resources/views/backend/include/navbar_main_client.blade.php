@@ -183,6 +183,39 @@
                     <li class="dropdown-notifications-list scrollable-container">
                         <ul class="list-group list-group-flush">
 
+                            {{-- {{ $notifications }} --}}
+
+                            @foreach ($filters as $notify)
+                                <li class="list-group-item list-group-item-action dropdown-notifications-item">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 me-3">
+                                            <div class="avatar">
+                                                <img src="assets/img/avatars/1.png" alt
+                                                    class="h-auto rounded-circle" />
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1">Congratulation {{ $notify->data['user_name']? $notify->data['user_name']:'no data' }} {{ $notify->data['message']?$notify->data['message']:'' }} 🎉
+                                            </h6> <a href="{{ route('nomini.form', $singlevalue->id) }}">Apply Now</a>
+
+                                        </div>
+                                        <div class="flex-shrink-0 dropdown-notifications-actions">
+                                            <a href="javascript:void(0)" class="dropdown-notifications-read"><span
+                                                    class="badge badge-dot"></span></a>
+                                            @if (is_null($notify->read_at))
+                                                <form
+                                                    action="{{ route('notifications.markAsRead', $notify->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <button type="submit"> <a href=""
+                                                            class="dropdown-notifications-archive"><span
+                                                                class="ti ti-x"></span></a></button>
+                                                </form>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
                             @foreach ($notifications as $notification)
                                 <li class="list-group-item list-group-item-action dropdown-notifications-item">
                                     <div class="d-flex">
@@ -214,6 +247,9 @@
                                     </div>
                                 </li>
                             @endforeach
+
+
+                         
 
                         </ul>
                     </li>
@@ -262,6 +298,8 @@
                             <span class="align-middle">My Profile</span>
                         </a>
                     </li>
+                    
+          
                     <li>
                         <a class="dropdown-item" href="{{ route('settings.index') }}">
                             <i class="ti ti-settings me-2 ti-sm"></i>

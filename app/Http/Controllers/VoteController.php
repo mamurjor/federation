@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use App\Events\VoteAnnouncementPosted;
 use App\Mail\OtpMail;
 use App\Models\VoteResult;
+use App\Models\WingsVoteannounce;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
@@ -173,7 +174,8 @@ class VoteController extends Controller
             public function voteannounceindex()
             {
                 $voteannounce = Voteannounce::all();
-                return view('frontend.pages.voteannounce.index', compact('voteannounce'));
+                $wingsvoteannounce = WingsVoteannounce::all();
+                return view('frontend.pages.voteannounce.index', compact('voteannounce', 'wingsvoteannounce'));
             }
 
             public function voteannouncecreate(){
@@ -236,11 +238,14 @@ class VoteController extends Controller
             public function voteannounceedit($id)
 
                 {
+                    $country          = Country::all();
+                    $district         = District::all();
+                    $tehsil           = Tehsil::all();
                     $votepositiontype = VotingPositionType::all();
-
+                    $votetype = Votetype::all();
                     $voteannounce = Voteannounce::where('id', $id)->first();
-
-                    return view('frontend.pages.voteannounce.edit',compact('voteannounce','votepositiontype'));
+                    $voteannounce->votepositiontype = unserialize($voteannounce->votepositiontype);
+                    return view('frontend.pages.voteannounce.edit',compact('voteannounce','votepositiontype','votetype','country','district','tehsil'));
                 }
 
 

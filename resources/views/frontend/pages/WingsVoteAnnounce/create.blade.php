@@ -8,7 +8,7 @@
                     <h5>Add Wings Vote announce</h5>
                 </div>
                 <div class="card-body">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('wingsvoteannounce.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
@@ -71,6 +71,7 @@
                                         <label for="form-label" class="form-label"> Select vote type <span
                                                 class="text-danger">*</span></label>
                                         <select name="votetype" id="" class="form-control input_color py-3">
+                                            <option value="">Select</option>
                                             @foreach ($votetype as $data)
                                                 <option value="{{ $data->name }}">{{ $data->name }}</option>
                                             @endforeach
