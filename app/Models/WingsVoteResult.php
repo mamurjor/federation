@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class VoteResult extends Model
+class WingsVoteResult extends Model
 {
     use HasFactory;
 
@@ -14,9 +14,9 @@ class VoteResult extends Model
         'votepositiontype',
         'votetype',
         'votingdate',
-        'country',
-        'district',
-        'tehsil',
-        'nomini_id',
+        'type',
+        'type_name',
+        'profession_name',
+        'wingsnomini_id',
     ];
 }

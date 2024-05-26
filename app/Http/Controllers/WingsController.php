@@ -2,14 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use Stripe\Charge;
+use Session;
+use Stripe\Stripe;
 use App\Models\User;
 use App\Models\Tehsil;
 use App\Models\Country;
 use App\Models\District;
 use App\Models\Votetype;
+use App\Models\WingsNomini;
+use Illuminate\Support\Str;
+use App\Mail\VerifyEmailOne;
+use App\Mail\VerifyEmailTwo;
 use Illuminate\Http\Request;
 use App\Models\WingsVoteannounce;
 use App\Models\VotingPositionType;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Events\VoteAnnouncementPosted;
 use App\Events\WingsVoteAnnouncementPosted;
 
@@ -34,10 +43,10 @@ class WingsController extends Controller
         $position_type = serialize($request->votepositiontype);
 
         
-            // $image      = $request->file('voteimage');
-            // $imageName  = time() . '.' . $image->getClientOriginalExtension();
-            // $path       = '/admin/vote/'.$imageName;
-            // $image_path = $image->move(public_path('admin/vote'), $imageName);
+                // $image      = $request->file('voteimage');
+                // $imageName  = time() . '.' . $image->getClientOriginalExtension();
+                // $path       = '/admin/vote/'.$imageName;
+                // $image_path = $image->move(public_path('admin/vote'), $imageName);
         
         $request->validate([
     
@@ -61,11 +70,11 @@ class WingsController extends Controller
         ];
     
         $saveinfo = WingsVoteannounce::create($voteannounceinfo);
-            // event(new VoteAnnouncementPosted($saveinfo));
+                // event(new VoteAnnouncementPosted($saveinfo));
             event(new WingsVoteAnnouncementPosted($saveinfo));
 
 
-                  //  dd($saveinfo);
+                      //  dd($saveinfo);
         return redirect()->route('voteannounce.index')->with('success','Created successfully.');
     }
 
@@ -103,7 +112,7 @@ class WingsController extends Controller
         ]);
         
           if ($voteannounce) {
-                      // Update the record
+                          // Update the record
               $voteannounce->update([
                 'type'             => $request->type,
                 'type_name'        => $request->typeDetails,
@@ -156,4 +165,117 @@ class WingsController extends Controller
         $users = User::where($type, $value)->pluck('profession');  // Adjust this to your user table's structure
         return response()->json($users);
     }
+
+
+    public function wingsnominiform($id){
+            // dd($id);
+        $wingsvoteannouncement = WingsVoteannounce::where('id',$id)->first();
+            // dd($wingsvoteannouncement);
+        return view('frontend.pages.Nomination.wingsnominiform',compact('wingsvoteannouncement'));
+    }
+
+    public function wingsnoministore(Request $request){
+
+        $request->validate([
+          'emailone' => 'required',
+          'emailtwo' => 'required',
+          'position' => 'required',
+        ]);
+        
+        $request->session()->put('votetype', $request->votetype);
+        $request->session()->put('id', $request->id);
+        $request->session()->put('type', $request->type);
+        $request->session()->put('type_name', $request->type_name);
+        $request->session()->put('profession_name', $request->profession_name);
+        $request->session()->put('announce', $request->announce);
+        $request->session()->put('date', $request->date);
+        $request->session()->put('emailone', $request->emailone);
+        $request->session()->put('emailtwo', $request->emailtwo);
+        $request->session()->put('charge', $request->charge);
+        $request->session()->put('position', $request->position);
+        $request->session()->put('email_one_verified' , false);
+        $request->session()->put('email_two_verified' , false);
+          
+
+        return redirect()->route('wingsstripe')->with('success','Please Payment $'.Session::get('charge'));
+
+    }
+
+    public function wingsstripe(){
+        return view("frontend.pages.paymentform.wingspayment");
+      }
+
+    public function wingsstripestore(Request $request)
+    {
+
+      $tokenOne = Str::random(32);
+      $tokenTwo = Str::random(32);
+
+        Stripe::setApiKey(env('STRIPE_SECRET'));
+    
+        Charge::create ([
+                "amount"      => Session::get('charge'),
+                "currency"    => "usd",
+                "source"      => $request->stripeToken,
+                "description" => "Thanks for the payment."
+        ]);
+        
+                  // Session::get('amount');
+        Session::flash('success', 'Payment successful!');
+
+
+       $nomini = WingsNomini::create([
+            'wingsnomini_id'     => Auth::id(),
+            'type'               => Session::get('type'),
+            'type_name'          => Session::get('type_name'),
+            'profession_name'    => Session::get('profession_name'),
+            'announce'           => Session::get('announce'),
+            'votetype'           => Session::get('votetype'),
+            'votingdate'         => Session::get('date'),
+            'emailone'           => Session::get('emailone'),
+            'emailtwo'           => Session::get('emailtwo'),
+            'charge'             => Session::get('charge'),
+            'votepositiontype'   => Session::get('position'),
+            'email_one_verified' => Session::get('email_one_verified'),
+            'email_two_verified' => Session::get('email_two_verified'),
+            'token_one'          => $tokenOne,
+            'token_two'          => $tokenTwo,
+            'card_number'        => $request->cardNumber,
+            'stripe_token'       => 'see your stripe account',
+            'payment_type'       => 'Stripe',
+        ]);
+                  // dd($nomini);
+              Mail::to(Session::get('emailone'))->send(new VerifyEmailOne(Session::get('emailone'), $tokenOne));
+              Mail::to(Session::get('emailtwo'))->send(new VerifyEmailTwo(Session::get('emailtwo'), $tokenTwo));
+        
+        return back();
+    }
+
+    public function approve(Request $request){
+
+        $wingsnomini = WingsNomini::find($request->id);
+        $wingsnomini->status = '1';
+        $wingsnomini->save();
+      
+        return redirect()->back()->with('success', 'Nomination approved successfully.');
+       }
+       
+      public function declined(Request $request){
+
+        $wingsnomini = WingsNomini::find($request->id);
+        $wingsnomini->status = '0';
+        $wingsnomini->save();
+      
+        return redirect()->back()->with('success', 'Nomination declined successfully.');
+       }
+
+       public function wingsnominidelete(Request $request){
+           
+           $wingsnomini = WingsNomini::find($request->id);
+           if ($wingsnomini) {
+               $wingsnomini->delete();
+            }
+      
+        return redirect()->back()->with('success','deleted successfully');
+      }
 }

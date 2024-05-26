@@ -194,11 +194,12 @@
                                                     class="h-auto rounded-circle" />
                                             </div>
                                         </div>
+
                                         <div class="flex-grow-1">
                                             <h6 class="mb-1">Congratulation {{ $notify->data['user_name']? $notify->data['user_name']:'no data' }} {{ $notify->data['message']?$notify->data['message']:'' }} 🎉
-                                            </h6> <a href="{{ route('nomini.form', $singlevalue->id) }}">Apply Now</a>
-
+                                            </h6> <a href="{{ route('wingsnomini.form', $singlewings->id) }}">Apply Now</a>
                                         </div>
+
                                         <div class="flex-shrink-0 dropdown-notifications-actions">
                                             <a href="javascript:void(0)" class="dropdown-notifications-read"><span
                                                     class="badge badge-dot"></span></a>

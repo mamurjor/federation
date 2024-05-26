@@ -3,22 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Mail\OtpMail;
 use App\Models\Nomini;
 use App\Models\Tehsil;
 use App\Models\Country;
 use App\Models\District;
 use App\Models\Votetype;
+use App\Models\VoteResult;
+use App\Models\WingsNomini;
 use App\Models\Voteannounce;
+use Illuminate\Http\Request;
+use App\Models\WingsVoteResult;
+use App\Models\WingsVoteannounce;
 use App\Models\VotingPositionType;
 use Illuminate\Support\Facades\DB;
-use App\Events\VoteAnnouncementPosted;
-use App\Mail\OtpMail;
-use App\Models\VoteResult;
-use App\Models\WingsVoteannounce;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Events\VoteAnnouncementPosted;
 
 class VoteController extends Controller
 {
@@ -323,10 +325,22 @@ class VoteController extends Controller
             public function votedetails(){
                         
                 $user = User::where('id', Auth::id())->first();
-                $nomini_list = Nomini::where('tehsil' , $user->tehsil)->with('user')->get();
-                // $singlevalue = Voteannounce::where('id', Auth::id())->first();
+                $nomini_list = Nomini::where('tehsil' , $user->tehsil)->where('status', '1')
+                ->with('user')->get();
                 
                 return view('frontend.pages.votedetails.votedetails',compact('nomini_list'));
+
+            }
+
+            // Wings 
+
+            public function wingsvotedetails(){
+                        
+                $user = User::where('id', Auth::id())->first();
+                $wingsnomini_list = WingsNomini::where('profession_name' , $user->profession)->where('status', '1')
+                ->with('user')->get();
+                
+                return view('frontend.pages.votedetails.wingsvotedetails',compact('wingsnomini_list'));
 
             }
 
@@ -399,6 +413,37 @@ class VoteController extends Controller
                 } 
             }
 
+
+            public function storeWingsVoteData(Request $request)
+            {
+                try {
+                    // Log the request data for debugging
+                    
+                    Log::info('Store Vote Data Request:', $request->all());
+            
+                    // Create a new vote result entry
+                    WingsVoteResult::create([
+                        'user_id' => Auth::id(),
+                        'wingsnomini_id' => $request->nomini_id,
+                        'votepositiontype' => $request->votepositiontype,
+                        'votetype' => $request->votetype,
+                        'votingdate' => $request->votingdate,
+                        'type' => $request->type,
+                        'type_name' => $request->type_name,
+                        'profession_name' => $request->profession_name,
+                    ]);
+            
+                    // Log success message
+                    Log::info('Vote data stored successfully');
+            
+                    return response()->json(['success' => true]);
+                } catch (\Exception $e) {
+                    // Log the error message
+                    Log::error('Failed to store vote data:', ['error' => $e->getMessage()]);
+                    return response()->json(['success' => false, 'message' => 'Failed to store vote data.']);
+                } 
+            }
+
             public function __construct()
             {
                 $this->middleware('auth');
@@ -410,8 +455,15 @@ class VoteController extends Controller
                 ->join('users', 'users.id', '=', 'nominis.nomini_id')
                 ->groupBy('vote_results.nomini_id')
                 ->get();
+
+                $wingsvoteclick = WingsVoteResult::select('users.*','wings_nominis.votepositiontype as votepositiontype', 'wings_nominis.votetype as votetype', 'wings_nominis.profession_name as profession_name', DB::raw('count(*) as vote_count'))
+                ->join('wings_nominis', 'wings_vote_results.wingsnomini_id', '=', 'wings_nominis.id')
+                ->join('users', 'users.id', '=', 'wings_nominis.wingsnomini_id')
+                ->groupBy('wings_vote_results.wingsnomini_id')
+                ->get();
                 // dd($voteclick);
-                return view('frontend.pages.voteclick.index', compact('voteclick'));
+                // $voteclick = VoteResult::all();
+                return view('frontend.pages.voteclick.index', compact('voteclick','wingsvoteclick'));
             }
 
 

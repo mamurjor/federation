@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Stripe;
 use Session;
 use App\Models\Nomini;
+use App\Models\WingsNomini;
 use Illuminate\Support\Str;
 use App\Mail\VerifyEmailOne;
 use App\Mail\VerifyEmailTwo;
@@ -19,8 +20,9 @@ class NominiController extends Controller
 
     public function nominiindex(){
       $allnomini  = Nomini::with('user')->get();
+      $allwingsnomini  = WingsNomini::with('user')->get();
       $nominiInfo = Nomini::where('nomini_id', Auth::id())->with('user')->first();
-      return view('frontend.pages.Nomination.allnomin',compact('allnomini','nominiInfo'));
+      return view('frontend.pages.Nomination.allnomin',compact('allnomini','nominiInfo','allwingsnomini'));
     }
 
     public function nominiform($id){
@@ -37,8 +39,6 @@ class NominiController extends Controller
           'emailtwo' => 'required',
           'position' => 'required',
         ]);
-
-     
         
         $request->session()->put('votetype', $request->votetype);
         $request->session()->put('id', $request->id);
@@ -53,11 +53,6 @@ class NominiController extends Controller
         $request->session()->put('position', $request->position);
         $request->session()->put('email_one_verified' , false);
         $request->session()->put('email_two_verified' , false);
-        // $request->session()->put('tokenone', $tokenOne);
-        // $request->session()->put('tokentwo', $tokenTwo);
-        
-
-              // $request->session()->put('formData', $request->all());
           
 
         return redirect()->route('stripe')->with('success','Please Payment $'.Session::get('charge'));

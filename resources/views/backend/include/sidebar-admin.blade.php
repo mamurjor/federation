@@ -35,7 +35,7 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboards -->
-        <li class="menu-item active">
+        <li class="menu-item active" >
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
@@ -70,9 +70,9 @@
     
         <!-- WEb Site Setting -->
         <li class="menu-item active ">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <a href="javascript:void(0);"  class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                <div data-i18n="Dashboards">WEb Site Setting</div>
+                <div data-i18n="Dashboards">Web Site Setting</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
@@ -99,8 +99,8 @@
     
         <!-- Blog -->
         <li class="menu-item active ">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+            <a href="javascript:void(0);"  class="menu-link menu-toggle">
+                <i class="menu-icon fas fa-ad"></i>
                 <div data-i18n="Dashboards">Classified Ads</div>
             </a>
             <ul class="menu-sub">
@@ -121,8 +121,8 @@
     
         <!-- Cast -->
         <li class="menu-item active ">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+            <a href="javascript:void(0);" class="menu-link menu-toggle ">
+                <i class="menu-icon tf-icons fa-solid fa-user"></i>
                 <div data-i18n="Dashboards">Matromonial</div>
             </a>
             <ul class="menu-sub">
@@ -146,7 +146,7 @@
         </li>
         <li class="menu-item active ">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <i class="menu-icon tf-icons fa-solid fa-check-to-slot"></i>
                 <div data-i18n="Dashboards">Vote</div>
             </a>
             <ul class="menu-sub">
@@ -179,8 +179,8 @@
             </ul>
         </li>
         <li class="menu-item active ">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+            <a href="javascript:void(0);"  class="menu-link menu-toggle">
+                <i class="menu-icon fa-solid fa-blog"></i>
                 <div data-i18n="Dashboards">Blog</div>
             </a>
             <ul class="menu-sub">
@@ -199,7 +199,7 @@
         </li>
         <li class="menu-item active ">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <i class="menu-icon fa-brands fa-fort-awesome"></i>
                 <div data-i18n="Dashboards">Cast</div>
             </a>
             <ul class="menu-sub">
@@ -212,8 +212,8 @@
             </ul>
         </li>
         <li class="menu-item active ">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+            <a href="javascript:void(0);" class="menu-link menu-toggle ">
+                <i class="menu-icon fa-solid fa-gear"></i>
                 <div data-i18n="Dashboards">Settings</div>
             </a>
             <ul class="menu-sub">

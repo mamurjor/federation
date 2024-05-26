@@ -27,12 +27,14 @@ class SendWingsVoteAnnouncementNotification
         $announcement = $event->announcement;
         $announcementProfession = $announcement->profession_name;
         Log::info('Announcement Profession:', ['profession' => $announcementProfession]);
-        $client = User::where('role_id', 2)
+        $clients = User::where('role_id', 2)
                         ->where('profession', $announcementProfession)
-                        ->first();
+                        ->get();
 
-               
-        $client->notify(new WingsVoteAnnouncementNotification($announcement));
+            foreach($clients as $client)  {
+                $client->notify(new WingsVoteAnnouncementNotification($announcement));
+            } 
+
                 
     }
 }

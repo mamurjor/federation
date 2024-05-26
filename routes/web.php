@@ -255,6 +255,7 @@ Route::get('voteclick/index', [VoteController::class, 'voteclick'])->name('votec
 Route::post('/send-otp', [VoteController::class, 'sendOtp'])->name('send.otp');
 Route::post('/verify-otp', [VoteController::class, 'verifyOtp'])->name('verify.otp');
 Route::post('/store-vote-data', [VoteController::class, 'storeVoteData'])->name('store.vote.data');
+Route::post('/store-wingsvote-data', [VoteController::class, 'storewingsVoteData'])->name('store.wingsvote.data');
 
 
 
@@ -271,12 +272,21 @@ Route::post('nomini/approve/{id}', [NominiController::class, 'approve'])->name('
 Route::post('nomini/declined/{id}', [NominiController::class, 'declined'])->name('nomini.declined');
 Route::post('nomini/delete/{id}', [NominiController::class, 'nominidelete'])->name('nomini.delete');
 
+// Wings form 
+Route::get('wingsvote/details', [VoteController::class, 'wingsvotedetails'])->name('wingsvote.details');
+Route::get('wingsnomini/form/{id}', [WingsController::class, 'wingsnominiform'])->name('wingsnomini.form');
+Route::post('wingsnomini/store', [WingsController::class, 'wingsnoministore'])->name('wingsnomini.store');
+Route::get('wingsstripe', [WingsController::class, 'wingsstripe'])->name('wingsstripe');
+Route::post('wingsstripe/post', [WingsController::class, 'wingsstripestore'])->name('wingsstripe.post');
+Route::post('wingsnomini/approve/{id}', [WingsController::class, 'approve'])->name('wingsnomini.approve');
+Route::post('wingsnomini/declined/{id}', [WingsController::class, 'declined'])->name('wingsnomini.declined');
+Route::post('wingsnomini/delete/{id}', [WingsController::class, 'wingsnominidelete'])->name('wingsnomini.delete');
 
-//create a 
+
+
 
 
 Route::get('stripe', [NominiController::class, 'stripe'])->name('stripe');
-
 Route::post('stripe/post', [NominiController::class, 'stripestore'])->name('stripe.post');
 
 
