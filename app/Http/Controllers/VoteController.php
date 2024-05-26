@@ -410,6 +410,7 @@ class VoteController extends Controller
                 ->join('users', 'users.id', '=', 'nominis.nomini_id')
                 ->groupBy('vote_results.nomini_id')
                 ->get();
+                // dd($voteclick);
                 return view('frontend.pages.voteclick.index', compact('voteclick'));
             }
 
