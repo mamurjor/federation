@@ -76,6 +76,27 @@
 
 
 
+  <div class="modal fade" id="voteOver" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+      <div class="modal-content p-3 bg-white">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <div class="modal-body">
+            <div class="text-center otp_img mb-3">
+                {{-- <img src="{{ asset('backend/assets/img/modallogo/alert_img.png') }}" alt=""> --}}
+            </div>
+            <div class="otp_heading text-center">
+                <h5>Sorry. You have already voted for this nominee.</h5>
+                {{-- <a href="{{ route('client.dashboard') }}" class="btn btn-primary mt-3">Go to Home</a> --}}
+            </div>
+            
+        </div>
+        
+      </div>
+    </div>
+  </div>
   <div class="modal fade" id="voteFailed" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-centered">
       <div class="modal-content p-3 bg-white">

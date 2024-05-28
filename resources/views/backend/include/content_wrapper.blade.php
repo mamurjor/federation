@@ -17,6 +17,61 @@
     <div class="content-wrapper">
         {{-- {{ $filters }} --}}
         <!-- Content -->
+
+        <div class="card m-4">
+            <div class="card-header d-flex justify-content-between align-items-center border-1 pb-0">
+                <h4 class="fw-600"> All District Vote</h4>
+            </div>
+            <div class="p-2 table-responsive text-nowrap">
+                <table class="table">
+                    <thead class="table-primary table-border-bottom-0">
+                        <tr>
+                            <th> <input type="checkbox" class="client_checkbx"></th>
+                            <th>SL No.</th>
+                            <th>District Name</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Vote Type</th>
+                            <th>Action </th>
+
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                        @foreach ($disvote as $index => $singledis)
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="checkbox">
+                                </td>
+                                <td>
+                                    <span class="fw-medium ms-2">{{ $index + 1 }}</span>
+                                </td>
+                                <td><i class="fa-solid fa-location-dot text-primary me-1"></i>{{ $singledis->district }}
+                                </td>
+                                <td><i class="fa-solid fa-calendar-days text-warning me-1"></i>{{ $singledis->votingdate }}
+                                </td>
+                                <td><i class="fa-solid fa-clock text-danger me-1"></i>{{ $singledis->tehsil }}</td>
+
+                                <td><i class="fa-solid fa-trophy text-success me-1"></i><span
+                                        class="badge bg-label-success me-1"> {{ $singledis->votetype }}</span></td>
+                                <td>
+                                    <div class="dropdown">
+
+                                        {{-- <a class="btn btn-primary"
+                                            href="{{ route('nomini.form', $singlevalue->id) }}"><i class=" me-2"></i>
+                                            Apply</a> --}}
+                                        <a href="{{ route('disvote.details') }}">
+                                            <h4 class="mt-3 btn btn-primary">Vote now</h4>
+                                        </a>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <div class="card m-4">
             <div class="card-header d-flex justify-content-between align-items-center border-1 pb-0">
                 <h4 class="fw-600"> All Vote</h4>
@@ -70,6 +125,7 @@
                 </table>
             </div>
         </div>
+
         <div class="card m-4">
             <div class="card-header d-flex justify-content-between align-items-center border-1 pb-0">
                 <h4 class="fw-600"> All Wings Vote</h4>

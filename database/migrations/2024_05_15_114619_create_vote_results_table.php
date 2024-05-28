@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('votingdate',255);
             $table->string('country',255);
             $table->string('district',255);
+            $table->enum('status',[0,1])->default(0)->comment('0 = Failed, 1 = Selected');
             $table->string('tehsil',255);
             $table->timestamps();
         });

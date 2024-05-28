@@ -36,5 +36,7 @@ class Nomini extends Model
     {
         return $this->belongsTo(User::class, 'nomini_id', 'id');
     }
+ 
+   
 
 }

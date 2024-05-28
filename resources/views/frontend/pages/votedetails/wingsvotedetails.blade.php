@@ -113,7 +113,7 @@
                             <button class="btn btn-sm btn-primary vote-btn" data-bs-toggle="modal"
                                 data-bs-target="#otpModal"
                                 data-nomini-id="{{ $nomini->id }}"
-                                data-email="{{ $nomini->user->email }}"
+                                data-email="{{ Auth::user()->email }}"
                                 data-votepositiontype="{{ $nomini->votepositiontype }}"
                                 data-votetype="{{ $nomini->votetype }}"
                                 data-votingdate="{{ $nomini->votingdate }}"

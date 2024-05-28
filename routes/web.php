@@ -57,6 +57,13 @@ Route::get('user-update', [AuthController::class, 'userUpdate'])->name('user.upd
 // Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('register/store', [AuthController::class, 'store'])->name('user.register.store');
 Route::post('register/update', [AuthController::class, 'updateuser'])->name('user.register.update');
+
+// forget password 
+
+Route::get('password/reset', [AuthController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/email', [AuthController::class, 'sendResetLinkEmail'])->name('password.email');
+
+
 Route::get("get/registeruser",[UserOperationController::class,'getregisteruser'])->name('get.registeruser');
 
 Route::get('get/approved/{userid}', [UserOperationController::class, 'approved'])->name('user.approved');
@@ -250,10 +257,14 @@ Route::get('vote/details', [VoteController::class, 'votedetails'])->name('vote.d
 Route::post('vote/result', [VoteController::class, 'voteresult'])->name('voteresult.store');
 
 Route::get('voteclick/index', [VoteController::class, 'voteclick'])->name('voteclick.index');
+Route::post('nomini/select/{nomini_id}', [VoteController::class, 'approve'])->name('nomini.select');
+Route::post('wingsnomini/select/{wingsnomini_id}', [VoteController::class, 'wingsapprove'])->name('wingsnomini.select');
+Route::post('disnomini/select/{disnomini_id}', [VoteController::class, 'disapprove'])->name('disnomini.select');
 
 // OTP
 Route::post('/send-otp', [VoteController::class, 'sendOtp'])->name('send.otp');
 Route::post('/verify-otp', [VoteController::class, 'verifyOtp'])->name('verify.otp');
+Route::post('/check-vote', [VoteController::class, 'checkVote'])->name('check.vote');
 Route::post('/store-vote-data', [VoteController::class, 'storeVoteData'])->name('store.vote.data');
 Route::post('/store-wingsvote-data', [VoteController::class, 'storewingsVoteData'])->name('store.wingsvote.data');
 
@@ -282,8 +293,16 @@ Route::post('wingsnomini/approve/{id}', [WingsController::class, 'approve'])->na
 Route::post('wingsnomini/declined/{id}', [WingsController::class, 'declined'])->name('wingsnomini.declined');
 Route::post('wingsnomini/delete/{id}', [WingsController::class, 'wingsnominidelete'])->name('wingsnomini.delete');
 
+// District vote form 
 
-
+Route::get('disvote/details', [VoteController::class, 'disvotedetails'])->name('disvote.details');
+Route::get('disnomini/form/{id}', [DistrictController::class, 'disnominiform'])->name('disnomini.form');
+Route::post('disnomini/store', [DistrictController::class, 'disnoministore'])->name('disnomini.store');
+Route::get('disstripe', [DistrictController::class, 'disstripe'])->name('disstripe');
+Route::post('disstripe/post', [DistrictController::class, 'disstripestore'])->name('disstripe.post');
+Route::post('disnomini/approve/{id}', [DistrictController::class, 'approve'])->name('disnomini.approve');
+Route::post('disnomini/declined/{id}', [DistrictController::class, 'declined'])->name('disnomini.declined');
+Route::post('disnomini/delete/{id}', [DistrictController::class, 'disnominidelete'])->name('disnomini.delete');
 
 
 Route::get('stripe', [NominiController::class, 'stripe'])->name('stripe');
@@ -291,9 +310,6 @@ Route::post('stripe/post', [NominiController::class, 'stripestore'])->name('stri
 
 
 Route::get('/getCharge', [VoteController::class,'getCharge']);
-
-// Route::get('/getdistrictbycnic/{cnic_no}', [DistrictController::class,'getdistrictbycnic'])->name('getdistrictbycnic');
-// Route::get('/getdistrictbycnic/{cnic}', [DistrictController::class, 'getdistrictbycnic'])->name('getdistrictbycnic');
 
 
 Route::get('/getdistrictbycnic/{code}', [DistrictController::class, 'getDistrictByCode'])->name('getdistrictbycnic');
@@ -354,13 +370,23 @@ Route::get('/verify/email', [EmailVerificationController::class, 'verify'])->nam
 
 // Wings 
 
-// Route::get('wingsvoteannounce/index', [WingsController::class, 'wingsvoteannounceindex'])->name('wingsvoteannounce.index');
 Route::get('wingsvoteannounce/create', [WingsController::class, 'wingsvoteannouncecreate'])->name('wingsvoteannounce.create');
 Route::post('wingsvoteannounce/store', [WingsController::class, 'wingsvoteannouncestore'])->name('wingsvoteannounce.store');
 Route::post('wingsvoteannounce/update', [WingsController::class, 'wingsvoteannounceupdate'])->name('wingsvoteannounce.update');
 Route::get('wingsvoteannounce/edit/{id}', [WingsController::class, 'wingsvoteannounceedit'])->name('wingsvoteannounce.edit');
 Route::get('wingsvoteannounce/delete/{id}', [WingsController::class, 'wingsvoteannouncedelete'])->name('wingsvoteannounce.delete');
 
-
 Route::get('/get-names', [WingsController::class, 'getNames']);
 Route::get('/get-professions', [WingsController::class, 'getProfessions']);
+
+// District vote 
+
+Route::get('disvoteannounce/create', [DistrictController::class, 'disvoteannouncecreate'])->name('disvoteannounce.create');
+Route::post('disvoteannounce/store', [DistrictController::class, 'disvoteannouncestore'])->name('disvoteannounce.store');
+Route::post('disvoteannounce/update', [DistrictController::class, 'disvoteannounceupdate'])->name('disvoteannounce.update');
+Route::get('disvoteannounce/edit/{id}', [DistrictController::class, 'disvoteannounceedit'])->name('disvoteannounce.edit');
+Route::get('disvoteannounce/delete/{id}', [DistrictController::class, 'disvoteannouncedelete'])->name('disvoteannounce.delete');
+
+
+
+

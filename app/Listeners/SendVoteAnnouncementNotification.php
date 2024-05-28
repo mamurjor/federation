@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 use App\Events\VoteAnnouncementPosted;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -22,10 +23,14 @@ class SendVoteAnnouncementNotification
      */
     public function handle(VoteAnnouncementPosted $event): void
     {
-        $client = User::where('role_id', 2)->first();
+        // dd($event->user->tehsil);
+     
+        $clients = User::where('role_id', 2)->where('tehsil', $event->user->tehsil)->get();
 
-        if ($client) {
-            $client->notify(new \App\Notifications\VoteAnnouncementNotification($event->user));
-        }
+         foreach($clients as $client){
+
+          $client->notify(new \App\Notifications\VoteAnnouncementNotification($event->user));
+      }
+              
     }
 }

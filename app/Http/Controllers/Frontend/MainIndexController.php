@@ -19,6 +19,7 @@ use App\Models\Blogcategories;
 use App\Models\BlogPost;
 use App\Models\Profession;
 use App\Models\User;
+use App\Models\VoteResult;
 
 class MainIndexController extends Controller
 {
@@ -33,10 +34,13 @@ class MainIndexController extends Controller
         $HeroSections    = HeroSection::all();
         $MissionSections = MissionSection::all();
         $sliersections   = sliersection::all();
-        
 
-
-        return view('frontend.pages.home',compact('countries','districts','tehsils','HeroSections','MissionSections','sliersections','casts'));
+        $voteresult = VoteResult::where('status', '1')->with(['nomini.user'])->get();
+        // dd($voteresult);
+        $uniqueUserResults = $voteresult->unique(function ($item) {
+            return $item->nomini->user->id;
+        });
+        return view('frontend.pages.home',compact('countries','districts','tehsils','HeroSections','MissionSections','sliersections','casts','uniqueUserResults'));
     }
 
 

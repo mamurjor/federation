@@ -68,4 +68,9 @@ class User extends Authenticatable
     public function role(){
         return $this->belongsTo(Role::class,'role_id','id');
     }
+    
+    // public function nominis()
+    // {
+    //     return $this->hasMany(Nomini::class, 'user_id');
+    // }
 }

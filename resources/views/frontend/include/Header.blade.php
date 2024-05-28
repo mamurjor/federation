@@ -142,66 +142,38 @@
                                 <a class="nav-link active" aria-current="page"
                                     href="{{ route('index') }}">Home</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle"
+                            <li class="nav-item ms-2">
+                                <a class="nav-link"
                                     href="file:///D:/mamurjor%20project%20live/Jutt_Federation/about_us.html"
                                     id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     About Us
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item"
-                                            href="{{ route('blog') }}">Blog</a>
-                                    </li>
-                                </ul>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item ms-2">
                                 <a class="nav-link" aria-current="page"
                                     href="file:///D:/mamurjor%20project%20live/Jutt_Federation/member_list.html">Members</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle"
-                                    href="file:///D:/mamurjor%20project%20live/Jutt_Federation/tehsil.html"
-                                    id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Tehsil
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    {{-- @foreach ($tehsils as $index => $singlevalue)
-                                    <li>
-                                        <a class="dropdown-item active" href="{{ $singlevalue->name }}"><span
-                                                class="flag_Text_dropdown">{{ $singlevalue->name }}</span></a>
-                                    </li>
-                                @endforeach --}}
-                                </ul>
-                            </li>
+            
 
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown ms-2">
                                 <a class="nav-link" href="{{ route('matromonial') }}" id="" role="button">
-                                    Matrimonial
+                                    Matrimonial 
                                 </a>
 
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link "
-                                    href="{{ route('cast') }}"
-                                    id="" role="">
-                                    Cast
-                                </a>
-                         
+                       
+                            <li class="nav-item ms-2">
+                                <a class="nav-link" href="{{ route('classified') }}">ClassifiedAds</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('classified') }}">Classified
-                                    Ads</a>
-                            </li>
-                            <li class="nav-item">
+                            <li class="nav-item ms-2">
                                 <a class="nav-link"
-                                    href="file:///D:/mamurjor%20project%20live/Jutt_Federation/women_wing.html">Wings</a>
+                                    href="{{ route('blog') }}">Blog</a>
                             </li>
 
-                            <li class="nav-item">
+                            <li class="nav-item ms-2">
                                 <a class="nav-link"
-                                    href="file:///D:/mamurjor%20project%20live/Jutt_Federation/contact.html">Contact</a>
+                                    href="">Contact</a>
                             </li>
                         </ul>
                         @guest

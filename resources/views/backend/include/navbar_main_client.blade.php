@@ -185,6 +185,39 @@
 
                             {{-- {{ $notifications }} --}}
 
+                            @foreach ($disNotifications as $disnotify)
+                                <li class="list-group-item list-group-item-action dropdown-notifications-item">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 me-3">
+                                            <div class="avatar">
+                                                <img src="assets/img/avatars/1.png" alt
+                                                    class="h-auto rounded-circle" />
+                                            </div>
+                                        </div>
+
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1">Congratulation {{ $disnotify->data['user_name']? $disnotify->data['user_name']:'no data' }} {{ $disnotify->data['message']?$disnotify->data['message']:'' }} 🎉
+                                            </h6> <a href="{{ route('disnomini.form', $singledis->id) }}">Apply Now</a>
+                                        </div>
+
+                                        <div class="flex-shrink-0 dropdown-notifications-actions">
+                                            <a href="javascript:void(0)" class="dropdown-notifications-read"><span
+                                                    class="badge badge-dot"></span></a>
+                                            @if (is_null($disnotify->read_at))
+                                                <form
+                                                    action="{{ route('notifications.markAsRead', $disnotify->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    <button type="submit"> <a href=""
+                                                            class="dropdown-notifications-archive"><span
+                                                                class="ti ti-x"></span></a></button>
+                                                </form>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
+
                             @foreach ($filters as $notify)
                                 <li class="list-group-item list-group-item-action dropdown-notifications-item">
                                     <div class="d-flex">
@@ -217,6 +250,7 @@
                                     </div>
                                 </li>
                             @endforeach
+
                             @foreach ($notifications as $notification)
                                 <li class="list-group-item list-group-item-action dropdown-notifications-item">
                                     <div class="d-flex">
@@ -248,9 +282,6 @@
                                     </div>
                                 </li>
                             @endforeach
-
-
-                         
 
                         </ul>
                     </li>

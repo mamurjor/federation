@@ -8,11 +8,13 @@ use App\Events\ClassifiedAdSubmitted;
 use Illuminate\Support\Facades\Event;
 use App\Events\VoteAnnouncementPosted;
 use Illuminate\Auth\Events\Registered;
+use App\Events\DistrictVoteAnnounceCreated;
 use App\Events\WingsVoteAnnouncementPosted;
 use App\Listeners\CreateNewUserNotification;
 use App\Listeners\SendClassifiedAdNotification;
 use App\Listeners\SendMatrimonialAdNotification;
 use App\Listeners\SendVoteAnnouncementNotification;
+use App\Listeners\SendDistrictVoteAnnounceNotification;
 use App\Listeners\SendWingsVoteAnnouncementNotification;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -48,6 +50,10 @@ class EventServiceProvider extends ServiceProvider
 
         WingsVoteAnnouncementPosted::class => [
             SendWingsVoteAnnouncementNotification::class,
+        ],
+        
+        DistrictVoteAnnounceCreated::class => [
+            SendDistrictVoteAnnounceNotification::class,
         ],
         
     ];

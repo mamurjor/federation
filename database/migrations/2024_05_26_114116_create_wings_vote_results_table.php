@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('type',255);
             $table->string('type_name',255);
             $table->string('profession_name',255);
+            $table->enum('status',[0,1])->default(0)->comment('0 = Failed, 1 = Selected');
             $table->timestamps();
         });
     }

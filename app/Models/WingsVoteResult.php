@@ -18,5 +18,6 @@ class WingsVoteResult extends Model
         'type_name',
         'profession_name',
         'wingsnomini_id',
+        'status'
     ];
 }

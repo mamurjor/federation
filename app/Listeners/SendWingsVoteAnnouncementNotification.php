@@ -26,7 +26,7 @@ class SendWingsVoteAnnouncementNotification
     {
         $announcement = $event->announcement;
         $announcementProfession = $announcement->profession_name;
-        Log::info('Announcement Profession:', ['profession' => $announcementProfession]);
+        // Log::info('Announcement Profession:', ['profession' => $announcementProfession]);
         $clients = User::where('role_id', 2)
                         ->where('profession', $announcementProfession)
                         ->get();

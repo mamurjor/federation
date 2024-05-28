@@ -52,7 +52,7 @@ class VoteAnnouncementNotification extends Notification
     {
         return [
             'message' => 'New Vote announce',
-            'user_name' => $this->user->votetype . 'Vote announce',
+            'user_name' => $this->user->votetype . ' Tehsil Vote announce',
             'user_email' => '',
         ];
     }

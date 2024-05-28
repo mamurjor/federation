@@ -24,10 +24,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Password;
+// use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class AuthController extends Controller
 {
-        /**
+    // use SendsPasswordResetEmails;
+    /**
      * User register page show
      *
      * @method GET
@@ -308,8 +311,24 @@ class AuthController extends Controller
     }
 
 
+    public function showLinkRequestForm()
+    {
+        return view('auth.passwords.email');
+    }
+
+     public function sendResetLinkEmail(Request $request)
+    {
+        $request->validate(['email' => 'required|email']);
 
 
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT
+                    ? back()->with(['status' => __($status)])
+                    : back()->withErrors(['email' => __($status)]);
+    }
     
 
         // public function logout(){

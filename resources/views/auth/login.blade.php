@@ -57,7 +57,7 @@
                                 <div class="col-md-4"><p class="fw-normal text-danger text-center img_mid_text">Forgot Your Password?</p></div>
                                 <div class="col-md-4"><img class="p_leftRight_image" src="./img/registration_page/res_left.png" alt=""></div>
                             </div>
-                            <h6 class="text-center have_account">Reset your password?<a href="#" class="text-danger"> Reset</a></h6>
+                            <h6 class="text-center have_account">Reset your password?<a href="{{ route('password.request') }}" class="text-danger"> Reset</a></h6>
                         </div>
                         
                     </div>
