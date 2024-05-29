@@ -3,8 +3,8 @@
         <div class="row">
             @php
                 $data = json_decode($HeroSections, true);
-
             @endphp
+
 
 
             <div class="col-md-12 p-0">
@@ -21,9 +21,9 @@
                                 echo 'active';
                             }
                             ?>">
-                                <img src=" <?php echo url('/') . $singlevalue['imageurl']; ?>" alt="tst">
+                                <img src="<?php echo url('/') . $singlevalue['imageurl']; ?>" alt="tst">
                                 {{-- <img src="{{ asset('frontend/assets/img/home_page/hero_section/image2.png') }}" --}}
-                                
+
                                 <div class="carousel-caption  d-md-block">
                                     <h1 class="fw-bold mb-2">{{ $singlevalue['title'] }}</h1>
                                     <p class="fw-normal">{{ $singlevalue['slogan'] }}</p>

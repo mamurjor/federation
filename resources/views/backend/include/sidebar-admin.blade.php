@@ -218,6 +218,11 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
+                    <a href="{{ route('company.setting') }}" class="menu-link">
+                        <div data-i18n="CRM">Company Settings</div>
+                    </a>
+                </li>
+                <li class="menu-item">
                     <a href="{{ route('paymentsettings.index') }}" class="menu-link">
                         <div data-i18n="CRM">Payment Settings</div>
                     </a>

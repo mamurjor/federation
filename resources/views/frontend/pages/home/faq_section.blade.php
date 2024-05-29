@@ -5,8 +5,8 @@
                     <div class="col-md-12">
                         <div class="common_heading text-center">
                             <h6>FAQ</h6>
-                            <h2 class="fw-bold mb-3 mt-3">Frequently Asked Questions</h2>
-                            <p class="fw-normal">It is a long established fact that a reader will be distracted by the readable content.</p>
+                            <h2 class="fw-bold mb-3 mt-3">{{ config('settings.ftitle') }}</h2>
+                            <p class="fw-normal">{{ config('settings.fsubtitle') }}</p>
                         </div>
                     </div>
                 </div>

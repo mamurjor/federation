@@ -87,6 +87,9 @@ class MainIndexController extends Controller
         return view('backend.blog.blog',compact('blogpost', 'user'));
     }
 
+   
+
+
     public function blogsingle($id){
         $singleblog = BlogPost::where('id', $id)->first();
         $user       = User::where('id', $singleblog->user_id)->first();
@@ -105,6 +108,16 @@ class MainIndexController extends Controller
         $singlecast = Cast::where('id', $id)->first();
  
         return view('backend.cast.singlecast',compact('singlecast'));
+    }
+
+    // contact 
+    public function contact(){
+        return view('backend.contact.contact');
+    }
+
+    // aboutUs 
+    public function aboutUS(){
+        return view('backend.aboutUs.aboutUs');
     }
     
    

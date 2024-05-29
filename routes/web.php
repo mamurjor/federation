@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\VoteController;
+use App\Http\Controllers\WingsController;
 use App\Http\Controllers\NominiController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ExcelCSVController;
 use App\Http\Controllers\AllNotifiController;
 use App\Http\Controllers\Auth\AuthController;
@@ -29,7 +31,6 @@ use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\Admin\SliersectionController;
 use App\Http\Controllers\Frontend\MainIndexController;
 use App\Http\Controllers\Admin\MissionSectionController;
-use App\Http\Controllers\WingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +75,13 @@ Route::get('company/setting',[CompanysettingController::class,'companysettingfor
 Route::post('company/setting/save',[CompanysettingController::class,'companysetting'])->name('company.setting.save');
 Route::post('company/setting/header',[CompanysettingController::class,'companysettingheader'])->name('company.setting.header');
 Route::post('company/setting/footer',[CompanysettingController::class,'companysettingfooter'])->name('company.setting.footer');
+Route::post('company/setting/contact',[CompanysettingController::class,'companysettingcontact'])->name('company.setting.contact');
+Route::post('company/setting/president',[CompanysettingController::class,'companysettingpresident'])->name('company.setting.president');
+Route::post('company/setting/blog',[CompanysettingController::class,'companysettingblog'])->name('company.setting.blog');
+Route::post('company/setting/joinus',[CompanysettingController::class,'companysettingjoinus'])->name('company.setting.joinus');
+Route::post('company/setting/classified',[CompanysettingController::class,'companysettingclassified'])->name('company.setting.classified');
+Route::post('company/setting/matro',[CompanysettingController::class,'companysettingmatro'])->name('company.setting.matro');
+Route::post('company/setting/faq',[CompanysettingController::class,'companysettingfaq'])->name('company.setting.faq');
 
 
 
@@ -352,7 +360,14 @@ Route::get('blogpost/delete/{id}', [BlogController::class, 'blogpostdelete'])->n
 Route::get('blog', [MainIndexController::class, 'blog'])->name('blog');
 Route::get('blogsingle/{id}',[MainIndexController::class,'blogsingle'])->name('blog.single');
 
+// Contact
 
+Route::get('contact', [MainIndexController::class, 'contact'])->name('contact');
+Route::post('/contacts', [ContactController::class, 'store']);
+
+// About Us
+
+Route::get('about-us', [MainIndexController::class, 'aboutUs'])->name('about.us');
 
 //Cast post
 

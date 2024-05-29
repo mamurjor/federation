@@ -5,11 +5,12 @@
                     <div class="col-md-12">
                         <div class="common_heading text-center">
                             <h6>Meet Now</h6>
-                            <h2 class="fw-bold mb-3 mt-3">Presidents & General Secretaries</h2>
-                            <p class="fw-normal">To provide a common platform to all Jutt Individual and Jutts Organization from all over the world.</p>
+                            <h2 class="fw-bold mb-3 mt-3">{{ config('settings.ptitle') }}</h2>
+                            <p class="fw-normal">{{ config('settings.psubtitle') }}</p>
                         </div>
                     </div>
                 </div>
+
                 <div class="row card_main">
                     @foreach ($uniqueUserResults as $single)
                         

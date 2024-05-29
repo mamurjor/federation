@@ -144,15 +144,13 @@
                             </li>
                             <li class="nav-item ms-2">
                                 <a class="nav-link"
-                                    href="file:///D:/mamurjor%20project%20live/Jutt_Federation/about_us.html"
-                                    id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                    href="{{ route('about.us') }}">
                                     About Us
                                 </a>
                             </li>
                             <li class="nav-item ms-2">
                                 <a class="nav-link" aria-current="page"
-                                    href="file:///D:/mamurjor%20project%20live/Jutt_Federation/member_list.html">Members</a>
+                                    href="#">Members</a>
                             </li>
             
 
@@ -173,7 +171,7 @@
 
                             <li class="nav-item ms-2">
                                 <a class="nav-link"
-                                    href="">Contact</a>
+                                    href="{{ route('contact') }}">Contact</a>
                             </li>
                         </ul>
                         @guest

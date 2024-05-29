@@ -26,10 +26,10 @@
                 <div class="row mt-5">
                     <div class="col-md-6 col-sm-6 col-lg-3 mb-3">
                         <div class="common_join_box join_us_bg text-center">
-                            <h3>Join us today!</h3>
-                            <p>The Jutt Federation Pakistan & International KSA envisions a world where Jutt individuals and organizations unite on a common platform, transcending geographical boundaries to foster unity, prosperity</p>
+                            <h3>{{ config('settings.jtitle') }}</h3>
+                            <p>{{ config('settings.jsubtitle') }}</p>
                             <div class="common_button mt-5">
-                                <a href="#"> Sign Up Now <i class="fa-solid fa-circle-plus"></i></a>
+                                <a href="{{ config('settings.jurl') }}"> {{ config('settings.jtext') }} <i class="{{ config('settings.jicon') }}"></i></a>
                             </div>
                         </div>
                     </div>
@@ -71,27 +71,29 @@
                             </a>
 
                     </div>
+
                     <div class="col-md-6 col-sm-6 col-lg-3 mb-3">
                         <div class="common_join_box lastest_bg text-center">
-                            <img src="{{ asset('frontend/assets/img/home_page/join_us_section/join_box_icon.png') }}" class="w-25 mb-2" alt="">
-                            <h3>Find Anything
-                                Around You.</h3>
-                            <p>Get the best classified ads experience with Jutt Federation Pakistan & International KSA.</p>
+                            <img src="{{ config('settings.clogo') }}" class="w-25 mb-2" alt="">
+                            <h3>{{ config('settings.ctitle') }}</h3>
+                            <p>{{ config('settings.csubtitle') }}</p>
                             <div class="common_button mt-5">
-                                <a href="#" class="bg-danger border-danger"> View Ads  <i class="fa-regular fa-eye"></i></a>
+                                <a href="{{ config('settings.curl') }}" class="bg-danger border-danger"> {{ config('settings.ctext') }}  <i class="{{ config('settings.cicon') }}"></i></a>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6 col-sm-6 col-lg-3 mb-3">
                         <div class="common_join_box matrimonials_bg text-center">
-                            <img src="{{ asset('frontend/assets/img/home_page/join_us_section/metrimonials_icon.png') }}" class="w-25 mb-1" alt="">
-                            <h3>Find your Right Match here</h3>
-                            <p>It is a long established fact that a reader will be distracted by the read is that it has desktop publishing packages and web page normal distribution of letters</p>
+                            <img src="{{ config('settings.mlogo') }}" class="w-25 mb-1" alt="">
+                            <h3>{{ config('settings.mtitle') }}</h3>
+                            <p>{{ config('settings.msubtitle') }}</p>
                             <div class="common_button mt-5">
-                                <a href="#"> View Profile  <i class="fa-regular fa-eye"></i></a>
+                                <a href="{{ config('settings.murl') }}"> {{ config('settings.mtext') }}  <i class="{{ config('settings.micon') }}"></i></a>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

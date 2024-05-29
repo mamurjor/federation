@@ -14,8 +14,7 @@ class CompanysettingController extends Controller
     }
 
     public function companysettingform(){
-
-       
+  
         $this->setPageTitle('Company Setting');
         return view("backend.page.companysetting.compnaysettingform");
     }
@@ -85,34 +84,7 @@ class CompanysettingController extends Controller
             Setting::updateOrCreate(['key' => 'paymentmethod'], ['value' => $paymentmethodpath]);
         }
 
-          // if ($request->hasFile('visa')) {
-          //     $imagevisa = $request->file('visa');
-          //     $visapath = '/admin/setting/' . time() . '.' . $imagevisa->getClientOriginalExtension();
-          //     $imagevisa->move(public_path('admin/setting'), $visapath);
-          //     Setting::updateOrCreate(['key' => 'visa'], ['value' => $visapath]);
-          // }
-        
-          // if ($request->hasFile('mastercard')) {
-          //     $imagemastercard = $request->file('mastercard');
-          //     $mastercardpath = '/admin/setting/' . time() . '.' . $imagemastercard->getClientOriginalExtension();
-          //     $imagemastercard->move(public_path('admin/setting'), $mastercardpath);
-          //     Setting::updateOrCreate(['key' => 'mastercard'], ['value' => $mastercardpath]);
-          // }
-          // if ($request->hasFile('discover')) {
-          //     $imagediscover = $request->file('discover');
-          //     $discoverpath = '/admin/setting/' . time() . '.' . $imagediscover->getClientOriginalExtension();
-          //     $imagediscover->move(public_path('admin/setting'), $discoverpath);
-          //     Setting::updateOrCreate(['key' => 'discover'], ['value' => $discoverpath]);
-          // }
-          // if ($request->hasFile('american')) {
-          //     $imageamerican = $request->file('american');
-          //     $americanpath = '/admin/setting/' . time() . '.' . $imageamerican->getClientOriginalExtension();
-          //     $imageamerican->move(public_path('admin/setting'), $americanpath);
-          //     Setting::updateOrCreate(['key' => 'american'], ['value' => $americanpath]);
-          // }
-     
-        
-       
+  
 
         return redirect()->route('company.setting')->with('success','Created successfully.');
     }
@@ -147,6 +119,120 @@ class CompanysettingController extends Controller
             Setting::updateOrCreate(['key' => 'hlogo'], ['value' => $hlogopath]);
         }
 
+        return redirect()->route('company.setting')->with('success','Created successfully.');
+
+    }
+
+    public function companysettingcontact(Request $request){
+
+      
+        Setting::updateOrCreate(['key' => 'ficon'], ['value' => $request->ficon]);
+        Setting::updateOrCreate(['key' => 'furl'], ['value' => $request->furl]);
+        
+       
+
+        Setting::updateOrCreate(['key' => 'ticon'], ['value' => $request->ticon]);
+        Setting::updateOrCreate(['key' => 'turl'], ['value' => $request->turl]);
+
+     
+
+        Setting::updateOrCreate(['key' => 'licon'], ['value' => $request->licon]);
+        Setting::updateOrCreate(['key' => 'lurl'], ['value' => $request->lurl]);
+
+    
+
+        Setting::updateOrCreate(['key' => 'yicon'], ['value' => $request->yicon]);
+        Setting::updateOrCreate(['key' => 'yurl'], ['value' => $request->yurl]);
+
+        Setting::updateOrCreate(['key' => 'title'], ['value' => $request->title]);
+        Setting::updateOrCreate(['key' => 'subtitle'], ['value' => $request->subtitle]);
+        Setting::updateOrCreate(['key' => 'phone'], ['value' => $request->phone]);
+        Setting::updateOrCreate(['key' => 'email'], ['value' => $request->email]);
+        Setting::updateOrCreate(['key' => 'location'], ['value' => $request->location]);
+        Setting::updateOrCreate(['key' => 'map'], ['value' => $request->map]);
+
+
+     
+        return redirect()->route('company.setting')->with('success','Created successfully.');
+
+    }
+    
+    public function companysettingpresident(Request $request){  
+
+        Setting::updateOrCreate(['key' => 'ptitle'], ['value' => $request->ptitle]);
+        Setting::updateOrCreate(['key' => 'psubtitle'], ['value' => $request->psubtitle]);
+
+     
+        return redirect()->route('company.setting')->with('success','Created successfully.');
+
+    }
+    public function companysettingfaq(Request $request){  
+
+        Setting::updateOrCreate(['key' => 'ftitle'], ['value' => $request->ftitle]);
+        Setting::updateOrCreate(['key' => 'fsubtitle'], ['value' => $request->fsubtitle]);
+
+     
+        return redirect()->route('company.setting')->with('success','Created successfully.');
+
+    }
+    public function companysettingblog(Request $request){  
+
+        Setting::updateOrCreate(['key' => 'btitle'], ['value' => $request->btitle]);
+        Setting::updateOrCreate(['key' => 'bicon'], ['value' => $request->bicon]);
+        Setting::updateOrCreate(['key' => 'btext'], ['value' => $request->btext]);
+        Setting::updateOrCreate(['key' => 'burl'], ['value' => $request->burl]);
+
+     
+        return redirect()->route('company.setting')->with('success','Created successfully.');
+
+    }
+    public function companysettingjoinus(Request $request){  
+
+        Setting::updateOrCreate(['key' => 'jtitle'], ['value' => $request->jtitle]);
+        Setting::updateOrCreate(['key' => 'jsubtitle'], ['value' => $request->jsubtitle]);
+        Setting::updateOrCreate(['key' => 'jicon'], ['value' => $request->jicon]);
+        Setting::updateOrCreate(['key' => 'jtext'], ['value' => $request->jtext]);
+        Setting::updateOrCreate(['key' => 'jurl'], ['value' => $request->jurl]);
+
+     
+        return redirect()->route('company.setting')->with('success','Created successfully.');
+
+    }
+    public function companysettingclassified(Request $request){  
+        
+        if ($request->hasFile('clogo')) {
+            $imageclogo = $request->file('clogo');
+            $clogopath  = '/admin/setting/' . time() . '.' . $imageclogo->getClientOriginalExtension();
+            $imageclogo->move(public_path('admin/setting'), $clogopath);
+            Setting::updateOrCreate(['key' => 'clogo'], ['value' => $clogopath]);
+        }
+
+        Setting::updateOrCreate(['key' => 'ctitle'], ['value' => $request->ctitle]);
+        Setting::updateOrCreate(['key' => 'csubtitle'], ['value' => $request->csubtitle]);
+        Setting::updateOrCreate(['key' => 'cicon'], ['value' => $request->cicon]);
+        Setting::updateOrCreate(['key' => 'ctext'], ['value' => $request->ctext]);
+        Setting::updateOrCreate(['key' => 'curl'], ['value' => $request->curl]);
+
+     
+        return redirect()->route('company.setting')->with('success','Created successfully.');
+
+    }
+    public function companysettingmatro(Request $request){  
+        
+        if ($request->hasFile('mlogo')) {
+            $imagemlogo = $request->file('mlogo');
+            $mlogopath  = '/admin/setting/' . time() . '.' . $imagemlogo->getClientOriginalExtension();
+            $imagemlogo->move(public_path('admin/setting'), $mlogopath);
+            Setting::updateOrCreate(['key' => 'mlogo'], ['value' => $mlogopath]);
+        }
+
+        Setting::updateOrCreate(['key' => 'mtitle'], ['value' => $request->mtitle]);
+        Setting::updateOrCreate(['key' => 'msubtitle'], ['value' => $request->msubtitle]);
+        Setting::updateOrCreate(['key' => 'micon'], ['value' => $request->micon]);
+        Setting::updateOrCreate(['key' => 'mtext'], ['value' => $request->mtext]);
+        Setting::updateOrCreate(['key' => 'murl'], ['value' => $request->murl]);
+
+     
         return redirect()->route('company.setting')->with('success','Created successfully.');
 
     }
