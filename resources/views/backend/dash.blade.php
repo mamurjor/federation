@@ -61,6 +61,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script>
+        // Pass the base URL from Laravel to JavaScript
+        var baseUrl = '{{ url('/') }}';
+    </script>
 </head>
 
 <body>

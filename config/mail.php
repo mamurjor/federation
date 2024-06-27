@@ -35,15 +35,23 @@ return [
 
     'mailers' => [
         'smtp' => [
-            'transport' => 'smtp',
-            'url' => env('MAIL_URL'),
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+            'driver' => env('MAIL_DRIVER', 'smtp'),
+            'host' => env('MAIL_HOST', 'smtp.gmail.com'),
             'port' => env('MAIL_PORT', 587),
+            'from' => [
+                'address' => env('MAIL_FROM_ADDRESS', 'mamurjormail@gmail.com'),
+                'name' => env('MAIL_FROM_NAME', 'YourAppName'),
+            ],
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
-            'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN'),
+            'username' => env('MAIL_USERNAME', 'mamurjormail@gmail.com'),
+            'password' => env('MAIL_PASSWORD', 'cnqkvdodicugmzom'),
+            'sendmail' => '/usr/sbin/sendmail -bs',
+            'markdown' => [
+                'theme' => 'default',
+                'paths' => [
+                    resource_path('views/vendor/mail'),
+                ],
+            ],
         ],
 
         'ses' => [

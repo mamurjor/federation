@@ -331,7 +331,7 @@
             // alert(selectedTehsils);
 
             $.ajax({
-                url: "http://127.0.0.1:8000/getTehsilClassifiedData",
+                url: baseUrl + "/getTehsilClassifiedData",
                 method: 'GET',
                 data: {
                     names: selectedTehsils

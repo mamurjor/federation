@@ -151,7 +151,7 @@
             // console.log($(this).serialize());
             $.ajax({
                 type: 'POST',
-                url: '{{ url('/contacts') }}',
+                url: baseUrl + '/contacts',
                 data: $(this).serialize(),
                 
                 success: function(response) {

@@ -144,7 +144,7 @@
     
             if (selectedType) {
                 $.ajax({
-                    url: '/get-names',
+                    url: baseUrl + '/get-names',
                     type: 'GET',
                     data: { model: selectedType },
                     success: function(response) {
@@ -172,7 +172,7 @@
     
             if (selectedValue && selectedType) {
                 $.ajax({
-                    url: '/get-professions',
+                    url:baseUrl + '/get-professions',
                     type: 'GET',
                     data: { type: selectedType, value: selectedValue },
                     success: function(response) {

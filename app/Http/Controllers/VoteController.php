@@ -320,6 +320,7 @@ class VoteController extends Controller
             public function getCharge(Request $request) {
                 $positionName = $request->positionName;
                           // Fetch charge value from Votepositiontype table based on $positionName
+                          
                 $charge = VotingPositionType::where('name', $positionName)->value('charge');
                 return response()->json(['charge' => $charge]);
             }

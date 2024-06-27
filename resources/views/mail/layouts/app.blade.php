@@ -150,7 +150,7 @@
                                                                     style="font-size: 14px; line-height: 160%; text-align: center;">
                                                                     <strong>
                                                                         <span style="font-size: 22px; line-height: 35.2px;">
-                                                                            PigeonDex | @yield('heading')
+                                                                            Jutt_Federation| @yield('heading')
                                                                         </span>
                                                                     </strong>
                                                                 </p>

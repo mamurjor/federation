@@ -269,7 +269,7 @@
             // Send AJAX request
             $.ajax({
                 type: 'POST',
-                url: "http://127.0.0.1:8000/getmatromonialbysearch",
+                url: baseUrl + "/getmatromonialbysearch",
                 data: formData,
                 success: function(response) {
 
@@ -369,7 +369,7 @@
             // alert(selectedTehsils);
 
             $.ajax({
-                url: "http://127.0.0.1:8000/getTehsilData",
+                url: baseUrl + "/getTehsilData",
                 method: 'GET',
                 data: {
                     names: selectedTehsils
@@ -489,7 +489,7 @@
             // alert(selectedProfession);
 
             $.ajax({
-                url: "http://127.0.0.1:8000/getProfessionData",
+                url: baseUrl + "/getProfessionData",
                 method: 'GET',
                 data: {
                     names: selectedProfession
@@ -583,7 +583,7 @@
             if (sortBy === 'date') {
                 // Make an AJAX request to sort data by date
                 $.ajax({
-                    url: "http://127.0.0.1:8000/getsorteddata",
+                    url: baseUrl + "/getsorteddata",
                     method: 'GET',
                     success: function(response) {
                         // Handle the sorted data returned in the response

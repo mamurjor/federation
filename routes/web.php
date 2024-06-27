@@ -16,17 +16,17 @@ use App\Http\Controllers\VerifyUserController;
 use App\Http\Controllers\Admin\GenderController;
 use App\Http\Controllers\Admin\TehsilController;
 use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\admin\BillingController;
+use App\Http\Controllers\Admin\BillingController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\UserOperationController;
 use App\Http\Controllers\Admin\DistrictController;
-use App\Http\Controllers\admin\SettingsController;
+use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\CompanysettingController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\admin\ClassifiedController;
+use App\Http\Controllers\Admin\ClassifiedController;
 use App\Http\Controllers\Admin\ProfessionController;
 use App\Http\Controllers\Admin\HeroSectionController;
-use App\Http\Controllers\admin\MatromonialController;
+use App\Http\Controllers\Admin\MatromonialController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\Admin\SliersectionController;
 use App\Http\Controllers\Frontend\MainIndexController;
@@ -317,7 +317,7 @@ Route::get('stripe', [NominiController::class, 'stripe'])->name('stripe');
 Route::post('stripe/post', [NominiController::class, 'stripestore'])->name('stripe.post');
 
 
-Route::get('/getCharge', [VoteController::class,'getCharge']);
+Route::get('/getCharge', [VoteController::class,'getCharge'])->name('getCharge');
 
 
 Route::get('/getdistrictbycnic/{code}', [DistrictController::class, 'getDistrictByCode'])->name('getdistrictbycnic');

@@ -26,18 +26,22 @@
         }
     </style>
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script>
+        // Pass the base URL from Laravel to JavaScript
+        var baseUrl = '{{ url('/') }}';
+    </script>
      <!-- Include your custom JavaScript file -->
     
 </head>
 
 <body>
-    @include('frontend.include.header')
+    @include('frontend.include.Header')
     <!-- header end -->
     <main>
         @yield('content')
     </main>
     <!-- footer start -->
-    @include('frontend.include.footer')
+    @include('frontend.include.Footer')
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>

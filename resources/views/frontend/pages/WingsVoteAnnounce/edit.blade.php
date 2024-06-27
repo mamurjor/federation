@@ -156,7 +156,7 @@
         // Fetch type details based on initial type value
         if (selectedType) {
             $.ajax({
-                url: '/get-names',
+                url: baseUrl + '/get-names',
                 type: 'GET',
                 data: {
                     model: selectedType
@@ -181,7 +181,7 @@
         // Fetch professions based on initial type details value
         if (selectedTypeDetails) {
             $.ajax({
-                url: '/get-professions',
+                url:baseUrl + '/get-professions',
                 type: 'GET',
                 data: {
                     type: selectedType,
@@ -213,7 +213,7 @@
 
             if (selectedType) {
                 $.ajax({
-                    url: '/get-names',
+                    url:baseUrl + '/get-names',
                     type: 'GET',
                     data: {
                         model: selectedType
@@ -245,7 +245,7 @@
 
             if (selectedValue && selectedType) {
                 $.ajax({
-                    url: '/get-professions',
+                    url: baseUrl + '/get-professions',
                     type: 'GET',
                     data: {
                         type: selectedType,

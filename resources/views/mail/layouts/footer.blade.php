@@ -164,7 +164,7 @@
                                             style="color: #ffffff; line-height: 180%; text-align: center; word-wrap: break-word;">
                                             <p style="font-size: 14px; line-height: 180%;"><span
                                                     style="font-size: 16px; line-height: 28.8px; color: #fff">Copyrights
-                                                    © PigeonDex  All Rights Reserved.</span></p>
+                                                    © Jutt_federation All Rights Reserved.</span></p>
                                         </div>
 
                                     </td>

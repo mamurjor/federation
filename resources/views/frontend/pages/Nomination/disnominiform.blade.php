@@ -112,7 +112,7 @@
                                                 <input type='radio' class="position" name="position"
                                                     value="{{ $position }}" /> {{ $position }}
                                             @endforeach
-                                            @error('position')
+                                            @error('position')user
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
 
@@ -161,7 +161,7 @@
 
             // Send positionName to server using AJAX
             $.ajax({
-                url: 'http://127.0.0.1:8000/getCharge',
+                url: baseUrl + '/getCharge',
                 type: 'GET',
                 data: {
                     positionName: positionName
