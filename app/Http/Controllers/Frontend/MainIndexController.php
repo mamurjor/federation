@@ -34,19 +34,21 @@ class MainIndexController extends Controller
         $HeroSections    = HeroSection::all();
         $MissionSections = MissionSection::all();
         $sliersections   = sliersection::all();
+        $matromonial = Matromonial::where('status', 'active')->take(8)->get();
+        $classified = Classified::where('status', 'active')->take(8)->get();
 
         $voteresult = VoteResult::where('status', '1')->with(['nomini.user'])->get();
         // dd($voteresult);
         $uniqueUserResults = $voteresult->unique(function ($item) {
             return $item->nomini->user->id;
         });
-        return view('frontend.pages.home',compact('countries','districts','tehsils','HeroSections','MissionSections','sliersections','casts','uniqueUserResults'));
+        return view('frontend.pages.home',compact('countries','districts','tehsils','HeroSections','MissionSections','sliersections','casts','uniqueUserResults','matromonial','classified'));
     }
 
 
 
     public function classified(){
-        $classified    = Classified::where('status', 'active')->get();
+        $classified    = Classified::where('status', 'active')->paginate(5);
         $allprofession = Profession::all();
         $getalltehsil  = Tehsil::all();
         return view('frontend.pages.classifiedall.classifiedall',compact('classified','allprofession','getalltehsil'));
@@ -54,7 +56,7 @@ class MainIndexController extends Controller
 
     public function matromonial(){
 
-        $matromonial = Matromonial::where('status', 'active')->get();
+        $matromonial = Matromonial::where('status', 'active')->paginate(5);
 
         $getalltehsil  = Tehsil::all();
         $marital       = Matromonialmarital::all();

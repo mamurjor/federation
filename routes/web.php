@@ -325,14 +325,15 @@ Route::get('/gettehsilbycnic/{code}', [DistrictController::class, 'getTehsilByCo
 Route::get('/getgenderbycnic/{code}', [DistrictController::class, 'getGenderByCode'])->name('getgenderbycnic');
 
 
-
+// filter search Matromnial
 Route::post('/getmatromonialbysearch', [MatromonialController::class,'getmatromonialbysearch'])->name('getmatromonialbysearch');
 Route::get('/getTehsilData', [MatromonialController::class,'getTehsilData'])->name('getTehsilData');
 Route::get('/getsorteddata', [MatromonialController::class,'getsorteddata'])->name('getsorteddata');
 Route::get('/getProfessionData', [MatromonialController::class,'getProfessionData'])->name('getProfessionData');
+Route::get('/getNameData', [MatromonialController::class,'getNameData'])->name('getNameData');
 
 
-
+// filter search Classified
 Route::get('/getTehsilClassifiedData', [ClassifiedController::class,'getTehsilClassifiedData'])->name('getTehsilClassifiedData');
 
 

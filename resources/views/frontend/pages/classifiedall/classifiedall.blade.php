@@ -1,5 +1,5 @@
 @extends('layouts.front')
-@section('title', 'hhhh')
+@section('title', 'Classified')
 @section('content')
 
     <main>
@@ -180,7 +180,7 @@
                         <div class="row common_filter_top rounded py-3 px-3 align-items-center">
                             <div class="col-xl-5 col-lg-12 col-sm-12 col-md-12">
                                 <div class="input-group  bg-white pe-3 mb-2 mt-2">
-                                    <input type="search" placeholder="Write email....." aria-describedby="button-addon1"
+                                    <input type="search" placeholder="Search by title..." aria-describedby="button-addon1"
                                         class="form-control border-0 placeholder_search py-3 px-4">
                                     <div class="input-group-append align-self-center">
                                         <button id="button-plane" type="submit"
@@ -212,49 +212,58 @@
 
                             @foreach ($classified as $data)
                                 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
-                                    <div class="card position-relative border-0 mb-3">
-                                        <h6 class="classified_position_heading position-absolute">New</h6>
-                                        <div class="hart_postion position-absolute">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </div>
-                                        <img src="{{ $data->image }}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <div class="card_date d-flex justify-content-between">
-                                                <div class="card_date_common mb-4 mobile_bg"><i
-                                                        class="fa-solid fa-mobile-screen-button me-2 text-white"></i>Mobiles
-                                                </div>
-                                                <div class="card_date_common mb-4"><i
-                                                        class="fa fa-star rating-color me-2"></i>4.5</div>
-                                            </div>
-                                            <h5 class="card-title mt-4">{{ $data->title }}</h5>
-                                            <p class="card-text"><i class="fa-solid fa-location-dot "></i>
-                                                {{ $data->location }}</p>
-                                            <p class="card-text mt-2"><i class="fa-regular fa-clock"></i>
-                                                <?php
-                                                
-                                                $currentDate = date('Y-m-d'); // Add a semicolon here
-                                                $date2 = new DateTime($data->created_at);
-                                                
-                                                $interval = $date2->diff(new DateTime($currentDate)); // Call diff() on $date2
-                                                
-                                                echo $interval->format(' %a days ago'); // Output: -9 days
-                                                ?>
-                                            </p>
 
-                                            <div
-                                                class="classified_add_btn d-flex justify-content-between align-items-center">
-                                                <h6 class="fw-bold">${{ $data->price }}</h6>
-                                                <a href="{{ route('classified.single', $data->id) }}" class="py-3">Read
-                                                    More<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                    <a href="{{ route('classified.single', $data->id) }}">
+                                        <div class="card position-relative border-0 mb-3">
+                                            <h6 class="classified_position_heading position-absolute">New</h6>
+                                            <div class="hart_postion position-absolute">
+                                                <i class="fa-solid fa-heart"></i>
+                                            </div>
+                                            <img src="{{ $data->image }}" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <div class="card_date d-flex justify-content-between">
+                                                    <div class="card_date_common mb-4 mobile_bg"><i
+                                                            class="fa-solid fa-mobile-screen-button me-2 text-white"></i>Mobiles
+                                                    </div>
+                                                    <div class="card_date_common mb-4"><i
+                                                            class="fa fa-star rating-color me-2"></i>4.5
+                                                    </div>
+                                                </div>
+                                                <h5 class="card-title mt-4">{{ $data->title }}</h5>
+                                                <p class="card-text"><i class="fa-solid fa-location-dot "></i>
+                                                    {{ $data->location }}</p>
+                                                <p class="card-text mt-2"><i class="fa-regular fa-clock"></i>
+                                                    <?php
+                                                    
+                                                    $currentDate = date('Y-m-d'); // Add a semicolon here
+                                                    $date2 = new DateTime($data->created_at);
+                                                    
+                                                    $interval = $date2->diff(new DateTime($currentDate)); // Call diff() on $date2
+                                                    
+                                                    echo $interval->format(' %a days ago'); // Output: -9 days
+                                                    ?>
+                                                </p>
+
+                                                <div
+                                                    class="classified_add_btn d-flex justify-content-between align-items-center">
+                                                    <h6 class="fw-bold">${{ $data->price }}</h6>
+                                                    <a href="{{ route('classified.single', $data->id) }}"
+                                                        class="py-3">Read
+                                                        More<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
+
                                 </div>
                             @endforeach
 
+                            <div class="d-flex justify-content-center">
+                                {{ $classified->links() }}
+                            </div>
 
 
-                            <nav aria-label="Page navigation example">
+                            {{-- <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item">
                                         <a class="page-link arrow_btn_bg text-white" href="#"
@@ -271,7 +280,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </nav>
+                            </nav> --}}
                         </div>
 
 
@@ -364,32 +373,32 @@
                     // Loop through the response data and append new content
                     $.each(response, function(index, data) {
                         var classifiedCard = `
-        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
-            <div class="card position-relative border-0 mb-3">
-                <h6 class="classified_position_heading position-absolute">New</h6>
-                <div class="hart_postion position-absolute">
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-                <img src="${data.image}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="card_date d-flex justify-content-between">
-                        <div class="card_date_common mb-4 mobile_bg">
-                            <i class="fa-solid fa-mobile-screen-button me-2 text-white"></i>Mobiles
-                        </div>
-                        <div class="card_date_common mb-4">
-                            <i class="fa fa-star rating-color me-2"></i>4.5
-                        </div>
-                    </div>
-                    <h5 class="card-title mt-4">${data.title}</h5>
-                    <p class="card-text"><i class="fa-solid fa-location-dot "></i> ${data.location}</p>
-                    <p class="card-text mt-2"><i class="fa-regular fa-clock"></i>${calculateDaysAgo(data.created_at)}</p>
-                    <div class="classified_add_btn d-flex justify-content-between align-items-center">
-                        <h6 class="fw-bold">$${data.price}</h6>
-                        <a href="/classified/single/${data.id}" class="py-3">Read More<i class="fa-solid fa-arrow-right ms-3"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>`;
+                                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
+                                    <div class="card position-relative border-0 mb-3">
+                                        <h6 class="classified_position_heading position-absolute">New</h6>
+                                        <div class="hart_postion position-absolute">
+                                            <i class="fa-solid fa-heart"></i>
+                                        </div>
+                                        <img src="${data.image}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <div class="card_date d-flex justify-content-between">
+                                                <div class="card_date_common mb-4 mobile_bg">
+                                                    <i class="fa-solid fa-mobile-screen-button me-2 text-white"></i>Mobiles
+                                                </div>
+                                                <div class="card_date_common mb-4">
+                                                    <i class="fa fa-star rating-color me-2"></i>4.5
+                                                </div>
+                                            </div>
+                                            <h5 class="card-title mt-4">${data.title}</h5>
+                                            <p class="card-text"><i class="fa-solid fa-location-dot "></i> ${data.location}</p>
+                                            <p class="card-text mt-2"><i class="fa-regular fa-clock"></i>${calculateDaysAgo(data.created_at)}</p>
+                                            <div class="classified_add_btn d-flex justify-content-between align-items-center">
+                                                <h6 class="fw-bold">$${data.price}</h6>
+                                                <a href="/classified/single/${data.id}" class="py-3">Read More<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
                         $('#classify').append(classifiedCard);
 
                     });
@@ -412,5 +421,4 @@
 
         });
     });
-
 </script>

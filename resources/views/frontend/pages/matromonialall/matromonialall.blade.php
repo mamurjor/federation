@@ -1,5 +1,5 @@
 @extends('layouts.front')
-@section('title', 'hhhh')
+@section('title', 'Matromonial')
 @section('content')
 
     <main>
@@ -113,7 +113,7 @@
                         </div>
                         <div class="common_filter_tehsil mt-4">
                             <h4 class="fw-bold common_filter_heading mb-4">FILTER BY PROFESSION</h4>
-                            <input class="form-control py-3 search_input mb-4" type="search" name="search"
+                            <input class="form-control py-2 search_input mb-4" type="search" name="search"
                                 placeholder="search">
                             <div class="common_filter_check">
                                 @foreach ($allprofession as $single)
@@ -121,7 +121,7 @@
                                         <div>
                                             <input class="form-check-input p-3 filterProfession" type="checkbox"
                                                 value="{{ $single->name }}" id="flexCheckChecked">
-                                            <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
+                                            <label class="form-check-label pt-1 ms-2 filter_size" for="flexCheckChecked">
                                                 {{ $single->name }}</span>
                                             </label>
                                         </div>
@@ -141,7 +141,7 @@
                         <div class="row common_filter_top rounded py-3 px-3 align-items-center">
                             <div class="col-xl-5 col-lg-12 col-sm-12 col-md-12">
                                 <div class="input-group  bg-white pe-3 mb-2 mt-2">
-                                    <input type="search" placeholder="Write email....." aria-describedby="button-addon1"
+                                    <input type="search" id="search-input" placeholder="Search by title.." aria-describedby="button-addon1"
                                         class="form-control border-0 placeholder_search py-3 px-4">
                                     <div class="input-group-append align-self-center">
                                         <button id="button-plane" type="submit"
@@ -174,6 +174,7 @@
 
                             @foreach ($matromonial as $data)
                                 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
+                                 <a href="{{ route('matromonial.single', $data->id) }}">
                                     <div class="card border-0 mb-3">
                                         <div class="text-center py-3">
                                             <img src="{{ $data->matromonialimage }}" class="card-img-top matrimonial_img"
@@ -216,11 +217,16 @@
                                             </div>
                                         </div>
                                     </div>
+                                 </a>
                                 </div>
                             @endforeach
 
+                            <div class="d-flex justify-content-center">
+                                {{ $matromonial->links() }}
+                            </div>
 
-                            <nav aria-label="Page navigation example">
+
+                            {{-- <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item">
                                         <a class="page-link arrow_btn_bg text-white" href="#"
@@ -237,7 +243,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </nav>
+                            </nav> --}}
                         </div>
 
 
@@ -455,7 +461,6 @@
         $('.filterProfession').change(function() {
             var professionName = $(this).val();
 
-            // var countElement = $(this).closest('.form-group').find('.totaldata');
 
             if ($(this).is(":checked")) {
                 selectedProfession.push(
@@ -499,6 +504,7 @@
 
                     $('.filterProfession').each(function() {
                         var professionName = $(this).val();
+                        // alert(professionName);
                         var countElement = $(this).closest('.form-group').find(
                             '.totaldata'
                         ); // Find the corresponding count display element
@@ -630,4 +636,55 @@
             }
         });
     });
+
+    $(document).ready(function () {
+            $('#button-plane').on('click', function (e) {
+                e.preventDefault();
+                let query = $('#search-input').val();
+                $.ajax({
+                    url: '{{ route('getNameData') }}',
+                    method: 'GET',
+                    data: { query: query },
+                    success: function (response) {
+                        // console.log(response);
+                        $('#matro').empty();
+                        if (response.length > 0) {
+                            $.each(response, function(index, data) {
+                            var matrimonialCard = `
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
+            <div class="card border-0 mb-3">
+                <div class="text-center py-3">
+                    <img src="${data.matromonialimage}" class="card-img-top matrimonial_img" alt="...">
+                </div>
+                <div class="card-body text-center">
+                    <div class="card_date d-flex justify-content-between">
+                        <h6 class="card_age_year">${data.age}</h6>
+                        <h6 class="card_age_year bg-warning">${data.height}</h6>
+                        <h6 class="card_age_year bg-danger">${data.religion}</h6>
+                        <h6 class="card_age_year bg-primary">${data.education}</h6>
+                    </div>
+                    <h5 class="card-title mt-4">${data.name}</h5>
+                    <p class="card-text"><i class="fa-solid fa-location-dot "></i> ${ data.location}</p>
+                    <p class="card-text mt-2"><i class="fa-regular fa-clock"></i>
+                        ${calculateDaysAgo(data.created_at)}
+                    </p>
+                    <div class="classified_add_btn d-flex justify-content-between align-items-center pt-3">
+                        <a href="mailto:${data.email}?subject=Your%20Subject&body=Your%20Message%20Here">
+                            <h6 class="fw-bold matrimonial_add_btn"><i class="fa-solid fa-phone"></i> contact</h6>
+                        </a>
+                        <a href="${data.route}" class="py-3">View Profile<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+                            $('#matro').append(matrimonialCard);
+
+                        });
+                        } else {
+                            $('#matro').append('<div>No results found</div>');
+                        }
+                    }
+                });
+            });
+        });
 </script>

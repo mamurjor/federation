@@ -727,7 +727,7 @@ td:last-child {
     color: var(--p);
 }
 #member_list_section .filter_size{
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     color: #505050;
 }

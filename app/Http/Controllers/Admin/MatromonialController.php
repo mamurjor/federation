@@ -435,4 +435,10 @@ public function getsorteddata(){
     $sortedData = Matromonial::orderBy('created_at', 'desc')->get();
     return response()->json($sortedData);
 }
+public function getNameData(Request $request){
+    
+  $query = $request->input('query');
+  $results = Matromonial::where('name', 'LIKE', "%{$query}%")->get();
+  return response()->json($results);
+}
 }
