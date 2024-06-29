@@ -281,6 +281,29 @@ public function categorystore(Request $request)
     return response()->json($tehsilClassifiedData);
  }
 
+ public function getSortedClassifiedData(){
+    
+  $sortedData = Classified::orderBy('created_at', 'desc')->where('status', 'active')->get();
+  return response()->json($sortedData);
+}
+
+ public function getsortedclassifieddataAs(){
+    
+  $sortedDataAs = Classified::orderBy('created_at', 'asc')->where('status', 'active')->get();
+  return response()->json($sortedDataAs);
+}
+
+ public function getTenClassifiedData(){
+    
+  $showTenData = Classified::take(10)->get();
+  return response()->json($showTenData);
+}
+ public function getTwentyClassifiedData(){
+    
+  $showTwentyData = Classified::take(20)->get();
+  return response()->json($showTwentyData);
+}
+
 
 
 

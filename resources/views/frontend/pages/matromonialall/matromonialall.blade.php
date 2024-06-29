@@ -139,9 +139,10 @@
 
                     <div class="col-md-12 col-lg-8 col-xl-9">
                         <div class="row common_filter_top rounded py-3 px-3 align-items-center">
-                            <div class="col-xl-5 col-lg-12 col-sm-12 col-md-12">
+                            <div class="col-xl-4 col-lg-12 col-sm-12 col-md-12">
                                 <div class="input-group  bg-white pe-3 mb-2 mt-2">
-                                    <input type="search" id="search-input" placeholder="Search by title.." aria-describedby="button-addon1"
+                                    <input type="search" id="search-input" placeholder="Search by title.."
+                                        aria-describedby="button-addon1"
                                         class="form-control border-0 placeholder_search py-3 px-4">
                                     <div class="input-group-append align-self-center">
                                         <button id="button-plane" type="submit"
@@ -150,21 +151,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-6 col-sm-6 col-md-6 d-flex align-items-center">
+                            <div class="col-xl-4 col-lg-6 col-sm-6 col-md-6 d-flex align-items-center">
                                 <div class="input-group bg-white py-3 justify-content-center rounded mb-2 mt-2">
-                                    <label for="number" class="number_filter_label">SHOW :<input type="number"
-                                            name="number" value="120" class="py-2 ms-3">
+                                    <label for="number" class="number_filter_label">SHOW : <select name="text"
+                                            id="short_bye" class="py-2 px-5 bg-white border-1 showByNumber">
+                                            <option value="">Select</option>
+                                            <option value="10">10</option>
+                                            <option value="20">20</option>
+                                            <option value="50">50</option>
+                                        </select>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-6 col-sm-6 col-md-6">
                                 <div class="input-group bg-white py-3 justify-content-center rounded mb-2 mt-2">
-                                    <label for="number" class="number_filter_label">SORT BY : </label>
-                                    <select name="text" class="py-2 px-5 bg-white border-1 sortBy">
-                                        <option value="">Select</option>
-                                        <option value="date">Date</option>
-                                        <option value="time">Time</option>
-                                    </select>
-
+                                    <label for="number" class="number_filter_label">SORT BY : <select name="text"
+                                            id="short_bye" class="py-2 px-5 bg-white border-1 sortBy">
+                                            <option value="">Select</option>
+                                            <option value="old">Oldest</option>
+                                            <option value="new">Latest</option>
+                                        </select>
                                 </div>
                             </div>
                         </div>
@@ -174,50 +179,50 @@
 
                             @foreach ($matromonial as $data)
                                 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
-                                 <a href="{{ route('matromonial.single', $data->id) }}">
-                                    <div class="card border-0 mb-3">
-                                        <div class="text-center py-3">
-                                            <img src="{{ $data->matromonialimage }}" class="card-img-top matrimonial_img"
-                                                alt="...">
-                                        </div>
-                                        <div class="card-body text-center">
-                                            <div class="card_date d-flex justify-content-between">
-                                                <h6 class="card_age_year">{{ $data->age }}</h6>
-                                                <h6 class="card_age_year bg-warning">{{ $data->height }}</h6>
-                                                <h6 class="card_age_year bg-danger">{{ $data->religion }}</h6>
-                                                <h6 class="card_age_year bg-primary">{{ $data->education }}</h6>
+                                    <a href="{{ route('matromonial.single', $data->id) }}">
+                                        <div class="card border-0 mb-3">
+                                            <div class="text-center py-3">
+                                                <img src="{{ $data->matromonialimage }}"
+                                                    class="card-img-top matrimonial_img" alt="...">
                                             </div>
-                                            <h5 class="card-title mt-4">{{ $data->name }}</h5>
-                                            <p class="card-text"><i class="fa-solid fa-location-dot "></i>
-                                                {{ $data->location }}</p>
-                                            <p class="card-text mt-2"><i class="fa-regular fa-clock"></i>
-                                                <?php
-                                                
-                                                $currentDate = date('Y-m-d'); // Add a semicolon here
-                                                $date2 = new DateTime($data->created_at);
-                                                
-                                                $interval = $date2->diff(new DateTime($currentDate)); // Call diff() on $date2
-                                                
-                                                echo $interval->format(' %a days ago'); // Output: -9 days
-                                                ?>
-                                            </p>
+                                            <div class="card-body text-center">
+                                                <div class="card_date d-flex justify-content-between">
+                                                    <h6 class="card_age_year">{{ $data->age }}</h6>
+                                                    <h6 class="card_age_year bg-warning">{{ $data->height }}</h6>
+                                                    <h6 class="card_age_year bg-danger">{{ $data->religion }}</h6>
+                                                    <h6 class="card_age_year bg-primary">{{ $data->education }}</h6>
+                                                </div>
+                                                <h5 class="card-title mt-4">{{ $data->name }}</h5>
+                                                <p class="card-text"><i class="fa-solid fa-location-dot "></i>
+                                                    {{ $data->location }}</p>
+                                                <p class="card-text mt-2"><i class="fa-regular fa-clock"></i>
+                                                    <?php
+                                                    
+                                                    $currentDate = date('Y-m-d'); // Add a semicolon here
+                                                    $date2 = new DateTime($data->created_at);
+                                                    
+                                                    $interval = $date2->diff(new DateTime($currentDate)); // Call diff() on $date2
+                                                    
+                                                    echo $interval->format(' %a days ago'); // Output: -9 days
+                                                    ?>
+                                                </p>
 
-                                            <div
-                                                class="classified_add_btn d-flex justify-content-between align-items-center pt-3">
-                                                <a
-                                                    href="mailto:{{ $data->email }}?subject=Your%20Subject&body=Your%20Message%20Here">
+                                                <div
+                                                    class="classified_add_btn d-flex justify-content-between align-items-center pt-3">
+                                                    <a
+                                                        href="mailto:{{ $data->email }}?subject=Your%20Subject&body=Your%20Message%20Here">
 
-                                                    <h6 class="fw-bold matrimonial_add_btn"><i
-                                                            class="fa-solid fa-phone"></i>
-                                                        contact</h6>
-                                                </a>
-                                                <a href="{{ route('matromonial.single', $data->id) }}"
-                                                    class="py-3">View
-                                                    Profile<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                                        <h6 class="fw-bold matrimonial_add_btn"><i
+                                                                class="fa-solid fa-phone"></i>
+                                                            contact</h6>
+                                                    </a>
+                                                    <a href="{{ route('matromonial.single', $data->id) }}"
+                                                        class="py-3">View
+                                                        Profile<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                 </a>
+                                    </a>
                                 </div>
                             @endforeach
 
@@ -260,8 +265,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     // ------------------ filter by form ------------- 
-
-
 
     $(document).ready(function() {
         // Capture form submission event
@@ -326,15 +329,7 @@
         });
     });
 
-
-
-
-
-
     // ------------------ filter by tehsil ------------- 
-
-
-
 
     $(document).ready(function() {
         var selectedTehsils = []; // Array to store selected tehsil names
@@ -449,11 +444,7 @@
         });
     });
 
-
     // ------------------ filter by Profession ------------- 
-
-
-
 
     $(document).ready(function() {
         var selectedProfession = []; // Array to store selected tehsil names
@@ -569,8 +560,6 @@
         });
     });
 
-
-
     function calculateDaysAgo(created_at) {
         var currentDate = new Date();
         var date2 = new Date(created_at);
@@ -579,14 +568,14 @@
         return diffInDays + " days ago";
     }
 
-    // ------------------ filter by Date ------------- 
+    // ------------------ filter by Oldest ------------- 
 
     $(document).ready(function() {
         $('.sortBy').change(function() {
             var sortBy = $(this).val(); // Get the selected option value
             // alert(sortBy)
             // Check if the selected option is "Date"
-            if (sortBy === 'date') {
+            if (sortBy === 'old') {
                 // Make an AJAX request to sort data by date
                 $.ajax({
                     url: baseUrl + "/getsorteddata",
@@ -637,19 +626,23 @@
         });
     });
 
-    $(document).ready(function () {
-            $('#button-plane').on('click', function (e) {
-                e.preventDefault();
-                let query = $('#search-input').val();
+    // ------------------ filter by latest ------------- 
+
+    $(document).ready(function() {
+        $('.sortBy').change(function() {
+            var sortBy = $(this).val(); // Get the selected option value
+            // alert(sortBy)
+            // Check if the selected option is "Date"
+            if (sortBy === 'new') {
+                // Make an AJAX request to sort data by date
                 $.ajax({
-                    url: '{{ route('getNameData') }}',
+                    url: baseUrl + "/getsorteddataas",
                     method: 'GET',
-                    data: { query: query },
-                    success: function (response) {
+                    success: function(response) {
+                        // Handle the sorted data returned in the response
                         // console.log(response);
                         $('#matro').empty();
-                        if (response.length > 0) {
-                            $.each(response, function(index, data) {
+                        $.each(response, function(index, data) {
                             var matrimonialCard = `
         <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
             <div class="card border-0 mb-3">
@@ -680,11 +673,186 @@
                             $('#matro').append(matrimonialCard);
 
                         });
-                        } else {
-                            $('#matro').append('<div>No results found</div>');
-                        }
+
+
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
                     }
                 });
+            }
+        });
+    });
+
+    // ------------------ filter by number ------------- 
+
+    $(document).ready(function() {
+        $('.showByNumber').change(function() {
+            var showBy = $(this).val(); // Get the selected option value
+            // alert(showBy)
+          
+            if (showBy === '10') {
+                // Make an AJAX request to sort data by date
+                $.ajax({
+                    url: baseUrl + "/gettendata",
+                    method: 'GET',
+                    success: function(response) {
+                        // Handle the sorted data returned in the response
+                        console.log(response);
+                        $('#matro').empty();
+                        $.each(response, function(index, data) {
+                            var matrimonialCard = `
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
+            <div class="card border-0 mb-3">
+                <div class="text-center py-3">
+                    <img src="${data.matromonialimage}" class="card-img-top matrimonial_img" alt="...">
+                </div>
+                <div class="card-body text-center">
+                    <div class="card_date d-flex justify-content-between">
+                        <h6 class="card_age_year">${data.age}</h6>
+                        <h6 class="card_age_year bg-warning">${data.height}</h6>
+                        <h6 class="card_age_year bg-danger">${data.religion}</h6>
+                        <h6 class="card_age_year bg-primary">${data.education}</h6>
+                    </div>
+                    <h5 class="card-title mt-4">${data.name}</h5>
+                    <p class="card-text"><i class="fa-solid fa-location-dot "></i> ${ data.location}</p>
+                    <p class="card-text mt-2"><i class="fa-regular fa-clock"></i>
+                        ${calculateDaysAgo(data.created_at)}
+                    </p>
+                    <div class="classified_add_btn d-flex justify-content-between align-items-center pt-3">
+                        <a href="mailto:${data.email}?subject=Your%20Subject&body=Your%20Message%20Here">
+                            <h6 class="fw-bold matrimonial_add_btn"><i class="fa-solid fa-phone"></i> contact</h6>
+                        </a>
+                        <a href="${data.route}" class="py-3">View Profile<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+                            $('#matro').append(matrimonialCard);
+
+                        });
+
+
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            }
+        });
+    });
+    // ------------------ filter by number ------------- 
+
+    $(document).ready(function() {
+        $('.showByNumber').change(function() {
+            var showBy = $(this).val(); // Get the selected option value
+            // alert(showBy)
+            // Check if the selected option is "Date"
+            if (showBy === '20') {
+                // Make an AJAX request to sort data by date
+                $.ajax({
+                    url: baseUrl + "/getwentydata",
+                    method: 'GET',
+                    success: function(response) {
+                        // Handle the sorted data returned in the response
+                        // console.log(response);
+                        $('#matro').empty();
+                        $.each(response, function(index, data) {
+                            var matrimonialCard = `
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
+            <div class="card border-0 mb-3">
+                <div class="text-center py-3">
+                    <img src="${data.matromonialimage}" class="card-img-top matrimonial_img" alt="...">
+                </div>
+                <div class="card-body text-center">
+                    <div class="card_date d-flex justify-content-between">
+                        <h6 class="card_age_year">${data.age}</h6>
+                        <h6 class="card_age_year bg-warning">${data.height}</h6>
+                        <h6 class="card_age_year bg-danger">${data.religion}</h6>
+                        <h6 class="card_age_year bg-primary">${data.education}</h6>
+                    </div>
+                    <h5 class="card-title mt-4">${data.name}</h5>
+                    <p class="card-text"><i class="fa-solid fa-location-dot "></i> ${ data.location}</p>
+                    <p class="card-text mt-2"><i class="fa-regular fa-clock"></i>
+                        ${calculateDaysAgo(data.created_at)}
+                    </p>
+                    <div class="classified_add_btn d-flex justify-content-between align-items-center pt-3">
+                        <a href="mailto:${data.email}?subject=Your%20Subject&body=Your%20Message%20Here">
+                            <h6 class="fw-bold matrimonial_add_btn"><i class="fa-solid fa-phone"></i> contact</h6>
+                        </a>
+                        <a href="${data.route}" class="py-3">View Profile<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+                            $('#matro').append(matrimonialCard);
+
+                        });
+
+
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            }
+        });
+    });
+
+
+    //----------------- Filter by Title --------------------
+
+    $(document).ready(function() {
+        $('#button-plane').on('click', function(e) {
+            e.preventDefault();
+            let query = $('#search-input').val();
+            $.ajax({
+                url: '{{ route('getNameData') }}',
+                method: 'GET',
+                data: {
+                    query: query
+                },
+                success: function(response) {
+                    // console.log(response);
+                    $('#matro').empty();
+                    if (response.length > 0) {
+                        $.each(response, function(index, data) {
+                            var matrimonialCard = `
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
+            <div class="card border-0 mb-3">
+                <div class="text-center py-3">
+                    <img src="${data.matromonialimage}" class="card-img-top matrimonial_img" alt="...">
+                </div>
+                <div class="card-body text-center">
+                    <div class="card_date d-flex justify-content-between">
+                        <h6 class="card_age_year">${data.age}</h6>
+                        <h6 class="card_age_year bg-warning">${data.height}</h6>
+                        <h6 class="card_age_year bg-danger">${data.religion}</h6>
+                        <h6 class="card_age_year bg-primary">${data.education}</h6>
+                    </div>
+                    <h5 class="card-title mt-4">${data.name}</h5>
+                    <p class="card-text"><i class="fa-solid fa-location-dot "></i> ${ data.location}</p>
+                    <p class="card-text mt-2"><i class="fa-regular fa-clock"></i>
+                        ${calculateDaysAgo(data.created_at)}
+                    </p>
+                    <div class="classified_add_btn d-flex justify-content-between align-items-center pt-3">
+                        <a href="mailto:${data.email}?subject=Your%20Subject&body=Your%20Message%20Here">
+                            <h6 class="fw-bold matrimonial_add_btn"><i class="fa-solid fa-phone"></i> contact</h6>
+                        </a>
+                        <a href="${data.route}" class="py-3">View Profile<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+                            $('#matro').append(matrimonialCard);
+
+                        });
+                    } else {
+                        $('#matro').append('<div>No results found</div>');
+                    }
+                    $('#search-input').val('');
+                }
             });
         });
+    });
 </script>

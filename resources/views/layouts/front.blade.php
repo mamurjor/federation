@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <title>@yield('title')- {{ env('APP_NAME') }}</title>
     <!-- Required meta tags -->
@@ -16,22 +17,71 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
-     <!-- Toastr CSS-->
-     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <!-- Toastr CSS-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     @stack('styles')
     <style>
-        .required::after{
+        .required::after {
             content: '*';
             color: red;
         }
+
+        .price-range-slider {
+            width: 100%;
+            /* float: left; */
+            padding: 10px 20px;
+
+            .range-value {
+                margin: 0;
+
+                input {
+                    width: 100%;
+                    background: none;
+                    color: #000;
+                    font-size: 16px;
+                    font-weight: initial;
+                    box-shadow: none;
+                    border: none;
+                    margin: 20px 0 20px 0;
+                }
+            }
+
+            .range-bar {
+                border: none;
+                background: #000;
+                height: 3px;
+                width: 96%;
+                margin-left: 8px;
+
+                .ui-slider-range {
+                    background: #06b9c0;
+                }
+
+                .ui-slider-handle {
+                    border: none;
+                    border-radius: 25px;
+                    background: #fff;
+                    border: 2px solid #06b9c0;
+                    height: 17px;
+                    width: 17px;
+                    top: -0.52em;
+                    cursor: pointer;
+                }
+
+                .ui-slider-handle+span {
+                    background: #06b9c0;
+                }
+            }
+        }
     </style>
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
         // Pass the base URL from Laravel to JavaScript
         var baseUrl = '{{ url('/') }}';
     </script>
-     <!-- Include your custom JavaScript file -->
-    
+    <!-- Include your custom JavaScript file -->
+
 </head>
 
 <body>
@@ -54,54 +104,56 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         function flashMessage(status, message) {
-                toastr.options = {
-                    "closeButton": true,
-                    "debug": false,
-                    "newestOnTop": false,
-                    "progressBar": true,
-                    "positionClass": "toast-top-right",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "5000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                }
-                switch (status) {
-                    case 'success':
-                        toastr.success(message);
-                        break;
-
-                    case 'error':
-                        toastr.error(message);
-                        break;
-
-                    case 'info':
-                        toastr.info(message);
-                        break;
-
-                    case 'warning':
-                        toastr.warning(message);
-                        break;
-                }
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
             }
+            switch (status) {
+                case 'success':
+                    toastr.success(message);
+                    break;
 
-            // session flash message
-            @if (Session::get('success'))
-                flashMessage('success', "{{ Session::get('success') }}")
-            @elseif (Session::get('error'))
-                flashMessage('error', "{{ Session::get('error') }}")
-            @elseif (Session::get('info'))
-                flashMessage('info', "{{ Session::get('info') }}")
-            @elseif (Session::get('warning'))
-                flashMessage('warning', "{{ Session::get('warning') }}")
-            @endif
+                case 'error':
+                    toastr.error(message);
+                    break;
+
+                case 'info':
+                    toastr.info(message);
+                    break;
+
+                case 'warning':
+                    toastr.warning(message);
+                    break;
+            }
+        }
+
+        // session flash message
+        @if (Session::get('success'))
+            flashMessage('success', "{{ Session::get('success') }}")
+        @elseif (Session::get('error'))
+            flashMessage('error', "{{ Session::get('error') }}")
+        @elseif (Session::get('info'))
+            flashMessage('info', "{{ Session::get('info') }}")
+        @elseif (Session::get('warning'))
+            flashMessage('warning', "{{ Session::get('warning') }}")
+        @endif
+
     </script>
     @stack('scripts')
+
 </body>
 
 </html>

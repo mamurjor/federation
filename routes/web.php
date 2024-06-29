@@ -328,14 +328,21 @@ Route::get('/getgenderbycnic/{code}', [DistrictController::class, 'getGenderByCo
 // filter search Matromnial
 Route::post('/getmatromonialbysearch', [MatromonialController::class,'getmatromonialbysearch'])->name('getmatromonialbysearch');
 Route::get('/getTehsilData', [MatromonialController::class,'getTehsilData'])->name('getTehsilData');
-Route::get('/getsorteddata', [MatromonialController::class,'getsorteddata'])->name('getsorteddata');
+Route::get('/getsorteddata', [MatromonialController::class,'getSortedData'])->name('getsorteddata');
+Route::get('/getsorteddataas', [MatromonialController::class,'getSortedDataAs'])->name('getsorteddataas');
 Route::get('/getProfessionData', [MatromonialController::class,'getProfessionData'])->name('getProfessionData');
 Route::get('/getNameData', [MatromonialController::class,'getNameData'])->name('getNameData');
+Route::get('/gettendata', [MatromonialController::class,'getTenData'])->name('gettendata');
+Route::get('/gettwentydata', [MatromonialController::class,'getTwentyData'])->name('gettwentydata');
 
 
 // filter search Classified
 Route::get('/getTehsilClassifiedData', [ClassifiedController::class,'getTehsilClassifiedData'])->name('getTehsilClassifiedData');
+Route::get('/getsortedclassifieddata', [ClassifiedController::class,'getSortedClassifiedData'])->name('getsortedclassifieddata');
+Route::get('/getsortedclassifieddataas', [ClassifiedController::class,'getSortedClassifiedDataAs'])->name('getsortedclassifieddataas');
 
+Route::get('/gettenclassifieddata', [ClassifiedController::class,'getTenClassifiedData'])->name('gettenclassifieddata');
+Route::get('/gettwentyclassifieddata', [ClassifiedController::class,'getTwentyClassifiedData'])->name('gettwentyclassifieddata');
 
 // Blog 
 

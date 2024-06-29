@@ -20,7 +20,7 @@ class MatromonialController extends Controller
 {
     public function __construct()
     {
-         // $this->middleware('auth');
+           // $this->middleware('auth');
     }
 
   public function matromonialform(){
@@ -29,7 +29,7 @@ class MatromonialController extends Controller
     $cast       = Cast::all();
     $occupation = Profession::all();
   
-      // dd($getuserinfo->country_residence);
+        // dd($getuserinfo->country_residence);
     return view('backend.matromonial.create',compact('marital','religion','cast','occupation'));
   }
 
@@ -49,7 +49,7 @@ class MatromonialController extends Controller
  public function approve(Request $request){
 
   $matromonial = Matromonial::find($request->id);
-    // dd($matromonial); 
+      // dd($matromonial); 
   $matromonial->status = 'active';
   $matromonial->save();
 
@@ -67,7 +67,7 @@ class MatromonialController extends Controller
         $image_path           = $image->move(public_path('admin/matromonialimage'), $imageName);
 
        
-  //  dd($matromonialimagepath);
+    //  dd($matromonialimagepath);
         $request->validate([
          'matromonialid'        => 'required',
          'name'                 => 'required',
@@ -138,7 +138,7 @@ public function edit($id)
  public function update(Request $request)
  {
      if ($request->hasFile('matromonialimage')) {
-           // Handle image upload
+             // Handle image upload
          $image                = $request->file('matromonialimage');
          $imageName            = time() . '.' . $image->getClientOriginalExtension();
          $matromonialimagepath = '/admin/matromonialimage/' . $imageName;
@@ -147,7 +147,7 @@ public function edit($id)
  
      $matromonial = Matromonial::find($request->id);
 
-      //  dd($matromonial);
+        //  dd($matromonial);
 
     $request->validate([
         'matromonialid'        => 'required',
@@ -171,7 +171,7 @@ public function edit($id)
        ]);
  
      if ($matromonial) {
-           // Update the record
+             // Update the record
          $matromonial->update([
              'user_id'                 => $request->userid,
              'matromonialid'           => $request->matromonialid,
@@ -219,7 +219,7 @@ public function edit($id)
   return redirect()->route('matromonial.index')->with('success','deleted successfully');
 }
 
-  // religion
+    // religion
 
 public function religionindex()
  {
@@ -264,11 +264,11 @@ public function religionstore(Request $request)
 
     $matromonialreligion = Matromonialreligion::find($request->id);
     if ($matromonialreligion) {
-          // Modify the attributes of the model
+            // Modify the attributes of the model
         $matromonialreligion->name = $request->name;
         $matromonialreligion->code = $request->code;
         
-          // Call the save() method to persist the changes
+            // Call the save() method to persist the changes
         $matromonialreligion->save();
     }
     
@@ -291,7 +291,7 @@ public function religionstore(Request $request)
  }
 
 
-  //  marital
+    //  marital
 
 
 public function maritalindex()
@@ -337,11 +337,11 @@ public function maritalstore(Request $request)
 
     $matromonialmarital = Matromonialmarital::find($request->id);
     if ($matromonialmarital) {
-          // Modify the attributes of the model
+            // Modify the attributes of the model
         $matromonialmarital->name = $request->name;
         $matromonialmarital->code = $request->code;
         
-          // Call the save() method to persist the changes
+            // Call the save() method to persist the changes
         $matromonialmarital->save();
     }
     
@@ -391,21 +391,21 @@ public function maritalstore(Request $request)
  }
 
 
-  //  public function getmatromonialbytehsil(Request $request){
+    //  public function getmatromonialbytehsil(Request $request){
     
-  //     $checkedValues = $request->input('checkedValues');
+    //     $checkedValues = $request->input('checkedValues');
 
   
-  //     $matromonial = Matromonial::where('status', 'active')
-  //            ->whereIn('tehsil',$checkedValues)
-  //            ->get();
+    //     $matromonial = Matromonial::where('status', 'active')
+    //            ->whereIn('tehsil',$checkedValues)
+    //            ->get();
 
-  //     dd($matromonial);
+    //     dd($matromonial);
   
 
-  //      return view('frontend.pages.matromonialall.matromonialall',compact('matromonial'));
+    //      return view('frontend.pages.matromonialall.matromonialall',compact('matromonial'));
 
-  //  }
+    //  }
 
 
 public function getTehsilData(Request $request)
@@ -430,15 +430,34 @@ public function getProfessionData(Request $request)
 }
 
 
-public function getsorteddata(){
+public function getSortedData(){
     
-    $sortedData = Matromonial::orderBy('created_at', 'desc')->get();
+    $sortedData = Matromonial::orderBy('created_at', 'desc')->where('status', 'active')->get();
     return response()->json($sortedData);
 }
+
+public function getSortedDataAs(){
+    
+    $sortedDataAs = Matromonial::orderBy('created_at', 'asc')->where('status', 'active')->get();
+    return response()->json($sortedDataAs);
+}
+
 public function getNameData(Request $request){
     
-  $query = $request->input('query');
+  $query   = $request->input('query');
   $results = Matromonial::where('name', 'LIKE', "%{$query}%")->get();
   return response()->json($results);
 }
+
+public function getTenData(){
+    
+  $showTenData = Matromonial::take(10)->get();
+  return response()->json($showTenData);
+}
+public function getTwentyData(){
+    
+  $showTwentyData = Matromonial::take(20)->get();
+  return response()->json($showTwentyData);
+}
+
 }
