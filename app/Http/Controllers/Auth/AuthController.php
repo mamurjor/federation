@@ -25,12 +25,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Password;
-// use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+  // use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class AuthController extends Controller
 {
-    // use SendsPasswordResetEmails;
-    /**
+      // use SendsPasswordResetEmails;
+      /**
      * User register page show
      *
      * @method GET
@@ -54,7 +54,7 @@ class AuthController extends Controller
         return view('auth.register',compact('countries','cast','genders','professions','districts','tehsils'));
     }
 
-        /**
+          /**
      * User register page show
      *
      * @method POST
@@ -63,7 +63,7 @@ class AuthController extends Controller
      */
     public function store(Request $request)
     {
-        //    dd($request->all());
+          //    dd($request->all());
         $request->validate([
             'cnic_no'               => 'required|unique:users,cnic_no',
             'fname'                 => 'required',
@@ -82,7 +82,7 @@ class AuthController extends Controller
             'email'                 => 'required|unique:users,email',
             'password'              => 'required|confirmed',
             'password_confirmation' => 'required',
-              // 'agree'                 => 'required|accepted',
+                // 'agree'                 => 'required|accepted',
             'phone' => 'required|unique:users,phone',
         ]);
 
@@ -111,14 +111,14 @@ class AuthController extends Controller
             'status'            => 2,
         ]);
 
-            // dd($save);
+              // dd($save);
         
         $request['roleName']     = $role->name;
         $request['full_name']    = $request->fname . ' ' . $request->lname;
         $request['button_url']   = URL::temporarySignedRoute('verify.code',  Carbon::now()->addMinutes(60), ['token' =>$verify_code]);
         $request['button_title'] = 'Click Here To Verify Email';
         
-            // User mail
+              // User mail
         $subject  = emailSubjectTemplate('NEW_USER_MAIL', $request);
         $body     = emailBodyTemplate('NEW_USER_MAIL', $request);
         $heading  = emailHeadingTemplate('NEW_USER_MAIL', $request);
@@ -161,24 +161,30 @@ class AuthController extends Controller
             $user = User::find($user->id)->update(
                 [
                    
-                    'cnic_no'           => $request->cnic_no,
-                    'fname'             => $request->fname,
-                    'mname'             => $request->mname,
-                    'lname'             => $request->lname,
-                    'district'          => $request->district,
-                    'tehsil'            => $request->tehsil,
-                    'cast'              => $request->cast,
-                    'gender'            => $request->gender,
-                    'profession'        => $request->profession,
-                    'country_residence' => $request->country_residence,
-                    'address_one'       => $request->address_one,
-                    'address_two'       => $request->address_two,
-                    'city'              => $request->your_city,
-                    'phone'             => $request->phone,
-                    'email'             => $request->email,
-                    'password'          => Hash::make($request->password),
-                    'phone'             => $request->phone,
-                    'userimage'         => $path
+                      // 'cnic_no'           => $request->cnic_no,
+                    'fname'        => $request->fname,
+                    'mname'        => $request->mname,
+                    'lname'        => $request->lname,
+                    'district'     => $request->district,
+                    'tehsil'       => $request->tehsil,
+                    'cast'         => $request->cast,
+                    'gender'       => $request->gender,
+                    'facebook_url' => $request->facebook_url,
+                    'twitter_url'  => $request->twitter_url,
+                    'youtube_url'  => $request->youtube_url,
+                    'linkedin_url' => $request->linkedin_url,
+                    'bio'          => $request->bio,
+                    'short_bio'    => $request->short_bio,
+                    'profession'   => $request->profession,
+                    'country'      => $request->country_residence,
+                    'address_one'  => $request->address_one,
+                    'address_two'  => $request->address_two,
+                    'city'         => $request->your_city,
+                    'phone'        => $request->phone,
+                    'email'        => $request->email,
+                      // 'password'          => Hash::make($request->password),
+                    'phone'     => $request->phone,
+                    'userimage' => $path
                 ]
             );
             return redirect()->back()->with('success', 'update Successfully!');
@@ -189,23 +195,29 @@ class AuthController extends Controller
         $user = User::find($user->id)->update(
             [
                
-                'cnic_no'           => $request->cnic_no,
-                'fname'             => $request->fname,
-                'mname'             => $request->mname,
-                'lname'             => $request->lname,
-                'district'          => $request->select_district,
-                'tehsil'            => $request->select_tehsil,
-                'cast'              => $request->cast,
-                'gender'            => $request->gender,
-                'profession'        => $request->profession,
-                'country_residence' => $request->country_residence,
-                'address_one'       => $request->address_one,
-                'address_two'       => $request->address_two,
-                'city'              => $request->your_city,
-                'phone'             => $request->phone,
-                'email'             => $request->email,
-                'password'          => Hash::make($request->password),
-                'phone'             => $request->phone
+                      // 'cnic_no'           => $request->cnic_no,
+                      'fname'        => $request->fname,
+                      'mname'        => $request->mname,
+                      'lname'        => $request->lname,
+                      'district'     => $request->district,
+                      'tehsil'       => $request->tehsil,
+                      'cast'         => $request->cast,
+                      'gender'       => $request->gender,
+                      'facebook_url' => $request->facebook_url,
+                      'twitter_url'  => $request->twitter_url,
+                      'youtube_url'  => $request->youtube_url,
+                      'linkedin_url' => $request->linkedin_url,
+                      'bio'          => $request->bio,
+                      'short_bio'    => $request->short_bio,
+                      'profession'   => $request->profession,
+                      'country'      => $request->country_residence,
+                      'address_one'  => $request->address_one,
+                      'address_two'  => $request->address_two,
+                      'city'         => $request->your_city,
+                      'phone'        => $request->phone,
+                      'email'        => $request->email,
+                        // 'password'          => Hash::make($request->password),
+                      'phone'     => $request->phone,
             ]
         );
         return redirect()->back()->with('success', 'update Successfull!');
@@ -213,7 +225,7 @@ class AuthController extends Controller
 
        
     }
-        /**
+          /**
      * Forgot password create
      *
      * @param \App\Models\User $token
@@ -223,7 +235,7 @@ class AuthController extends Controller
         $this->setPageTitle('Forgot Password');
         return view('auth.reset-password');
     }
-         /**
+           /**
      * Client password reset email sent
      *
      * @method POST
@@ -252,17 +264,17 @@ class AuthController extends Controller
         $request['button_url']         = URL::temporarySignedRoute('forgot.password.token', now()->addHours(1), ['token' => $verify_code]);
         $request['button_reset_title'] = 'Click Here To Reset Password';
 
-            // // User mail
-            // $subject = emailSubjectTemplate('PASSWORD_RESET_MAIL',$request);
-            // $body    = emailBodyTemplate('PASSWORD_RESET_MAIL',$request);
-            // $heading = emailHeadingTemplate('PASSWORD_RESET_MAIL',$request);
+              // // User mail
+              // $subject = emailSubjectTemplate('PASSWORD_RESET_MAIL',$request);
+              // $body    = emailBodyTemplate('PASSWORD_RESET_MAIL',$request);
+              // $heading = emailHeadingTemplate('PASSWORD_RESET_MAIL',$request);
 
-            // $userMail = ['subject' => $subject, 'body' => $body, 'heading' => $heading];
-            // Mail::to($user->email)->send(new PasswordResetMail($userMail));
-            // return redirect()->back()->with('success', 'Password reset link has been sent to your email');
+              // $userMail = ['subject' => $subject, 'body' => $body, 'heading' => $heading];
+              // Mail::to($user->email)->send(new PasswordResetMail($userMail));
+              // return redirect()->back()->with('success', 'Password reset link has been sent to your email');
     }
 
-       /**
+         /**
      * Forgot password verify
      *
      * @param \App\Models\User $token
@@ -279,7 +291,7 @@ class AuthController extends Controller
         }
         return redirect()->route('forgot.password')->with('warning', 'Password reset link is expired');
     }
-         /**
+           /**
      * Change password
      * @param request
      * @return response
@@ -327,16 +339,16 @@ class AuthController extends Controller
 
         return $status === Password::RESET_LINK_SENT
                     ? back()->with(['status' => __($status)])
-                    : back()->withErrors(['email' => __($status)]);
+                    :  back()->withErrors(['email' => __($status)]);
     }
     
 
-        // public function logout(){
-        //     //  session_destroy();
-        //     Auth::logout();
-        //     return redirect()->route('index')->with('success', 'Logout Successfully Done.');
+          // public function logout(){
+          //     //  session_destroy();
+          //     Auth::logout();
+          //     return redirect()->route('index')->with('success', 'Logout Successfully Done.');
 
-        // }
+          // }
 
 
 

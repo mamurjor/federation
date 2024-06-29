@@ -50,6 +50,8 @@
 
     <!-- Page CSS -->
     <link rel="stylesheet" href="{{ asset('backend/assets/vendor/css/pages/cards-advance.css') }}" />
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+
 
     <!-- Helpers -->
     <script src="{{ asset('backend/assets/vendor/js/helpers.js') }}"></script>
@@ -62,7 +64,7 @@
     <script>
         var baseUrl = '{{ url('/') }}';
     </script>
-   
+
 </head>
 
 <body>
@@ -76,13 +78,13 @@
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-                
+
                 @include('backend.include.navbar_cliient')
                 <!-- / Navbar -->
                 <div class="container-xxl flex-grow-1 container-p-y">
-                <!-- Content wrapper -->
+                    <!-- Content wrapper -->
                     @yield('main-content')
-                <!-- Content wrapper -->
+                    <!-- Content wrapper -->
                 </div>
             </div>
             <!-- / Layout page -->
@@ -121,9 +123,12 @@
 
     <!-- Page JS -->
     <script src="{{ asset('backend/assets/js/dashboards-analytics.js') }}"></script>
-  
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
     @stack('stripe')
+    @stack('summerNote')
 </body>
 
 </html>

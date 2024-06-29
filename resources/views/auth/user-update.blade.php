@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-xl">
             <div class="card m-3">
-                
+
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Update user information</h5>
                 </div>
@@ -149,8 +149,8 @@
                                                 class="text-danger">*</span></label>
                                         <select name="country_residence" id="country_residence"
                                             class="form-control input_color py-3">
-                                            <option value="{{ $user->country_residence }}" selected>
-                                                {{ $user->country_residence }}</option>
+                                            <option value="{{ $user->country }}" selected>
+                                                {{ $user->country }}</option>
                                             @foreach ($countries as $index => $singlevalue)
                                                 <option value="{{ $singlevalue->name }}"> {{ $singlevalue->name }}
                                                 </option>
@@ -179,6 +179,71 @@
                                     </div>
                                 </div>
                             </div>
+
+                            {{-- Social Media  --}}
+
+                
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label for="field1">Facebook Url</label>
+                                        <input type="text" value="{{ $user->facebook_url }}" class="form-control"
+                                            id="icon" name="facebook_url">
+                                    </div>
+                                </div>
+                            </div>
+                   
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label for="field1">Twitter Url</label>
+                                        <input type="text" value="{{ $user->twitter_url }}" class="form-control"
+                                            id="icon" name="twitter_url">
+                                    </div>
+                                </div>
+                            </div>
+              
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label for="field1">LinkedIn Url</label>
+                                        <input type="text" value="{{ $user->linkedin_url }}" class="form-control"
+                                            id="icon" name="linkedin_url">
+                                    </div>
+                                </div>
+                            </div>
+                   
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label for="field1">Youtube Url</label>
+                                        <input type="text" value="{{ $user->youtube_url }}" class="form-control"
+                                            id="icon" name="youtube_url">
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- social media end  --}}
+
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label for="form-label" class="form-label">Short Bio <span
+                                                class="text-danger">*</span></label>
+                                        <textarea class="form-control py-3 input_color" name="short_bio" id="" cols="20" rows="2">{{ $user->short_bio }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label for="form-label" class="form-label">Bio. <span
+                                                class="text-danger">*</span></label>
+                                        <textarea name="bio" id="summernote">{{ $user->bio }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="form-group">
@@ -189,6 +254,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="form-group">
@@ -247,3 +313,22 @@
 
     </div>
 @endsection
+
+@push('summerNote')
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Enter bio...',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
+@endpush

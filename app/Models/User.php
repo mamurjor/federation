@@ -41,6 +41,12 @@ class User extends Authenticatable
         'city',
         'state',
         'zip_code',
+        'facebook_url',
+        'twitter_url',
+        'youtube_url',
+        'linkedin_url',
+        'bio',
+        'short_bio',
         'status',
         'userimage'
     ];

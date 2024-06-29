@@ -22,6 +22,12 @@ return new class extends Migration
             $table->string('tehsil')->nullable();
             $table->string('cast')->nullable();
             $table->string('gender')->nullable();
+            $table->string('facebook_url');
+            $table->string('twitter_url')->nullable();
+            $table->string('youtube_url')->nullable();
+            $table->string('linkedin_url')->nullable();
+            $table->string('bio')->nullable();
+            $table->string('short_bio')->nullable();
             $table->string('profession')->nullable();
             $table->string('country')->nullable();
             $table->string('address_one')->nullable();
