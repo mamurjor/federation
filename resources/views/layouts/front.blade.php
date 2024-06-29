@@ -28,50 +28,49 @@
 
         .price-range-slider {
             width: 100%;
-            /* float: left; */
             padding: 10px 20px;
+        }
 
-            .range-value {
-                margin: 0;
+        .price-range-slider .range-value {
+            margin: 0;
+        }
 
-                input {
-                    width: 100%;
-                    background: none;
-                    color: #000;
-                    font-size: 16px;
-                    font-weight: initial;
-                    box-shadow: none;
-                    border: none;
-                    margin: 20px 0 20px 0;
-                }
-            }
+        .price-range-slider .range-value input {
+            width: 100%;
+            background: none;
+            color: #000;
+            font-size: 16px;
+            font-weight: initial;
+            box-shadow: none;
+            border: none;
+            margin: 20px 0 20px 0;
+        }
 
-            .range-bar {
-                border: none;
-                background: #000;
-                height: 3px;
-                width: 96%;
-                margin-left: 8px;
+        .price-range-slider .range-bar {
+            border: none;
+            background: #000;
+            height: 3px;
+            width: 96%;
+            margin-left: 8px;
+        }
 
-                .ui-slider-range {
-                    background: #06b9c0;
-                }
+        .price-range-slider .range-bar .ui-slider-range {
+            background: #06b9c0;
+        }
 
-                .ui-slider-handle {
-                    border: none;
-                    border-radius: 25px;
-                    background: #fff;
-                    border: 2px solid #06b9c0;
-                    height: 17px;
-                    width: 17px;
-                    top: -0.52em;
-                    cursor: pointer;
-                }
+        .price-range-slider .range-bar .ui-slider-handle {
+            border: none;
+            border-radius: 25px;
+            background: #fff;
+            border: 2px solid #06b9c0;
+            height: 17px;
+            width: 17px;
+            top: -0.52em;
+            cursor: pointer;
+        }
 
-                .ui-slider-handle+span {
-                    background: #06b9c0;
-                }
-            }
+        .price-range-slider .range-bar .ui-slider-handle+span {
+            background: #06b9c0;
         }
     </style>
 
@@ -150,7 +149,6 @@
         @elseif (Session::get('warning'))
             flashMessage('warning', "{{ Session::get('warning') }}")
         @endif
-
     </script>
     @stack('scripts')
 

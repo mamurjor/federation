@@ -40,12 +40,10 @@
                             {{-- slider  --}}
 
                             <div class="price-range-slider">
-
                                 <p class="range-value">
                                     <input type="text" id="amount" readonly>
                                 </p>
                                 <div id="slider-range" class="range-bar"></div>
-
                             </div>
 
                         </div>
