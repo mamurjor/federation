@@ -227,28 +227,9 @@
                             @endforeach
 
                             <div class="d-flex justify-content-center">
-                                {{ $matromonial->links() }}
+                                {{ $matromonial->links('vendor.pagination.bootstrap-4') }}
                             </div>
 
-
-                            {{-- <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <a class="page-link arrow_btn_bg text-white" href="#"
-                                            aria-label="Previous">
-                                            <span aria-hidden="true"><i class="fa-solid fa-arrow-left"></i></span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link arrow_btn_bg text-white" href="#" aria-label="Next">
-                                            <span aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav> --}}
                         </div>
 
 

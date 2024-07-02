@@ -20,9 +20,10 @@ class NominiController extends Controller
 
     public function nominiindex(){
       $allnomini  = Nomini::with('user')->get();
+      // dd($allnomini);
       $allwingsnomini  = WingsNomini::with('user')->get();
-      $nominiInfo = Nomini::where('nomini_id', Auth::id())->with('user')->first();
-      return view('frontend.pages.Nomination.allnomin',compact('allnomini','nominiInfo','allwingsnomini'));
+    
+      return view('frontend.pages.Nomination.allnomin',compact('allnomini','allwingsnomini'));
     }
 
     public function nominiform($id){
@@ -82,7 +83,7 @@ class NominiController extends Controller
         Session::flash('success', 'Payment successful!');
 
 
-       $nomini = Nomini::create([
+        $nomini = Nomini::create([
             'nomini_id'          => Auth::id(),
             'country'            => Session::get('country'),
             'district'           => Session::get('district'),
@@ -103,8 +104,8 @@ class NominiController extends Controller
             'payment_type'       => 'Stripe',
         ]);
               // dd($nomini);
-              Mail::to(Session::get('emailone'))->send(new VerifyEmailOne(Session::get('emailone'), $tokenOne));
-              Mail::to(Session::get('emailtwo'))->send(new VerifyEmailTwo(Session::get('emailtwo'), $tokenTwo));
+            Mail::to(Session::get('emailone'))->send(new VerifyEmailOne(Session::get('emailone'), $tokenOne));
+            Mail::to(Session::get('emailtwo'))->send(new VerifyEmailTwo(Session::get('emailtwo'), $tokenTwo));
         
         return back();
     }

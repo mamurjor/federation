@@ -143,7 +143,6 @@
                     <tr>
                         <th>SL No. </th>
                         <th>Type</th>
-                        <th>Profession</th>
                         <th>votetype</th>
                         <th>position</th>
                         <th>Action </th>
@@ -152,21 +151,15 @@
                 </thead>
                 <tbody class="table-border-bottom-0">
 
-
-
                     @foreach ($wingsvoteannounce as $index => $singlevalue)
                         <tr>
                             <td>
-
                                 <span class="fw-medium ms-2">{{ $index + 1 }}</span>
                             </td>
-                            <td>{{ $singlevalue->type }}</td>
-                            <td>{{ $singlevalue->profession_name }}</td>
+                            <td>{{ $singlevalue->wings }}</td>
                             <td>{{ $singlevalue->votetype }}</td>
 
                             <td>
-
-
                                 @php
                                     $positionlist = unserialize($singlevalue->votepositiontype);
                                 @endphp

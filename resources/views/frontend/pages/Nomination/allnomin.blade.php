@@ -41,9 +41,9 @@
 
                             <td>
                                 @if ($singlevalue->status == 1)
-                                    <span class="badge bg-label-danger me-1">Active</span>
+                                    <span class="badge bg-label-success me-1">Active</span>
                                 @else
-                                    <span class="badge bg-label-success me-1">Pending</span>
+                                    <span class="badge bg-label-danger me-1">Pending</span>
                                 @endif
                             </td>
                             <td>
@@ -107,7 +107,7 @@
                             <td>
                                 <span class="fw-medium ms-2">{{ $index + 1 }}</span>
                             </td>
-                            <td>{{ $singlevalue->user->fname }}</td>
+                            <td>No name </td>
                             <td>{{ $singlevalue->votetype }}</td>
                             <td>{{ $singlevalue->votepositiontype }}</td>
                             <td>{{ $singlevalue->charge }}</td>
@@ -117,9 +117,9 @@
 
                             <td>
                                 @if ($singlevalue->status == 1)
-                                    <span class="badge bg-label-danger me-1">Active</span>
+                                    <span class="badge bg-label-success me-1">Active</span>
                                 @else
-                                    <span class="badge bg-label-success me-1">Pending</span>
+                                    <span class="badge bg-label-danger me-1">Pending</span>
                                 @endif
                             </td>
                             <td>

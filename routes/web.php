@@ -51,6 +51,9 @@ Auth::routes([
     'password.request' => false
 ]);
 Route::get('/',[MainIndexController::class,'index'])->name('index');
+Route::get('/tehsil/show/{tehsil}', [MainIndexController::class, 'showTehsil'])->name('tehsil.show');
+Route::get('/wings/show/{wings}', [MainIndexController::class, 'showwings'])->name('wings.show');
+Route::get('members', [MainIndexController::class, 'member'])->name('member');
 
 //------------ Register Route ------------//
 Route::get('register', [AuthController::class, 'index'])->name('user.register');
@@ -117,6 +120,13 @@ Route::post('profession/store', [ProfessionController::class, 'store'])->name('p
 Route::post('profession/update', [ProfessionController::class, 'update'])->name('profession.update');
 Route::get('profession/edit/{id}', [ProfessionController::class, 'edit'])->name('profession.edit');
 Route::get('profession/countrydelete/{id}', [ProfessionController::class, 'delete'])->name('profession.delete');
+
+Route::get('wings/index', [WingsController::class, 'index'])->name('wings.index');
+Route::get('wings/create', [WingsController::class, 'create'])->name('wings.create');
+Route::post('wings/store', [WingsController::class, 'store'])->name('wings.store');
+Route::post('wings/update', [WingsController::class, 'update'])->name('wings.update');
+Route::get('wings/edit/{id}', [WingsController::class, 'edit'])->name('wings.edit');
+Route::get('wings/countrydelete/{id}', [WingsController::class, 'delete'])->name('wings.delete');
 
 
 Route::get('tehsil/index', [TehsilController::class, 'index'])->name('tehsil.index');
@@ -268,6 +278,10 @@ Route::get('voteclick/index', [VoteController::class, 'voteclick'])->name('votec
 Route::post('nomini/select/{nomini_id}', [VoteController::class, 'approve'])->name('nomini.select');
 Route::post('wingsnomini/select/{wingsnomini_id}', [VoteController::class, 'wingsapprove'])->name('wingsnomini.select');
 Route::post('disnomini/select/{disnomini_id}', [VoteController::class, 'disapprove'])->name('disnomini.select');
+
+Route::post('nomini/cancel/{nomini_id}', [VoteController::class, 'cancel'])->name('nomini.cancel');
+Route::post('wingsnomini/cancel/{wingsnomini_id}', [VoteController::class, 'wingscancel'])->name('wingsnomini.cancel');
+Route::post('disnomini/cancel/{disnomini_id}', [VoteController::class, 'discancel'])->name('disnomini.cancel');
 
 // OTP
 Route::post('/send-otp', [VoteController::class, 'sendOtp'])->name('send.otp');

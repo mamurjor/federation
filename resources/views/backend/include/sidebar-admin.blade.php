@@ -49,18 +49,23 @@
                 </li>
                 <li class="menu-item">
                     <a href="{{ route('district.index') }}" class="menu-link">
-                        <div data-i18n="CRM">district </div>
+                        <div data-i18n="CRM">district</div>
                     </a>
                 </li>
                 <li class="menu-item">
                     <a href="{{ route('tehsil.index') }}" class="menu-link">
-                        <div data-i18n="CRM">Tehsil  </div>
+                        <div data-i18n="CRM">Tehsil</div>
                     </a>
                 </li>
             
                 <li class="menu-item">
                     <a href="{{ route('profession.index') }}" class="menu-link">
-                        <div data-i18n="CRM">Profession   </div>
+                        <div data-i18n="CRM">Profession</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('wings.index') }}" class="menu-link">
+                        <div data-i18n="CRM">Wings</div>
                     </a>
                 </li>
                 <!-- Other submenu items -->

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('category_id')->constrained('blogcategories')->cascadeOnDelete();
+            $table->string('tehsil');
             $table->string('title');
             $table->mediumText('description');
             $table->longText('content');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BlogPost;
 use Illuminate\Http\Request;
 use App\Models\Blogcategories;
+use App\Models\Tehsil;
 use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
@@ -94,7 +95,8 @@ public function blogpostindex()
 
     public function blogpostcreate(){
         $categorys = Blogcategories::where('status','active')->get();
-        return view('frontend.pages.blogpost.create', compact('categorys'));
+        $tehsil = Tehsil::all();
+        return view('frontend.pages.blogpost.create', compact('categorys','tehsil'));
       }
 
       public function blogpoststore(Request $request)
@@ -120,6 +122,7 @@ public function blogpostindex()
                 'user_id'     => Auth::id(),
                 'category_id' => $request->category_id,
                 'title'       => $request->title,
+                'tehsil'       => $request->tehsil,
                 'description' => $request->description,
                 'content'     => $request->content,
                 'image'       => $blogimagepath,

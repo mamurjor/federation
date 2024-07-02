@@ -68,7 +68,7 @@ class DistrictController extends Controller
  {
     
     $request->validate([
-        'name'    => 'required|unique:districts,name',
+        'name'    => 'required',
         'code'    => 'required',
         'country' => 'required',
             
@@ -89,7 +89,7 @@ class DistrictController extends Controller
     }
     
 
-     return redirect()->route('district.index')->with('success','Updated successfully');
+    return redirect()->route('district.index')->with('success','Updated successfully');
  }
 
 

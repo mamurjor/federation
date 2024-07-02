@@ -91,12 +91,11 @@
                                             <div class="form-group">
                                                 <label for="form-label" class="form-label">District <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" readonly id="district" name="district" value=""
-                                                    class="form-control py-3 input_color" placeholder="">
+                                                <input type="text"  readonly name="district" id="district"
+                                                    value="" class="form-control dis py-3 input_color" placeholder="">
                                                 @error('district')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
-
                                             </div>
                                         </div>
                                     </div>
@@ -106,8 +105,8 @@
                                             <div class="form-group">
                                                 <label for="form-label" class="form-label">Tehsil <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" readonly id="tehsil" name="tehsil" value=""
-                                                    class="form-control py-3 input_color" placeholder="">
+                                                <input type="text" readonly name="tehsil" id="tehsil"
+                                                    value="" class="form-control teh py-3 input_color" placeholder="">
                                                 @error('tehsil')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -329,15 +328,8 @@
 
 
 
-<!-- Include jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- JavaScript code -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-{{-- <script src="{{ asset('js/custom.js') }}"></script> --}}
-
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
     $(document).ready(function() {
@@ -345,7 +337,7 @@
             var cnic_no = $('#cnic_no').val();
             var length = cnic_no.length;
 
-            console.log(cnic_no);
+            // console.log(cnic_no);
 
             // Check for district code (length >= 2 because substr starts at index 1)
             if (length >= 2) {
@@ -357,9 +349,8 @@
                     url: url,
                     type: 'GET',
                     dataType: 'json',
-                    success: function(response) {
-                        console.log(response);
-                        $('#district').val(response.district);
+                    success: function(response) {    
+                        $('.dis').val(response.district);
                     },
                     error: function(xhr, status, error) {
                         console.error(xhr.responseText);
@@ -378,8 +369,7 @@
                     type: 'GET',
                     dataType: 'json',
                     success: function(response) {
-                        console.log(response);
-                        $('#tehsil').val(response.tehsil);
+                      $('.teh').val(response.tehsil);
                     },
                     error: function(xhr, status, error) {
                         console.error(xhr.responseText);
@@ -398,7 +388,7 @@
                     type: 'GET',
                     dataType: 'json',
                     success: function(response) {
-                        console.log(response);
+                        // console.log(response);
                         $('#gender').val(response.gender);
                     },
                     error: function(xhr, status, error) {

@@ -26,8 +26,6 @@ class TehsilController extends Controller
         $getuserbycountry = District::where('country', $country)->get();
          // \Log::info('Cities:', $getuserbycountry->toArray()); // Log the retrieved cities
         return response()->json($getuserbycountry);
-       
-        
 
  }
 
@@ -55,7 +53,7 @@ class TehsilController extends Controller
  public function store(Request $request)
  {
      $request->validate([
-         'name'     => 'required|unique:tehsilsF,name',
+         'name'     => 'required|unique:tehsils,name',
          'code'     => 'required',
          'country'  => 'required',
          'district' => 'required',
@@ -70,25 +68,25 @@ class TehsilController extends Controller
 
       // dd($id);
  
-
+    $countries = Country::all();
+    // $districts = District::all();
     $tehsils = Tehsil::where('id', $id)->first();
        
  
       //$country = Country::where('id',1)->get();
 
-     return view('backend.page.tehsil.edit',compact('tehsils'));
+     return view('backend.page.tehsil.edit',compact('tehsils','countries'));
  }
 
  public function update(Request $request)
  {
     
     $request->validate([
-        'name'     => 'required|unique:tehsilsF,name',
+        'name'     => 'required',
         'code'     => 'required',
         'country'  => 'required',
         'district' => 'required',
     ]);
-
 
 
  
@@ -103,10 +101,6 @@ class TehsilController extends Controller
           // Call the save() method to persist the changes
         $tehsil->save();
     }
-    
-
-     
-    
 
      return redirect()->route('tehsil.index')->with('success','Updated successfully');
  }

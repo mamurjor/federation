@@ -13,6 +13,7 @@ class BlogPost extends Model
         'user_id',
         'category_id',
         'title',
+        'tehsil',
         'description',
         'content',
         'image',

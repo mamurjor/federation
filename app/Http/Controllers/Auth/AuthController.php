@@ -74,7 +74,7 @@ class AuthController extends Controller
             'gender'                => 'required',
             'cast'                  => 'required',
             'profession'            => 'required',
-            'country_residence'     => 'required',
+            'country'     => 'required',
             'address_one'           => 'required',
             'address_two'           => 'required',
             'your_city'             => 'required',
@@ -99,7 +99,7 @@ class AuthController extends Controller
             'cast'              => $request->cast,
             'gender'            => $request->gender,
             'profession'        => $request->profession,
-            'country_residence' => $request->country_residence,
+            'country' => $request->country_residence,
             'address_one'       => $request->address_one,
             'address_two'       => $request->address_two,
             'city'              => $request->your_city,
@@ -123,7 +123,7 @@ class AuthController extends Controller
         $body     = emailBodyTemplate('NEW_USER_MAIL', $request);
         $heading  = emailHeadingTemplate('NEW_USER_MAIL', $request);
         $userMail = ['subject' => $subject, 'body' => $body, 'heading' => $heading];
-        Mail::to($request->email)->send(new VerifyUserMail($userMail));
+        // Mail::to($request->email)->send(new VerifyUserMail($userMail));
         Auth::login($user, true);
         
         event(new NewUserRegistered($user));

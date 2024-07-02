@@ -10,10 +10,8 @@ class WingsVoteannounce extends Model
     use HasFactory;
 
     protected $fillable = [
-      
-        'type',  
-        'type_name',      
-        'profession_name',      
+     
+        'wings',      
         'announce',      
         'votetype',   
         'votepositiontype',   

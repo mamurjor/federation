@@ -32,7 +32,6 @@
                         <td>{{ $singlevalue->votepositiontype }}</td>
                         <td>{{ $singlevalue->tehsil }}</td>
                         <td>{{ $singlevalue->status }}</td>
-                        {{-- <td>{{ $singlevalue->nomini_id }}</td> --}}
                         <td>
                             @if ($singlevalue->status == 0 && !$hasSelectedNomini)
                                 <form action="{{ route('nomini.select', $singlevalue->nomini_id) }}" method="POST">
@@ -40,7 +39,10 @@
                                     <button class="btn btn-primary" type="submit"><i class="fa fa-check me-2"></i>Select</button>
                                 </form>
                             @elseif ($singlevalue->status == 1)
-                                <button class="btn btn-success" type="button"><i class="fa fa-check me-2"></i>Selected</button>
+                                <form action="{{ route('nomini.cancel', $singlevalue->nomini_id) }}" method="POST">
+                                    @csrf
+                                    <button class="btn btn-danger" type="submit"><i class="fa fa-times me-2"></i>Cancel</button>
+                                </form>
                             @else
                                 <button class="btn btn-secondary" type="button" onclick="alert('You are already selected one Nomini')">
                                     <i class="fa fa-check me-2"></i>Select
@@ -69,7 +71,7 @@
                     <th>Vote type</th>
                     <th>Vote position type</th>
                     <th>Profession</th>
-                    <th>status</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -92,7 +94,10 @@
                                     <button class="btn btn-primary" type="submit"><i class="fa fa-check me-2"></i>Select</button>
                                 </form>
                             @elseif ($singlevalue->status == 1)
-                                <button class="btn btn-success" type="button"><i class="fa fa-check me-2"></i>Selected</button>
+                                <form action="{{ route('wingsnomini.cancel', $singlevalue->Wingsnomini_id) }}" method="POST">
+                                    @csrf
+                                    <button class="btn btn-danger" type="submit"><i class="fa fa-times me-2"></i>Cancel</button>
+                                </form>
                             @else
                                 <button class="btn btn-secondary" type="button" onclick="alert('You are already selected one Nomini')">
                                     <i class="fa fa-check me-2"></i>Select

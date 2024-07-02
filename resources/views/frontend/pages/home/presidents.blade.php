@@ -10,7 +10,7 @@
                         </div>
                     </div>
                 </div>
-
+{{-- 
                 <div class="row card_main">
                     @foreach ($uniqueUserResults as $single)
                         
@@ -34,7 +34,7 @@
                     </div>
                     @endforeach
            
-                </div>
+                </div> --}}
             </div>
         </section>
         <!-- Presidents & General Secretaries end -->

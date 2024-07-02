@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('wings_voteannounces', function (Blueprint $table) {
+        Schema::create('wings', function (Blueprint $table) {
             $table->id();
-            $table->string('wings',255);
-            $table->string('announce',255);
-            $table->string('votetype',255);
-            $table->string('votepositiontype',255);
-            $table->date('votingdate');
+            $table->string('wings_type');
+            $table->string('wings_type_name');
+            $table->string('profession_name');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('wings_voteannounces');
+        Schema::dropIfExists('wings');
     }
 };

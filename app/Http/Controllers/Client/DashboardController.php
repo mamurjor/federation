@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Models\User;
+use App\Models\Wings;
 use App\Models\Voteannounce;
 use Illuminate\Http\Request;
 use App\Models\DisVoteannounce;
@@ -19,7 +20,7 @@ class DashboardController extends Controller
       
       $client = User::where('id', Auth::id())->first();
       $vote   = Voteannounce::where('tehsil', $client->tehsil)->get();
-      $wingsvote = WingsVoteannounce::where('profession_name', $client->profession)->get();
+      $wingsvote = Wings::where('profession_name', $client->profession)->get();
       $disvote = DisVoteannounce::all();
     
   

@@ -268,28 +268,9 @@
                             @endforeach
 
                             <div class="d-flex justify-content-center">
-                                {{ $classified->links() }}
+                                {{ $classified->links('vendor.pagination.bootstrap-4') }}
                             </div>
 
-
-                            {{-- <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <a class="page-link arrow_btn_bg text-white" href="#"
-                                            aria-label="Previous">
-                                            <span aria-hidden="true"><i class="fa-solid fa-arrow-left"></i></span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link arrow_btn_bg text-white" href="#" aria-label="Next">
-                                            <span aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav> --}}
                         </div>
 
 
@@ -411,6 +392,10 @@
                                     </div>
                                 </div>`;
                         $('#classify').append(classifiedCard);
+
+                        <div class="d-flex justify-content-center">
+                            {{ $classified->links('vendor.pagination.bootstrap-4') }}
+                        </div>
 
                     });
 
@@ -669,16 +654,16 @@
     }
 
     $(function() {
-	$( "#slider-range" ).slider({
-	  range: true,
-	  min: 130,
-	  max: 500,
-	  values: [ 130, 250 ],
-	  slide: function( event, ui ) {
-		$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-	  }
-	});
-	$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-	  " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-});
+        $("#slider-range").slider({
+            range: true,
+            min: 130,
+            max: 500,
+            values: [130, 250],
+            slide: function(event, ui) {
+                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+            }
+        });
+        $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+            " - $" + $("#slider-range").slider("values", 1));
+    });
 </script>

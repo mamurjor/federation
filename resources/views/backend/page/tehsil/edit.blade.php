@@ -1,36 +1,69 @@
 @extends('backend.dash')
 
 @section('main-content')
-    @php
-
-    @endphp
-
     <div class="row">
         <div class="col-xl">
             <div class="card m-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5>Edit Tehsil</h5>
+                    <h5>Add Tehsil</h5>
                 </div>
+
                 <div class="card-body">
                     <form action="{{ route('tehsil.update') }}" method="POST">
                         @csrf
-
-                        @php
-                            $data = json_decode($tehsils, true);
-
-                        @endphp
-
-
                         <div class="row">
+
+                            <div class="mb-6 mt-2">
+                                <div class="form-group">
+                                    <label for="form-label" class="form-label">Country Of Residence <span
+                                            class="text-danger">*</span></label>
+
+                                    <select name="country" id="country_residence" class="form-control input_color py-3">
+                                        <option value="">Select country of Residence</option>
+
+                                        @foreach ($countries as $index => $singlevalue)
+                                            <option value="{{ $singlevalue->name }}"
+                                                {{ $singlevalue->name == $tehsils->country ? 'selected' : '' }}>
+                                                {{ $singlevalue->name }}
+                                            </option>
+                                        @endforeach
+
+                                    </select>
+
+                                    @error('country')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+
+                                </div>
+                            </div>
+
+
+                            <div class="mb-6">
+                                <div class="form-group">
+                                    <label for="form-label" class="form-label"> Select District <span
+                                            class="text-danger">*</span></label>
+
+                                    <select name="district" id="district" class="form-control input_color py-3">
+                                     
+                                        <option value="">Select District</option>
+                              
+                                    </select>
+
+                                    @error('district')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="mb-6">
                                     <div class="form-group">
                                         <label for="form-label" class="form-label">Name. <span
                                                 class="text-danger">*</span></label>
-                                        <input type="hidden" value="{{ $data['id'] }}" name="id"
-                                            class="form-control py-3 input_color" placeholder="35220 - 1506373 -1">
-                                        <input type="text" value="{{ $data['name'] }}" name="name"
-                                            class="form-control py-3 input_color" placeholder="35220 - 1506373 -1">
+                                        <input type="text" value="{{ $tehsils->name }}" name="name"
+                                            class="form-control py-3 input_color" placeholder="Enter Name">
+                                        <input type="hidden" value="{{ $tehsils->id }}" name="id"
+                                            class="form-control py-3 input_color" placeholder="Enter Name">
                                         @error('name')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -40,15 +73,14 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label">Code <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" value="{{ $data['code'] }}" name="code"
-                                            class="form-control py-3 input_color" placeholder="35220 - 1506373 -1">
+                                        <input type="text" value="{{ $tehsils->code }}" name="code"
+                                            class="form-control py-3 input_color" placeholder="Enter Code">
                                         @error('code')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
                             </div>
-
 
                             <div class="col-md-12">
                                 <div class="my-3">
@@ -65,3 +97,47 @@
 
     </div>
 @endsection
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#country_residence").change(function() {
+
+            var country = $('#country_residence').val();
+
+
+            $.ajax({
+                url: '{{ route('tehsil.getcountry', ':country') }}'.replace(':country',
+                    country),
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+
+                    // Check if response is not empty
+                    if ($.isEmptyObject(response)) {
+                        $('#district').empty();
+                        var option = "<option value='" + 0 + "'>" + 'no data found' +
+                            "</option>";
+                        $("#district").append(option);
+                        return;
+                    }
+
+                    // Clear existing options
+                    $('#district').empty();
+
+                    // Append new options
+                    $.each(response, function(id, data) {
+                        var option = "<option  value='" + data.name + "'>" + data
+                            .name + "</option>";
+                        $("#district").append(option);
+                    });
+
+                }
+            });
+
+        });
+        //var value = $('#dropDownId').val();
+
+    });
+</script>

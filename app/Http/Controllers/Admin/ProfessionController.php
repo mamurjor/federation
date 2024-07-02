@@ -9,7 +9,6 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class ProfessionController extends Controller
 {
-    //
     
  public function index()
  {
@@ -27,7 +26,7 @@ class ProfessionController extends Controller
  {
      $request->validate([
          'name' => 'required|unique:professions,name',
-         'code' => 'required',       
+         'code' => 'required',
      ]);     
      Profession::create($request->post());
      return redirect()->route('profession.index')->with('success','Created successfully.');
@@ -37,13 +36,13 @@ class ProfessionController extends Controller
 
  {
 
-    // dd($id);
+      // dd($id);
  
 
     $professions = Profession::where('id', $id)->first();
        
  
-    //$country = Country::where('id',1)->get();
+      //$country = Country::where('id',1)->get();
 
      return view('backend.page.profession.edit',compact('professions'));
  }
@@ -52,8 +51,8 @@ class ProfessionController extends Controller
  {
     
     $request->validate([
-        'name' => 'required|unique:professions,name',
-        'code' => 'required',       
+        'name' => 'required',
+        'code' => 'required',
     ]);
 
 
@@ -61,11 +60,11 @@ class ProfessionController extends Controller
  
     $profession = Profession::find($request->id);
     if ($profession) {
-        // Modify the attributes of the model
+          // Modify the attributes of the model
         $profession->name = $request->name;
-        $profession->code =  $request->code;
+        $profession->code = $request->code;
         
-        // Call the save() method to persist the changes
+          // Call the save() method to persist the changes
         $profession->save();
     }
     

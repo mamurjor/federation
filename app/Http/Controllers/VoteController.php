@@ -69,11 +69,11 @@ class VoteController extends Controller
 
                 $votetype = Votetype::find($request->id);
                 if ($votetype) {
-                              // Modify the attributes of the model
+                                // Modify the attributes of the model
                     $votetype->name = $request->name;
                     $votetype->code = $request->code;
                     
-                              // Call the save() method to persist the changes
+                                // Call the save() method to persist the changes
                     $votetype->save();
                 }
                 
@@ -96,7 +96,7 @@ class VoteController extends Controller
             }
 
 
-                      //  vote position 
+                        //  vote position 
 
 
 
@@ -145,12 +145,12 @@ class VoteController extends Controller
 
                 $votepositiontype = VotingPositionType::find($request->id);
                 if ($votepositiontype) {
-                              // Modify the attributes of the model
+                                // Modify the attributes of the model
                     $votepositiontype->name   = $request->name;
                     $votepositiontype->code   = $request->code;
                     $votepositiontype->charge = $request->charge;
                     
-                              // Call the save() method to persist the changes
+                                // Call the save() method to persist the changes
                     $votepositiontype->save();
                 }
                 
@@ -173,7 +173,7 @@ class VoteController extends Controller
             }
 
 
-      //  voteannounce
+        //  voteannounce
 
             public function voteannounceindex()
             {
@@ -235,7 +235,7 @@ class VoteController extends Controller
                 event(new VoteAnnouncementPosted($saveinfo));
 
 
-                          //  dd($saveinfo);
+                            //  dd($saveinfo);
                 return redirect()->route('voteannounce.index')->with('success','Created successfully.');
             }
 
@@ -257,7 +257,7 @@ class VoteController extends Controller
             public function voteannounceupdate(Request $request)
             {
                 if ($request->hasFile('votemage')) {
-                              // Handle image upload
+                                // Handle image upload
                     $image      = $request->file('voteimage');
                     $imageName  = time() . '.' . $image->getClientOriginalExtension();
                     $path       = '/admin/vote/'.$imageName;
@@ -268,7 +268,7 @@ class VoteController extends Controller
 
 
 
-                          //  dd($matromonial);
+                            //  dd($matromonial);
                 $position_type = serialize($request->votepositiontype);
 
 
@@ -284,7 +284,7 @@ class VoteController extends Controller
                 ]);
                 
                 if ($voteannounce) {
-                              // Update the record
+                                // Update the record
                     $voteannounce->update([
                     'country'          => $request->country,
                     'district'         => $request->district,
@@ -319,7 +319,7 @@ class VoteController extends Controller
 
             public function getCharge(Request $request) {
                 $positionName = $request->positionName;
-                          // Fetch charge value from Votepositiontype table based on $positionName
+                            // Fetch charge value from Votepositiontype table based on $positionName
                           
                 $charge = VotingPositionType::where('name', $positionName)->value('charge');
                 return response()->json(['charge' => $charge]);
@@ -336,7 +336,7 @@ class VoteController extends Controller
 
             }
 
-                // Wings 
+                  // Wings 
 
             public function wingsvotedetails(){
                         
@@ -348,7 +348,7 @@ class VoteController extends Controller
 
             }
 
-              // District vote 
+                // District vote 
 
             public function disvotedetails(){
                         
@@ -361,7 +361,7 @@ class VoteController extends Controller
             }
 
 
-                //vote result
+                  //vote result
 
               public function checkVote(Request $req){
                  $userId   = Auth::id();
@@ -376,18 +376,18 @@ class VoteController extends Controller
             {
                 $otp = rand(100000, 999999);
         
-                    // Store OTP in session
+                      // Store OTP in session
                 session()->put('otp', $otp);
         
-                    // Send OTP via email
+                      // Send OTP via email
                 $email = $request->email;
         
                 try {
                     Mail::to($email)->send(new OtpMail($otp));
-                    Log::info('OTP email sent successfully');
+                      // Log::info('OTP email sent successfully');
                     return response()->json(['success' => true]);
                 } catch (\Exception $e) {
-                    Log::error('Failed to send OTP email:', ['error' => $e->getMessage()]);
+                      // Log::error('Failed to send OTP email:', ['error' => $e->getMessage()]);
                     return response()->json(['success' => false, 'message' => 'Failed to send OTP email.']);
                 }
             }
@@ -397,7 +397,7 @@ class VoteController extends Controller
                 $enteredOtp = $request->otp;
                 $storedOtp  = session('otp');
         
-                    // Log the entered OTP and stored OTP for debugging
+                      // Log the entered OTP and stored OTP for debugging
                 Log::info('Entered OTP: ' . $enteredOtp);
                 Log::info('Stored OTP: ' . $storedOtp);
         
@@ -411,11 +411,11 @@ class VoteController extends Controller
             public function storeVoteData(Request $request)
             {
                 try {
-                        // Log the request data for debugging
+                          // Log the request data for debugging
                     
                     Log::info('Store Vote Data Request:', $request->all());
             
-                        // Create a new vote result entry
+                          // Create a new vote result entry
                     VoteResult::create([
                         'user_id'          => Auth::id(),
                         'nomini_id'        => $request->nomini_id,
@@ -427,12 +427,12 @@ class VoteController extends Controller
                         'tehsil'           => $request->tehsil,
                     ]);
             
-                        // Log success message
+                          // Log success message
                     Log::info('Vote data stored successfully');
             
                     return response()->json(['success' => true]);
                 } catch (\Exception $e) {
-                        // Log the error message
+                          // Log the error message
                     Log::error('Failed to store vote data:', ['error' => $e->getMessage()]);
                     return response()->json(['success' => false, 'message' => 'Failed to store vote data.']);
                 } 
@@ -442,11 +442,11 @@ class VoteController extends Controller
             public function storeWingsVoteData(Request $request)
             {
                 try {
-                        // Log the request data for debugging
+                          // Log the request data for debugging
                     
                     Log::info('Store Vote Data Request:', $request->all());
             
-                        // Create a new vote result entry
+                          // Create a new vote result entry
                     WingsVoteResult::create([
                         'user_id'          => Auth::id(),
                         'wingsnomini_id'   => $request->nomini_id,
@@ -458,12 +458,12 @@ class VoteController extends Controller
                         'profession_name'  => $request->profession_name,
                     ]);
             
-                        // Log success message
+                          // Log success message
                     Log::info('Vote data stored successfully');
             
                     return response()->json(['success' => true]);
                 } catch (\Exception $e) {
-                        // Log the error message
+                          // Log the error message
                     Log::error('Failed to store vote data:', ['error' => $e->getMessage()]);
                     return response()->json(['success' => false, 'message' => 'Failed to store vote data.']);
                 } 
@@ -492,6 +492,7 @@ class VoteController extends Controller
                               ->get();
 
                 $hasSelectedNomini = VoteResult::where('status', 1)->exists();
+                // dd($hasSelectedNomini);
                 
                 
                 $wingsvoteclick = WingsVoteResult::select(
@@ -513,10 +514,10 @@ class VoteController extends Controller
                 }
 
 
-                //Nomini final select 
+                  //Nomini final select 
 
                public function approve($nomini_id) {
-                    // Update the status for all records with the same nomini_id
+                      // Update the status for all records with the same nomini_id
                 $affectedRows = VoteResult::where('nomini_id', $nomini_id)->get();
                 foreach($affectedRows as $affectedRow){
                     $affectedRow->update([
@@ -530,7 +531,7 @@ class VoteController extends Controller
 
 
             public function wingsapprove($wingsnomini_id) {
-                  // Update the status for all records with the same wingsnomini_id
+                    // Update the status for all records with the same wingsnomini_id
               $affectedRows = WingsVoteResult::where('wingsnomini_id', $wingsnomini_id)->get();
               foreach($affectedRows as $affectedRow){
                   $affectedRow->update([
@@ -542,11 +543,49 @@ class VoteController extends Controller
         
           }
             public function disapprove($disnomini_id) {
-                  // Update the status for all records with the same wingsnomini_id
+                    // Update the status for all records with the same wingsnomini_id
               $affectedRows = WingsVoteResult::where('wingsnomini_id', $disnomini_id)->get();
               foreach($affectedRows as $affectedRow){
                   $affectedRow->update([
                     'status' => '1'
+                  ]);
+              }
+         
+              return redirect()->back()->with('success', 'District Nomini Selected successfully.');
+        
+          }
+               public function cancel($nomini_id) {
+                      // Update the status for all records with the same nomini_id
+                $affectedRows = VoteResult::where('nomini_id', $nomini_id)->get();
+                foreach($affectedRows as $affectedRow){
+                    $affectedRow->update([
+                      'status' => '0'
+                    ]);
+                }
+           
+                return redirect()->back()->with('success', 'Nomini Selected successfully.');
+          
+            }
+
+
+            public function wingscancel($wingsnomini_id) {
+                    // Update the status for all records with the same wingsnomini_id
+              $affectedRows = WingsVoteResult::where('wingsnomini_id', $wingsnomini_id)->get();
+              foreach($affectedRows as $affectedRow){
+                  $affectedRow->update([
+                    'status' => '0'
+                  ]);
+              }
+         
+              return redirect()->back()->with('success', 'Wings Nomini Selected successfully.');
+        
+          }
+            public function discancel($disnomini_id) {
+                    // Update the status for all records with the same wingsnomini_id
+              $affectedRows = WingsVoteResult::where('wingsnomini_id', $disnomini_id)->get();
+              foreach($affectedRows as $affectedRow){
+                  $affectedRow->update([
+                    'status' => '0'
                   ]);
               }
          

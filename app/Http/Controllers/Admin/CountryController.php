@@ -75,7 +75,7 @@ class CountryController extends Controller
  {
     
     $request->validate([
-        'name' => 'required|unique:countries,name',
+        'name' => 'required',
         'code' => 'required',
     ]);
 

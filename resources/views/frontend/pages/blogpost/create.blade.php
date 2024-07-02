@@ -28,6 +28,24 @@
                                         @enderror
                                     </div>
                                 </div>
+
+                                <div class="mb-6">
+                                    <div class="form-group">
+                                        <label for="form-label" class="form-label">Tehsil. <span
+                                                class="text-danger">*</span></label>
+                                        <select name="tehsil" id="" class="form-select">
+                                            <option value="">Select Tehsil</option>
+                                            @forelse ($tehsil as $data)
+                                                <option value="{{ $data->name }}">{{ $data->name }}</option>
+                                            @empty
+                                            @endforelse
+                                        </select>
+                                        @error('tehsil')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
                                 <div class="mb-6">
                                     <div class="form-group">
                                         <label for="form-label" class="form-label">Title. <span

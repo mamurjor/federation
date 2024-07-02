@@ -1249,3 +1249,9 @@ td:last-child {
 	display: flex;
 	gap: 20px;
 }
+.dropdown_style{
+    background: #178e17;
+    color: white;
+    border: none;
+    padding: 7px;
+}

@@ -26,7 +26,6 @@ class MainIndexController extends Controller
     public function index(){
         $this->setPageTitle('Home');
 
-        $countries = Country::all();
         $districts = District::all();
         $tehsils   = Tehsil::all();
         $casts     = Cast::all();
@@ -37,12 +36,12 @@ class MainIndexController extends Controller
         $matromonial = Matromonial::where('status', 'active')->take(8)->get();
         $classified = Classified::where('status', 'active')->take(8)->get();
 
-        $voteresult = VoteResult::where('status', '1')->with(['nomini.user'])->get();
-        // dd($voteresult);
-        $uniqueUserResults = $voteresult->unique(function ($item) {
-            return $item->nomini->user->id;
-        });
-        return view('frontend.pages.home',compact('countries','districts','tehsils','HeroSections','MissionSections','sliersections','casts','uniqueUserResults','matromonial','classified'));
+        // $voteresult = VoteResult::where('status', '1')->with(['nomini.user'])->get();
+        // // dd($voteresult);
+        // $uniqueUserResults = $voteresult->unique(function ($item) {
+        //     return $item->nomini->user->id;
+        // });
+        return view('frontend.pages.home',compact('districts','tehsils','HeroSections','MissionSections','sliersections','casts','matromonial','classified'));
     }
 
 
@@ -121,6 +120,34 @@ class MainIndexController extends Controller
     public function aboutUS(){
         return view('backend.aboutUs.aboutUs');
     }
+    
+    public function showTehsil($tehsil){
+        // $countries = Country::all();
+        $voteresult = VoteResult::where('status', '1')->with(['nomini.user'])->get();
+        $uniqueUserResults = $voteresult->unique(function ($item) {
+            return $item->nomini->user->id;
+        });
+        $blogpost = BlogPost::where('tehsil',$tehsil)->get();
+        $tehsilUser = User::where('tehsil', $tehsil)->paginate(6);
+        $tehsilData = Tehsil::where('name', $tehsil)->first();
+        return view('tehsil.show', compact('tehsilData','uniqueUserResults','blogpost','tehsilUser'));
+    }
+    public function showwings($wings){
+        // $countries = Country::all();
+        $voteresult = VoteResult::where('status', '1')->with(['nomini.user'])->get();
+        $uniqueUserResults = $voteresult->unique(function ($item) {
+            return $item->nomini->user->id;
+        });
+
+        return view('wings.show', compact('tehsilData','uniqueUserResults','blogpost','tehsilUser'));
+    }
+
+    public function member(){
+
+        $users = User::paginate(5);
+        return view('frontend.pages.member.member',compact('users'));
+    }
+
     
    
 }

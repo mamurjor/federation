@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Stripe\Charge;
 use Session;
+use Stripe\Charge;
 use Stripe\Stripe;
 use App\Models\User;
+use App\Models\Wings;
 use App\Models\Tehsil;
 use App\Models\Country;
 use App\Models\District;
@@ -27,12 +28,10 @@ class WingsController extends Controller
 
     public function wingsvoteannouncecreate(){
      
-        $country          = Country::all();
-        $district         = District::all();
-        $tehsil           = Tehsil::all();
+        $wings            = Wings::all();
         $votetype         = Votetype::all();
         $votepositiontype = VotingPositionType::all();
-        return view('frontend.pages.WingsVoteAnnounce.create',compact('votetype','country','district','tehsil','votepositiontype'));
+        return view('frontend.pages.WingsVoteAnnounce.create',compact('votetype','votepositiontype','wings'));
     } 
 
 
@@ -43,16 +42,14 @@ class WingsController extends Controller
         $position_type = serialize($request->votepositiontype);
 
         
-                // $image      = $request->file('voteimage');
-                // $imageName  = time() . '.' . $image->getClientOriginalExtension();
-                // $path       = '/admin/vote/'.$imageName;
-                // $image_path = $image->move(public_path('admin/vote'), $imageName);
+                    // $image      = $request->file('voteimage');
+                    // $imageName  = time() . '.' . $image->getClientOriginalExtension();
+                    // $path       = '/admin/vote/'.$imageName;
+                    // $image_path = $image->move(public_path('admin/vote'), $imageName);
         
         $request->validate([
     
-            'type'             => 'required',
-            'typeDetails'      => 'required',
-            'profession'       => 'required',
+            'wings'            => 'required',
             'announce'         => 'required',
             'date'             => 'required',
             'votetype'         => 'required',
@@ -60,9 +57,7 @@ class WingsController extends Controller
         ]);
 
         $voteannounceinfo = [
-            'type'             => $request->type,
-            'type_name'        => $request->typeDetails,
-            'profession_name'  => $request->profession,
+            'wings'            => $request->wings,
             'announce'         => $request->announce,
             'votetype'         => $request->votetype,
             'votingdate'       => $request->date,
@@ -70,11 +65,11 @@ class WingsController extends Controller
         ];
     
         $saveinfo = WingsVoteannounce::create($voteannounceinfo);
-                // event(new VoteAnnouncementPosted($saveinfo));
+                    // event(new VoteAnnouncementPosted($saveinfo));
             event(new WingsVoteAnnouncementPosted($saveinfo));
 
 
-                      //  dd($saveinfo);
+                          //  dd($saveinfo);
         return redirect()->route('voteannounce.index')->with('success','Created successfully.');
     }
 
@@ -82,29 +77,23 @@ class WingsController extends Controller
       public function wingsvoteannounceedit($id)
 
           {
-              $votepositiontype               = VotingPositionType::all();
-              $voteannounce                   = WingsVoteannounce::where('id', $id)->first();
-              $votetype                       = Votetype::all();
+              $votepositiontype = VotingPositionType::all();
+              $voteannounce     = WingsVoteannounce::where('id', $id)->first();
+              $votetype         = Votetype::all();
+              $allWings         = Wings::all();
+              //   dd($wing);
               $voteannounce->votepositiontype = unserialize($voteannounce->votepositiontype);
 
-              return view('frontend.pages.WingsVoteAnnounce.edit',compact('voteannounce','votepositiontype','votetype'));
+              return view('frontend.pages.WingsVoteAnnounce.edit',compact('voteannounce','votepositiontype','votetype','allWings'));
           }
 
 
       public function wingsvoteannounceupdate(Request $request)
-      {
-    
-    
-          $voteannounce = WingsVoteannounce::find($request->id);
-
+      {   
+          $voteannounce  = WingsVoteannounce::find($request->id);
           $position_type = serialize($request->votepositiontype);
-
-
           $request->validate([
-    
-            'type'             => 'required',
-            'typeDetails'      => 'required',
-            'profession'       => 'required',
+            'wings'            => 'required',
             'announce'         => 'required',
             'date'             => 'required',
             'votetype'         => 'required',
@@ -112,11 +101,9 @@ class WingsController extends Controller
         ]);
         
           if ($voteannounce) {
-                          // Update the record
+                              // Update the record
               $voteannounce->update([
-                'type'             => $request->type,
-                'type_name'        => $request->typeDetails,
-                'profession_name'  => $request->profession,
+                'wings'            => $request->wings,
                 'announce'         => $request->announce,
                 'votetype'         => $request->votetype,
                 'votingdate'       => $request->date,
@@ -150,7 +137,7 @@ class WingsController extends Controller
         $modelClass = 'App\\Models\\' . $modelName;
 
         if (class_exists($modelClass)) {
-            $names = $modelClass::pluck('name');  // Adjust this to your column name
+            $names = $modelClass::pluck('name');
             return response()->json($names);
         } else {
             return response()->json(['error' => 'Model not found'], 404);
@@ -162,15 +149,15 @@ class WingsController extends Controller
         $type  = $request->input('type');
         $value = $request->input('value');
         
-        $users = User::where($type, $value)->pluck('profession');  // Adjust this to your user table's structure
+        $users = User::where($type, $value)->pluck('profession');
         return response()->json($users);
     }
 
 
     public function wingsnominiform($id){
-            // dd($id);
+                // dd($id);
         $wingsvoteannouncement = WingsVoteannounce::where('id',$id)->first();
-            // dd($wingsvoteannouncement);
+                // dd($wingsvoteannouncement);
         return view('frontend.pages.Nomination.wingsnominiform',compact('wingsvoteannouncement'));
     }
 
@@ -186,7 +173,7 @@ class WingsController extends Controller
         $request->session()->put('id', $request->id);
         $request->session()->put('type', $request->type);
         $request->session()->put('type_name', $request->type_name);
-        $request->session()->put('profession_name', $request->profession_name);
+        $request->session()->put('wings_name', $request->wings_name);
         $request->session()->put('announce', $request->announce);
         $request->session()->put('date', $request->date);
         $request->session()->put('emailone', $request->emailone);
@@ -220,7 +207,7 @@ class WingsController extends Controller
                 "description" => "Thanks for the payment."
         ]);
         
-                  // Session::get('amount');
+                      // Session::get('amount');
         Session::flash('success', 'Payment successful!');
 
 
@@ -228,7 +215,7 @@ class WingsController extends Controller
             'wingsnomini_id'     => Auth::id(),
             'type'               => Session::get('type'),
             'type_name'          => Session::get('type_name'),
-            'profession_name'    => Session::get('profession_name'),
+            'wings_name'         => Session::get('wings_name'),
             'announce'           => Session::get('announce'),
             'votetype'           => Session::get('votetype'),
             'votingdate'         => Session::get('date'),
@@ -244,7 +231,7 @@ class WingsController extends Controller
             'stripe_token'       => 'see your stripe account',
             'payment_type'       => 'Stripe',
         ]);
-                  // dd($nomini);
+                      // dd($nomini);
               Mail::to(Session::get('emailone'))->send(new VerifyEmailOne(Session::get('emailone'), $tokenOne));
               Mail::to(Session::get('emailtwo'))->send(new VerifyEmailTwo(Session::get('emailtwo'), $tokenTwo));
         
@@ -253,7 +240,7 @@ class WingsController extends Controller
 
     public function approve(Request $request){
 
-        $wingsnomini = WingsNomini::find($request->id);
+        $wingsnomini         = WingsNomini::find($request->id);
         $wingsnomini->status = '1';
         $wingsnomini->save();
       
@@ -262,7 +249,7 @@ class WingsController extends Controller
        
       public function declined(Request $request){
 
-        $wingsnomini = WingsNomini::find($request->id);
+        $wingsnomini         = WingsNomini::find($request->id);
         $wingsnomini->status = '0';
         $wingsnomini->save();
       
@@ -278,4 +265,69 @@ class WingsController extends Controller
       
         return redirect()->back()->with('success','deleted successfully');
       }
+
+
+        // -----  main wings create ------- >
+
+    public function index()
+    {
+        $wings = Wings::all();
+        return view('backend.page.wings.index', compact('wings'));
+    }
+
+
+    public function create()
+    {
+        return view('backend.page.wings.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'wings_type'      => 'required',
+            'wings_type_name' => 'required',
+            'profession_name' => 'required',
+        ]);     
+        Wings::create($request->post());
+        return redirect()->route('wings.index')->with('success','Created successfully.');
+    }
+
+    public function edit($id)
+
+    {
+        $wings = Wings::where('id', $id)->first();
+        return view('backend.page.wings.edit',compact('wings'));
+    }
+
+    public function update(Request $request)
+    {   
+        $request->validate([
+            'wings_type'      => 'required',
+            'wings_type_name' => 'required',
+            'profession_name' => 'required',
+        ]);
+
+        $wings = Wings::find($request->id);
+        if ($wings) {
+            $wings->wings_type      = $request->wings_type;
+            $wings->wings_type_name = $request->wings_type_name;
+            $wings->profession_name = $request->profession_name;
+            
+                // Call the save() method to persist the changes
+            $wings->save();
+        }
+    
+
+        return redirect()->route('wings.index')->with('success','Updated successfully');
+    }
+
+
+    public function delete(Request $request){
+
+        $wings = Wings::find($request->id);
+        if ($wings) {      
+            $wings->delete();
+        }
+        return redirect()->route('wings.index')->with('success','deleted successfully');
+    }
 }

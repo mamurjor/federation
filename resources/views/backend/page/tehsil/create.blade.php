@@ -65,7 +65,7 @@
                                 <div class="form-group">
                                     <label for="form-label" class="form-label">Code <span
                                             class="text-danger">*</span></label>
-                                    <input type="text" value="" name="code"
+                                    <input type="text" value="1" name="code"
                                         class="form-control py-3 input_color" placeholder="Enter Code">
                                     @error('code')
                                         <div class="text-danger">{{ $message }}</div>
