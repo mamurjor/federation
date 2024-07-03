@@ -8,7 +8,7 @@
 $(function () {
   const select2 = $('.select2');
 
-  // Select2 Country
+  // Select2 Division
   if (select2.length) {
     select2.each(function () {
       var $this = $(this);

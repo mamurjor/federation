@@ -22,17 +22,33 @@ class User extends Authenticatable
         'role_id',
         'fname',
         'lname',
+        'mname',
         'email',
+        'cnic_no',
+        'district',
+        'tehsil',
+        'cast',
+        'gender',
+        'profession',
+        'Division',
+        'address_one',
+        'address_two',
         'email_verified_at',
         'password',
         'verify_code',
         'avatar',
         'phone',
-        'country',
         'city',
         'state',
         'zip_code',
+        'facebook_url',
+        'twitter_url',
+        'youtube_url',
+        'linkedin_url',
+        'bio',
+        'short_bio',
         'status',
+        'userimage'
     ];
 
     /**
@@ -58,4 +74,9 @@ class User extends Authenticatable
     public function role(){
         return $this->belongsTo(Role::class,'role_id','id');
     }
+    
+    // public function nominis()
+    // {
+    //     return $this->hasMany(Nomini::class, 'user_id');
+    // }
 }

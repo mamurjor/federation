@@ -397,8 +397,8 @@ $(function () {
           targets: 3,
           render: function (data, type, full, meta) {
             var $start_city = full['start_city'],
-              $start_country = full['start_country'];
-            var $row_output = '<div class="text-body">' + $start_city + ', ' + $start_country + '</div >';
+              $start_Division = full['start_Division'];
+            var $row_output = '<div class="text-body">' + $start_city + ', ' + $start_Division + '</div >';
             return $row_output;
           }
         },
@@ -407,8 +407,8 @@ $(function () {
           targets: 4,
           render: function (data, type, full, meta) {
             var $end_city = full['end_city'],
-              $end_country = full['end_country'];
-            var $row_output = '<div class="text-body">' + $end_city + ', ' + $end_country + '</div >';
+              $end_Division = full['end_Division'];
+            var $row_output = '<div class="text-body">' + $end_city + ', ' + $end_Division + '</div >';
             return $row_output;
           }
         },

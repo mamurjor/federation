@@ -3,6 +3,8 @@
 @section('content')
     @include('frontend.pages.home.hero_section')
     @include('frontend.pages.home.presidents')
+    @include('frontend.pages.home.matromonial')
+    @include('frontend.pages.home.classified')
     @include('frontend.pages.home.our_mission')
     @include('frontend.pages.home.blog')
     @include('frontend.pages.home.join_us_section')

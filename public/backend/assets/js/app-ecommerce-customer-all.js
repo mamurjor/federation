@@ -40,7 +40,7 @@ $(function () {
         { data: 'id' },
         { data: 'customer' },
         { data: 'customer_id' },
-        { data: 'country' },
+        { data: 'Division' },
         { data: 'order' },
         { data: 'total_spent' }
       ],
@@ -128,8 +128,8 @@ $(function () {
           // Plans
           targets: 4,
           render: function (data, type, full, meta) {
-            var $plan = full['country'];
-            var $code = full['country_code'];
+            var $plan = full['Division'];
+            var $code = full['Division_code'];
 
             if ($code) {
               var $output_code = `<i class ="fis fi fi-${$code} rounded-circle me-2 fs-3"></i>`;
@@ -139,7 +139,7 @@ $(function () {
             }
 
             var $row_output =
-              '<div class="d-flex justify-content-start align-items-center customer-country">' +
+              '<div class="d-flex justify-content-start align-items-center customer-Division">' +
               '<div>' +
               $output_code +
               '</div>' +

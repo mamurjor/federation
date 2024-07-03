@@ -86,7 +86,7 @@ CREATE TABLE `users` (
   `verify_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Division` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `city` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `state` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `zip_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `role_id`, `fname`, `lname`, `email`, `email_verified_at`, `password`, `verify_code`, `avatar`, `phone`, `country`, `city`, `state`, `zip_code`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
+INSERT INTO `users` (`id`, `role_id`, `fname`, `lname`, `email`, `email_verified_at`, `password`, `verify_code`, `avatar`, `phone`, `Division`, `city`, `state`, `zip_code`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Admin', 'Admin', 'admin@gmail.com', '2023-12-20 16:17:19', '$2y$12$WCOT8t1hYuLboqyPl2hEJ.6Eo8z2IffQrojipAvXHkP5Ubv4GbTZW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, '2023-12-20 10:16:03', '2023-12-20 10:16:03'),
 (2, 2, 'Client', 'Client', 'client@gmail.com', '2023-12-07 17:34:31', '$2y$12$3nyb4H9Azm9UScJsmNom4umMZfy764VVm0vCgApntQg.VEGZm3AMK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, '2023-12-20 10:16:03', '2023-12-20 10:16:03'),
 (3, 3, 'User', 'User', 'user@gmail.com', '2023-12-06 18:00:00', '$2y$12$BwK0UXDc1sJRkxj6n2/qsO.o8XTT/W.Ak/0fcbJECffN72j1kkHX.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, '2023-12-20 10:16:03', '2024-03-26 10:18:44'),

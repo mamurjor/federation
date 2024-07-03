@@ -1,5 +1,5 @@
 /* // X-Small devices (portrait phones, less than 576px) */
-@media(min-width: 320px) and (max-width: 575.98px) {
+@media(min-width: 320px) and (max-width: 575.98px) { 
     #header_topbar {
         display: none;
     }
@@ -7,10 +7,10 @@
         width: 25% !important;
     }
     #header .navbar-nav {
-        padding: 2rem 0;
+        padding: 20px 0;
     }
     #header .contact_button {
-        margin-bottom: 2rem;
+        margin-bottom: 20px;
     }
     .footer_itemsone{
         margin-left: 0 !important;
@@ -19,19 +19,19 @@
         display: inline-block !important;
     }
     .footer_social{
-        padding-top: 1.9rem;
+        padding-top: 19px;
         text-align: center imn !important;
     }
     .carousel-caption h1 {
-        font-size: 2.5rem !important;
-        line-height: 3rem !important;
+        font-size: 25px !important;
+        line-height: 30px !important;
     }
     .carousel-item img {
-        height: 40rem !important;
+        height: 400px !important;
     }
     .carousel-caption p {
-        font-size: 1.6rem !important;
-        line-height: 2.3rem !important;
+        font-size: 16px !important;
+        line-height: 23px !important;
     }
     .carousel-caption {
         top: 10% !important;
@@ -40,11 +40,11 @@
         display: inline-block !important;
     }
     .carosel_button1{
-        margin-bottom: 4rem;
+        margin-bottom: 40px;
     }
     .common_heading h2{
-        font-size: 2.7rem !important;
-        line-height: 3.5rem !important;
+        font-size: 27px !important;
+        line-height: 35px !important;
     }
     .common_heading h5{
         text-align: center !important;
@@ -57,16 +57,16 @@
     }
     #blog_section .common_heading{
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: 30px;
     }
     #blog_section .common_button{
         text-align: center;
     }
     .faq_accordion {
-        padding: 2rem !important;
+        padding: 20px !important;
     }
     .register_main_bg {
-        padding: 2rem !important;
+        padding: 20px !important;
     }
     .tehsil_main{
         margin-left: 0 !important;
@@ -75,18 +75,18 @@
         text-align: center;
     }
     #breadcrumd_section .breadcrumd_heading h2 {
-        font-size: 3rem !important;
-        line-height: 4rem !important;
+        font-size: 30px !important;
+        line-height: 40px !important;
     }
     .common_filter_top{
-        margin-top: 2rem !important;
+        margin-top: 20px !important;
     }
     .common_filter_top{
-        margin-top: 2rem !important;
+        margin-top: 20px !important;
         margin: 0 ;
     }
     .single_add_heading h3{
-        font-size: 2.2rem !important;
+        font-size: 22px !important;
     }
     .about_left_text{
         padding-right: 0 !important;
@@ -96,54 +96,49 @@
         width: 10% !important;
     }
     .widget-item{
-        padding-bottom: 2.5rem !important;
+        padding-bottom: 25px !important;
     }
     .about_img_birds{
-        margin-top: 5rem;
+        margin-top: 50px;
     }
     .cast_single_img img {
         width: 100% !important;
-        margin-top: 2rem;
+        margin-top: 20px;
     }
     .cast_single_heading{
         text-align: center !important;
     }
     .cast_single_heading_top{
-        margin-top: 4rem !important;
+        margin-top: 40px !important;
     }
     .single_blog_heading{
         text-align: center;
     }
     .single_blog_heading h4{
-       font-size: 2.2rem !important;
-       line-height: 3.2rem !important;
+       font-size: 22px !important;
+       line-height: 32px !important;
     }
     .single_blog_pd{
         padding-right: 0 !important;
     }
     #contact_form_section .contact_form_right_pd {
         padding-right: 0 !important;
-        padding-bottom: 4rem !important;
+        padding-bottom: 40px !important;
     }
     #contact_form_section .common_heading{
-        text-align: center !important;
+        text-align: center !important; 
     }
     .contact_form_social{
         text-align: center !important;
     }
     .contact_main_form {
-        padding: 3rem 2rem !important;
+        padding: 30px 20px !important;
     }
-    .accordion-button {
-        font-size: 1.6rem !important;
-    }
-    .accordion-body {
-        font-size: 1.4rem !important;
-    }
+    
  }
 
 /* // Small devices (landscape phones, less than 768px) */
-@media (min-width: 575.98px) and (max-width: 767.98px) {
+@media (min-width: 575.98px) and (max-width: 767.98px) { 
     #header_topbar {
         display: none;
     }
@@ -151,17 +146,17 @@
         margin-left: 0 !important;
        }
      .carousel-caption h1 {
-        font-size: 2.5rem !important;
-        line-height: 3rem !important;
+        font-size: 25px !important;
+        line-height: 30px !important;
     }
     .carousel-item img {
-        height: 40rem !important;
+        height: 400px !important;
     }
     .carousel-caption p {
-        font-size: 1.6rem !important;
-        line-height: 2.3rem !important;
+        font-size: 16px !important;
+        line-height: 23px !important;
     }
-
+   
     .carousel-caption {
         top: 20% !important;
     }
@@ -169,7 +164,7 @@
         display: inline-block !important;
     }
     .carosel_button1{
-        margin-bottom: 4rem;
+        margin-bottom: 40px;
     }
     .p_leftRight_image{
         display: none;
@@ -179,34 +174,34 @@
     }
     #blog_section .common_heading{
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: 30px;
     }
     #blog_section .common_button{
         text-align: center;
     }
     .register_main_bg {
-        padding: 2rem !important;
+        padding: 20px !important;
     }
     .tehsil_main{
         margin-left: 0 !important;
     }
     .tehsil_main {
-        margin-left: 5.5rem;
+        margin-left: 55px;
         text-align: center;
     }
     .common_filter_top{
-        margin-top: 2rem !important;
+        margin-top: 20px !important;
         margin: 0 ;
     }
     .single_add_heading h3 {
-        font-size: 2.5rem !important;
-        line-height: 3.5rem !important;
+        font-size: 25px !important;
+        line-height: 35px !important;
     }
     .about_img_birds{
-        margin-top: 5rem;
+        margin-top: 50px;
     }
     .widget-item{
-        padding-bottom: 2.5rem !important;
+        padding-bottom: 25px !important;
     }
     .about_left_text{
         padding-right: 0 !important;
@@ -217,7 +212,7 @@
     }
     .cast_single_img img {
         width: 100% !important;
-        margin-top: 2rem;
+        margin-top: 20px;
     }
     .cast_single_heading{
         text-align: center !important;
@@ -226,56 +221,59 @@
         text-align: center;
     }
     .single_blog_heading h4{
-       font-size: 2.6rem !important;
-       line-height: 3.6rem !important;
+       font-size: 26px !important;
+       line-height: 36px !important;
     }
     .single_blog_pd{
         padding-right: 0 !important;
     }
     #contact_form_section .contact_form_right_pd {
         padding-right: 0 !important;
-        padding-bottom: 4rem !important;
-
+        padding-bottom: 40px !important;
+        
     }
     #contact_form_section .common_heading{
-        text-align: center !important;
+        text-align: center !important; 
     }
     .contact_form_social{
         text-align: center !important;
     }
+    #presidents_and_secretaries .card {
+        padding: 40px 20px !important;
+    }
 
  }
 /* // Medium devices (tablets, less than 992px) */
-@media(min-width: 767.98px) and (max-width: 991.98px) {
+@media(min-width: 767.98px) and (max-width: 991.98px) { 
    .footer_itemsone{
     margin-left: 0 !important;
    }
    .carousel-caption h1 {
-    font-size: 2.9rem !important;
-    line-height: 3rem !important;
+    font-size: 29px !important;
+    line-height: 30px !important;
     }
     .carousel-item img {
-        height: 40rem !important;
+        height: 400px !important;
     }
     .carousel-caption p {
-        font-size: 1.6rem !important;
-        line-height: 2.3rem !important;
+        font-size: 16px !important;
+        line-height: 23px !important;
     }
     .carousel-caption {
         top: 25% !important;
     }
-
+    
     .carosel_button1{
-        margin-bottom: 4rem;
+        margin-bottom: 40px;
     }
     .common_filter_top{
-        margin-top: 2rem !important;
+        margin-top: 20px !important;
     }
     .about_img_birds{
-        margin-top: 5rem;
+        margin-top: 50px;
     }
     .widget-item{
-        padding-bottom: 2.5rem !important;
+        padding-bottom: 25px !important;
     }
     .about_left_text{
         padding-right: 0 !important;
@@ -283,39 +281,43 @@
     }
     .cast_single_img img {
         width: 100% !important;
-        margin-top: 2rem;
+        margin-top: 20px;
     }
     #contact_form_section .contact_form_right_pd {
         padding-right: 0 !important;
-        padding-bottom: 4rem !important;
-
+        padding-bottom: 40px20px !important;
+        
     }
  }
 
 /* // Large devices (desktops, less than 1200px) */
-@media (min-width: 901.98px) and (max-width: 1199.98px) {
+@media (min-width: 901.98px) and (max-width: 1199.98px) { 
     .navbar-expand-lg .navbar-nav .nav-link {
-        font-size: 1.2rem !important;
+        font-size: 12px !important; 
     }
     .carousel-caption h1 {
-        font-size: 4rem !important;
-        line-height: 5rem !important;
+        font-size: 40px !important;
+        line-height: 50px !important;
     }
     .carousel-item img {
-        height: 50rem !important;
+        height: 500px !important;
     }
     .carousel-caption p {
-        font-size: 1.6rem !important;
-        line-height: 2.3rem !important;
+        font-size: 16px !important;
+        line-height: 23px !important;
     }
     .carousel-caption {
         top: 30% !important;
     }
-
+    
     .carosel_button1{
-        margin-bottom: 4rem;
+        margin-bottom: 40px;
     }
  }
 
 /* // X-Large devices (large desktops, less than 1400px) */
-@media (max-width: 1399.98px) {  }
+@media (min-width: 1199.98px) and (max-width: 1399.98px) { 
+    #presidents_and_secretaries .card {
+        padding: 40px 26px !important;
+    }
+ }

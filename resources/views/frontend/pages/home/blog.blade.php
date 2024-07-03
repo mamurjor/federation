@@ -5,12 +5,12 @@
                     <div class="col-md-6">
                         <div class="common_heading">
                             <h6>OUR BLOG</h6>
-                            <h2 class="fw-bold mt-4">Our Latest News & Blog</h2>
+                            <h2 class="fw-bold mt-4">{{ config('settings.btitle') }}</h2>
                         </div>
                     </div>
                     <div class="col-md-6 text-end">
                         <div class="common_button">
-                            <a href="#"> View More <i class="fa-regular fa-eye ms-3"></i></a>
+                            <a href="{{ config('settings.burl') }}"> {{ config('settings.btext') }} <i class="{{ config('settings.bicon') }} ms-3"></i></a>
                         </div>
                     </div>
                 </div>

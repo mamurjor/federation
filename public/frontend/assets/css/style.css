@@ -17,9 +17,6 @@
     --white: white;
 }
 
-html {
-    font-size: 62.5%;
-}
 
 body {
     font-family: var(--font-family-roboto);
@@ -47,69 +44,82 @@ a{
 p {
     margin-bottom: 0 !important;
 }
+td:last-child {
+    width: 210px!important;
+}
 /* header  */
 .header_topbar {
-	padding: 1rem 0;
+	padding: 10px 0;
 }
 .login_icon i{
-    font-size: 1.5rem;
+    font-size: 15px;
 }
 .login h5{
-    margin-left: .6rem;
-    font-size: 1.5rem;
-    line-height: 2.4rem;
+    margin-left: 6px;
+    font-size: 15px;
+    line-height: 24px;
     font-weight: 500;
     color: #FDE8EA;
 }
 .all_flag{
-    font-size: 1.5rem;
+    font-size: 15px;
 }
 .flag_Text {
-	font-size: 1.5rem;
+	font-size: 15px;
 	color:var(--white);
 	font-weight: 600;
 }
 .flag_Text_dropdown{
-    font-size: 1.5rem;
+    font-size: 15px;
     color: var(--text-color);
 }
-
+.dropdown-item.jut_login {
+	background: none;
+	border: none;
+	color: var(--secondary-color);
+	padding: 5px 20px;
+}
+.dropdown-item.jut_login:hover {
+	background: none;
+	border: none;
+	color: var(--primary-color);
+}
 /* common css start */
 .common_button a {
-	font-size: 1.6rem;
+	font-size: 16px;
 	background: var(--primary-color);
     color: var(--white);
-	padding: 1.5rem 3rem;
-	border-radius: .5rem;
+	padding: 15px 30px;
+	border-radius: 5px;
     border: 2px solid var(--primary-color);
     transition: .5s ease-in-out;
     font-weight: 600;
 }
 .common_heading h6 {
-	font-size: 1.6rem;
-	line-height: 2rem;
+	font-size: 16px;
+	line-height: 20px;
 	background: #00900017;
     font-weight: 600;
     color: var(--primary-color);
 	display: inline;
-	padding: .5rem 1.2rem;
-	border-radius: .5rem;
+	padding: 5px 12px;
+	border-radius: 5px;
 }
 .common_heading h2 {
-	font-size: 4.2rem;
-	line-height: 5.2rem;
+	font-size: 42px;
+	line-height: 52px;
     font-weight: 600;
     color: var(--secondary-color);
 }
 .common_heading h4 {
-	font-size: 2.8rem;
-	line-height: 3.6rem;
+	font-size: 28px;
+	line-height: 36px;
     font-weight: 600;
     color: var(--secondary-color);
 }
 .common_heading p {
-	font-size: 1.6rem;
-	line-height: 2.4rem;
+	font-size: 16px;
+	line-height: 24px;
     font-weight: 400;
     color: var(--p);
 }
@@ -120,18 +130,18 @@ p {
 
 .pagination a {
 	color: black;
-	font-size: 1.4rem;
+	font-size: 14px;
 }
 /* header start */
 #header_topbar .dropdown a{
     color: var(--secondary-color);
-    font-size: 1.5rem;
+    font-size: 15px;
 }
 .header_topbar{
 	background-color: var(--primary-color);
 }
 #header_topbar .social_icon a{
-	font-size: 1.1rem;
+	font-size: 11px;
 	color: var(--primary-color);
     transition: .6s;
 }
@@ -148,10 +158,10 @@ p {
 	color: var(--white);
 }
 .navbar-expand-lg .navbar-nav .nav-link {
-	font-size: 1.6rem;
+	font-size: 16px;
 	color: var(--secondary-color);
 	font-weight: 600;
-	margin-right: 1.5rem;
+	margin-right: 15px;
 }
 .navbar-nav .nav-link.active {
 	color:var(--primary-color) !important;
@@ -160,7 +170,7 @@ p {
 	color:var(--primary-color) !important;
 }
 .dropdown-item {
-	font-size: 1.6rem;
+	font-size: 16px;
 	color: var(--secondary-color);
 	font-weight: 600;
 }
@@ -179,12 +189,12 @@ p {
     border: 2px solid var(--border);
 }
 .navbar-toggler {
-	padding: 1rem;
+	padding: 10px;
 	
 	
 }
 .navbar-toggler-icon {
-	font-size: 1.5rem;
+	font-size: 15px;
 }
 /* header end */
 
@@ -207,25 +217,25 @@ p {
 	z-index: 9;
 }
 .carousel-caption h1 {
-	font-size: 7rem;
-	line-height: 8rem;
+	font-size: 70px;
+	line-height: 80px;
     color: var(--white);
 }
 /* hero section css end */
 .carousel-caption p {
-	font-size: 1.9rem;
-    line-height: 3rem;
+	font-size: 19px;
+    line-height: 30px;
     color: var(--white);
 }
 .carousel_btn_div {
 	display: flex;
 	justify-content: center;
-	gap: 1rem;
+	gap: 10px;
 }
 /* hero section css end */
 /* presidents_and_secretaries css start */
 #presidents_and_secretaries{
-    padding: 8rem 0;
+    padding: 80px 0;
     background-image: url(../img/home_page/presidents_and_secretaries_section/bg.png);
     background-size: cover;
     background-position: top center;
@@ -233,26 +243,26 @@ p {
 #presidents_and_secretaries .card-img-top{
     border: 1px dashed var(--secondary-color);
     border-radius: 50%;
-    padding: 1rem;
+    padding: 10px;
 }
 
 
 .card-title{
-    font-size: 2.3rem;
-    line-height: 3rem;
+    font-size: 23px;
+    line-height: 30px;
     font-weight: 600;
     color: var(--secondary-color);
 }
 .card-text{
-    font-size: 1.6rem;
-    line-height: 2.5rem;
+    font-size: 16px;
+    line-height: 25px;
     font-weight: 500;
     color: var(--p);
 }
 #presidents_and_secretaries .card {
-	padding: 4rem 5rem;
+	padding: 40px 45px;
 	border: none;
-    box-shadow: .3rem .3rem 1.4rem .4rem #0b223908;
+    box-shadow: 3px 3px 14px 4px #0b223908;
     border-bottom: 2px solid transparent;
     transition: .5s;
 }
@@ -263,13 +273,13 @@ p {
 	border-color: var(--primary-color);
 }
 #presidents_and_secretaries .card_main {
-	margin-top: 6rem;
+	margin-top: 60px;
 }
 /* presidents_and_secretaries css end */
 
 /* our mission css start */
 #our_mission{
-    padding: 8rem 0;
+    padding: 80px 0;
     background-image: linear-gradient(rgba(21, 21, 34, 0.526), rgba(19, 19, 30, 0.617)), url(../img/home_page/our_misson_section/bg.png);
     background-size: cover;
     background-position: center center;
@@ -278,22 +288,22 @@ p {
 	width: 100% !important;
 }
 #our_mission .common_heading h5{
-    font-size: 1.8rem;
-    line-height: 2.5rem;
+    font-size: 18px;
+    line-height: 25px;
     text-align: left !important;
 }
 #our_mission .our_mission_button_main{
-   margin-top: 6rem;
+   margin-top: 60px;
 }
 /* our mission css end */
 /* blog_section css start */
 #blog_section{
-    padding: 8rem 0;
+    padding: 80px 0;
     background-color: var(--white);
 }
  .card_date_common {
-	font-size: 1.3rem;
-	line-height: 2rem;
+	font-size: 13px;
+	line-height: 20px;
     color: var(--p);
 
 }
@@ -304,77 +314,77 @@ p {
 	border-bottom: 1px solid var(--border);
 }
  .card-title {
-	font-size: 2rem;
+	font-size: 20px;
 }
  .card-text {
-	font-size: 1.5rem;
-    line-height: 2.3rem;
+	font-size: 15px;
+    line-height: 23px;
 }
  .card {
-    padding: 1rem;
-    box-shadow: .3rem .3rem 1.4rem .4rem #0b223908;
+    padding: 10px;
+    box-shadow: 3px 3px 14px 4px #0b223908;
     border-bottom: 2px solid transparent;
     transition: .5s;
 }
  .blog_post_btn a{
-    font-size: 1.2rem;
+    font-size: 12px;
 }
  .blog_post_all{
-    margin-top: 4rem;
+    margin-top: 40px;
 }
 /* blog_section css end */
 /* join us section start */
 #join_us_section
 {
     background-color: var(--section);
-    padding: 8rem 0;
+    padding: 80px 0;
 }
 .common_join_heading {
 	background: var(--white);
 	border-left: 2px solid var(--primary-color);
 }
 .common_join_heading h5{
-    font-size: 1.6rem;
+    font-size: 16px;
     color: var(--secondary-color);
-    line-height: 2.2rem;
+    line-height: 22px;
 }
 /* #join_us_section .join_box{
-    margin-top: 4rem;
+    margin-top: 40px;
 } */
 .join_us_bg{
     background-image: url(../img/home_page/join_us_section/join_bg.png);
     background-size: cover;
-    height: 45rem;
-    padding: 1rem;
-    border-radius: .5rem;
+    height: 450px;
+    padding: 10px;
+    border-radius: 5px;
     padding-top: 40%;
 }
 #join_us_section .lastest_bg{
     background-image: url(../img/home_page/join_us_section/latest_bg.png);
     background-size: cover;
-    height: 45rem;
-    padding: 1rem;
-    border-radius: .5rem;
+    height: 450px;
+    padding: 10px;
+    border-radius: 5px;
     padding-top: 27%;
 }
 #join_us_section .matrimonials_bg{
     background-image: url(../img/home_page/join_us_section/matrimonials_bg.png);
     background-size: cover;
-    height: 45rem;
-    padding: 1rem;
-    border-radius: .5rem;
+    height: 450px;
+    padding: 10px;
+    border-radius: 5px;
     padding-top: 27%;
 }
 .common_join_box h3 {
-	font-size: 3.2rem;
+	font-size: 28px;
 	color: white;
-	line-height: 4rem;
+	line-height: 38px;
 	font-weight: 600;
 }
 .common_join_box p {
-	font-size: 1.4rem;
+	font-size: 14px;
 	color: white;
-	line-height: 2.2rem;
+	line-height: 22px;
 }
 #join_us_section .feature_heading{
     background-color: #F3F6F7;
@@ -387,13 +397,13 @@ p {
     color: var(--white) !important;
 }
 #join_us_section .feature_heading h6{
-    font-size: 1.6rem;
+    font-size: 16px;
     font-weight: 600;
     color: var(--primary-color);
 }
 .feature_box{
-    box-shadow: .3rem .3rem 1.4rem .4rem #0b223908;
-    border-radius: .5rem;
+    box-shadow: 3px 3px 14px 4px #0b223908;
+    border-radius: 5px;
 }
 /* join us section end */
 /* SERVICE section end */
@@ -401,67 +411,67 @@ p {
 	top: 30%;
 }
 #service_section .carousel-caption h1 {
-	font-size: 5rem;
-	line-height: 6rem;
+	font-size: 50px;
+	line-height: 60px;
 	color: var(--white);
 }
 /* SERVICE section end */
 /* faq section start */
 #faq_section{
-    padding: 8rem 0;
+    padding: 80px 0;
     background-color: var(--white);
 }
 .accordion-item {
-	margin-bottom: 1rem;
+	margin-bottom: 10px;
     border: none;
 }
 .accordion-button.collapsed {
     background-color: var(--section);
-    padding: 1.8rem;
+    padding: 18px;
 }
 .accordion-button {
-	font-size: 1.8rem;
+	font-size: 18px;
 	color: var(--secondary-color);
 }
 .accordion-button:not(.collapsed) {
 	background-color: var(--primary-color);
     color: var(--white);
-    padding: 2.2rem;
+    padding: 22px;
 }
 .accordion-body {
 	background-color: var(--primary-color);
-	font-size: 1.6rem;
+	font-size: 16px;
 	color: white;
-	padding: 2rem;
-	padding-top: .4rem;
+	padding: 20px;
+	padding-top: 4px;
 }
 .accordion-button:not(.collapsed) {
 	box-shadow: none;
 }
 .faq_accordion {
 	background: var(--white);
-	padding: 4rem;
-	border-radius: .5rem;
-    box-shadow: .3rem .3rem 1.4rem .4rem #0b223908;
-    margin-top: 4rem;
+	padding: 40px;
+	border-radius: 5px;
+    box-shadow: 3px 3px 14px 4px #0b223908;
+    margin-top: 40px;
 }
 /* faq section end */
 /* footer_section section news css start */
 
 .footer_section{
-    padding-top: 8rem;
+    padding-top: 80px;
     background-color: #191A1A;
 }
 .footer_p{
-    font-size: 1.6rem;
-    line-height: 2.2rem;
+    font-size: 16px;
+    line-height: 22px;
     font-weight: 500;
     color: var(--white);
-    margin-right: 2rem;
+    margin-right: 20px;
 }
 .footer_items h3 {
-	font-size: 2.5rem;
-	line-height: 2.9rem;
+	font-size: 25px;
+	line-height: 30px;
 	font-weight: 600;
 	color: var(--white);
 }
@@ -469,24 +479,24 @@ p {
 	width: 38% !important;
 }
 .footer_items a{
-	font-size: 1.6rem;
-    line-height: 2.2rem;
+	font-size: 16px;
+    line-height: 22px;
     font-weight: 500;
     color: var(--section);
     text-decoration: none;
 }
 .footer_bottom_heading a {
-	font-size: 1.6rem;
-	line-height: 2.2rem;
+	font-size: 16px;
+	line-height: 22px;
 	font-weight: 500;
 	color: #BFBFBF;
 	text-decoration: none;
-	margin-right: 1rem;
+	margin-right: 10px;
 	display: inline list-item;
 }
 .footer_contacts {
 	color: var(--white);
-	font-size: 1.6rem;
+	font-size: 16px;
     font-weight: 600;
 }
 
@@ -494,22 +504,22 @@ p {
 	padding-left: 0 ;
 }
 .footer_items ul li {
-	margin-bottom: .6rem;
+	margin-bottom: 6px;
     transition: .6s;
 }
 .subcribe_text h4{
-    font-size: 1.6rem;
+    font-size: 16px;
     color: var(--white);
-    line-height: 2.5rem;
+    line-height: 25px;
 }
 .placeholder_search{
-    font-size: 1.6rem;
+    font-size: 16px;
 }
 #button-plane{
-    font-size: 1.4rem;
+    font-size: 14px;
 }
 .footer_social a {
-	font-size: 1.5rem;
+	font-size: 15px;
     color: var(--primary-color);
     transition: .6s;
 }
@@ -521,15 +531,15 @@ p {
 
 
 .footer_itemsone{
-    margin-left: 3.5rem;
+    margin-left: 35px;
 }
 .footer_bottom_main{
     background-color: #141414;
 }
 .footer_contacts i {
 	background: var(--primary-color);
-	padding: 1rem;
-	border-radius: .5rem;
+	padding: 10px;
+	border-radius: 5px;
 	width: 12%;
 	text-align: center;
 }
@@ -542,30 +552,30 @@ p {
 /* resgister page css start */
 #login_registration_section{
     background-color: #F3F6F7;
-    padding: 5rem 0;
+    padding: 50px 0;
 }
 #login_registration_section .form-label{
-    font-size: 1.4rem;
+    font-size: 14px;
     font-weight: 600;
-    line-height: 2rem;
+    line-height: 20px;
     color: var(--secondary-color);
 }
 #login_registration_section .input_color{
-    font-size: 1.2rem;
+    font-size: 12px;
     font-weight: 500;
-    line-height: 2rem;
+    line-height: 20px;
     color: var(--p);
     background-color: #f8f9fa;
 }
 #login_registration_section .form-check-label {
-	font-size: 1.2rem;
+	font-size: 12px;
 	color: black;
 }
 #login_registration_section .form-check-label span {
 	color: var(--primary-color);
 }
 .resgiter_button {
-	font-size: 1.5rem;
+	font-size: 15px;
 	font-weight: 600;
 	background:var(--primary-color);
 	color: var(--white);
@@ -576,10 +586,10 @@ p {
 	color: var(--white);
 }
 .img_mid_text{
-    font-size: 1.6rem;
+    font-size: 16px;
 }
 .have_account{
-    font-size: 1.6rem;
+    font-size: 16px;
     color: var(--p);
     font-weight: 600;
 }
@@ -589,67 +599,67 @@ p {
 }
 .register_main_bg {
 	background: white;
-	padding: 5rem 8rem;
-	border-radius: .7rem;
+	padding: 50px 80px;
+	border-radius: 7px;
 }
 .login_main_bg {
-	padding: 5rem 5rem;
+	padding: 50px 50px;
 }
 /* resgister page css end */
 
 
 /* tehsil page css start */
 #breadcrumd_section{
-    padding: 8rem 0;
+    padding: 80px 0;
     background-color: #F3F6F7;
 }
 #breadcrumd_section .breadcrumd_heading h2 {
-	font-size: 4.2rem;
-	line-height: 5rem;
+	font-size: 42px;
+	line-height: 50px;
 }
 #breadcrumd_section .breadcrumd_heading span {
-	font-size: 1.6rem;
-	line-height: 2.3rem;
+	font-size: 16px;
+	line-height: 23px;
     color: var(--primary-color);
 }
 .tehsil_contact {
-	font-size: 1.6rem;
-	line-height: 2.6rem;
+	font-size: 16px;
+	line-height: 26px;
 	color: var(--secondary-color);
 }
 .tehsil_contact i{
-	padding: 1.5rem;
+	padding: 15px;
     border-radius: 50%;
     color: var(--red);
     background-color: #ff6b6b4b;
 }
 .tehsil_card_body {
 	background:var(--primary-color);
-	padding: 4rem 2rem;
-    border-radius: .7rem;
+	padding: 40px 20px;
+    border-radius: 7px;
 }
 .tehsil_card_body h5 {
-	font-size: 1.8rem;
-    line-height: 2.3rem;
+	font-size: 18px;
+    line-height: 23px;
 }
 .tehsil_card {
-	padding: 2rem !important;
+	padding: 20px !important;
 }
 .tehsil_card {
-	padding: 2rem !important;
-	border-radius: 0 16rem 0 0;
+	padding: 20px !important;
+	border-radius: 0 160px 0 0;
 	border: 1px solid var(--primary-color) !important;
 }
 .tehsil_social {
 	background: white;
 	border: 1px solid var(--primary-color) !important;
-    border-radius: .5rem;
+    border-radius: 5px;
 }
 .tehsil_main{
-    margin-left: 5.5rem;
+    margin-left: 55px;
 }
 .tehsil_bottom{
-    margin-bottom: 9rem !important;
+    margin-bottom: 90px !important;
 }
 .tehsil_section{
     background-image: url(../img/tehsil_page/background.png) !important;
@@ -657,7 +667,7 @@ p {
 
 /* lastest section css  start*/
 #latest_member{
-    padding: 8rem 0;
+    padding: 80px 0;
     background-color: var(--section);
 }
 .latest_member_box img {
@@ -665,9 +675,9 @@ p {
 }
  .latest_member_box {
 	background: white;
-	padding: 2rem 4rem;
-    border-radius: .6rem;
-    box-shadow: .3rem .3rem 1.4rem .4rem #0b223908;
+	padding: 20px 30px;
+    border-radius: 6px;
+    box-shadow: 3px 3px 14px 4px #0b223908;
     border: 1px solid var(--white);
     transition: .7s;
 }
@@ -675,14 +685,14 @@ p {
     border: 1px solid var(--primary-color);
 }
 .latest_member_box h6{
-    font-size: 2rem;
-    line-height: 3rem;
+    font-size: 20px;
+    line-height: 30px;
     color: var(--secondary-color);
     font-weight: 600;
 }
  .latest_member_box p{
-    font-size: 1.5rem;
-    line-height: 2.2rem;
+    font-size: 15px;
+    line-height: 22px;
     color: var(--p);
 }
 /* lastest section css  end*/
@@ -697,28 +707,28 @@ p {
 .all_members_bg{
     background: linear-gradient(rgba(16, 16, 10, 0.661), rgba(188, 181, 100, 0.535)), url(../img/profession_page/allmember.png);
     background-size: cover;
-    padding: 1rem;
-        padding-top: 1rem;
-    border-radius: .5rem;
+    padding: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
     padding-top: 27%;
 }
 .common_bg {
-	height: 50rem !important;
+	height: 500px !important;
 }
 /* Profession page css end */
 
 /* member list page css start */
 #member_list_section{
     background-color: var(--white);
-    padding: 8rem 0;
+    padding: 80px 0;
 }
 #member_list_section .search_input{
-    font-size: 1.5rem;
+    font-size: 15px;
     color: var(--p);
 }
 #member_list_section .filter_size{
-    font-size: 1.6rem;
-    line-height: 2.4rem;
+    font-size: 14px;
+    line-height: 24px;
     color: #505050;
 }
 #member_list_section .form-check-input:checked {
@@ -726,45 +736,45 @@ p {
 	border-color: var(--primary-color);
 }
 .common_filter_heading {
-	font-size: 2rem;
+	font-size: 20px;
 }
 .common_filter_tehsil {
 	background: #F3F6F7;
-	padding: 3rem 3rem 5rem 3rem;
-	border-radius: .5rem;
+	padding: 30px 30px 50px 30px;
+	border-radius: 5px;
 }
 .common_filter_top {
 	background: #F3F6F7;
     margin: 0;
 }
 .number_filter_label{
-    font-size: 1.2rem;
+    font-size: 12px;
     font-weight: 600;
 }
 /* pagination csss */
 .page-link {
 	border: none;
-	margin: 0 2rem;
+	margin: 0 20px;
 }
 .pagination {
 	border: 1px solid var(--primary-color);
 	display: inline-flex;
-	padding: 1rem;
-	border-radius: 5rem; 
-    margin-top: 4rem;
+	padding: 10px;
+	border-radius: 50px; 
+    margin-top: 40px;
     
 }
 .arrow_btn_bg{
     background-color: var(--primary-color);
     border-radius: 50% !important;
-    font-size: 1.5rem;
+    font-size: 15px;
 }
 .arrow_btn_bg:hover{
     background-color: var(--primary-color);
 }
 /* pagination csss */
 .common_filter_check{
-    height: 20rem;
+    height: 200px;
     overflow-y: scroll;
     scrollbar-width: thin;
 }
@@ -783,7 +793,7 @@ p {
 	width: 100%;
 	height: 45px;
 	align-items: center;
-	font-size: 1.5rem;
+	font-size: 15px;
 }
   .field input {
     width: 100%;
@@ -886,41 +896,41 @@ p {
   /* rating css end */
   .mobile_bg i {
 	background: var(--primary-color);
-	padding: 1rem;
+	padding: 10px;
 	border-radius: 50%;
-	width: 3.4rem;
+	width: 34px;
 	text-align: center;
 }
 .classified_add_btn{
     border-top: 1px solid var(--border);
-    margin-top: 1.7rem;
+    margin-top: 17px;
 }
 .classified_add_btn h6{
-    font-size: 2rem;
+    font-size: 20px;
     color: var(--red);
 }
 .classified_add_btn a{
-    font-size: 1.4rem;
+    font-size: 14px;
     color: var(--primary-color);
 }
 .classified_position_heading {
-	top: 3rem;
-	left: 2.2rem;
+	top: 30px;
+	left: 22px;
 	background: var(--primary-color);
-	padding: .7rem 1.5rem;
-	font-size: 1.4rem;
+	padding: 7px 15px;
+	font-size: 14px;
 	color: white;
 	font-weight: 600;
-	border-radius: .7rem;
+	border-radius: 7px;
 }
 .hart_postion {
-	right: 2.5rem;
+	right: 25px;
 	background: var(--red);
-	top: 3rem;
-	padding: .6rem;
+	top: 30px;
+	padding: 6px;
 	border-radius: 50%;
-	font-size: 1.4rem;
-	width: 3.6rem;
+	font-size: 14px;
+	width: 36px;
 	text-align: center;
 	color: var(--white);
 }
@@ -936,31 +946,31 @@ p {
 }
 .single_add_heading{
     border-bottom: 1px solid var(--border);
-    padding-bottom: 1rem;
+    padding-bottom: 10px;
 }
 .single_add_heading h3 {
-	font-size: 3rem;
-	line-height: 4rem;
+	font-size: 30px;
+	line-height: 40px;
     color: var(--secondary-color);
 }
 .single_add_heading p {
-	font-size: 1.5rem;
-	line-height: 2.4rem;
+	font-size: 15px;
+	line-height: 24px;
 	color: var(--p);
 }
 .single_add_heading h5 {
-	font-size: 2.4rem;
-	line-height: 3.2rem;
+	font-size: 24px;
+	line-height: 32px;
 	font-weight: 600;
 	color: var(--primary-color);
 }
 .single_add_box1 h6 {
-	font-size: 1.6rem;
+	font-size: 16px;
 	font-weight: 600;
     color: var(--secondary-color);
 }
 .single_add_box1 span {
-	font-size: 1.4rem;
+	font-size: 14px;
 	font-weight: 500;
     color: var(--p);
 }
@@ -1008,38 +1018,38 @@ p {
 /* about_us_section css start */
 #about_us_section{
     background-color: var(--white);
-    padding: 8rem 0;
+    padding: 80px 0;
 }
 #about_us_section .about_left_text{
-    padding-right: 10rem;
+    padding-right: 100px;
 }
 #about_us_section .about_list_image{
     width: 4%;
 }
 #about_us_section .about_list_text{
-    font-size: 1.6rem;
-    line-height: 2.4rem;
+    font-size: 16px;
+    line-height: 24px;
     color: var(--secondary-color);
 }
 #about_us_section .about_left_right_text {
-	font-size: 1.5rem;
+	font-size: 15px;
 	text-align: center;
-	line-height: 2.5rem;
+	line-height: 25px;
 	font-weight: 600;
 }
 #about_us_section .count_number h2{
-    font-size: 4.2rem;
-    line-height: 5rem;
+    font-size: 42px;
+    line-height: 50px;
     color: var(--primary-color);
 }
 #about_us_section .count_number span{
-    font-size: 4.2rem;
-    line-height: 5rem;
+    font-size: 42px;
+    line-height: 50px;
     color: var(--primary-color);
 }
 #about_us_section .widget-item p{
-    font-size: 1.6rem;
-    line-height: 2.4rem;
+    font-size: 16px;
+    line-height: 24px;
     color: var(--secondary-color);
 }
 
@@ -1047,29 +1057,29 @@ p {
 
 /* Matrimonial PAGE css START */
 .looking_filter_label {
-	font-size: 1.5rem;
+	font-size: 15px;
 	color: var(--p);
-    line-height: 2.4rem;
+    line-height: 24px;
 }
 .looking_filter_input{
-    font-size: 1.3rem;
+    font-size: 13px;
     color: var(--p);
 }
 .card_age_year{
     background: var(--primary-color);
-    padding: .7rem 1.2rem;
-    font-size: 1.4rem;
+    padding: 7px 12px;
+    font-size: 14px;
     color: white;
     font-weight: 600;
-    border-radius: .7rem;
-    margin-bottom: 1.3rem;
+    border-radius: 7px;
+    margin-bottom: 13px;
 }
 .matrimonial_add_btn {
-	font-size: 1.6rem !important;
+	font-size: 16px !important;
 	font-weight: 500 !important;
 }
 .matrimonial_add_btn i {
-	padding: 1rem;
+	padding: 10px;
 	background: var(--red);
 	border-radius: 50%;
 	color: var(--white);
@@ -1078,7 +1088,7 @@ p {
 	width: 65%;
 }
 .single_matrimonial_blog {
-	padding: 3.8rem 3rem;
+	padding: 38px 30px;
     background-color: var(--primary-color);
 }
 .single_matrimonial_common {
@@ -1090,7 +1100,7 @@ p {
     border: 1px solid var(--red);
 }
 .cast_boxs a {
-	font-size: 1.2rem;
+	font-size: 12px;
 	color: var(--primary-color);
     font-weight: 600;
 }
@@ -1102,13 +1112,13 @@ p {
 
 /* cast_single_section css start */
 #cast_single_section{
-    padding: 8rem 0;
+    padding: 80px 0;
 }
 .cast_single_img img {
 	width: 90%;
 }
 .cast_single_heading_top{
-    margin-top: 8rem;
+    margin-top: 80px;
 }
 /* cast_single_section css end */
 
@@ -1118,81 +1128,81 @@ p {
     padding: 0;
 }
 .single_blog img{
-	height: 50rem;
+	height: 500px;
 }
 .single_blog_heading h4 {
-	font-size: 2.8rem;
-	line-height: 3.8rem;
+	font-size: 28px;
+	line-height: 38px;
 	color: var(--white);
 }
 .single_blog_heading {
-	bottom: 7rem;
-	padding: 3rem 2rem;
+	bottom: 70px;
+	padding: 30px 20px;
 	background: rgba(0, 0, 0, 20%) !important;
 	backdrop-filter: blur(8px);
-	border-radius: 0 0 .9rem .9rem;
+	border-radius: 0 0 9px 9px;
 }
 .single_blog_heading h6 {
-	font-size: 1.4rem;
-	padding: 1rem 2rem 1rem 0;
+	font-size: 14px;
+	padding: 10px 20px 10px 0;
 	background: var(--white);
     color: var(--primary-color);
 	display: inline;
-	border-radius: 3rem;
+	border-radius: 30px;
 }
 .politics {
 	background-color: var(--primary-color);
-	padding: .2rem 1rem;
+	padding: 2px 10px;
 	border-radius: 50%;
-	margin-left: 1rem;
-	margin-right: 1rem;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 .single_blog_top {
-	padding-top: 4rem;
+	padding-top: 40px;
 }
 .single_blog_pd{
-    padding-right: 4rem;
+    padding-right: 40px;
 }
 /* single blog css end */
 /* contact page css start */
 #contact_form_section{
-    padding: 8rem 0;
+    padding: 80px 0;
     background-color: var(--section);
 }
 #contact_form_section .contact_form_social a {
-	font-size: 1.8rem;
+	font-size: 18px;
 	border: 1px solid var(--border);
     color: var(--primary-color);
 }
 #contact_form_section .contact_form_social{
-    padding-bottom: 3rem;
+    padding-bottom: 30px;
     border-bottom: 1px solid var(--border);
 }
 .contact_form_social a:hover {
 	color: var(--secondary-color) !important;
 }
 #contact_form_section .contact_phone_heading h6 {
-	font-size: 1.6rem;
-	line-height: 2.5rem;
+	font-size: 16px;
+	line-height: 25px;
     color: var(--p);
 }
 #contact_form_section .contact_phone_heading p {
-	font-size: 1.8rem;
-	line-height: 2.7rem;
+	font-size: 18px;
+	line-height: 27px;
     color: var(--secondary-color);
 }
 #contact_form_section .contact_input {
-	font-size: 1.4rem;
-	line-height: 2.2rem;
+	font-size: 14px;
+	line-height: 22px;
     color: var(--secondary-color);
 }
 #contact_form_section .contact_form_right_pd {
-	padding-right: 4rem;
+	padding-right: 40px;
 
 }
 .contact_form_button{
-    font-size: 1.8rem;
-    line-height: 2.7rem;
+    font-size: 18px;
+    line-height: 27px;
     color: var(--white);
     font-weight: 600;
     background-color: var(--primary-color);
@@ -1203,39 +1213,45 @@ p {
 }
 .contact_main_form {
 	background: white;
-	padding: 5rem;
-	border-radius: 4rem;
-    box-shadow: .3rem .3rem 1.4rem .4rem #0b223908;
+	padding: 50px;
+	border-radius: 40px;
+    box-shadow: 3px 3px 14px 4px #0b223908;
 }
 .contact_form_left_right_text{
-    font-size: 1.6rem;
-    line-height: 2.6rem;
+    font-size: 16px;
+    line-height: 26px;
     color: var(--secondary-color);
     font-weight: 600;
 }
 .contact_form_main_left_right{
-    padding: 7rem 0;
+    padding: 70px 0;
 }
 .contact_map {
-	padding: 2rem;
+	padding: 20px;
 	background: white;
-	border-radius: .7rem;
-    box-shadow: .3rem .3rem 1.4rem .4rem #0b223908;
+	border-radius: 7px;
+    box-shadow: 3px 3px 14px 4px #0b223908;
 }
 /* contact page css end */
 
 .fix_btn a {
 	background: var(--red);
 	display: inline-block;
-	padding: 1rem 1.5rem;
-	font-size: 1.8rem;
-	border-radius: .5rem;
+	padding: 10px 15px;
+	font-size: 18px;
+	border-radius: 5px;
 	position: fixed;
-	bottom: 4rem;
-	right: 6rem;
+	bottom: 40px;
+	right: 60px;
     color: var(--white);
 }
 .footer_card_account_image {
 	display: flex;
-	gap: 2rem;
+	gap: 20px;
+}
+.dropdown_style{
+    background: #178e17;
+    color: white;
+    border: none;
+    padding: 7px;
 }

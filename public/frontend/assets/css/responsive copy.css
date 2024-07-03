@@ -1,0 +1,321 @@
+/* // X-Small devices (portrait phones, less than 576px) */
+@media(min-width: 320px) and (max-width: 575.98px) {
+    #header_topbar {
+        display: none;
+    }
+    #header .header_logo {
+        width: 25% !important;
+    }
+    #header .navbar-nav {
+        padding: 2rem 0;
+    }
+    #header .contact_button {
+        margin-bottom: 2rem;
+    }
+    .footer_itemsone{
+        margin-left: 0 !important;
+    }
+    .footer_bottom_main_heading{
+        display: inline-block !important;
+    }
+    .footer_social{
+        padding-top: 1.9rem;
+        text-align: center imn !important;
+    }
+    .carousel-caption h1 {
+        font-size: 2.5rem !important;
+        line-height: 3rem !important;
+    }
+    .carousel-item img {
+        height: 40rem !important;
+    }
+    .carousel-caption p {
+        font-size: 1.6rem !important;
+        line-height: 2.3rem !important;
+    }
+    .carousel-caption {
+        top: 10% !important;
+    }
+    .carousel_btn_div{
+        display: inline-block !important;
+    }
+    .carosel_button1{
+        margin-bottom: 4rem;
+    }
+    .common_heading h2{
+        font-size: 2.7rem !important;
+        line-height: 3.5rem !important;
+    }
+    .common_heading h5{
+        text-align: center !important;
+    }
+    .p_leftRight_image{
+        display: none;
+    }
+    .common_heading img {
+        width: 15% !important;
+    }
+    #blog_section .common_heading{
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    #blog_section .common_button{
+        text-align: center;
+    }
+    .faq_accordion {
+        padding: 2rem !important;
+    }
+    .register_main_bg {
+        padding: 2rem !important;
+    }
+    .tehsil_main{
+        margin-left: 0 !important;
+    }
+    .tehsil_main {
+        text-align: center;
+    }
+    #breadcrumd_section .breadcrumd_heading h2 {
+        font-size: 3rem !important;
+        line-height: 4rem !important;
+    }
+    .common_filter_top{
+        margin-top: 2rem !important;
+    }
+    .common_filter_top{
+        margin-top: 2rem !important;
+        margin: 0 ;
+    }
+    .single_add_heading h3{
+        font-size: 2.2rem !important;
+    }
+    .about_left_text{
+        padding-right: 0 !important;
+        text-align: center;
+    }
+    #about_us_section .about_list_image {
+        width: 10% !important;
+    }
+    .widget-item{
+        padding-bottom: 2.5rem !important;
+    }
+    .about_img_birds{
+        margin-top: 5rem;
+    }
+    .cast_single_img img {
+        width: 100% !important;
+        margin-top: 2rem;
+    }
+    .cast_single_heading{
+        text-align: center !important;
+    }
+    .cast_single_heading_top{
+        margin-top: 4rem !important;
+    }
+    .single_blog_heading{
+        text-align: center;
+    }
+    .single_blog_heading h4{
+       font-size: 2.2rem !important;
+       line-height: 3.2rem !important;
+    }
+    .single_blog_pd{
+        padding-right: 0 !important;
+    }
+    #contact_form_section .contact_form_right_pd {
+        padding-right: 0 !important;
+        padding-bottom: 4rem !important;
+    }
+    #contact_form_section .common_heading{
+        text-align: center !important;
+    }
+    .contact_form_social{
+        text-align: center !important;
+    }
+    .contact_main_form {
+        padding: 3rem 2rem !important;
+    }
+    .accordion-button {
+        font-size: 1.6rem !important;
+    }
+    .accordion-body {
+        font-size: 1.4rem !important;
+    }
+ }
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (min-width: 575.98px) and (max-width: 767.98px) {
+    #header_topbar {
+        display: none;
+    }
+    .footer_itemsone{
+        margin-left: 0 !important;
+       }
+     .carousel-caption h1 {
+        font-size: 2.5rem !important;
+        line-height: 3rem !important;
+    }
+    .carousel-item img {
+        height: 40rem !important;
+    }
+    .carousel-caption p {
+        font-size: 1.6rem !important;
+        line-height: 2.3rem !important;
+    }
+
+    .carousel-caption {
+        top: 20% !important;
+    }
+    .carousel_btn_div{
+        display: inline-block !important;
+    }
+    .carosel_button1{
+        margin-bottom: 4rem;
+    }
+    .p_leftRight_image{
+        display: none;
+    }
+    .common_heading img {
+        width: 20% !important;
+    }
+    #blog_section .common_heading{
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    #blog_section .common_button{
+        text-align: center;
+    }
+    .register_main_bg {
+        padding: 2rem !important;
+    }
+    .tehsil_main{
+        margin-left: 0 !important;
+    }
+    .tehsil_main {
+        margin-left: 5.5rem;
+        text-align: center;
+    }
+    .common_filter_top{
+        margin-top: 2rem !important;
+        margin: 0 ;
+    }
+    .single_add_heading h3 {
+        font-size: 2.5rem !important;
+        line-height: 3.5rem !important;
+    }
+    .about_img_birds{
+        margin-top: 5rem;
+    }
+    .widget-item{
+        padding-bottom: 2.5rem !important;
+    }
+    .about_left_text{
+        padding-right: 0 !important;
+        text-align: center;
+    }
+    #about_us_section .about_list_image {
+        width: 10% !important;
+    }
+    .cast_single_img img {
+        width: 100% !important;
+        margin-top: 2rem;
+    }
+    .cast_single_heading{
+        text-align: center !important;
+    }
+    .single_blog_heading{
+        text-align: center;
+    }
+    .single_blog_heading h4{
+       font-size: 2.6rem !important;
+       line-height: 3.6rem !important;
+    }
+    .single_blog_pd{
+        padding-right: 0 !important;
+    }
+    #contact_form_section .contact_form_right_pd {
+        padding-right: 0 !important;
+        padding-bottom: 4rem !important;
+
+    }
+    #contact_form_section .common_heading{
+        text-align: center !important;
+    }
+    .contact_form_social{
+        text-align: center !important;
+    }
+
+ }
+/* // Medium devices (tablets, less than 992px) */
+@media(min-width: 767.98px) and (max-width: 991.98px) {
+   .footer_itemsone{
+    margin-left: 0 !important;
+   }
+   .carousel-caption h1 {
+    font-size: 2.9rem !important;
+    line-height: 3rem !important;
+    }
+    .carousel-item img {
+        height: 40rem !important;
+    }
+    .carousel-caption p {
+        font-size: 1.6rem !important;
+        line-height: 2.3rem !important;
+    }
+    .carousel-caption {
+        top: 25% !important;
+    }
+
+    .carosel_button1{
+        margin-bottom: 4rem;
+    }
+    .common_filter_top{
+        margin-top: 2rem !important;
+    }
+    .about_img_birds{
+        margin-top: 5rem;
+    }
+    .widget-item{
+        padding-bottom: 2.5rem !important;
+    }
+    .about_left_text{
+        padding-right: 0 !important;
+        text-align: center;
+    }
+    .cast_single_img img {
+        width: 100% !important;
+        margin-top: 2rem;
+    }
+    #contact_form_section .contact_form_right_pd {
+        padding-right: 0 !important;
+        padding-bottom: 4rem !important;
+
+    }
+ }
+
+/* // Large devices (desktops, less than 1200px) */
+@media (min-width: 901.98px) and (max-width: 1199.98px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        font-size: 1.2rem !important;
+    }
+    .carousel-caption h1 {
+        font-size: 4rem !important;
+        line-height: 5rem !important;
+    }
+    .carousel-item img {
+        height: 50rem !important;
+    }
+    .carousel-caption p {
+        font-size: 1.6rem !important;
+        line-height: 2.3rem !important;
+    }
+    .carousel-caption {
+        top: 30% !important;
+    }
+
+    .carosel_button1{
+        margin-bottom: 4rem;
+    }
+ }
+
+/* // X-Large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {  }

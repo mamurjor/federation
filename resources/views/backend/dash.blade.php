@@ -56,6 +56,15 @@
     <script src="{{ asset('backend/assets/vendor/js/template-customizer.js') }}"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     {{-- <script src="{{ asset('backend/assets/js/config.js') }}"></script> --}}
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script>
+        // Pass the base URL from Laravel to JavaScript
+        var baseUrl = '{{ url('/') }}';
+    </script>
 </head>
 
 <body>
@@ -63,7 +72,7 @@
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Menu -->
-            @include('backend.include.sidebar')
+            @include('backend.include.sidebar-admin')
             <!-- / Menu -->
 
             <!-- Layout container -->
@@ -72,9 +81,11 @@
                 @include('backend.include.navbar')
                 <!-- / Navbar -->
 
-                <!-- Content wrapper -->
-                @yield('main-content')
-                <!-- Content wrapper -->
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <!-- Content wrapper -->
+                    @yield('main-content')
+                    <!-- Content wrapper -->
+                </div>
             </div>
             <!-- / Layout page -->
         </div>
@@ -111,7 +122,12 @@
     <script src="{{ asset('backend/assets/js/main.js') }}"></script>
 
     <!-- Page JS -->
-    <script src="{{ asset('backend/assets/js/dashboards-analytics.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    @stack('scripts')
 </body>
 
 </html>
