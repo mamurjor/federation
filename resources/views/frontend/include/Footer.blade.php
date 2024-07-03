@@ -100,7 +100,7 @@
                         </li>
                         <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Profession</a>
                         </li>
-                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Country Page</a>
+                        <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Division Page</a>
                         </li>
                         <li><a href="#"><i class="fa-solid fa-angles-right me-2 text-danger"></i>Wings Page</a>
                         </li>

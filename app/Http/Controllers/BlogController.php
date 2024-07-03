@@ -101,15 +101,15 @@ public function blogpostindex()
 
       public function blogpoststore(Request $request)
         {
-                // dd($request->all());
-            
 
             $request->validate([
+
                 'description' => 'required',
                 'content'     => 'required',
                 'category_id' => 'required',
                 'title'       => 'required',
                 'status'      => 'required',
+                
                 ]); 
 
                 $image         = $request->file('blogimage');

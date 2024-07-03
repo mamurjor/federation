@@ -37,9 +37,9 @@
                                 <div class="mb-6">
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span class="text-danger">*</span>
-                                            Country </label>
-                                        <input type="text" readonly value="{{ $voteannouncement->country }}"
-                                            name="country" class="form-control py-3 input_color"
+                                            Division </label>
+                                        <input type="text" readonly value="{{ $voteannouncement->Division }}"
+                                            name="Division" class="form-control py-3 input_color"
                                             placeholder="Enter votetype">
 
                                     </div>

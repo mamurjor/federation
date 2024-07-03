@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Country;
+use App\Models\Division;
 use App\Models\HeroSection;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;

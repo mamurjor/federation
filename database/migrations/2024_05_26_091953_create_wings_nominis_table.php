@@ -14,9 +14,7 @@ return new class extends Migration
         Schema::create('wings_nominis', function (Blueprint $table) {
             $table->id();
             $table->integer('wingsnomini_id');
-            $table->string('type',255);
-            $table->string('type_name',255);
-            $table->string('profession_name',255);
+            $table->string('wings',255);
             $table->string('announce',255);
             $table->string('votetype',255);
             $table->string('votepositiontype',255);

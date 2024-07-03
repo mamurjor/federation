@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("category", 255);
             $table->integer("price");
             $table->string("location", 255);
-            $table->string("country", 255);
+            $table->string("Division", 255);
             $table->string("district", 255);
             $table->string("tehsil", 255);
             $table->string("email", 255);

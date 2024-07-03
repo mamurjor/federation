@@ -25,11 +25,13 @@ class SendWingsVoteAnnouncementNotification
     public function handle(WingsVoteAnnouncementPosted $event): void
     {
         $announcement = $event->announcement;
-        $announcementProfession = $announcement->profession_name;
+
+        $announcementProfession = $announcement->wings;
         // Log::info('Announcement Profession:', ['profession' => $announcementProfession]);
         $clients = User::where('role_id', 2)
-                        ->where('profession', $announcementProfession)
-                        ->get();
+        ->where('profession', $announcementProfession)
+        ->get();
+        // Log::info('Announcement Profession:', ['profession' => $clients]);
 
             foreach($clients as $client)  {
                 $client->notify(new WingsVoteAnnouncementNotification($announcement));

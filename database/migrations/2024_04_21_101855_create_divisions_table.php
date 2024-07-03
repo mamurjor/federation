@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('countries', function (Blueprint $table) {
+        Schema::create('divisions', function (Blueprint $table) {
             $table->id();
             $table->string("name", 255)->unique()->change();
             $table->string("code", 255);
@@ -24,7 +24,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('countries', function (Blueprint $table) {
+        Schema::table('divisions', function (Blueprint $table) {
             $table->dropUnique(['name']);
         });
     }

@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Exports\CountryExport;
+use App\Exports\DivisionExport;
 
-use App\Imports\CountryImport;
+use App\Imports\DivisionImport;
 use App\Imports\DistrictImport;
 use App\Imports\TehsilImport;
 
 use Maatwebsite\Excel\Facades\Excel;
 
-use App\Models\Country;
+use App\Models\Division;
 
 class ExcelCSVController extends Controller
 {
@@ -27,7 +27,7 @@ class ExcelCSVController extends Controller
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function importExcelCSVCountry(Request $request) 
+    public function importExcelCSVDivision(Request $request) 
     {
     	$validatedData = $request->validate([
 
@@ -35,7 +35,7 @@ class ExcelCSVController extends Controller
 
         ]);
 
-        Excel::import(new CountryImport,$request->file('file'));
+        Excel::import(new DivisionImport,$request->file('file'));
       
 
            
@@ -76,7 +76,7 @@ class ExcelCSVController extends Controller
     */
     public function exportExcelCSV($slug) 
     {
-        return Excel::download(new CountryExport, 'users.'.$slug);
+        return Excel::download(new DivisionExport, 'users.'.$slug);
     }
    
 }

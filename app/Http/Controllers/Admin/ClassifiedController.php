@@ -95,7 +95,7 @@ class ClassifiedController extends Controller
          'category'      => $request->category,
          'price'         => $request->price,
          'video'         => $request->video,
-         'country'       => $getuserinfo->country_residence,
+         'Division'       => $getuserinfo->Division_residence,
          'district'      => $getuserinfo->district,
          'tehsil'        => $getuserinfo->tehsil,
          'location'      => $request->location,

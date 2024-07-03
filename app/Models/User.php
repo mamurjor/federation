@@ -30,7 +30,7 @@ class User extends Authenticatable
         'cast',
         'gender',
         'profession',
-        'country',
+        'Division',
         'address_one',
         'address_two',
         'email_verified_at',

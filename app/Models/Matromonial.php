@@ -18,7 +18,7 @@ class Matromonial extends Model
         'religion',
         'marital',
         'caste',
-        'country',
+        'Division',
         'district',
         'tehsil',
         'height',

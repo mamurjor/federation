@@ -20,7 +20,7 @@ class DashboardController extends Controller
       
       $client = User::where('id', Auth::id())->first();
       $vote   = Voteannounce::where('tehsil', $client->tehsil)->get();
-      $wingsvote = Wings::where('profession_name', $client->profession)->get();
+      $wingsvote = WingsVoteannounce::where('wings', $client->profession)->get();
       $disvote = DisVoteannounce::all();
     
   

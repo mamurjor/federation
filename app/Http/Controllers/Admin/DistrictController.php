@@ -7,7 +7,7 @@ use Stripe\Charge;
 use Stripe\Stripe;
 use App\Models\Gender;
 use App\Models\Tehsil;
-use App\Models\Country;
+use App\Models\Division;
 use App\Models\District;
 use App\Models\Votetype;
 use App\Models\DisNomini;
@@ -39,8 +39,8 @@ class DistrictController extends Controller
 
  public function create()
  {
-    $countries = Country::all();
-     return view('backend.page.district.create',compact('countries'));
+    $divisions = Division::all();
+     return view('backend.page.district.create',compact('divisions'));
  }
 
  public function store(Request $request)
@@ -48,7 +48,7 @@ class DistrictController extends Controller
      $request->validate([
          'name'    => 'required|unique:districts,name',
          'code'    => 'required',
-         'country' => 'required',
+         'Division' => 'required',
      ]);     
      District::create($request->post());
      return redirect()->route('district.index')->with('success','Created successfully.');
@@ -60,8 +60,8 @@ class DistrictController extends Controller
 
     $district = District::where('id', $id)->first();
 
-    $countries = Country::all();
-     return view('backend.page.district.edit',compact('district','countries'));
+    $divisions = Division::all();
+     return view('backend.page.district.edit',compact('district','divisions'));
  }
 
  public function update(Request $request)
@@ -70,7 +70,7 @@ class DistrictController extends Controller
     $request->validate([
         'name'    => 'required',
         'code'    => 'required',
-        'country' => 'required',
+        'Division' => 'required',
             
     ]);
 
@@ -82,7 +82,7 @@ class DistrictController extends Controller
             // Modify the attributes of the model
         $district->name    = $request->name;
         $district->code    = $request->code;
-        $district->country = $request->country;
+        $district->Division = $request->Division;
         
             // Call the save() method to persist the changes
         $district->save();
@@ -144,12 +144,12 @@ class DistrictController extends Controller
 
         public function disvoteannouncecreate(){
          
-            $country          = Country::all();
+            $Division          = Division::all();
             $district         = District::all();
             $tehsil           = Tehsil::all();
             $votetype         = Votetype::all();
             $votepositiontype = VotingPositionType::all();
-            return view('frontend.pages.disVoteAnnounce.create',compact('votetype','country','district','tehsil','votepositiontype'));
+            return view('frontend.pages.disVoteAnnounce.create',compact('votetype','Division','district','tehsil','votepositiontype'));
         } 
     
     
@@ -161,7 +161,7 @@ class DistrictController extends Controller
             
             $request->validate([
         
-                'country'             => 'required',
+                'Division'             => 'required',
                 'district'      => 'required',
                 'announce'         => 'required',
                 'date'             => 'required',
@@ -170,7 +170,7 @@ class DistrictController extends Controller
             ]);
     
             $voteannounceinfo = [
-                'country'             => $request->country,
+                'Division'             => $request->Division,
                 'district'        => $request->district,
                 'announce'         => $request->announce,
                 'votetype'         => $request->votetype,
@@ -192,11 +192,11 @@ class DistrictController extends Controller
                   $votepositiontype               = VotingPositionType::all();
                   $voteannounce                   = DisVoteannounce::where('id', $id)->first();
                   $votetype                       = Votetype::all();
-                  $country = Country::all();
+                  $Division = Division::all();
                   $district = District::all();
                   $voteannounce->votepositiontype = unserialize($voteannounce->votepositiontype);
     
-                  return view('frontend.pages.disVoteAnnounce.edit',compact('voteannounce','votepositiontype','votetype','country','district'));
+                  return view('frontend.pages.disVoteAnnounce.edit',compact('voteannounce','votepositiontype','votetype','Division','district'));
               }
     
     
@@ -211,7 +211,7 @@ class DistrictController extends Controller
     
               $request->validate([
         
-                'country'          => 'required',
+                'Division'          => 'required',
                 'district'         => 'required',
                 'announce'         => 'required',
                 'date'             => 'required',
@@ -222,7 +222,7 @@ class DistrictController extends Controller
               if ($voteannounce) {
                               // Update the record
                   $voteannounce->update([
-                    'country'             => $request->country,
+                    'Division'             => $request->Division,
                     'district'        => $request->district,
                     'announce'         => $request->announce,
                     'votetype'         => $request->votetype,
@@ -268,7 +268,7 @@ class DistrictController extends Controller
             
             $request->session()->put('votetype', $request->votetype);
             $request->session()->put('id', $request->id);
-            $request->session()->put('country', $request->country);
+            $request->session()->put('Division', $request->Division);
             $request->session()->put('district', $request->district);
             $request->session()->put('announce', $request->announce);
             $request->session()->put('date', $request->date);
@@ -309,7 +309,7 @@ class DistrictController extends Controller
     
            $nomini = DisNomini::create([
                 'disnomini_id'     => Auth::id(),
-                'country'               => Session::get('country'),
+                'Division'               => Session::get('Division'),
                 'district'          => Session::get('district'),
                 'announce'           => Session::get('announce'),
                 'votetype'           => Session::get('votetype'),

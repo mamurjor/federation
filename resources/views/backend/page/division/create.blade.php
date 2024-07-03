@@ -6,7 +6,7 @@
             <div class="card m-3">
                 <div class="card-header d-flex justify-content-between align-items-center">
 
-                    <h5>Add Country</h5>
+                    <h5>Add Division</h5>
         
         
                 </div>
@@ -14,7 +14,7 @@
 
 
 
-                    <form action="{{ route('country.store') }}" method="POST">
+                    <form action="{{ route('Division.store') }}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">

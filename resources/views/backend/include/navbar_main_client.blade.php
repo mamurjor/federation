@@ -228,10 +228,10 @@
                                             </div>
                                         </div>
 
-                                        {{-- <div class="flex-grow-1">
+                                        <div class="flex-grow-1">
                                             <h6 class="mb-1">Congratulation {{ $notify->data['user_name']? $notify->data['user_name']:'no data' }} {{ $notify->data['message']?$notify->data['message']:'' }} 🎉
                                             </h6> <a href="{{ route('wingsnomini.form', $singlewings->id) }}">Apply Now</a>
-                                        </div> --}}
+                                        </div>
 
                                         <div class="flex-shrink-0 dropdown-notifications-actions">
                                             <a href="javascript:void(0)" class="dropdown-notifications-read"><span

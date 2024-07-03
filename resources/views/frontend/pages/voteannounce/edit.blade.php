@@ -14,19 +14,19 @@
                             <div class="col-md-12">
                                 <div class="mb-6">
                                     <div class="form-group">
-                                        <label for="form-label" class="form-label"> Select Country <span
+                                        <label for="form-label" class="form-label"> Select Division <span
                                                 class="text-danger">*</span></label>
-                                        <select name="country" id="country" class="form-control input_color py-3">
+                                        <select name="Division" id="Division" class="form-control input_color py-3">
 
-                                            @foreach ($country as $data)
+                                            @foreach ($Division as $data)
                                                 <option value="{{ $data->name }}"
-                                                    {{ $voteannounce->country == $data->name ? 'selected' : '' }}>
+                                                    {{ $voteannounce->Division == $data->name ? 'selected' : '' }}>
                                                     {{ $data->name }}</option>
                                             @endforeach
 
                                         </select>
 
-                                        @error('country')
+                                        @error('Division')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
 
@@ -39,7 +39,7 @@
                                         <select name="district" id="district" class="form-control input_color py-3">
                                             @foreach ($district as $data)
                                                 <option value="{{ $data->name }}"
-                                                    {{ $voteannounce->country == $data->name ? 'selected' : '' }}>
+                                                    {{ $voteannounce->Division == $data->name ? 'selected' : '' }}>
                                                     {{ $data->name }}</option>
                                             @endforeach
                                         </select>
@@ -57,7 +57,7 @@
 
                                             @foreach ($tehsil as $data)
                                                 <option value="{{ $data->name }}"
-                                                    {{ $voteannounce->country == $data->name ? 'selected' : '' }}>
+                                                    {{ $voteannounce->Division == $data->name ? 'selected' : '' }}>
                                                     {{ $data->name }}</option>
                                             @endforeach
                                         </select>
@@ -165,12 +165,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            $("#country").change(function() {
+            $("#Division").change(function() {
 
-                var country = $('#country').val();
+                var Division = $('#Division').val();
                 $.ajax({
-                    url: '{{ route('tehsil.getdistrict', ':country') }}'.replace(':country',
-                        country),
+                    url: '{{ route('tehsil.getdistrict', ':Division') }}'.replace(':Division',
+                        Division),
                     type: 'GET',
                     dataType: 'json',
                     success: function(response) {

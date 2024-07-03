@@ -43,7 +43,7 @@ class NominiController extends Controller
         
         $request->session()->put('votetype', $request->votetype);
         $request->session()->put('id', $request->id);
-        $request->session()->put('country', $request->country);
+        $request->session()->put('Division', $request->Division);
         $request->session()->put('district', $request->district);
         $request->session()->put('tehsil', $request->tehsil);
         $request->session()->put('announce', $request->announce);
@@ -85,7 +85,7 @@ class NominiController extends Controller
 
         $nomini = Nomini::create([
             'nomini_id'          => Auth::id(),
-            'country'            => Session::get('country'),
+            'Division'            => Session::get('Division'),
             'district'           => Session::get('district'),
             'tehsil'             => Session::get('tehsil'),
             'announce'           => Session::get('announce'),

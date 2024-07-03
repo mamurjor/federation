@@ -70,7 +70,7 @@
                     <th>Nomini Name</th>
                     <th>Vote type</th>
                     <th>Vote position type</th>
-                    <th>Profession</th>
+                    <th>Wings</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -85,16 +85,16 @@
                         <td>{{ $singlevalue->fname }}</td>
                         <td>{{ $singlevalue->votetype }}</td>
                         <td>{{ $singlevalue->votepositiontype }}</td>
-                        <td>{{ $singlevalue->profession_name }}</td>
+                        <td>{{ $singlevalue->wings }}</td>
                         <td>{{ $singlevalue->status }}</td>
                         <td>
                             @if ($singlevalue->status == 0 && !$hasSelectedWingsNomini)
-                                <form action="{{ route('wingsnomini.select', $singlevalue->Wingsnomini_id) }}" method="POST">
+                                <form action="{{ route('wingsnomini.select', $singlevalue->wingsnomini_id) }}" method="POST">
                                     @csrf
                                     <button class="btn btn-primary" type="submit"><i class="fa fa-check me-2"></i>Select</button>
                                 </form>
                             @elseif ($singlevalue->status == 1)
-                                <form action="{{ route('wingsnomini.cancel', $singlevalue->Wingsnomini_id) }}" method="POST">
+                                <form action="{{ route('wingsnomini.cancel', $singlevalue->wingsnomini_id) }}" method="POST">
                                     @csrf
                                     <button class="btn btn-danger" type="submit"><i class="fa fa-times me-2"></i>Cancel</button>
                                 </form>

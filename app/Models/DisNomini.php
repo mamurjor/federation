@@ -12,7 +12,7 @@ class DisNomini extends Model
     protected $fillable = [
         'disnomini_id',
         'status',
-        'country',  
+        'Division',  
         'district',      
         'announce',      
         'votetype',   

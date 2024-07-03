@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('voteannounces', function (Blueprint $table) {
             $table->id();
-            $table->string('country',255);
+            $table->string('Division',255);
             $table->string('district',255);
             $table->string('tehsil',255);
             $table->string('announce',255);

@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string("matromonialimage", 255);
             $table->string("marital", 255);
             $table->string("caste", 255);
-            $table->string("country", 255);
+            $table->string("Division", 255);
             $table->string("district", 255);
             $table->string("tehsil", 255);
             $table->string("height", 255);

@@ -42,7 +42,7 @@ class ProfessionController extends Controller
     $professions = Profession::where('id', $id)->first();
        
  
-      //$country = Country::where('id',1)->get();
+      //$Division = Division::where('id',1)->get();
 
      return view('backend.page.profession.edit',compact('professions'));
  }

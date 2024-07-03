@@ -15,22 +15,22 @@
 
                             <div class="mb-6 mt-2">
                                 <div class="form-group">
-                                    <label for="form-label" class="form-label">Country Of Residence <span
+                                    <label for="form-label" class="form-label">Division Of Residence <span
                                             class="text-danger">*</span></label>
 
-                                    <select name="country" id="country_residence" class="form-control input_color py-3">
-                                        <option value="">Select country of Residence</option>
+                                    <select name="Division" id="Division_residence" class="form-control input_color py-3">
+                                        <option value="">Select Division of Residence</option>
 
-                                        @foreach ($countries as $index => $singlevalue)
+                                        @foreach ($divisions as $index => $singlevalue)
                                             <option value="{{ $singlevalue->name }}"
-                                                {{ $singlevalue->name == $tehsils->country ? 'selected' : '' }}>
+                                                {{ $singlevalue->name == $tehsils->Division ? 'selected' : '' }}>
                                                 {{ $singlevalue->name }}
                                             </option>
                                         @endforeach
 
                                     </select>
 
-                                    @error('country')
+                                    @error('Division')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
 
@@ -102,14 +102,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
-        $("#country_residence").change(function() {
+        $("#Division_residence").change(function() {
 
-            var country = $('#country_residence').val();
+            var Division = $('#Division_residence').val();
 
 
             $.ajax({
-                url: '{{ route('tehsil.getcountry', ':country') }}'.replace(':country',
-                    country),
+                url: '{{ route('tehsil.getDivision', ':Division') }}'.replace(':Division',
+                    Division),
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {

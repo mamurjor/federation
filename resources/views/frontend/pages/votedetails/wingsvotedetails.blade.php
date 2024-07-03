@@ -87,7 +87,7 @@
                         data-votepositiontype="{{ $nomini->votepositiontype }}"
                         data-votetype="{{ $nomini->votetype }}"
                         data-votingdate="{{ $nomini->votingdate }}"
-                        data-country="{{ $nomini->country }}"
+                        data-Division="{{ $nomini->Division }}"
                         data-district="{{ $nomini->district }}"
                         data-tehsil="{{ $nomini->tehsil }}"
                     >Vote</button>
@@ -117,9 +117,7 @@
                                 data-votepositiontype="{{ $nomini->votepositiontype }}"
                                 data-votetype="{{ $nomini->votetype }}"
                                 data-votingdate="{{ $nomini->votingdate }}"
-                                data-type="{{ $nomini->type }}"
-                                data-type_name="{{ $nomini->type_name }}"
-                                data-profession_name="{{ $nomini->profession_name }}"
+                                data-wings="{{ $nomini->wings }}"
                                 >Vote Now<i class="fa-solid fa-circle-plus ms-1"></i></button>
                         </div>
                     </div>
@@ -148,9 +146,7 @@
             var votepositiontype = $(this).data('votepositiontype');
             var votetype = $(this).data('votetype');
             var votingdate = $(this).data('votingdate');
-            var type = $(this).data('type');
-            var type_name = $(this).data('type_name');
-            var profession_name = $(this).data('profession_name');
+            var wings = $(this).data('wings');
 
             $.ajax({
                 url: '{{ route('send.otp') }}',
@@ -168,9 +164,7 @@
                             votepositiontype: votepositiontype,
                             votetype: votetype,
                             votingdate: votingdate,
-                            type: type,
-                            type_name: type_name,
-                            profession_name: profession_name
+                            wings: wings
                         });
                     } else {
                         alert('Failed to send OTP. Please try again. ' + response.message);
@@ -211,9 +205,7 @@
                                 votepositiontype: data.votepositiontype,
                                 votetype: data.votetype,
                                 votingdate: data.votingdate,
-                                type: data.type,
-                                type_name: data.type_name,
-                                profession_name: data.profession_name,
+                                wings: data.wings,
                                 user_id: '{{ Auth::id() }}' // Add the user_id here
                             },
                             success: function(storeResponse) {

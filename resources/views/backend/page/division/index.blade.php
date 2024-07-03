@@ -3,8 +3,8 @@
 @section('main-content')
     <div class="card m-3 ">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5>Country List</h5>
-            <h5><a class="btn btn-primary waves-effect waves-light" href="{{ route('country.create') }}"> Add New </a></h5>
+            <h5>Division List</h5>
+            <h5><a class="btn btn-primary waves-effect waves-light" href="{{ route('divisions.index') }}"> Add New </a></h5>
         </div>
         <table class="table-responsive table table-bordered" >
             <thead>
@@ -17,7 +17,7 @@
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-                @foreach ($countries as $index => $singlevalue)
+                @foreach ($divisions as $index => $singlevalue)
                     <tr>
                         <td>
 
@@ -33,9 +33,9 @@
                                     <i class="ti ti-dots-vertical"></i>
                                 </button>
 
-                                <a class="btn btn-primary" href="{{ route('country.edit', $singlevalue->id) }}"><i
+                                <a class="btn btn-primary" href="{{ route('divisions.edit', $singlevalue->id) }}"><i
                                         class="ti ti-pencil me-2"></i> Edit</a>
-                                <a class="btn btn-danger" href="{{ route('country.delete', $singlevalue->id) }}"
+                                <a class="btn btn-danger" href="{{ route('divisions.delete', $singlevalue->id) }}"
                                     onclick="return confirm('Are Your Suere')"> Delete</a>
 
                             </div>
@@ -62,7 +62,7 @@
 
         <div class="card-body">
 
-            <form id="excel-csv-import-form" method="POST" action="{{ url('import-excel-csv-file-country') }}"
+            <form id="excel-csv-import-form" method="POST" action="{{ url('import-excel-csv-file-Division') }}"
                 accept-charset="utf-8" enctype="multipart/form-data">
 
                 @csrf

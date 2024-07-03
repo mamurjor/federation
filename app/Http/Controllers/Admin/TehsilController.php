@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Tehsil;
-use App\Models\Country;
+use App\Models\Division;
 use App\Models\District;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -21,18 +21,17 @@ class TehsilController extends Controller
      return view('backend.page.tehsil.index', compact('tehsils'));
  }
 
- public function getcountry($country){
+ public function getDivision($Division){
       
-        $getuserbycountry = District::where('country', $country)->get();
-         // \Log::info('Cities:', $getuserbycountry->toArray()); // Log the retrieved cities
-        return response()->json($getuserbycountry);
+        $getuserbyDivision = District::where('division', $Division)->get();
+        return response()->json($getuserbyDivision);
 
  }
 
 
-    public function getdistrict($country){
+    public function getdistrict($Division){
       
-        $getdistrict = District::where('country', $country)->get();
+        $getdistrict = District::where('division', $Division)->get();
         return response()->json($getdistrict);
 
     }
@@ -46,8 +45,8 @@ class TehsilController extends Controller
     
  public function create()
  {
-    $countries = Country::all();
-     return view('backend.page.tehsil.create',compact('countries'));
+    $divisions = Division::all();
+     return view('backend.page.tehsil.create',compact('divisions'));
  }
 
  public function store(Request $request)
@@ -55,7 +54,7 @@ class TehsilController extends Controller
      $request->validate([
          'name'     => 'required|unique:tehsils,name',
          'code'     => 'required',
-         'country'  => 'required',
+         'Division'  => 'required',
          'district' => 'required',
      ]);     
      Tehsil::create($request->post());
@@ -68,14 +67,14 @@ class TehsilController extends Controller
 
       // dd($id);
  
-    $countries = Country::all();
+    $divisions = Division::all();
     // $districts = District::all();
     $tehsils = Tehsil::where('id', $id)->first();
        
  
-      //$country = Country::where('id',1)->get();
+      //$Division = Division::where('id',1)->get();
 
-     return view('backend.page.tehsil.edit',compact('tehsils','countries'));
+     return view('backend.page.tehsil.edit',compact('tehsils','divisions'));
  }
 
  public function update(Request $request)
@@ -84,7 +83,7 @@ class TehsilController extends Controller
     $request->validate([
         'name'     => 'required',
         'code'     => 'required',
-        'country'  => 'required',
+        'Division'  => 'required',
         'district' => 'required',
     ]);
 
@@ -95,7 +94,7 @@ class TehsilController extends Controller
           // Modify the attributes of the model
         $tehsil->name     = $request->name;
         $tehsil->code     = $request->code;
-        $tehsil->country  = $request->country;
+        $tehsil->Division  = $request->Division;
         $tehsil->district = $request->district;
         
           // Call the save() method to persist the changes

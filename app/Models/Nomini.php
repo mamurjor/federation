@@ -13,7 +13,7 @@ class Nomini extends Model
     protected $fillable = [
         'nomini_id',
         'status',
-        'country',  
+        'Division',  
         'district',      
         'tehsil',      
         'announce',      

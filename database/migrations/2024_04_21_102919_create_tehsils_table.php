@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tehsils', function (Blueprint $table) {
             $table->id();
             $table->string('name')->default('');
-            $table->string('country')->default(0);
+            $table->string('Division')->default(0);
             $table->string('district')->default(0);
             $table->string('code')->default(0);
             $table->string('slug');

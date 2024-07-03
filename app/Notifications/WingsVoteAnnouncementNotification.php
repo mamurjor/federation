@@ -4,6 +4,7 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use App\Models\WingsVoteannounce;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -51,9 +52,11 @@ class WingsVoteAnnouncementNotification extends Notification
     public function toArray(object $notifiable): array
     {
 
+        Log::info('Creating notification for:', ['notifiable' => $notifiable->id]);
+        
         return [
             'message' => 'New Wings Vote announce',
-            'user_name' => $this->announcement->profession_name,
+            'user_name' => $this->announcement->wings,
             'user_email' => '',
         ];
       

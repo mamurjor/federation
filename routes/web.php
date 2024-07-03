@@ -17,9 +17,9 @@ use App\Http\Controllers\Admin\GenderController;
 use App\Http\Controllers\Admin\TehsilController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Admin\BillingController;
-use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\UserOperationController;
 use App\Http\Controllers\Admin\DistrictController;
+use App\Http\Controllers\Admin\DivisionController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\CompanysettingController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -30,6 +30,7 @@ use App\Http\Controllers\Admin\MatromonialController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\Admin\SliersectionController;
 use App\Http\Controllers\Frontend\MainIndexController;
+use App\Http\Controllers\Admin\InternationalController;
 use App\Http\Controllers\Admin\MissionSectionController;
 
 /*
@@ -89,12 +90,23 @@ Route::post('company/setting/faq',[CompanysettingController::class,'companysetti
 
 
 
-Route::get('index', [CountryController::class, 'index'])->name('country.index');
-Route::get('create', [CountryController::class, 'create'])->name('country.create');
-Route::post('store', [CountryController::class, 'store'])->name('country.store');
-Route::post('update', [CountryController::class, 'update'])->name('country.update');
-Route::get('edit/{id}', [CountryController::class, 'edit'])->name('country.edit');
-Route::get('countrydelete/{id}', [CountryController::class, 'delete'])->name('country.delete');
+
+
+Route::get('divisions', [DivisionController::class, 'index'])->name('divisions.index');
+Route::get('divisions/create', [DivisionController::class, 'create'])->name('divisions.create');
+Route::post('divisions/store', [DivisionController::class, 'store'])->name('divisions.store');
+Route::post('divisions/update', [DivisionController::class, 'update'])->name('divisions.update');
+Route::get('divisions/edit/{id}', [DivisionController::class, 'edit'])->name('divisions.edit');
+Route::get('divisions/delete/{id}', [DivisionController::class, 'delete'])->name('divisions.delete');
+
+
+
+Route::get('index', [InternationalController::class, 'index'])->name('international.index');
+Route::get('create', [InternationalController::class, 'create'])->name('international.create');
+Route::post('store', [InternationalController::class, 'store'])->name('international.store');
+Route::post('update', [InternationalController::class, 'update'])->name('international.update');
+Route::get('edit/{id}', [InternationalController::class, 'edit'])->name('international.edit');
+Route::get('internationaldelete/{id}', [InternationalController::class, 'delete'])->name('international.delete');
 
 
 
@@ -103,7 +115,7 @@ Route::get('cast/create', [CastController::class, 'create'])->name('cast.create'
 Route::post('cast/store', [CastController::class, 'store'])->name('cast.store');
 Route::post('cast/update', [CastController::class, 'update'])->name('cast.update');
 Route::get('cast/edit/{id}', [CastController::class, 'edit'])->name('cast.edit');
-Route::get('cast/countrydelete/{id}', [CastController::class, 'delete'])->name('cast.delete');
+Route::get('cast/Divisiondelete/{id}', [CastController::class, 'delete'])->name('cast.delete');
 
 
 Route::get('gender/index', [GenderController::class, 'index'])->name('gender.index');
@@ -111,7 +123,7 @@ Route::get('gender/create', [GenderController::class, 'create'])->name('gender.c
 Route::post('gender/store', [GenderController::class, 'store'])->name('gender.store');
 Route::post('gender/update', [GenderController::class, 'update'])->name('gender.update');
 Route::get('gender/edit/{id}', [GenderController::class, 'edit'])->name('gender.edit');
-Route::get('gender/countrydelete/{id}', [GenderController::class, 'delete'])->name('gender.delete');
+Route::get('gender/Divisiondelete/{id}', [GenderController::class, 'delete'])->name('gender.delete');
 
 
 Route::get('profession/index', [ProfessionController::class, 'index'])->name('profession.index');
@@ -119,25 +131,25 @@ Route::get('profession/create', [ProfessionController::class, 'create'])->name('
 Route::post('profession/store', [ProfessionController::class, 'store'])->name('profession.store');
 Route::post('profession/update', [ProfessionController::class, 'update'])->name('profession.update');
 Route::get('profession/edit/{id}', [ProfessionController::class, 'edit'])->name('profession.edit');
-Route::get('profession/countrydelete/{id}', [ProfessionController::class, 'delete'])->name('profession.delete');
+Route::get('profession/Divisiondelete/{id}', [ProfessionController::class, 'delete'])->name('profession.delete');
 
 Route::get('wings/index', [WingsController::class, 'index'])->name('wings.index');
 Route::get('wings/create', [WingsController::class, 'create'])->name('wings.create');
 Route::post('wings/store', [WingsController::class, 'store'])->name('wings.store');
 Route::post('wings/update', [WingsController::class, 'update'])->name('wings.update');
 Route::get('wings/edit/{id}', [WingsController::class, 'edit'])->name('wings.edit');
-Route::get('wings/countrydelete/{id}', [WingsController::class, 'delete'])->name('wings.delete');
+Route::get('wings/Divisiondelete/{id}', [WingsController::class, 'delete'])->name('wings.delete');
 
 
 Route::get('tehsil/index', [TehsilController::class, 'index'])->name('tehsil.index');
-Route::get('tehsil/getcountry/{country}', [TehsilController::class, 'getcountry'])->name('tehsil.getcountry');
-Route::get('tehsil/getdistrict/{country}', [TehsilController::class, 'getdistrict'])->name('tehsil.getdistrict');
+Route::get('tehsil/getDivision/{Division}', [TehsilController::class, 'getDivision'])->name('tehsil.getDivision');
+Route::get('tehsil/getdistrict/{Division}', [TehsilController::class, 'getdistrict'])->name('tehsil.getdistrict');
 Route::get('tehsil/gettehsil/{district}', [TehsilController::class, 'gettehsil'])->name('tehsil.gettehsil');
 Route::get('tehsil/create', [TehsilController::class, 'create'])->name('tehsil.create');
 Route::post('tehsil/store', [TehsilController::class, 'store'])->name('tehsil.store');
 Route::post('tehsil/update', [TehsilController::class, 'update'])->name('tehsil.update');
 Route::get('tehsil/edit/{id}', [TehsilController::class, 'edit'])->name('tehsil.edit');
-Route::get('tehsil/countrydelete/{id}', [TehsilController::class, 'delete'])->name('tehsil.delete');
+Route::get('tehsil/Divisiondelete/{id}', [TehsilController::class, 'delete'])->name('tehsil.delete');
 
 
 
@@ -147,14 +159,14 @@ Route::get('herosection/create', [HeroSectionController::class, 'create'])->name
 Route::post('herosection/store', [HeroSectionController::class, 'store'])->name('herosection.store');
 Route::post('herosection/update', [HeroSectionController::class, 'update'])->name('herosection.update');
 Route::get('herosection/edit/{id}', [HeroSectionController::class, 'edit'])->name('herosection.edit');
-Route::get('herosection/countrydelete/{id}', [HeroSectionController::class, 'delete'])->name('herosection.delete');
+Route::get('herosection/Divisiondelete/{id}', [HeroSectionController::class, 'delete'])->name('herosection.delete');
 
 Route::get('missionsection/index', [MissionSectionController::class, 'index'])->name('missionsection.index');
 Route::get('missionsection/create', [MissionSectionController::class, 'create'])->name('missionsection.create');
 Route::post('missionsection/store', [MissionSectionController::class, 'store'])->name('missionsection.store');
 Route::post('missionsection/update', [MissionSectionController::class, 'update'])->name('missionsection.update');
 Route::get('missionsection/edit/{id}', [MissionSectionController::class, 'edit'])->name('missionsection.edit');
-Route::get('missionsection/countrydelete/{id}', [MissionSectionController::class, 'delete'])->name('missionsection.delete');
+Route::get('missionsection/Divisiondelete/{id}', [MissionSectionController::class, 'delete'])->name('missionsection.delete');
 
 
 
@@ -163,7 +175,7 @@ Route::get('sliersection/create', [SliersectionController::class, 'create'])->na
 Route::post('sliersection/store', [SliersectionController::class, 'store'])->name('sliersection.store');
 Route::post('sliersection/update', [SliersectionController::class, 'update'])->name('sliersection.update');
 Route::get('sliersection/edit/{id}', [SliersectionController::class, 'edit'])->name('sliersection.edit');
-Route::get('sliersection/countrydelete/{id}', [SliersectionController::class, 'delete'])->name('sliersection.delete');
+Route::get('sliersection/Divisiondelete/{id}', [SliersectionController::class, 'delete'])->name('sliersection.delete');
 
 
 Route::get('district/index', [DistrictController::class, 'index'])->name('district.index');
@@ -171,7 +183,7 @@ Route::get('district/create', [DistrictController::class, 'create'])->name('dist
 Route::post('district/store', [DistrictController::class, 'store'])->name('district.store');
 Route::post('district/update', [DistrictController::class, 'update'])->name('district.update');
 Route::get('district/edit/{id}', [DistrictController::class, 'edit'])->name('district.edit');
-Route::get('district/countrydelete/{id}', [DistrictController::class, 'delete'])->name('district.delete');
+Route::get('district/Divisiondelete/{id}', [DistrictController::class, 'delete'])->name('district.delete');
 
 
 
@@ -186,11 +198,11 @@ Route::get('verify-code/{token}',[VerifyUserController::class,'verifiedCode'])->
 
 
 
-Route::get('country/{country}', [CountryController::class, 'GetuserBycontry'])->name('country.list');
+Route::get('Division/{Division}', [DivisionController::class, 'GetuserBycontry'])->name('Division.list');
 
 
-// Route::get('index', [CountryController::class, 'index']);
-Route::post('import-excel-csv-file-country', [ExcelCSVController::class, 'importExcelCSVCountry']);
+// Route::get('index', [DivisionController::class, 'index']);
+Route::post('import-excel-csv-file-Division', [ExcelCSVController::class, 'importExcelCSVDivision']);
 Route::post('import-excel-csv-file-district', [ExcelCSVController::class, 'importExcelCSVDistrict']);
 Route::post('import-excel-csv-file-tehsil', [ExcelCSVController::class, 'importExcelCSVTehsil']);
 Route::get('export-excel-csv-file/{slug}', [ExcelCSVController::class, 'exportExcelCSV']);

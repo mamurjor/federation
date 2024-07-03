@@ -73,11 +73,11 @@
                                 </div>
                                 {{-- <div class="mb-6">
                                     <div class="form-group">
-                                        <label for="form-label" class="form-label">country<span
+                                        <label for="form-label" class="form-label">Division<span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" value="" name="country"
+                                        <input type="text" value="" name="Division"
                                             class="form-control py-3 input_color" placeholder="Enter price">
-                                        @error('country')
+                                        @error('Division')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>

@@ -14,7 +14,7 @@
                     <tr>
                         <th>SL No. </th>
                         <th>Name</th>
-                        <th>Country</th>
+                        <th>Division</th>
                         <th>Code</th>
                         <th>Action </th>
 
@@ -31,7 +31,7 @@
                                 <span class="fw-medium ms-2">{{ $index + 1 }}</span>
                             </td>
                             <td>{{ $singlevalue->name }}</td>
-                            <td>{{ $singlevalue->country }}</td>
+                            <td>{{ $singlevalue->Division }}</td>
 
                             <td><span class="badge bg-label-success me-1">{{ $singlevalue->code }}</span></td>
                             <td>

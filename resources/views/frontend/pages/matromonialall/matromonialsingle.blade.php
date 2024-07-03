@@ -118,8 +118,8 @@
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-lg-6">
                                                 <div class="single_add_box1 py-4 px-3 border rounded mb-3">
-                                                    <h6>Country: <span
-                                                            class="ms-3">{{ $matromonialsingle->country }}</span></h6>
+                                                    <h6>Division: <span
+                                                            class="ms-3">{{ $matromonialsingle->Division }}</span></h6>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-lg-6">

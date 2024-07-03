@@ -107,7 +107,7 @@
                             <td>
                                 <span class="fw-medium ms-2">{{ $index + 1 }}</span>
                             </td>
-                            <td>No name </td>
+                            <td>{{ $singlevalue->user->fname }} </td>
                             <td>{{ $singlevalue->votetype }}</td>
                             <td>{{ $singlevalue->votepositiontype }}</td>
                             <td>{{ $singlevalue->charge }}</td>

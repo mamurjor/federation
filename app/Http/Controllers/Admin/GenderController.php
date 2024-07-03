@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Gender;
-use App\Models\Country;
+use App\Models\Division;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -44,7 +44,7 @@ class GenderController extends Controller
     $genders = Gender::where('id', $id)->first();
        
  
-      //$country = Country::where('id',1)->get();
+      //$Division = Division::where('id',1)->get();
 
      return view('backend.page.gender.edit',compact('genders'));
  }

@@ -19,7 +19,7 @@
                                         <input type="hidden" name="id" value="{{ $wings->id }}">
                                         <select name="wings_type" id="wings_type" class="form-control input_color py-3">
                                             <option value="">Select type</option>
-                                            <option value="Country" {{ $wings->wings_type == 'Country' ? 'selected' : '' }}>Country</option>
+                                            <option value="Division" {{ $wings->wings_type == 'Division' ? 'selected' : '' }}>Division</option>
                                             <option value="District" {{ $wings->wings_type == 'District' ? 'selected' : '' }}>District</option>
                                             <option value="Tehsil" {{ $wings->wings_type == 'Tehsil' ? 'selected' : '' }}>Tehsil</option>
                                         </select>

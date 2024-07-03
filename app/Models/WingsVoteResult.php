@@ -14,9 +14,7 @@ class WingsVoteResult extends Model
         'votepositiontype',
         'votetype',
         'votingdate',
-        'type',
-        'type_name',
-        'profession_name',
+        'wings',
         'wingsnomini_id',
         'status'
     ];

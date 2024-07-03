@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('bio')->nullable();
             $table->string('short_bio')->nullable();
             $table->string('profession')->nullable();
-            $table->string('country')->nullable();
+            $table->string('Division')->nullable();
             $table->string('address_one')->nullable();
             $table->string('address_two')->nullable();
             $table->timestamp('email_verified_at')->nullable();

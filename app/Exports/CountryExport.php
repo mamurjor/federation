@@ -2,16 +2,16 @@
 
 namespace App\Exports;
 
-use App\Models\Country;
+use App\Models\Division;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class CountryExport implements FromCollection
+class DivisionExport implements FromCollection
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return Country::all();
+        return Division::all();
     }
 }

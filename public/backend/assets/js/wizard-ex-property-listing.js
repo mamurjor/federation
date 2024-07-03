@@ -10,7 +10,7 @@
 
   const flatpickrRange = document.querySelector('.flatpickr'),
     phoneMask = document.querySelector('.contact-number-mask'),
-    plCountry = $('#plCountry'),
+    plDivision = $('#plDivision'),
     plFurnishingDetailsSuggestionEl = document.querySelector('#plFurnishingDetails');
 
   // Phone Number Input Mask
@@ -21,13 +21,13 @@
     });
   }
 
-  // select2 (Country)
+  // select2 (Division)
 
-  if (plCountry) {
-    plCountry.wrap('<div class="position-relative"></div>');
-    plCountry.select2({
-      placeholder: 'Select country',
-      dropdownParent: plCountry.parent()
+  if (plDivision) {
+    plDivision.wrap('<div class="position-relative"></div>');
+    plDivision.select2({
+      placeholder: 'Select Division',
+      dropdownParent: plDivision.parent()
     });
   }
 

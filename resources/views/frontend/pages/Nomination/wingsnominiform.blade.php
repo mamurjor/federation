@@ -33,7 +33,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-6">
+                                {{-- <div class="mb-6">
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span class="text-danger">*</span>
                                             Type </label>
@@ -42,8 +42,8 @@
                                             placeholder="Enter votetype">
 
                                     </div>
-                                </div>
-                                <div class="mb-6">
+                                </div> --}}
+                                {{-- <div class="mb-6">
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span class="text-danger">*</span>
                                             TypeName </label>
@@ -52,17 +52,19 @@
                                             placeholder="Enter votetype">
 
                                     </div>
-                                </div>
+                                </div> --}}
+
                                 <div class="mb-6">
                                     <div class="form-group">
-                                        <label for="form-label" class="form-label"><span class="text-danger">*</span>Profession
+                                        <label for="form-label" class="form-label"><span class="text-danger">*</span>Wings
                                         </label>
-                                        <input type="text" readonly value="{{ $wingsvoteannouncement->profession_name }}"
-                                            name="profession_name" class="form-control py-3 input_color"
+                                        <input type="text" readonly value="{{ $wingsvoteannouncement->wings }}"
+                                            name="wings" class="form-control py-3 input_color"
                                             placeholder="Enter votetype">
 
                                     </div>
                                 </div>
+
                                 <div class="mb-6">
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span class="text-danger">*</span>
@@ -73,6 +75,7 @@
 
                                     </div>
                                 </div>
+
                                 <div class="mb-6">
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span class="text-danger">*</span> Date
@@ -83,6 +86,7 @@
 
                                     </div>
                                 </div>
+
                                 <div class="mb-6">
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span class="text-danger">*</span>
@@ -95,6 +99,7 @@
                                         @enderror
                                     </div>
                                 </div>
+
                                 <div class="mb-6">
                                     <div class="form-group">
                                         <label for="form-label" class="form-label"><span class="text-danger">*</span>

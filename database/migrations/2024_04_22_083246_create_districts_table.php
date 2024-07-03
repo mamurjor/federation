@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('districts', function (Blueprint $table) {
             $table->id();
             $table->string("name", 300);
-            $table->string("country", 255);
+            $table->string("division", 255);
             $table->text("code", 300);
             $table->timestamps();
         });

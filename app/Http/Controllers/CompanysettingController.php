@@ -28,8 +28,8 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'castslogan'], ['value' => $request->blogslogan]);
         Setting::updateOrCreate(['key' => 'matromonialtitle'], ['value' => $request->matromonialtitle]);
         Setting::updateOrCreate(['key' => 'matromonialslogan'], ['value' => $request->matromonialslogan]);
-        Setting::updateOrCreate(['key' => 'countrytitle'], ['value' => $request->countrytitle]);
-        Setting::updateOrCreate(['key' => 'countryslogan'], ['value' => $request->countryslogan]);
+        Setting::updateOrCreate(['key' => 'Divisiontitle'], ['value' => $request->Divisiontitle]);
+        Setting::updateOrCreate(['key' => 'Divisionslogan'], ['value' => $request->Divisionslogan]);
         Setting::updateOrCreate(['key' => 'tehsiltitle'], ['value' => $request->tehsiltitle]);
         Setting::updateOrCreate(['key' => 'tehsilslogan'], ['value' => $request->tehsilslogan]);
         Setting::updateOrCreate(['key' => 'districttitle'], ['value' => $request->districttitle]);
@@ -63,7 +63,7 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'privacyurl'], ['value' => $request->privacyurl]);
         Setting::updateOrCreate(['key' => 'termsconditionurl'], ['value' => $request->termsconditionurl]);
         Setting::updateOrCreate(['key' => 'professionurl'], ['value' => $request->professionurl]);
-        Setting::updateOrCreate(['key' => 'countrypageurl'], ['value' => $request->countrypageurl]);
+        Setting::updateOrCreate(['key' => 'Divisionpageurl'], ['value' => $request->Divisionpageurl]);
         Setting::updateOrCreate(['key' => 'tehsilurl'], ['value' => $request->tehsilurl]);
         Setting::updateOrCreate(['key' => 'footerlastsectiontext'], ['value' => $request->footerlastsectiontext]);
       

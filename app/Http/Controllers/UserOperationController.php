@@ -45,7 +45,7 @@ class UserOperationController extends Controller
     }
 
     
-    public function getcountry($country){
+    public function getDivision($Division){
       
              
         

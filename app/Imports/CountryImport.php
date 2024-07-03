@@ -3,10 +3,10 @@
 namespace App\Imports;
 
 
-use App\Models\Country;
+use App\Models\Division;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class CountryImport implements ToModel
+class DivisionImport implements ToModel
 {
     /**
     * @param array $row
@@ -16,7 +16,7 @@ class CountryImport implements ToModel
     public function model(array $row)
     { 
         // dd($row);
-        return new Country([
+        return new Division([
            
             'name'     => $row[0],
             'code'    => $row[1], 

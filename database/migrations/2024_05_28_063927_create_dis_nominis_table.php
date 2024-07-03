@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('dis_nominis', function (Blueprint $table) {
             $table->id();
             $table->integer('disnomini_id');
-            $table->string('country',255);
+            $table->string('Division',255);
             $table->string('district',255);
             $table->string('announce',255);
             $table->string('votetype',255);

@@ -16,7 +16,7 @@ class TehsilImport implements ToModel
     {
         return new Tehsil([
             'name'     => $row[0],
-            'country'     => $row[1],
+            'Division'     => $row[1],
             'district'     => $row[2],
             'code'    => $row[3], 
         ]);

@@ -91,7 +91,7 @@
                                 data-disnomini-id="{{ $disnomini->id }}" data-email="{{ Auth::user()->email }}"
                                 data-votepositiontype="{{ $disnomini->votepositiontype }}"
                                 data-votetype="{{ $disnomini->votetype }}" data-votingdate="{{ $disnomini->votingdate }}"
-                                data-country="{{ $disnomini->country }}" data-district="{{ $disnomini->district }}"
+                                data-Division="{{ $disnomini->Division }}" data-district="{{ $disnomini->district }}"
                                 data-tehsil="{{ $disnomini->tehsil }}">Vote Now<i
                                     class="fa-solid fa-circle-plus ms-1"></i></button>
                         </div>
@@ -121,7 +121,7 @@ $(document).ready(function() {
         var votepositiontype = $(this).data('votepositiontype');
         var votetype = $(this).data('votetype');
         var votingdate = $(this).data('votingdate');
-        var country = $(this).data('country');
+        var Division = $(this).data('Division');
         var district = $(this).data('district');
         var tehsil = $(this).data('tehsil');
 
@@ -152,7 +152,7 @@ $(document).ready(function() {
                                     votepositiontype: votepositiontype,
                                     votetype: votetype,
                                     votingdate: votingdate,
-                                    country: country,
+                                    Division: Division,
                                     district: district,
                                     tehsil: tehsil
                                 });
@@ -199,7 +199,7 @@ $(document).ready(function() {
                             votepositiontype: data.votepositiontype,
                             votetype: data.votetype,
                             votingdate: data.votingdate,
-                            country: data.country,
+                            Division: data.Division,
                             district: data.district,
                             tehsil: data.tehsil,
                             user_id: '{{ Auth::id() }}'

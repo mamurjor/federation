@@ -365,20 +365,20 @@
             </div>
             <!--/ Support Tracker -->
 
-            <!-- Sales By Country -->
+            <!-- Sales By Division -->
             <div class="col-xl-4 col-md-6 mb-4">
                 <div class="card h-100">
                     <div class="card-header d-flex justify-content-between">
                         <div class="card-title mb-0">
-                            <h5 class="m-0 me-2">Sales by Countries</h5>
+                            <h5 class="m-0 me-2">Sales by divisions</h5>
                             <small class="text-muted">Monthly Sales Overview</small>
                         </div>
                         <div class="dropdown">
-                            <button class="btn p-0" type="button" id="salesByCountry" data-bs-toggle="dropdown"
+                            <button class="btn p-0" type="button" id="salesByDivision" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="ti ti-dots-vertical ti-sm text-muted"></i>
                             </button>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="salesByCountry">
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="salesByDivision">
                                 <a class="dropdown-item" href="javascript:void(0);">Download</a>
                                 <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
                                 <a class="dropdown-item" href="javascript:void(0);">Share</a>
@@ -505,7 +505,7 @@
                     </div>
                 </div>
             </div>
-            <!--/ Sales By Country -->
+            <!--/ Sales By Division -->
 
             <!-- Total Earning -->
             <div class="col-12 col-xl-4 mb-4 col-md-6">

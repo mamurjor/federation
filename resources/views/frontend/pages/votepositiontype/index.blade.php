@@ -75,7 +75,7 @@
 
         <div class="card-body">
 
-            <form id="excel-csv-import-form" method="POST" action="{{ url('import-excel-csv-file-country') }}"
+            <form id="excel-csv-import-form" method="POST" action="{{ url('import-excel-csv-file-Division') }}"
                 accept-charset="utf-8" enctype="multipart/form-data">
 
                 @csrf

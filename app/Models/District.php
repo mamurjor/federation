@@ -11,6 +11,6 @@ class District extends Model
     protected $fillable = [
         'name',
         'code',	   
-        'country'
+        'Division'
     ];
 }

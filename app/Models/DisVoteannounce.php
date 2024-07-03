@@ -11,7 +11,7 @@ class DisVoteannounce extends Model
 
     protected $fillable = [
       
-        'country',  
+        'Division',  
         'district',      
         'announce',      
         'votetype',   

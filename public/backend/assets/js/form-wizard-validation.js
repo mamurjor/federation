@@ -117,10 +117,10 @@
             }
           }
         },
-        formValidationCountry: {
+        formValidationDivision: {
           validators: {
             notEmpty: {
-              message: 'The Country is required'
+              message: 'The Division is required'
             }
           }
         },
@@ -165,12 +165,12 @@
         $this.wrap('<div class="position-relative"></div>');
         $this
           .select2({
-            placeholder: 'Select an country',
+            placeholder: 'Select an Division',
             dropdownParent: $this.parent()
           })
           .on('change', function () {
             // Revalidate the color field when an option is chosen
-            FormValidation2.revalidateField('formValidationCountry');
+            FormValidation2.revalidateField('formValidationDivision');
           });
       });
     }

@@ -19,9 +19,10 @@
                                                 class="text-danger">*</span></label>
                                         <select name="wings_type" id="wings_type" class="form-control input_color py-3">
                                             <option value="">Select type</option>
-                                            <option value="Country">Country</option>
+                                            <option value="Division">Division</option>
                                             <option value="District">District</option>
                                             <option value="Tehsil">Tehsil</option>
+                                            <option value="International">Inernational</option>
                                         </select>
                                         @error('wings_type')
                                             <div class="text-danger">{{ $message }}</div>

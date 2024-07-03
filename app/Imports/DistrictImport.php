@@ -17,7 +17,7 @@ class DistrictImport implements ToModel
         return new District([
             
             'name'     => $row[0],
-            'country'     => $row[1],
+            'Division'     => $row[1],
             'code'    => $row[2], 
         ]);
     }

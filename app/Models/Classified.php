@@ -17,7 +17,7 @@ class Classified extends Model
    'description', 
    'category', 
    'price', 
-   'country', 
+   'Division', 
    'district', 
    'tehsil', 
    'location', 

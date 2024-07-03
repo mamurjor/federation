@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\Cast;
 use App\Models\Tehsil;
-use App\Models\Country;
+use App\Models\Division;
 use App\Models\District;
 use App\Models\Classified;
 use App\Models\HeroSection;
@@ -122,7 +122,7 @@ class MainIndexController extends Controller
     }
     
     public function showTehsil($tehsil){
-        // $countries = Country::all();
+        // $divisions = Division::all();
         $voteresult = VoteResult::where('status', '1')->with(['nomini.user'])->get();
         $uniqueUserResults = $voteresult->unique(function ($item) {
             return $item->nomini->user->id;
@@ -133,7 +133,7 @@ class MainIndexController extends Controller
         return view('tehsil.show', compact('tehsilData','uniqueUserResults','blogpost','tehsilUser'));
     }
     public function showwings($wings){
-        // $countries = Country::all();
+        // $divisions = Division::all();
         $voteresult = VoteResult::where('status', '1')->with(['nomini.user'])->get();
         $uniqueUserResults = $voteresult->unique(function ($item) {
             return $item->nomini->user->id;
@@ -144,7 +144,7 @@ class MainIndexController extends Controller
 
     public function member(){
 
-        $users = User::paginate(5);
+        $users = User::paginate(8);
         return view('frontend.pages.member.member',compact('users'));
     }
 

@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\Roles;
 use App\Models\Gender;
 use App\Models\Tehsil;
-use App\Models\Country;
+use App\Models\Division;
 use App\Models\District;
 use App\Models\Profession;
 use Illuminate\Support\Str;
@@ -42,7 +42,7 @@ class AuthController extends Controller
             return redirect()->route('login');
         }
 
-        $countries   = Country::all();
+        $divisions   = Division::all();
         $cast        = Cast::all();
         $genders     = Gender::all();
         $professions = Profession::all();
@@ -51,7 +51,7 @@ class AuthController extends Controller
 
 
         $this->setPageTitle('Register');
-        return view('auth.register',compact('countries','cast','genders','professions','districts','tehsils'));
+        return view('auth.register',compact('divisions','cast','genders','professions','districts','tehsils'));
     }
 
           /**
@@ -74,7 +74,7 @@ class AuthController extends Controller
             'gender'                => 'required',
             'cast'                  => 'required',
             'profession'            => 'required',
-            'country'     => 'required',
+            'Division'     => 'required',
             'address_one'           => 'required',
             'address_two'           => 'required',
             'your_city'             => 'required',
@@ -99,7 +99,7 @@ class AuthController extends Controller
             'cast'              => $request->cast,
             'gender'            => $request->gender,
             'profession'        => $request->profession,
-            'country' => $request->country_residence,
+            'Division' => $request->Division_residence,
             'address_one'       => $request->address_one,
             'address_two'       => $request->address_two,
             'city'              => $request->your_city,
@@ -134,14 +134,14 @@ class AuthController extends Controller
 
     public function userUpdate(){
         
-        $countries   = Country::all();
+        $divisions   = Division::all();
         $cast        = Cast::all();
         $genders     = Gender::all();
         $professions = Profession::all();
         $districts   = District::all();
         $tehsils     = Tehsil::all();
         $user        = User::where('id', Auth::id())->first();
-        return view("auth.user-update",compact('user','countries','cast','genders','professions','districts','tehsils'));
+        return view("auth.user-update",compact('user','divisions','cast','genders','professions','districts','tehsils'));
     }
 
 
@@ -176,7 +176,7 @@ class AuthController extends Controller
                     'bio'          => $request->bio,
                     'short_bio'    => $request->short_bio,
                     'profession'   => $request->profession,
-                    'country'      => $request->country_residence,
+                    'Division'      => $request->Division_residence,
                     'address_one'  => $request->address_one,
                     'address_two'  => $request->address_two,
                     'city'         => $request->your_city,
@@ -210,7 +210,7 @@ class AuthController extends Controller
                       'bio'          => $request->bio,
                       'short_bio'    => $request->short_bio,
                       'profession'   => $request->profession,
-                      'country'      => $request->country_residence,
+                      'Division'      => $request->Division_residence,
                       'address_one'  => $request->address_one,
                       'address_two'  => $request->address_two,
                       'city'         => $request->your_city,

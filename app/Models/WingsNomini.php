@@ -11,10 +11,8 @@ class WingsNomini extends Model
 
     protected $fillable = [
         'wingsnomini_id',
-        'status',
-        'type',  
-        'type_name',      
-        'profession_name',      
+        'status',    
+        'wings',      
         'announce',      
         'votetype',   
         'votepositiontype',   

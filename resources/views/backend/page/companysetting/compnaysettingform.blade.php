@@ -135,15 +135,15 @@
 
                                     </div>
                                     <div class="form-group mt-3">
-                                        <label for="field1">Country title</label>
-                                        <input type="text" value="{{ config('settings.countrytitle')}}" class="form-control"
-                                            id="icon" name="countrytitle">
+                                        <label for="field1">Division title</label>
+                                        <input type="text" value="{{ config('settings.Divisiontitle')}}" class="form-control"
+                                            id="icon" name="Divisiontitle">
 
                                     </div>
                                     <div class="form-group mt-3">
-                                        <label for="field1">Country slogan</label>
-                                        <input type="text" value="{{ config('settings.countryslogan')}}" class="form-control"
-                                            id="icon" name="countryslogan">
+                                        <label for="field1">Division slogan</label>
+                                        <input type="text" value="{{ config('settings.Divisionslogan')}}" class="form-control"
+                                            id="icon" name="Divisionslogan">
 
                                     </div>
                                     <div class="form-group mt-3">
@@ -471,9 +471,9 @@
                                             id="" name="professionurl">
                                     </div>
                                     <div class="form-group mt-3">
-                                        <label for="field1">Country page url</label>
-                                        <input type="text" value="{{ config('settings.countrypageurl')}}" class="form-control"
-                                            id="" name="countrypageurl">
+                                        <label for="field1">Division page url</label>
+                                        <input type="text" value="{{ config('settings.Divisionpageurl')}}" class="form-control"
+                                            id="" name="Divisionpageurl">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="field1">All tehsil url</label>

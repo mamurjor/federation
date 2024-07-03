@@ -8,7 +8,7 @@ use Stripe\Stripe;
 use App\Models\User;
 use App\Models\Wings;
 use App\Models\Tehsil;
-use App\Models\Country;
+use App\Models\Division;
 use App\Models\District;
 use App\Models\Votetype;
 use App\Models\WingsNomini;
@@ -40,13 +40,6 @@ class WingsController extends Controller
     {
               
         $position_type = serialize($request->votepositiontype);
-
-        
-                    // $image      = $request->file('voteimage');
-                    // $imageName  = time() . '.' . $image->getClientOriginalExtension();
-                    // $path       = '/admin/vote/'.$imageName;
-                    // $image_path = $image->move(public_path('admin/vote'), $imageName);
-        
         $request->validate([
     
             'wings'            => 'required',
@@ -65,11 +58,8 @@ class WingsController extends Controller
         ];
     
         $saveinfo = WingsVoteannounce::create($voteannounceinfo);
-                    // event(new VoteAnnouncementPosted($saveinfo));
-            event(new WingsVoteAnnouncementPosted($saveinfo));
-
-
-                          //  dd($saveinfo);
+           event(new WingsVoteAnnouncementPosted($saveinfo));
+            // dd($noti);
         return redirect()->route('voteannounce.index')->with('success','Created successfully.');
     }
 
@@ -171,9 +161,7 @@ class WingsController extends Controller
         
         $request->session()->put('votetype', $request->votetype);
         $request->session()->put('id', $request->id);
-        $request->session()->put('type', $request->type);
-        $request->session()->put('type_name', $request->type_name);
-        $request->session()->put('wings_name', $request->wings_name);
+        $request->session()->put('wings', $request->wings);
         $request->session()->put('announce', $request->announce);
         $request->session()->put('date', $request->date);
         $request->session()->put('emailone', $request->emailone);
@@ -213,9 +201,7 @@ class WingsController extends Controller
 
        $nomini = WingsNomini::create([
             'wingsnomini_id'     => Auth::id(),
-            'type'               => Session::get('type'),
-            'type_name'          => Session::get('type_name'),
-            'wings_name'         => Session::get('wings_name'),
+            'wings'              => Session::get('wings'),
             'announce'           => Session::get('announce'),
             'votetype'           => Session::get('votetype'),
             'votingdate'         => Session::get('date'),

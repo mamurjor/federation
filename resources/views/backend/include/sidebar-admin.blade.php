@@ -43,10 +43,17 @@
             <ul class="menu-sub mb-3">
 
                 <li class="menu-item">
-                    <a href="{{ route('country.index') }}" class="menu-link">
+                    <a href="{{ route('international.index') }}" class="menu-link">
                         <div data-i18n="CRM">Country </div>
                     </a>
                 </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('divisions.index') }}" class="menu-link">
+                        <div data-i18n="CRM">Division </div>
+                    </a>
+                </li>
+
                 <li class="menu-item">
                     <a href="{{ route('district.index') }}" class="menu-link">
                         <div data-i18n="CRM">district</div>

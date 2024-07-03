@@ -97,7 +97,7 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label">Select CAST <span
                                                 class="text-danger">*</span></label>
-                                        <select name="cast" id="country_residence" class="form-control input_color py-3">
+                                        <select name="cast" id="Division_residence" class="form-control input_color py-3">
                                             <option value="{{ $user->cast }}" selected>{{ $user->cast }}</option>
 
                                             @foreach ($cast as $index => $singlevalue)
@@ -145,13 +145,13 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label for="form-label" class="form-label">Country Of Residence <span
+                                        <label for="form-label" class="form-label">Division Of Residence <span
                                                 class="text-danger">*</span></label>
-                                        <select name="country_residence" id="country_residence"
+                                        <select name="Division_residence" id="Division_residence"
                                             class="form-control input_color py-3">
-                                            <option value="{{ $user->country }}" selected>
-                                                {{ $user->country }}</option>
-                                            @foreach ($countries as $index => $singlevalue)
+                                            <option value="{{ $user->Division }}" selected>
+                                                {{ $user->Division }}</option>
+                                            @foreach ($divisions as $index => $singlevalue)
                                                 <option value="{{ $singlevalue->name }}"> {{ $singlevalue->name }}
                                                 </option>
                                             @endforeach

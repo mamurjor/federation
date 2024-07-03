@@ -29,7 +29,7 @@ class MatromonialController extends Controller
     $cast       = Cast::all();
     $occupation = Profession::all();
   
-        // dd($getuserinfo->country_residence);
+        // dd($getuserinfo->Division_residence);
     return view('backend.matromonial.create',compact('marital','religion','cast','occupation'));
   }
 
@@ -98,7 +98,7 @@ class MatromonialController extends Controller
          'religion'                => $request->religion,
          'marital'                 => $request->marital,
          'caste'                   => $request->caste,
-         'country'                 => $getuserinfo->country_residence,
+         'Division'                 => $getuserinfo->Division_residence,
          'district'                => $getuserinfo->district,
          'tehsil'                  => $getuserinfo->tehsil,
          'height'                  => $request->height,
@@ -454,6 +454,7 @@ public function getTenData(){
   $showTenData = Matromonial::take(10)->get();
   return response()->json($showTenData);
 }
+
 public function getTwentyData(){
     
   $showTwentyData = Matromonial::take(20)->get();

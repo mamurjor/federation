@@ -50,13 +50,13 @@
             <div class="col-md-6 col-sm-7 col-lg-7 d-flex gap-5 justify-content-end align-items-center">
                 {{-- 
                 <div class="dropdown">
-                    <a class="dropdown-toggle" type="button" id="country" data-bs-toggle="dropdown"
+                    <a class="dropdown-toggle" type="button" id="Division" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <span class="fa-solid fa-earth-asia text-white me-1 all_flag"></span>
-                        <span class="flag_Text">Country</span>
+                        <span class="flag_Text">Division</span>
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="country">
-                        @foreach ($countries as $index => $singlevalue)
+                    <ul class="dropdown-menu" aria-labelledby="Division">
+                        @foreach ($divisions as $index => $singlevalue)
                             <li>
                                 <span class="flag_Text_dropdown dropdown-item" data-value="{{ $singlevalue->name }}">{{ $singlevalue->name }}</span>
                             </li>
@@ -89,15 +89,15 @@
                 </div> --}}
 
                 <div>
-                    {{-- <label for="country">Country:</label> --}}
+                    {{-- <label for="Division">Division:</label> --}}
                     @php
-                        // $countries = Country::all();
-                        $countries = DB::table('countries')->get();
+                        // $divisions = Division::all();
+                        $divisions = DB::table('divisions')->get();
                         
                     @endphp
-                    <select class="dropdown_style" id="country">
-                        <option value="">Country</option>
-                        @foreach ($countries as $index => $singlevalue)
+                    <select class="dropdown_style" id="Division">
+                        <option value="">Division</option>
+                        @foreach ($divisions as $index => $singlevalue)
                             <option value="{{ $singlevalue->name }}">{{ $singlevalue->name }}</option>
                         @endforeach
                     </select>
@@ -260,13 +260,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
-        // When a country is selected
-        $("#country").change(function() {
-            var country = $(this).val();
+        // When a Division is selected
+        $("#Division").change(function() {
+            var Division = $(this).val();
 
             $.ajax({
-                url: '{{ route('tehsil.getdistrict', ':country') }}'.replace(':country',
-                    country),
+                url: '{{ route('tehsil.getdistrict', ':Division') }}'.replace(':Division',
+                    Division),
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {

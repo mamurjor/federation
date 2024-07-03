@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         formValidationSelect2: {
           validators: {
             notEmpty: {
-              message: 'Please select your country'
+              message: 'Please select your Division'
             }
           }
         },
@@ -276,12 +276,12 @@ document.addEventListener('DOMContentLoaded', function (e) {
       });
     }
 
-    // Select2 (Country)
+    // Select2 (Division)
     if (formValidationSelect2Ele.length) {
       formValidationSelect2Ele.wrap('<div class="position-relative"></div>');
       formValidationSelect2Ele
         .select2({
-          placeholder: 'Select country',
+          placeholder: 'Select Division',
           dropdownParent: formValidationSelect2Ele.parent()
         })
         .on('change', function () {
