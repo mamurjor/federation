@@ -18,4 +18,9 @@ class WingsVoteResult extends Model
         'wingsnomini_id',
         'status'
     ];
+
+    public function wingsnomini()
+    {
+        return $this->belongsTo(WingsNomini::class, 'wingsnomini_id');
+    }
 }

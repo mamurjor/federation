@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="breadcrumd_heading text-center">
-                            <h2 class="fw-bold">{{ $tehsilData->name }}</h2>
+                            <h2 class="fw-bold">Wings</h2>
                             <span><a href="#" class="text-black">Home</a> / Wings</span>
                         </div>
                     </div>
@@ -27,11 +27,11 @@
                             <a href="#">
                                 <div class="card tehsil_card">
                                     <div class="card_image m-5">
-                                        <img src="{{ $single->nomini->user->userimage }}" class="card-img-top"
+                                        <img src="{{ $single->wingsnomini->user->userimage }}" class="card-img-top"
                                             alt="...">
                                     </div>
                                     <div class="card-body tehsil_card_body text-center">
-                                        <h5 class="card-title text-white">{{ $single->nomini->user->fname }}</h5>
+                                        <h5 class="card-title text-white">{{ $single->wingsnomini->user->fname }}</h5>
                                         <p class="card-text text-white">{{ $single->votepositiontype }}</p>
                                     </div>
                                 </div>
@@ -251,134 +251,76 @@
                 </div>
                 <div class="row mt-5">
 
-                    @foreach ($tehsilUser as $single)
-                        <div class="col-md-4 col-sm-6 col-lg-3 col-xl-2 mb-4">
-                            <div class="latest_member_box text-center">
-                                <img class="mb-3" src="./img/tehsil_page/lastest_member_section/latest_member1.png"
-                                    alt="">
-                                <h6>{{ $single->fname }} {{ $single->mname }}</h6>
-                                <p>Member</p>
-                            </div>
-                        </div>
-                    @endforeach
-
-                    <div class="d-flex justify-content-center">
-                        {{ $tehsilUser->links('vendor.pagination.bootstrap-4') }}
-                    </div>
-
-                    {{-- <div class="col-md-12 text-center mt-5">
-                        <div class="common_button">
-                            <a href="#"> View More <i class="fa-regular fa-eye ms-3"></i></a>
-                        </div>
-                    </div> --}}
-
-
+    
                 </div>
             </div>
         </section>
         <!-- lastest member end -->
 
         <!-- join us section start -->
-
         <section id="join_us_section" class="join_us_section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="col-md-4 col-sm-6 mb-3">
                         <div class="common_join_heading py-3 ps-3">
-                            <h5 class="fw-bold">Join Us</h5>
+                            <h5 class="fw-bold">All Members</h5>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="common_join_heading py-3 ps-3">
-                            <h5 class="fw-bold">All feature</h5>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 mb-3">
+
+                    <div class="col-md-4 col-sm-6 mb-3">
                         <div class="common_join_heading py-3 ps-3">
                             <h5 class="fw-bold">Latest Ads</h5>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="col-md-4 col-sm-6 mb-3">
                         <div class="common_join_heading py-3 ps-3">
                             <h5 class="fw-bold">Matrimonials</h5>
                         </div>
                     </div>
                 </div>
                 <div class="row mt-5">
-                    <div class="col-md-6 col-sm-6 col-lg-3 mb-3">
-                        <div class="common_join_box join_us_bg text-center">
-                            <h3>{{ config('settings.jtitle') }}</h3>
-                            <p>{{ config('settings.jsubtitle') }}</p>
+
+
+                    <div class="col-md-6 col-sm-6 col-lg-4 mb-3">
+                        <div class="common_join_box all_members_bg common_bg text-center">
+                            <img src="./img/profession_page/allmembers_logo.png" class="w-25 mb-2" alt="">
+                            <h3>Show our latest <br> Member.</h3>
+                            <p>Get the best classified ads experience with <br> Jutt Federation Pakistan & International
+                                KSA.</p>
                             <div class="common_button mt-5">
-                                <a href="{{ config('settings.jurl') }}"> {{ config('settings.jtext') }} <i class="{{ config('settings.jicon') }}"></i></a>
+                                <a href="#" class="bg-white text-black border-white"> View Members <i
+                                        class="fa-regular fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-lg-3 mb-3 bg-white feature_box px-3 py-4">
-                            <a href="#">
-                                <div class="feature_heading py-3 px-3 mb-3 rounded">
-                                   <h6>Govt. Permission</h6>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="feature_heading py-3 px-3 mb-3 rounded">
-                                   <h6>Matrimonials</h6>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="feature_heading py-3 px-3 mb-3 rounded">
-                                   <h6>Latest Ads</h6>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="feature_heading py-3 px-3 mb-3 rounded">
-                                   <h6>Report Polution</h6>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="feature_heading py-3 px-3 mb-3 rounded">
-                                   <h6>Transcending geographical </h6>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="feature_heading py-3 px-3 mb-3 rounded">
-                                   <h6>Meet Chairmen</h6>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="feature_heading py-3 px-3 mb-3 rounded">
-                                   <h6>Meet Presidents</h6>
-                                </div>
-                            </a>
-
-                    </div>
-
-                    <div class="col-md-6 col-sm-6 col-lg-3 mb-3">
-                        <div class="common_join_box lastest_bg text-center">
-                            <img src="{{ config('settings.clogo') }}" class="w-25 mb-2" alt="">
-                            <h3>{{ config('settings.ctitle') }}</h3>
-                            <p>{{ config('settings.csubtitle') }}</p>
+                    <div class="col-md-6 col-sm-6 col-lg-4 mb-3">
+                        <div class="common_join_box lastest_bg common_bg text-center">
+                            <img src="./img/home_page/join_us_section/join_box_icon.png" class="w-25 mb-2"
+                                alt="">
+                            <h3>Find Anything
+                                Around You.</h3>
+                            <p>Get the best classified ads experience with Jutt Federation Pakistan & International KSA.</p>
                             <div class="common_button mt-5">
-                                <a href="{{ config('settings.curl') }}" class="bg-danger border-danger"> {{ config('settings.ctext') }}  <i class="{{ config('settings.cicon') }}"></i></a>
+                                <a href="#" class="bg-danger border-danger"> View Ads <i
+                                        class="fa-regular fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-6 col-sm-6 col-lg-3 mb-3">
-                        <div class="common_join_box matrimonials_bg text-center">
-                            <img src="{{ config('settings.mlogo') }}" class="w-25 mb-1" alt="">
-                            <h3>{{ config('settings.mtitle') }}</h3>
-                            <p>{{ config('settings.msubtitle') }}</p>
+                    <div class="col-md-6 col-sm-6 col-lg-4 mb-3">
+                        <div class="common_join_box matrimonials_bg common_bg text-center">
+                            <img src="./img/home_page/join_us_section/metrimonials_icon.png" class="w-25 mb-1"
+                                alt="">
+                            <h3>Find your Right Match here</h3>
+                            <p>It is a long established fact that a reader will be distracted by the read is that it has
+                                desktop publishing packages and web page normal distribution of letters</p>
                             <div class="common_button mt-5">
-                                <a href="{{ config('settings.murl') }}"> {{ config('settings.mtext') }}  <i class="{{ config('settings.micon') }}"></i></a>
+                                <a href="#"> View Profile <i class="fa-regular fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
-
         <!-- join us section  end -->
     </main>
 

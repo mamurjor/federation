@@ -53,8 +53,8 @@ Auth::routes([
 ]);
 Route::get('/',[MainIndexController::class,'index'])->name('index');
 Route::get('/tehsil/show/{tehsil}', [MainIndexController::class, 'showTehsil'])->name('tehsil.show');
-Route::get('/wings/show/{wings}', [MainIndexController::class, 'showwings'])->name('wings.show');
-Route::get('members', [MainIndexController::class, 'member'])->name('member');
+Route::get('/wings/show', [MainIndexController::class, 'showwings'])->name('wings.show');
+Route::get('/members', [MainIndexController::class, 'member'])->name('member');
 
 //------------ Register Route ------------//
 Route::get('register', [AuthController::class, 'index'])->name('user.register');

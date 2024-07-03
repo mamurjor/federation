@@ -20,6 +20,7 @@ use App\Models\BlogPost;
 use App\Models\Profession;
 use App\Models\User;
 use App\Models\VoteResult;
+use App\Models\WingsVoteResult;
 
 class MainIndexController extends Controller
 {
@@ -132,14 +133,15 @@ class MainIndexController extends Controller
         $tehsilData = Tehsil::where('name', $tehsil)->first();
         return view('tehsil.show', compact('tehsilData','uniqueUserResults','blogpost','tehsilUser'));
     }
-    public function showwings($wings){
-        // $divisions = Division::all();
-        $voteresult = VoteResult::where('status', '1')->with(['nomini.user'])->get();
-        $uniqueUserResults = $voteresult->unique(function ($item) {
-            return $item->nomini->user->id;
-        });
 
-        return view('wings.show', compact('tehsilData','uniqueUserResults','blogpost','tehsilUser'));
+    public function showwings(){
+        $voteresult = WingsVoteResult::where('status', '1')->with(['wingsnomini.user'])->get();
+        $uniqueUserResults = $voteresult->unique(function ($item) {
+            return $item->wingsnomini->user->id;
+        });
+        $blogpost = BlogPost::all();
+
+        return view('wings.show', compact('uniqueUserResults','blogpost'));
     }
 
     public function member(){
