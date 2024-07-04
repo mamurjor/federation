@@ -29,7 +29,7 @@ class DivisionController extends Controller
  {
 
     $this->setPageTitle('International');
-    $getuserbyDivision = User::where('Division_residence',$Division)->get();
+    $getuserbyDivision = User::where('division',$Division)->get();
   
     $divisions = Division::all();
    

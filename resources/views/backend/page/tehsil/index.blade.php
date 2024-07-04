@@ -23,12 +23,11 @@
                     @foreach ($tehsils as $index => $singlevalue)
                         <tr>
                             <td>
-
                                 <span class="fw-medium ms-2">{{ $index + 1 }}</span>
                             </td>
                             <td>{{ $singlevalue->name }}</td>
                             <td>{{ $singlevalue->district }}</td>
-                            <td>{{ $singlevalue->Division }}</td>
+                            <td>{{ $singlevalue->division }}</td>
 
                             <td><span class="badge bg-label-success me-1">{{ $singlevalue->code }}</span></td>
                             <td>
