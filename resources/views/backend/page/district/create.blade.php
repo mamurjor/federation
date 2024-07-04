@@ -40,7 +40,7 @@
                                         <label for="form-label" class="form-label">Division Of Residence <span
                                                 class="text-danger">*</span></label>
 
-                                        <select name="Division" id="Division_residence" class="form-control input_color py-3">
+                                        <select name="Division" id="division" class="form-control input_color py-3">
                                             <option value="" selected>Select Division of Residence</option>
                                             @foreach ($divisions as $index => $singlevalue)
                                                 <option value="{{ $singlevalue->name }}"> {{ $singlevalue->name }}

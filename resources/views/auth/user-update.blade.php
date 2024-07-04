@@ -97,7 +97,7 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label">Select CAST <span
                                                 class="text-danger">*</span></label>
-                                        <select name="cast" id="Division_residence" class="form-control input_color py-3">
+                                        <select name="cast" id="division" class="form-control input_color py-3">
                                             <option value="{{ $user->cast }}" selected>{{ $user->cast }}</option>
 
                                             @foreach ($cast as $index => $singlevalue)
@@ -147,7 +147,7 @@
                                     <div class="form-group">
                                         <label for="form-label" class="form-label">Division Of Residence <span
                                                 class="text-danger">*</span></label>
-                                        <select name="Division_residence" id="Division_residence"
+                                        <select name="division" id="division"
                                             class="form-control input_color py-3">
                                             <option value="{{ $user->Division }}" selected>
                                                 {{ $user->Division }}</option>

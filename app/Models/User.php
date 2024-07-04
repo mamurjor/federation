@@ -30,7 +30,7 @@ class User extends Authenticatable
         'cast',
         'gender',
         'profession',
-        'Division',
+        'division',
         'address_one',
         'address_two',
         'email_verified_at',
@@ -48,7 +48,8 @@ class User extends Authenticatable
         'bio',
         'short_bio',
         'status',
-        'userimage'
+        'userimage',
+        'total_users'
     ];
 
     /**

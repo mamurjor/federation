@@ -18,12 +18,12 @@
                                     <label for="form-label" class="form-label">Division Of Residence <span
                                             class="text-danger">*</span></label>
 
-                                    <select name="Division" id="Division_residence" class="form-control input_color py-3">
+                                    <select name="Division" id="division" class="form-control input_color py-3">
                                         <option value="">Select Division of Residence</option>
 
                                         @foreach ($divisions as $index => $singlevalue)
                                             <option value="{{ $singlevalue->name }}"
-                                                {{ $singlevalue->name == $tehsils->Division ? 'selected' : '' }}>
+                                                {{ $singlevalue->name == $tehsils->division ? 'selected' : '' }}>
                                                 {{ $singlevalue->name }}
                                             </option>
                                         @endforeach
@@ -102,9 +102,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
-        $("#Division_residence").change(function() {
+        $("#division").change(function() {
 
-            var Division = $('#Division_residence').val();
+            var Division = $('#division').val();
 
 
             $.ajax({

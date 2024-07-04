@@ -59,7 +59,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KyZXEAg3QhqLMpG8r+Knujsl5+5hb5x3L1zVziXf1yd8zoW5c7X4YJz9pJNT2na30Q7E6Hlf6C1v4I8soEk4Ew==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
 </head>
 
