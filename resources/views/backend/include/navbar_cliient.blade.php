@@ -130,7 +130,7 @@
                         <div class="row row-bordered overflow-visible g-0">
                             <div class="dropdown-shortcuts-item col">
                                 <span class="dropdown-shortcuts-icon rounded-circle mb-2">
-                                    <i class="ti ti-chart-bar fs-4"></i>
+                                    <i class="ti ti-chart-bar fs-4">hdgf</i>
                                 </span>
                                 <a href="index.html" class="stretched-link">Dashboard</a>
                                 <small class="text-muted mb-0">User Profile</small>
@@ -173,7 +173,7 @@
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
 
-                        <img src="assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                        <img src="{{ Auth::user()->userimage ? Auth::user()->userimage : asset('backend/assets/img/icons/blank_profile/blank_profile.png') }}" alt class="h-auto rounded-circle" />
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -183,11 +183,11 @@
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
 
-                                        <img src="assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                                        <img src="{{ Auth::user()->userimage ? Auth::user()->userimage : asset('backend/assets/img/icons/blank_profile/blank_profile.png') }}" alt class="h-auto rounded-circle" />
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-medium d-block"></span>
+                                    <span class="fw-medium d-block">{{ Auth::user()->fname }}</span>
                                     <small class="text-muted">
                                     </small>
                                 </div>

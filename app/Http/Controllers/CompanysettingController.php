@@ -18,6 +18,59 @@ class CompanysettingController extends Controller
         $this->setPageTitle('Company Setting');
         return view("backend.page.companysetting.compnaysettingform");
     }
+    public function companyheader(){
+  
+        $this->setPageTitle('Header Setting');
+        return view("backend.page.companysetting.header");
+    }
+
+    public function companyfooter(){
+  
+        $this->setPageTitle('Footer Setting');
+        return view("backend.page.companysetting.footer");
+    }
+
+    public function companypagesetting(){
+  
+        $this->setPageTitle('Page Setting');
+        return view("backend.page.companysetting.pagesetting");
+    }
+
+    public function companyblog(){
+  
+        $this->setPageTitle('Blog Setting');
+        return view("backend.page.companysetting.blog");
+    }
+    public function companyjoin(){
+  
+        $this->setPageTitle('Join Us Setting');
+        return view("backend.page.companysetting.join");
+    }
+    public function companymatromonial(){
+  
+        $this->setPageTitle('Matromonial Setting');
+        return view("backend.page.companysetting.matromonial");
+    }
+    public function companypresident(){
+  
+        $this->setPageTitle('President Setting');
+        return view("backend.page.companysetting.president");
+    }
+    public function companyfaq(){
+  
+        $this->setPageTitle('FAQ Setting');
+        return view("backend.page.companysetting.faq");
+    }
+    public function companycontact(){
+  
+        $this->setPageTitle('Contact Setting');
+        return view("backend.page.companysetting.contact");
+    }
+    public function companyclassified(){
+  
+        $this->setPageTitle('Classified Setting');
+        return view("backend.page.companysetting.classified");
+    }
 
 
     public function companysetting(Request $request){
@@ -41,7 +94,7 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'wingstitle'], ['value' => $request->wingstitle]);
         Setting::updateOrCreate(['key' => 'wingsslogan'], ['value' => $request->wingsslogan]);
 
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('pagesettings.show')->with('success','Created successfully.');
     }
     public function companysettingfooter(Request $request){
 
@@ -86,7 +139,7 @@ class CompanysettingController extends Controller
 
   
 
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('footer.show')->with('success','Created successfully.');
     }
 
 
@@ -118,8 +171,10 @@ class CompanysettingController extends Controller
             $imagehlogo->move(public_path('admin/setting'), $hlogopath);
             Setting::updateOrCreate(['key' => 'hlogo'], ['value' => $hlogopath]);
         }
+        
+        return redirect()->route('company.setting.header.show')->with('success','Created successfully.');
+       
 
-        return redirect()->route('company.setting')->with('success','Created successfully.');
 
     }
 
@@ -153,7 +208,7 @@ class CompanysettingController extends Controller
 
 
      
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('contact.show')->with('success','Created successfully.');
 
     }
     
@@ -163,7 +218,7 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'psubtitle'], ['value' => $request->psubtitle]);
 
      
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('president.show')->with('success','Created successfully.');
 
     }
     public function companysettingfaq(Request $request){  
@@ -172,7 +227,7 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'fsubtitle'], ['value' => $request->fsubtitle]);
 
      
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('faq.show')->with('success','Created successfully.');
 
     }
     public function companysettingblog(Request $request){  
@@ -183,7 +238,7 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'burl'], ['value' => $request->burl]);
 
      
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('blog.show')->with('success','Created successfully.');
 
     }
     public function companysettingjoinus(Request $request){  
@@ -195,7 +250,7 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'jurl'], ['value' => $request->jurl]);
 
      
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('join.show')->with('success','Created successfully.');
 
     }
     public function companysettingclassified(Request $request){  
@@ -214,7 +269,7 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'curl'], ['value' => $request->curl]);
 
      
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('classified.show')->with('success','Created successfully.');
 
     }
     public function companysettingmatro(Request $request){  
@@ -233,7 +288,7 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'murl'], ['value' => $request->murl]);
 
      
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('matromonial.show')->with('success','Created successfully.');
 
     }
     

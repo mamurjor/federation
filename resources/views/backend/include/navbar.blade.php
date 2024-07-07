@@ -183,7 +183,7 @@
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
 
-                                        <img src="assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                                        <img src="{{ Auth::user()->userimage ? Auth::user()->userimage : asset('backend/assets/img/icons/blank_profile/blank_profile.png') }}" alt class="h-auto rounded-circle" />
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">

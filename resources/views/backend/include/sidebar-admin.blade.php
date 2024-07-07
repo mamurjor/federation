@@ -26,16 +26,16 @@
     </div>
 
     <div style="font-size: 23px;" class="my-2 ms-3">
-        <a style="text-decoration: none;" href="{{ route('admin.dashboard') }}">Main Dashboard</a>
+        <a style="text-decoration: none; color:#5d596c" href="{{ route('admin.dashboard') }}">
+
+            <div data-i18n="Dashboards">Main Dashboard</div>
+        </a>
     </div>
 
     <div class="menu-inner-shadow"></div>
-
-
-
-    <ul class="menu-inner py-1">
+    <ul class="menu-inner py-1" id="layout-menu">
         <!-- Dashboards -->
-        <li class="menu-item active" >
+        <li class="menu-item active">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
@@ -64,7 +64,7 @@
                         <div data-i18n="CRM">Tehsil</div>
                     </a>
                 </li>
-            
+
                 <li class="menu-item">
                     <a href="{{ route('profession.index') }}" class="menu-link">
                         <div data-i18n="CRM">Profession</div>
@@ -79,39 +79,65 @@
             </ul>
         </li>
         <!-- Other top-level menu items -->
-    
+
         <!-- WEb Site Setting -->
         <li class="menu-item active ">
-            <a href="javascript:void(0);"  class="menu-link menu-toggle">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Dashboards">Web Site Setting</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="{{ route('herosection.index') }}" class="menu-link">
-                        <div data-i18n="CRM"> Hero section  </div>
+                        <div data-i18n="CRM"> Hero section </div>
                     </a>
                 </li>
 
                 <li class="menu-item">
                     <a href="{{ route('missionsection.index') }}" class="menu-link">
-                        <div data-i18n="CRM">Mission section  </div>
+                        <div data-i18n="CRM">Mission section </div>
                     </a>
                 </li>
 
                 <li class="menu-item">
                     <a href="{{ route('sliersection.index') }}" class="menu-link">
-                        <div data-i18n="CRM">Slider Section  </div>
+                        <div data-i18n="CRM">Slider Section </div>
                     </a>
                 </li>
                 <!-- Other submenu items -->
             </ul>
         </li>
+        <li class="menu-item active ">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon fa-solid fa-users-gear"></i>
+                <div data-i18n="Dashboards"> User management</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('user.index') }}" class="menu-link">
+                        <div data-i18n="CRM"> User list </div>
+                    </a>
+                </li>
+                {{-- 
+                <li class="menu-item">
+                    <a href="{{ route('user.index') }}" class="menu-link">
+                        <div data-i18n="CRM">Mission section </div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('sliersection.index') }}" class="menu-link">
+                        <div data-i18n="CRM">Slider Section </div>
+                    </a>
+                </li> --}}
+                <!-- Other submenu items -->
+            </ul>
+        </li>
         <!-- Other top-level menu items -->
-    
+
         <!-- Blog -->
         <li class="menu-item active ">
-            <a href="javascript:void(0);"  class="menu-link menu-toggle">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon fas fa-ad"></i>
                 <div data-i18n="Dashboards">Classified Ads</div>
             </a>
@@ -130,7 +156,7 @@
             </ul>
         </li>
         <!-- Other top-level menu items -->
-    
+
         <!-- Cast -->
         <li class="menu-item active ">
             <a href="javascript:void(0);" class="menu-link menu-toggle ">
@@ -191,7 +217,7 @@
             </ul>
         </li>
         <li class="menu-item active ">
-            <a href="javascript:void(0);"  class="menu-link menu-toggle">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon fa-solid fa-blog"></i>
                 <div data-i18n="Dashboards">Blog</div>
             </a>
@@ -224,38 +250,230 @@
             </ul>
         </li>
         <li class="menu-item active ">
-            <a href="javascript:void(0);" class="menu-link menu-toggle ">
-                <i class="menu-icon fa-solid fa-gear"></i>
-                <div data-i18n="Dashboards">Settings</div>
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon fa-solid fa-toolbox"></i>
+                <div data-i18n="Dashboards">Company Settings</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="{{ route('company.setting') }}" class="menu-link">
-                        <div data-i18n="CRM">Company Settings</div>
+                        <div data-i18n="CRM">Setting</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('paymentsettings.index') }}" class="menu-link">
-                        <div data-i18n="CRM">Payment Settings</div>
+                    <a href="{{ route('company.setting.header.show') }}" class="menu-link">
+                        <div data-i18n="CRM">Header Setting</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('footer.show') }}" class="menu-link">
+                        <div data-i18n="CRM">Footer Setting</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('pagesettings.show') }}" class="menu-link">
+                        <div data-i18n="CRM">page Setting</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('contact.show') }}" class="menu-link">
+                        <div data-i18n="CRM">Contact Setting</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('president.show') }}" class="menu-link">
+                        <div data-i18n="CRM">President Setting</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('blog.show') }}" class="menu-link">
+                        <div data-i18n="CRM">Blog Setting</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('join.show') }}" class="menu-link">
+                        <div data-i18n="CRM">Join Setting</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('classified.show') }}" class="menu-link">
+                        <div data-i18n="CRM">Classified Setting</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('faq.show') }}" class="menu-link">
+                        <div data-i18n="CRM">FAQ Setting</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ route('matromonial.show') }}" class="menu-link">
+                        <div data-i18n="CRM">Matromonial Setting</div>
                     </a>
                 </li>
                 <!-- Other submenu items -->
             </ul>
         </li>
-     
-        <!-- Other top-level menu items -->
+        <li class="menu-item active">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon fa-solid fa-gear"></i>
+                <div data-i18n="Dashboards">Settings</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item active setting">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle setting-toggle">
+                        <i class="menu-icon fa-solid fa-gear"></i>
+                        <div data-i18n="Dashboards">Company Settings</div>
+                    </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <div data-i18n="CRM">Cast Post</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:void(0);" class="menu-link menu-toggle sub-setting-toggle">
+                                <i class="menu-icon fa-solid fa-gear"></i>
+                                <div data-i18n="Dashboards">Sub Settings</div>
+                            </a>
+                            <ul class="menu-sub">
+                                <li class="menu-item">
+                                    <a href="#" class="menu-link">
+                                        <div data-i18n="CRM">Sub Setting 1</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#" class="menu-link">
+                                        <div data-i18n="CRM">Sub Setting 2</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
     </ul>
 
 
-    
+    <!-- Other top-level menu items -->
+   
+
     <script>
-        // Add click event listeners to menu-toggle links
-        document.querySelectorAll('.menu-toggle').forEach(function(item) {
-            item.addEventListener('click', function() {
-                // Toggle the 'open' class on the parent menu item
-                this.parentElement.classList.toggle('open');
-            });
-        });
-    </script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded and parsed');
+            const templateName = 'defaultTemplateName'; // Replace with your actual template name
     
+            // Fetch the showDropdownOnHover setting
+            const showDropdownOnHover = localStorage.getItem('templateCustomizer-' + templateName + '--ShowDropdownOnHover') 
+                ? localStorage.getItem('templateCustomizer-' + templateName + '--ShowDropdownOnHover') === 'true' 
+                : window.templateCustomizer !== undefined 
+                    ? window.templateCustomizer.settings.defaultShowDropdownOnHover 
+                    : true;
+            console.log('showDropdownOnHover:', showDropdownOnHover);
+    
+            // Function to handle menu item clicks
+            function handleMenuItemClick(item) {
+                console.log('Clicked item:', item);
+                const clickedMenuItem = item.parentElement;
+                const isAlreadyOpen = clickedMenuItem.classList.contains('open');
+                console.log('Is already open:', isAlreadyOpen);
+    
+                // Close all other open menus
+                document.querySelectorAll('.menu-item.open').forEach(function(openItem) {
+                    if (!openItem.contains(clickedMenuItem)) {
+                        slideUp(openItem.querySelector('.menu-sub'));
+                        openItem.classList.remove('open');
+                    }
+                });
+    
+                // Toggle the clicked item
+                if (!isAlreadyOpen) {
+                    clickedMenuItem.classList.add('open');
+                    slideDown(clickedMenuItem.querySelector('.menu-sub'));
+                } else {
+                    clickedMenuItem.classList.remove('open');
+                    slideUp(clickedMenuItem.querySelector('.menu-sub'));
+                }
+            }
+    
+            // Slide down function
+            function slideDown(element) {
+                if (!element) return; // Prevent errors if element is null
+                element.style.display = 'block';
+                const height = element.scrollHeight;
+                element.style.maxHeight = '0';
+                element.style.transition = 'none';
+    
+                requestAnimationFrame(function() {
+                    element.style.maxHeight = height + 'px';
+                    element.style.transition = 'max-height 0.3s ease-in-out';
+                });
+            }
+    
+            // Slide up function
+            function slideUp(element) {
+                if (!element) return; // Prevent errors if element is null
+                element.style.maxHeight = element.scrollHeight + 'px';
+                element.style.transition = 'none';
+    
+                requestAnimationFrame(function() {
+                    element.style.maxHeight = '0';
+                    element.style.transition = 'max-height 0.3s ease-in-out';
+                });
+    
+                element.addEventListener('transitionend', function() {
+                    element.style.display = 'none';
+                }, { once: true });
+            }
+    
+            // Function to set the active menu based on current URL or route
+            function setActiveMenu() {
+                const currentUrl = window.location.href;
+                console.log('Current URL:', currentUrl);
+                document.querySelectorAll('.menu-item').forEach(function(menuItem) {
+                    const menuLink = menuItem.querySelector('.menu-link');
+                    if (menuLink && menuLink.href === currentUrl) {
+                        menuItem.classList.add('active');
+                        openParentMenus(menuItem);
+                    }
+                });
+            }
+    
+            // Function to open parent menus up to the top level
+            function openParentMenus(menuItem) {
+                let parent = menuItem.parentElement;
+                while (parent) {
+                    if (parent.classList.contains('menu-item')) {
+                        parent.classList.add('open');
+                        slideDown(parent.querySelector('.menu-sub'));
+                    }
+                    parent = parent.parentElement;
+                }
+            }
+    
+            // Add click event listeners to menu-toggle links
+            document.querySelectorAll('.menu-toggle').forEach(function(item) {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    handleMenuItemClick(item);
+                });
+            });
+    
+            // Set the active menu on page load
+            setActiveMenu();
+        });
+        </script>
+
+
+
+
 </aside>

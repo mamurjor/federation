@@ -1,4 +1,4 @@
-<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+{{-- <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         <a href="index.html" class="app-brand-link">
             <span class="app-brand-logo demo">
@@ -15,7 +15,7 @@
                         fill="#7367F0" />
                 </svg>
             </span>
-            <span class="app-brand-text demo menu-text fw-bold">Vuexy</span>
+            <span class="app-brand-text demo menu-text fw-bold"> Federation</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -26,7 +26,7 @@
 
     <div class="menu-inner-shadow"></div>
 
-    {{-- <ul class="menu-inner py-1">
+    <ul class="menu-inner py-1">
         <!-- Dashboards -->
         <li class="menu-item active open">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -101,7 +101,7 @@
             </ul>
         </li>
 
-    </ul> --}}
+    </ul>
 
 
 
@@ -158,4 +158,4 @@
             });
         });
     });
-</script>
+</script> --}}

@@ -36,6 +36,43 @@ td:last-child {
 .app-brand-text.demo {
   font-size: 1.375rem;
 }
+/* menubar */
+
+
+.layout-menu {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.menu-inner {
+  display: flex;
+  flex-direction: column;
+}
+/* .menu-item{
+  margin-bottom: 5px;
+} */
+/* .menu-item.active > a {
+  background-color: #f0f0f0; 
+  color: #000;
+} */
+
+.menu-item > .menu-sub {
+  max-height: 0;
+  overflow: hidden;
+  display: none; /* Initially hidden */
+  transition: max-height 0.3s ease-out;
+}
+
+.menu-sub {
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+}
+.menu-item.open > .menu-sub {
+  display: block;
+}
+
+
 
 /* ! For .layout-navbar-fixed added fix padding top tpo .layout-page */
 .layout-navbar-fixed .layout-wrapper:not(.layout-without-menu) .layout-page {
