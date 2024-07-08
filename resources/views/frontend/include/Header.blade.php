@@ -157,7 +157,10 @@
         <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light py-4">
                 <div class="container-fluid">
-                    <img class="header_logo" src="{{ config('settings.hlogo') }}" alt="logo" style="width: 8%;">
+                    <a href="{{ route('index') }}">
+                         <img class="header_logo" src="{{ config('settings.hlogo') }}" alt="logo">
+                    </a>
+                   
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -179,7 +182,7 @@
                             </li>
 
                             <li class="nav-item ms-2">
-                                <a class="nav-link" aria-current="page" href="#">Wings</a>
+                                <a class="nav-link" aria-current="page" href="{{ route('wings.show') }}">Wings</a>
                             </li>
 
                             <li class="nav-item dropdown ms-2">

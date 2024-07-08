@@ -44,4 +44,8 @@ class UserController extends Controller
 
     
   
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 21df004003485600208a5533e74ae459d862c889

@@ -172,7 +172,7 @@
                             <span class="badge bg-label-info p-1 rounded"
                               ><i class="ti ti-shopping-cart ti-xs"></i
                             ></span>
-                            <p class="mb-0">Order</p>
+                            <p class="mt-2">Order</p>
                           </div>
                           <h5 class="mb-0 pt-1 text-nowrap">62.2%</h5>
                           <small class="text-muted">6,440</small>
@@ -186,7 +186,7 @@
                         </div>
                         <div class="col-4 text-end">
                           <div class="d-flex gap-2 justify-content-end align-items-center mb-2">
-                            <p class="mb-0">Visits</p>
+                            <p class="mt-2">Visits</p>
                             <span class="badge bg-label-primary p-1 rounded"><i class="ti ti-link ti-xs"></i></span>
                           </div>
                           <h5 class="mb-0 pt-1 text-nowrap ms-lg-n3 ms-xl-0">25.5%</h5>

@@ -304,7 +304,13 @@ public function categorystore(Request $request)
   return response()->json($showTwentyData);
 }
 
-
+public function getTitleData(Request $request){
+    
+  $query   = $request->input('query');
+  // dd($query);
+  $results = Classified::where('title', 'LIKE', "%{$query}%")->get();
+  return response()->json($results);
+}
 
 
 }

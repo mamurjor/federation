@@ -12,6 +12,7 @@ use App\Http\Controllers\ExcelCSVController;
 use App\Http\Controllers\AllNotifiController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\CastController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\VerifyUserController;
 use App\Http\Controllers\Admin\GenderController;
 use App\Http\Controllers\Admin\TehsilController;
@@ -77,6 +78,19 @@ Route::get('get/approved/{userid}', [UserOperationController::class, 'approved']
 Route::get('get/cancel/{userid}', [UserOperationController::class, 'cancel'])->name('user.cancel');
 
 // Company Setting 
+// Route::get('company/setting',[CompanysettingController::class,'companysettingform'])->name('company.setting');
+// Route::post('company/setting/save',[CompanysettingController::class,'companysetting'])->name('company.setting.save');
+// Route::post('company/setting/header',[CompanysettingController::class,'companysettingheader'])->name('company.setting.header');
+// Route::post('company/setting/footer',[CompanysettingController::class,'companysettingfooter'])->name('company.setting.footer');
+// Route::post('company/setting/contact',[CompanysettingController::class,'companysettingcontact'])->name('company.setting.contact');
+// Route::post('company/setting/president',[CompanysettingController::class,'companysettingpresident'])->name('company.setting.president');
+// Route::post('company/setting/blog',[CompanysettingController::class,'companysettingblog'])->name('company.setting.blog');
+// Route::post('company/setting/joinus',[CompanysettingController::class,'companysettingjoinus'])->name('company.setting.joinus');
+// Route::post('company/setting/classified',[CompanysettingController::class,'companysettingclassified'])->name('company.setting.classified');
+// Route::post('company/setting/matro',[CompanysettingController::class,'companysettingmatro'])->name('company.setting.matro');
+// Route::post('company/setting/faq',[CompanysettingController::class,'companysettingfaq'])->name('company.setting.faq');
+
+// Company Setting 
 Route::get('company/setting',[CompanysettingController::class,'companysettingform'])->name('company.setting');
 Route::get('header/setting',[CompanysettingController::class,'companyheader'])->name('company.setting.header.show');
 Route::get('footer/setting',[CompanysettingController::class,'companyfooter'])->name('footer.show');
@@ -100,6 +114,17 @@ Route::post('company/setting/joinus',[CompanysettingController::class,'companyse
 Route::post('company/setting/classified',[CompanysettingController::class,'companysettingclassified'])->name('company.setting.classified');
 Route::post('company/setting/matro',[CompanysettingController::class,'companysettingmatro'])->name('company.setting.matro');
 Route::post('company/setting/faq',[CompanysettingController::class,'companysettingfaq'])->name('company.setting.faq');
+
+
+// User Controller 
+
+
+Route::get('user/index', [UserController::class, 'index'])->name('user.index');
+Route::get('user/create', [UserController::class, 'create'])->name('user.create');
+// Route::post('user/store', [UserController::class, 'store'])->name('user.store');
+// Route::post('user/update', [UserController::class, 'update'])->name('user.update');
+Route::get( 'user/active/{id}', [UserController::class, 'active'])->name('user.active');
+Route::get( 'user/cancel/{id}', [UserController::class, 'cancel'])->name('user.cancel');
 
 
 
@@ -386,9 +411,10 @@ Route::get('/gettwentydata', [MatromonialController::class,'getTwentyData'])->na
 Route::get('/getTehsilClassifiedData', [ClassifiedController::class,'getTehsilClassifiedData'])->name('getTehsilClassifiedData');
 Route::get('/getsortedclassifieddata', [ClassifiedController::class,'getSortedClassifiedData'])->name('getsortedclassifieddata');
 Route::get('/getsortedclassifieddataas', [ClassifiedController::class,'getSortedClassifiedDataAs'])->name('getsortedclassifieddataas');
-
 Route::get('/gettenclassifieddata', [ClassifiedController::class,'getTenClassifiedData'])->name('gettenclassifieddata');
 Route::get('/gettwentyclassifieddata', [ClassifiedController::class,'getTwentyClassifiedData'])->name('gettwentyclassifieddata');
+
+Route::get('/getTitleData', [ClassifiedController::class, 'getTitleData'])->name('getTitleData');
 
 // Blog 
 

@@ -325,40 +325,20 @@
         <li class="menu-item active">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon fa-solid fa-gear"></i>
-                <div data-i18n="Dashboards">Settings</div>
+                <div data-i18n="Dashboards">Payment Settings</div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item active setting">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle setting-toggle">
-                        <i class="menu-icon fa-solid fa-gear"></i>
-                        <div data-i18n="Dashboards">Company Settings</div>
+                <li class="menu-item" style="">
+                    <a href="{{ route('blogcategories.index') }}" class="menu-link">
+                        <div data-i18n="Logistics">Blog Categories</div>
                     </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <div data-i18n="CRM">Cast Post</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="javascript:void(0);" class="menu-link menu-toggle sub-setting-toggle">
-                                <i class="menu-icon fa-solid fa-gear"></i>
-                                <div data-i18n="Dashboards">Sub Settings</div>
-                            </a>
-                            <ul class="menu-sub">
-                                <li class="menu-item">
-                                    <a href="#" class="menu-link">
-                                        <div data-i18n="CRM">Sub Setting 1</div>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="#" class="menu-link">
-                                        <div data-i18n="CRM">Sub Setting 2</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
                 </li>
+                <li class="menu-item" style="">
+                    <a href="{{ route('blogpost.index') }}" class="menu-link">
+                        <div data-i18n="Logistics">Blog Post</div>
+                    </a>
+                </li>
+                <!-- Other submenu items -->
             </ul>
         </li>
     </ul>
