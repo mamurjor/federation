@@ -12,13 +12,14 @@
                                 <img src="./img/registration_page/res_logo.png" alt="">
                                 <h2 class="fw-bold mb-3 mt-3 text-black">Create An Account</h2>
                                 <div class="row align-items-center mb-5">
-                                    <div class="col-md-4"><img class="p_leftRight_image"
-                                            src="./img/home_page/our_misson_section/rightimg.png" alt=""></div>
+                                    <div class="col-md-4"><img src="{{ asset('../../../public/frontend/assets/img/home_page/our_misson_section/rightimg.png') }}" class="p_leftRight_image"
+                                             alt=""></div>
+                                             {{-- src="./img/home_page/our_misson_section/rightimg.png" --}}
                                     <div class="col-md-4">
                                         <p class="fw-normal text-black">Setup a new account in a minute.</p>
                                     </div>
                                     <div class="col-md-4"><img class="p_leftRight_image"
-                                            src="./img/home_page/our_misson_section/leftiimg.png" alt=""></div>
+                                        src="{{ asset('../../../public/frontend/assets/img/home_page/our_misson_section/leftimg.png') }}" alt=""></div>
                                 </div>
                             </div>
 
@@ -91,8 +92,8 @@
                                             <div class="form-group">
                                                 <label for="form-label" class="form-label">District <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text"  readonly name="district" id="district"
-                                                    value="" class="form-control dis py-3 input_color" placeholder="">
+                                                <input type="text" readonly name="district" id="district" value=""
+                                                    class="form-control dis py-3 input_color" placeholder="">
                                                 @error('district')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -105,8 +106,8 @@
                                             <div class="form-group">
                                                 <label for="form-label" class="form-label">Tehsil <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" readonly name="tehsil" id="tehsil"
-                                                    value="" class="form-control teh py-3 input_color" placeholder="">
+                                                <input type="text" readonly name="tehsil" id="tehsil" value=""
+                                                    class="form-control teh py-3 input_color" placeholder="">
                                                 @error('tehsil')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -349,7 +350,7 @@
                     url: url,
                     type: 'GET',
                     dataType: 'json',
-                    success: function(response) {    
+                    success: function(response) {
                         $('.dis').val(response.district);
                     },
                     error: function(xhr, status, error) {
@@ -369,7 +370,7 @@
                     type: 'GET',
                     dataType: 'json',
                     success: function(response) {
-                      $('.teh').val(response.tehsil);
+                        $('.teh').val(response.tehsil);
                     },
                     error: function(xhr, status, error) {
                         console.error(xhr.responseText);
@@ -378,7 +379,7 @@
             }
 
             // Check for gender code (length is enough to determine gender)
-            if (length >= 13) { 
+            if (length >= 13) {
                 var gendercode = cnic_no.substr(length - 1, 1);
                 var url = '{{ route('getgenderbycnic', ':cnic_no') }}';
                 url = url.replace(':cnic_no', gendercode);
@@ -399,4 +400,3 @@
         });
     });
 </script>
-

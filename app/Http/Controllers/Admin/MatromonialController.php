@@ -444,9 +444,9 @@ public function getSortedDataAs(){
 
 public function getNameData(Request $request){
     
-  $query   = $request->input('query');
-  $results = Matromonial::where('name', 'LIKE', "%{$query}%")->get();
-  return response()->json($results);
+    $query   = $request->input('query');
+    $results = Matromonial::where('name', 'LIKE', "%{$query}%")->get();
+    return response()->json($results);
 }
 
 public function getTenData(){

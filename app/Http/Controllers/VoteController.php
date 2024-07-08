@@ -422,7 +422,7 @@ class VoteController extends Controller
                         'votepositiontype' => $request->votepositiontype,
                         'votetype'         => $request->votetype,
                         'votingdate'       => $request->votingdate,
-                        'Division'         => $request->Division,
+                        'division'         => $request->division,
                         'district'         => $request->district,
                         'tehsil'           => $request->tehsil,
                     ]);

@@ -16,7 +16,7 @@ class VoteResult extends Model
         'votepositiontype',
         'votetype',
         'votingdate',
-        'Division',
+        'division',
         'district',
         'tehsil',
         'nomini_id',

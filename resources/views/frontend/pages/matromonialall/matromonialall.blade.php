@@ -555,7 +555,7 @@
         $('.sortBy').change(function() {
             var sortBy = $(this).val(); // Get the selected option value
             // alert(sortBy)
-            // Check if the selected option is "Date"
+ 
             if (sortBy === 'old') {
                 // Make an AJAX request to sort data by date
                 $.ajax({

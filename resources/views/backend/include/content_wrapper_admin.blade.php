@@ -16,45 +16,47 @@
                       <div class="swiper-slide">
                         <div class="row">
                           <div class="col-12">
-                            <h5 class="text-white mb-0 mt-2">Website Analytics</h5>
-                            <small>Total 28.5% Conversion Rate</small>
+                            <h5 class="text-white mb-5 mt-2 ">Website Analytics</h5>
+                            {{-- <small>Total 28.5% Conversion Rate</small> --}}
                           </div>
                           <div class="row">
                             <div class="col-lg-7 col-md-9 col-12 order-2 order-md-1">
-                              <h6 class="text-white mt-0 mt-md-3 mb-3">Traffic</h6>
+                              {{-- <h6 class="text-white mt-0 mt-md-3 mb-3">Detailes</h6> --}}
                               <div class="row">
                                 <div class="col-6">
                                   <ul class="list-unstyled mb-0">
                                     <li class="d-flex mb-4 align-items-center">
-                                      <p class="mb-0 fw-medium me-2 website-analytics-text-bg">28%</p>
-                                      <p class="mb-0">Sessions</p>
+                                      <p class="mb-0 me-2">Country</p>
+                                      <p class="mb-0 fw-medium  website-analytics-text-bg">{{ $total_country }}</p>
+                                      
                                     </li>
                                     <li class="d-flex align-items-center mb-2">
-                                      <p class="mb-0 fw-medium me-2 website-analytics-text-bg">1.2k</p>
-                                      <p class="mb-0">Leads</p>
+                                      <p class="mb-0 me-2">Division</p>
+                                      <p class="mb-0 fw-medium  website-analytics-text-bg">{{ $total_division }}</p>
+                                     
                                     </li>
                                   </ul>
                                 </div>
                                 <div class="col-6">
                                   <ul class="list-unstyled mb-0">
                                     <li class="d-flex mb-4 align-items-center">
-                                      <p class="mb-0 fw-medium me-2 website-analytics-text-bg">3.1k</p>
-                                      <p class="mb-0">Page Views</p>
+                                      <p class="mb-0 me-2">District</p>
+                                      <p class="mb-0 fw-medium  website-analytics-text-bg">{{ $total_distric }}</p>
                                     </li>
                                     <li class="d-flex align-items-center mb-2">
-                                      <p class="mb-0 fw-medium me-2 website-analytics-text-bg">12%</p>
-                                      <p class="mb-0">Conversions</p>
+                                      <p class="mb-0 me-3">Tehsil</p>
+                                      <p class="mb-0 fw-medium  website-analytics-text-bg">{{ $total_tehsil }}</p>
                                     </li>
                                   </ul>
                                 </div>
                               </div>
                             </div>
                             <div class="col-lg-5 col-md-3 col-12 order-1 order-md-2 my-4 my-md-0 text-center">
-                              <img
+                              {{-- <img
                                 src="assets/img/illustrations/card-website-analytics-1.png"
                                 alt="Website Analytics"
                                 width="170"
-                                class="card-website-analytics-img" />
+                                class="card-website-analytics-img" /> --}}
                             </div>
                           </div>
                         </div>
@@ -158,10 +160,10 @@
                   <div class="card">
                     <div class="card-header">
                       <div class="d-flex justify-content-between">
-                        <small class="d-block mb-1 text-muted">Sales Overview</small>
+                        <small class="d-block mb-1 text-muted">Total Users</small>
                         <p class="card-text text-success">+18.2%</p>
                       </div>
-                      <h4 class="card-title mb-1">$42.5k</h4>
+                      <h4 class="card-title mb-1">{{ $total_users  }}</h4>
                     </div>
                     <div class="card-body">
                       <div class="row">
@@ -170,7 +172,7 @@
                             <span class="badge bg-label-info p-1 rounded"
                               ><i class="ti ti-shopping-cart ti-xs"></i
                             ></span>
-                            <p class="mb-0">Order</p>
+                            <p class="mt-2">Order</p>
                           </div>
                           <h5 class="mb-0 pt-1 text-nowrap">62.2%</h5>
                           <small class="text-muted">6,440</small>
@@ -184,7 +186,7 @@
                         </div>
                         <div class="col-4 text-end">
                           <div class="d-flex gap-2 justify-content-end align-items-center mb-2">
-                            <p class="mb-0">Visits</p>
+                            <p class="mt-2">Visits</p>
                             <span class="badge bg-label-primary p-1 rounded"><i class="ti ti-link ti-xs"></i></span>
                           </div>
                           <h5 class="mb-0 pt-1 text-nowrap ms-lg-n3 ms-xl-0">25.5%</h5>
@@ -216,15 +218,27 @@
 
                 <!-- Revenue Generated -->
                 <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                  <div class="card mb-3">
+                    <div class="card-body pb-0">
+                      <div class="card-icon">
+                        <span class="badge bg-label-success rounded-pill p-2">
+                          <i class="fa-solid fa-file-lines fs-5"></i>
+                        </span>
+                      </div>
+                      <h5 class="card-title mb-0 mt-2">{{ $total_classified }}</h5>
+                      <small>Total Classified Ads</small>
+                    </div>
+                    <div id="revenueGenerated"></div>
+                  </div>
                   <div class="card">
                     <div class="card-body pb-0">
                       <div class="card-icon">
                         <span class="badge bg-label-success rounded-pill p-2">
-                          <i class="ti ti-credit-card ti-sm"></i>
+                          <i class=" fa-solid fa-children fs-6"></i>
                         </span>
                       </div>
-                      <h5 class="card-title mb-0 mt-2">97.5k</h5>
-                      <small>Revenue Generated</small>
+                      <h5 class="card-title mb-0 mt-2">{{ $total_matromonial }}</h5>
+                      <small>Total Matromonial</small>
                     </div>
                     <div id="revenueGenerated"></div>
                   </div>
@@ -260,7 +274,7 @@
                       <div class="row">
                         <div class="col-12 col-md-4 d-flex flex-column align-self-end">
                           <div class="d-flex gap-2 align-items-center mb-2 pb-1 flex-wrap">
-                            <h1 class="mb-0">$468</h1>
+                            <h1 class="mb-1" style="margin-top: 28px">$468</h1>
                             <div class="badge rounded bg-label-success">+4.2%</div>
                           </div>
                           <small>You informed of this week compared to last week</small>
@@ -401,8 +415,8 @@
                   <div class="card h-100">
                     <div class="card-header d-flex justify-content-between">
                       <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">Sales by Countries</h5>
-                        <small class="text-muted">Monthly Sales Overview</small>
+                        <h5 class="m-0 me-2">Countries</h5>
+                        {{-- <small class="text-muted">Monthly Sales Overview</small> --}}
                       </div>
                       <div class="dropdown">
                         <button
@@ -866,26 +880,14 @@
                 <div
                     class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
                     <div>
-                        ©
+                      Jutt Federation  ©
                         <script>
                             document.write(new Date().getFullYear());
                         </script>
-                        , made with ❤️ by
-                        <a href="https://pixinvent.com" target="_blank"
-                            class="footer-link text-primary fw-medium">Pixinvent</a>
+                      All Right Reserved 
+                        
                     </div>
-                    <div class="d-none d-lg-inline-block">
-                        <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
-                            target="_blank">License</a>
-                        <a href="https://1.envato.market/pixinvent_portfolio" target="_blank" class="footer-link me-4">More
-                            Themes</a>
-
-                        <a href="https://demos.pixinvent.com/vuexy-html-admin-template/documentation/" target="_blank"
-                            class="footer-link me-4">Documentation</a>
-
-                        <a href="https://pixinvent.ticksy.com/" target="_blank"
-                            class="footer-link d-none d-sm-inline-block">Support</a>
-                    </div>
+                    
                 </div>
             </div>
         </footer>

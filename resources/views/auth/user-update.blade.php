@@ -1,4 +1,4 @@
-@extends('backend.client')
+@extends('backend.dash')
 
 @section('main-content')
     <div class="row">
