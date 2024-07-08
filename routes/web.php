@@ -177,8 +177,7 @@ Route::get('herosection/Divisiondelete/{id}', [HeroSectionController::class, 'de
 
 Route::get('user/index', [UserController::class, 'index'])->name('user.index');
 Route::get('user/create', [UserController::class, 'create'])->name('user.create');
-Route::post('user/store', [UserController::class, 'store'])->name('user.store');
-Route::post('user/update', [UserController::class, 'update'])->name('user.update');
+
 Route::get( 'user/active/{id}', [UserController::class, 'active'])->name('user.active');
 Route::get( 'user/cancel/{id}', [UserController::class, 'cancel'])->name('user.cancel');
 
