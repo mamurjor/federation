@@ -12,7 +12,6 @@ use App\Http\Controllers\ExcelCSVController;
 use App\Http\Controllers\AllNotifiController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\CastController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\VerifyUserController;
 use App\Http\Controllers\Admin\GenderController;
 use App\Http\Controllers\Admin\TehsilController;
