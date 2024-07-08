@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-@extends('backend.dash')
-=======
 @extends('backend.dash-admin')
->>>>>>> 21df004003485600208a5533e74ae459d862c889
 
 @section('main-content')
     <div class="card m-3">
@@ -56,8 +52,4 @@
             </table>
         </div>
     </div>
-<<<<<<< HEAD
 @endsection
-=======
-@endsection
->>>>>>> 21df004003485600208a5533e74ae459d862c889
