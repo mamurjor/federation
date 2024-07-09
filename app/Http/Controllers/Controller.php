@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+// use Nette\Utils\Image;
 use Nette\Utils\Image;
 use Illuminate\Support\Facades\File;
 use Illuminate\Routing\Controller as BaseController;
