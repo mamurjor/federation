@@ -4,9 +4,45 @@ use App\Models\User;
 use App\Models\EmailTemplate;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Artisan;
+
 define('STATUS', [1 => 'Active', 2 => 'Inactive']);
 define('ACCESS', ['2' => 'Approved', '1' => 'Pending', '5' => 'Suspend', '6' => 'Unsuspend']);
 define('__FILE_PATH__', 'uploads/');
+
+function setEnvValue($key, $value)
+{
+    $envPath = base_path('.env');
+    $envContent = File::get($envPath);
+
+    // Check if key exists in .env
+    $keyExists = strpos($envContent, "{$key}=") !== false;
+
+    // Prepare new content
+    $newLine = "{$key}={$value}";
+    if ($keyExists) {
+        // Replace existing key
+        $envContent = preg_replace("/^{$key}=.*$/m", $newLine, $envContent);
+    } else {
+        // Add new key at the end
+        $envContent .= "\n{$newLine}";
+    }
+
+    // Write new content to .env
+    File::put($envPath, $envContent);
+
+    // Update runtime environment variable
+    putenv("{$key}={$value}");
+
+    // Update Laravel's configuration
+    config()->set($key, $value);
+
+    // If using a cached config, clear it so that new changes are loaded
+    if (app()->configurationIsCached()) {
+        Artisan::call('config:cache');
+    }
+}
 
 
 /**
