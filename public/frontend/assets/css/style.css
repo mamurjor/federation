@@ -106,10 +106,22 @@ td:last-child {
 	border-radius: 5px;
 }
 .common_heading h2 {
-	font-size: 42px;
-	line-height: 52px;
-    font-weight: 600;
+	font-size: 23px;
+	line-height: 13px;
+    font-weight: 400; 
     color: var(--secondary-color);
+}
+/* .fw-normal{
+    font-weight: 600 !important; 
+    color: #696868 !important;
+} */
+
+.log_sub_title{
+    font-weight: 600 !important; 
+    color: #696868 !important;
+}
+.log_input::placeholder{
+font-size: 13px;
 }
 .common_heading h4 {
 	font-size: 28px;
@@ -118,13 +130,13 @@ td:last-child {
     color: var(--secondary-color);
 }
 .common_heading p {
-	font-size: 16px;
+	font-size: 12px;
 	line-height: 24px;
     font-weight: 400;
     color: var(--p);
 }
 .common_heading img {
-	width: 7%;
+	width: 10%;
 }
 /* common css end */
 
@@ -185,8 +197,8 @@ td:last-child {
 }
 .common_button a:hover{
     background-color: var(--white);
-    color: var(--secondary-color);
-    border: 2px solid var(--border);
+    color: var( --primary-color);
+    border: 2px solid var( --primary-color);
 }
 .navbar-toggler {
 	padding: 10px;
@@ -200,7 +212,7 @@ td:last-child {
 
 /* hero section css start */
 .carousel-caption {
-	top: 36%;
+	top: 18%;
 }
 .image_overly_color:after {
     content: "";
@@ -586,10 +598,11 @@ td:last-child {
 	color: var(--white);
 }
 .img_mid_text{
-    font-size: 16px;
+    font-size: 13px;
+    color: #FF6B6B;
 }
 .have_account{
-    font-size: 16px;
+    font-size: 13px;
     color: var(--p);
     font-weight: 600;
 }
@@ -977,7 +990,7 @@ td:last-child {
 .single_add_box1{
     border-color: var(--border);
 }
-%shared {
+.shared {
     box-shadow: 2px 2px 10px 5px #b8b8b8;
     border-radius: 10px;
 }
@@ -1254,4 +1267,28 @@ td:last-child {
     color: white;
     border: none;
     padding: 7px;
+}
+.log_btn{
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px;
+    background: var(--primary-color);
+}
+.reg_btn{
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px;
+    background: var(--primary-color);
+    border: none;
+}
+.reg_btn:hover{
+   
+    background: #027802;
+    border: none;
+}
+.form-check-input:checked{
+   
+        background-color: #027802;
+        border-color: #027802;
+     
 }

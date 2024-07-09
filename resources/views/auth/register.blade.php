@@ -19,13 +19,12 @@
                                     </div>
                                     {{-- src="./img/home_page/our_misson_section/rightimg.png" --}}
                                     <div class="col-md-4">
-                                        <p class="fw-normal text-black">Setup a new account in a minute.</p>
+                                        <p class="fw-bold log_sub_title  text-black">Setup a new account in a minute.</p>
                                     </div>
                                     <div class="col-md-4">
-                                        <img class="p_leftRight_image"
-                                        src="{{ asset('frontend/assets/img/registration_page/res_left.png') }}"
+                                        <img src="{{ asset('frontend/assets/img/registration_page/res_left.png') }}"
                                         class="p_leftRight_image" alt="">
-                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -99,7 +98,7 @@
                                                 <label for="form-label" class="form-label">District <span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" readonly name="district" id="district" value=""
-                                                    class="form-control dis py-3 input_color" placeholder="">
+                                                    class="form-control dis py-3 input_color" placeholder="your district">
                                                 @error('district')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -113,7 +112,7 @@
                                                 <label for="form-label" class="form-label">Tehsil <span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" readonly name="tehsil" id="tehsil" value=""
-                                                    class="form-control teh py-3 input_color" placeholder="">
+                                                    class="form-control teh py-3 input_color" placeholder="your tehsil">
                                                 @error('tehsil')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -127,7 +126,7 @@
                                                 <label for="form-label" class="form-label">Gender <span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" readonly name="gender" id="gender"
-                                                    value="" class="form-control py-3 input_color" placeholder="">
+                                                    value="" class="form-control py-3 input_color" placeholder="your gender">
                                                 @error('gender')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -293,9 +292,9 @@
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <div class="form-group align-items-center">
-                                                <input name="agree" class="form-check-input p-3" type="checkbox"
+                                                <input name="agree" class="form-check-input p-2 " type="checkbox"
                                                     value="" id="flexCheckChecked">
-                                                <label class="form-check-label pt-2" for="flexCheckChecked">
+                                                <label class="form-check-label  px-2" for="flexCheckChecked">
                                                     I hereby accept the <span>Terms and conditions</span>
                                                 </label>
                                                 @error('agree')
@@ -307,7 +306,7 @@
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <button type="submit"
-                                                class="btn btn-primary waves-effect waves-light">Register<i
+                                                class="btn btn-primary waves-effect waves-light w-100 reg_btn">Register<i
                                                     class="fa-solid fa-circle-plus ms-2"></i></button>
                                         </div>
                                     </div>
@@ -321,7 +320,7 @@
                                    alt="">
                                     </div>
                                 <div class="col-md-2">
-                                    <p class="fw-normal text-danger text-center img_mid_text">Or Login With</p>
+                                    <p class="fw-bold text-danger text-center img_mid_text">Or Login With</p>
                                 </div>
                                 <div class="col-md-5"><img class="p_leftRight_image"
                                     src="{{ asset('frontend/assets/img/registration_page/res_left.png') }}"

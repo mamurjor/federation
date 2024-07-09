@@ -21,7 +21,7 @@
                             <div class="hart_postion position-absolute">
                                 <i class="fa-solid fa-heart"></i>
                             </div>
-                            <img src="{{ $data->image }}" class="card-img-top" alt="...">
+                            <img src="{{ $data->image }}" class="" alt="...">
                             <div class="card-body">
                                 <div class="card_date d-flex justify-content-between">
                                     <div class="card_date_common mb-4 mobile_bg"><i
@@ -57,7 +57,7 @@
                 </div>
             @endforeach
 
-            <div class="text-center border border-black p-3">
+            <div class="common_button text-center">
                 <a href="{{ route('classified') }}" class="py-3">See
                     More<i class="fa-solid fa-arrow-right ms-3"></i></a>
             </div>
