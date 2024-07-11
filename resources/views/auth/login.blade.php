@@ -12,13 +12,13 @@
                                 <h2 class="fw-bold mb-3 mt-3 text-black">Login Now</h2>
                                 <div class="row align-items-center mb-5">
                                     <div class="col-md-4"><img class="p_leftRight_image"
-                                            src="{{ asset('frontend/assets/img/registration_page/res_right.png') }}"
+                                            src="{{ asset('frontend/assets/img/home_page/our_misson_section/rightimg.png') }}"
                                             alt=""></div>
                                     <div class="col-md-4">
                                         <p class="fw-normal log_sub_title">Start a new Journey With Us.</p>
                                     </div>
                                     <div class="col-md-4"><img class="p_leftRight_image"
-                                            src="{{ asset('frontend/assets/img/registration_page/res_left.png') }}"
+                                            src="{{ asset('frontend/assets/img/home_page/our_misson_section/leftimg.png') }}"
                                             alt=""></div>
                                 </div>
                             </div>

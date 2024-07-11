@@ -14,7 +14,7 @@
                                 <h2 class="fw-bold mb-3 mt-3 text-black">Create An Account</h2>
                                 <div class="row align-items-center mb-5">
                                     <div class="col-md-4">
-                                        <img src="{{ asset('frontend/assets/img/registration_page/res_right.png') }}"
+                                        <img src="{{ asset('frontend/assets/img/home_page/our_misson_section/rightimg.png') }}"
                                             class="p_leftRight_image" alt="">
                                     </div>
                                     {{-- src="./img/home_page/our_misson_section/rightimg.png" --}}
@@ -22,7 +22,7 @@
                                         <p class="fw-bold log_sub_title  text-black">Setup a new account in a minute.</p>
                                     </div>
                                     <div class="col-md-4">
-                                        <img src="{{ asset('frontend/assets/img/registration_page/res_left.png') }}"
+                                        <img src="{{ asset('frontend/assets/img/home_page/our_misson_section/leftimg.png') }}"
                                         class="p_leftRight_image" alt="">
                                     </div>
                                 </div>

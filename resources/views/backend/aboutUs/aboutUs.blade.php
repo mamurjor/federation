@@ -20,10 +20,10 @@
     <section id="about_us_section" class="about_us_section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-xl-8 col-lg-6 col-md-12 col-sm-12 mb-4">
-                    <div class="common_heading about_left_text">
-                        <h6>WELCOME TO</h6>
-                        <h2 class="fw-bold mb-3 mt-3">Jutt Federation Pakistan <br> & International KSA </h2>
+                <div class="col-xl-8 col-lg-6 col-md-12 col-sm-12 ">
+                    <div class="common_heading  about_left_text">
+                        <h6 class="top_line">WELCOME TO</h6>
+                        <h2 class="fw-bold mb-3 mt-3 ab_h2">Jutt Federation Pakistan <br> & International KSA </h2>
                         <p class="fw-normal">“ Meet the people redesigning the design process. See who’s answering your
                             calls, optimizing your experience, and constantly obsessing over your designs.Meet the
                             people redesigning the design process. See who’s answering your calls, optimizing your
@@ -34,12 +34,12 @@
                             designs. “ </p>
                         <ul class="p-0 mt-4">
                             <li class="about_list_text mb-3"><img class="about_list_image me-3"
-                                    src="./img/about_us_page/listimg.svg" alt="">Highly Expart & Qualified Staff
+                                    src="{{ asset('frontend/assets/img/about_us_page/listimg.svg') }}" alt="">Highly Expart & Qualified Staff
                             </li>
                             <li class="about_list_text mb-3"><img class="about_list_image me-3"
-                                    src="./img/about_us_page/listimg.svg" alt="">Quality Materials</li>
+                                    src="{{ asset('frontend/assets/img/about_us_page/listimg.svg') }}" alt="">Quality Materials</li>
                             <li class="about_list_text"><img class="about_list_image me-3"
-                                    src="./img/about_us_page/listimg.svg" alt="">Informed and helpful personnel.
+                                    src="{{ asset('frontend/assets/img/about_us_page/listimg.svg') }}" alt="">Informed and helpful personnel.
                             </li>
                         </ul>
                         <div class="common_button mt-5">
@@ -49,18 +49,18 @@
 
                 </div>
                 <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 mb-4 about_img_birds">
-                    <img src="./img/about_us_page/about_us_birds.png" alt="">
+                    <img src="{{ asset('frontend/assets/img/about_us_page/about_us_birds.png') }}" alt="">
                 </div>
             </div>
             <div class="row align-items-center mb-5 mt-5">
                 <div class="col-md-3"><img class="p_leftRight_image"
-                        src="./img/home_page/our_misson_section/rightimg.png" alt=""></div>
+                        src= "{{ asset('frontend/assets/img/home_page/our_misson_section/rightimg.png') }}" alt=""></div>
                 <div class="col-md-6">
                     <h6 class="about_left_right_text">Empowering Jutt Communities Worldwide for Unity, Prosperity, and
                         Cultural Preservation</h6>
                 </div>
                 <div class="col-md-3"><img class="p_leftRight_image"
-                        src="./img/home_page/our_misson_section/leftiimg.png" alt=""></div>
+                        src="{{ asset('frontend/assets/img/home_page/our_misson_section/leftimg.png') }}" alt=""></div>
             </div>
             <div class="blog_counter  py-5 px-4 bg-light rounded">
                 <div class="row">
@@ -117,13 +117,13 @@
                         <h2 class="fw-bold mb-5 mt-5 text-white">Our Mission</h2>
                         <div class="row align-items-center">
                             <div class="col-md-3"><img class="p_leftRight_image"
-                                    src="./img/home_page/our_misson_section/rightimg.png" alt=""></div>
+                                    src="{{ asset('frontend/assets/img/home_page/our_misson_section/rightimg.png') }}" alt=""></div>
                             <div class="col-md-6">
                                 <p class="fw-normal text-white">Empowering Jutt Communities Worldwide for Unity,
                                     Prosperity, and Cultural Preservation</p>
                             </div>
                             <div class="col-md-3"><img class="p_leftRight_image"
-                                    src="./img/home_page/our_misson_section/leftiimg.png" alt=""></div>
+                                    src="{{ asset('frontend/assets/img/home_page/our_misson_section/leftimg.png') }}" alt=""></div>
                         </div>
                         <h5 class="text-left text-white mt-5">The Jutt Federation Pakistan & International KSA envisions
                             a world where Jutt individuals and organizations unite on a common platform, transcending
@@ -166,38 +166,38 @@
                 </div>
             </div>
             <div class="row card_main">
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6   mb-4">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4">
                     <a href="#">
                         <div class="card">
-                            <div class="card_image">
-                                <img src="./img/home_page/presidents_and_secretaries_section/team1.png"
+                            <div class="card_image text-center">
+                                <img src="{{asset('backend/assets/img/avatars/1.png')  }}"
                                     class="card-img-top" alt="...">
                             </div>
                             <div class="card-body text-center">
                                 <h5 class="card-title">Mike Hardson</h5>
                                 <p class="card-text">Chairman</p>
-                                <div class="social_icon mt-5">
+                                <div class="social_icon  d-flex presi_icon_all">
                                     <a href="#"
-                                        class=" p-3 rounded-circle fw-normal me-3 bg-primary text-white"><i
-                                            class="fa-brands fa-facebook"></i></a>
+                                        class="presi_icon rounded-circle fw-norma me-3 bg-primary text-white"><i
+                                            class="fa-brands fa-facebook "></i></a>
                                     <a href="#"
-                                        class=" p-3 rounded-circle fw-normal me-3 bg-black text-white"><i
+                                        class=" presi_icon rounded-circle fw-normal me-3 bg-black text-white"><i
                                             class="fa-brands fa-twitter"></i></a>
-                                    <a href="#" class=" p-3 rounded-circle fw-normal bg-info text-white"><i
+                                    <a href="#" class="presi_icon rounded-circle fw-normal me-3 bg-info text-white"><i
                                             class="fa-brands fa-linkedin-in"></i></a>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6   mb-4">
+                {{-- <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6   mb-4">
                     <a href="#">
                         <div class="card">
                             <div class="card_image">
                                 <img src="./img/home_page/presidents_and_secretaries_section/team2.png"
                                     class="card-img-top" alt="...">
                             </div>
-                            <div class="card-body text-center">
+                            <div class="card-body text-center d-flex">
                                 <h5 class="card-title">Mike Hardson</h5>
                                 <p class="card-text">President</p>
                                 <div class="social_icon mt-5">
@@ -357,7 +357,7 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
