@@ -13,11 +13,11 @@ class CompanysettingController extends Controller
          // $this->middleware('auth');
     }
 
-    public function companysettingform(){
+    // public function companysettingform(){
   
-        $this->setPageTitle('Company Setting');
-        return view("backend.page.companysetting.compnaysettingform");
-    }
+    //     $this->setPageTitle('Company Setting');
+    //     return view("backend.page.companysetting.compnaysettingform");
+    // }
 
 
     public function companysetting(Request $request){
@@ -87,6 +87,67 @@ class CompanysettingController extends Controller
   
 
         return redirect()->route('company.setting')->with('success','Created successfully.');
+    }
+
+
+    public function companysettingform(){
+  
+        $this->setPageTitle('Company Setting');
+        return view("backend.page.companysetting.compnaysettingform");
+    }
+
+    public function companyheader(){
+  
+        $this->setPageTitle('Header Setting');
+        return view("backend.page.companysetting.header");
+    }
+
+    public function companyfooter(){
+  
+        $this->setPageTitle('Footer Setting');
+        return view("backend.page.companysetting.footer");
+    }
+
+    public function companypagesetting(){
+  
+        $this->setPageTitle('Page Setting');
+        return view("backend.page.companysetting.pagesetting");
+    }
+
+    public function companyblog(){
+  
+        $this->setPageTitle('Blog Setting');
+        return view("backend.page.companysetting.blog");
+    }
+    public function companyjoin(){
+  
+        $this->setPageTitle('Join Us Setting');
+        return view("backend.page.companysetting.join");
+    }
+    public function companymatromonial(){
+  
+        $this->setPageTitle('Matromonial Setting');
+        return view("backend.page.companysetting.matromonial");
+    }
+    public function companypresident(){
+  
+        $this->setPageTitle('President Setting');
+        return view("backend.page.companysetting.president");
+    }
+    public function companyfaq(){
+  
+        $this->setPageTitle('FAQ Setting');
+        return view("backend.page.companysetting.faq");
+    }
+    public function companycontact(){
+  
+        $this->setPageTitle('Contact Setting');
+        return view("backend.page.companysetting.contact");
+    }
+    public function companyclassified(){
+  
+        $this->setPageTitle('Classified Setting');
+        return view("backend.page.companysetting.classified");
     }
 
 
