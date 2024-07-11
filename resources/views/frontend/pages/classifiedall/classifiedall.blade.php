@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="breadcrumd_heading text-center">
-                            <h2 class="fw-bold">Classified Ads</h2>
+                            <h2 class="fw-bold fs-2">Classified Ads</h2>
                             <span><a href="#" class="text-black">Home</a> / Classified Ads</span>
                         </div>
                     </div>
@@ -22,42 +22,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-lg-4 col-xl-3">
-
                         <div class="common_filter_tehsil mb-4">
                             <h4 class="fw-bold common_filter_heading mb-4">FILTER BY PRICE</h4>
-                            <div class="price-input">
-                                <div class="field">
-                                    <label class="form-label">Min</label>
-                                    <input type="number" class="input-min form-control" value="0">
-                                </div>
-                                <div class="separator">-</div>
-                                <div class="field">
-                                    <label class="form-label">Max</label>
-                                    <input type="number" class="input-max form-control" value="7500">
-                                </div>
-                            </div>
-
-                            {{-- slider  --}}
-
-                            <div class="price-range-slider">
-                                <p class="range-value">
-                                    <input type="text" id="amount" readonly>
-                                </p>
-                                <div id="slider-range" class="range-bar"></div>
-                            </div>
-
+                            
                         </div>
-
-
                         <div class="common_filter_tehsil">
                             <h4 class="fw-bold common_filter_heading mb-4">FILTER BY TEHSIL</h4>
-                            <input class="form-control py-3 search_input mb-4" type="search" name="search"
+                            <input class="form-control py-2 search_input mb-4" type="search" name="search"
                                 placeholder="search">
                             <div class="common_filter_check">
                                 @foreach ($getalltehsil as $single)
                                     <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                         <div>
-                                            <input class="form-check-input p-3 filtertehsil" type="checkbox"
+                                            <input class="form-check-input p-2 check_style filtertehsil" type="checkbox"
                                                 value="{{ $single->name }}" id="flexCheckChecked">
                                             <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                                 {{ $single->name }}</span>
@@ -69,9 +46,9 @@
 
 
                             </div>
-                            <div class="common_button mt-5 text-center">
+                            <div class="common_button mt-4 text-center">
                                 <button type="submit" id="clearFilterBtn"
-                                    class="btn btn-danger waves-effect waves-light">CLEAR FILTER</button>
+                                    class=" fw-bold bg-white py-2 rounded-1 filter_btn">CLEAR FILTER</button>
                             </div>
                         </div>
 
@@ -81,7 +58,25 @@
 
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
+                                            id="flexCheckChecked">
+                                        <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="ratings">
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                </div>
+
+                                            </div></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
+                                    <div>
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             <div class="d-flex justify-content-between align-items-center">
@@ -99,7 +94,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             <div class="d-flex justify-content-between align-items-center">
@@ -107,7 +102,7 @@
                                                     <i class="fa fa-star rating-color"></i>
                                                     <i class="fa fa-star rating-color"></i>
                                                     <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star "></i>
                                                     <i class="fa fa-star"></i>
                                                 </div>
 
@@ -117,15 +112,15 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="ratings">
                                                     <i class="fa fa-star rating-color"></i>
                                                     <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                 </div>
 
@@ -135,15 +130,15 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="ratings">
                                                     <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star "></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                 </div>
 
@@ -160,12 +155,12 @@
 
 
                     <div class="col-md-12 col-lg-8 col-xl-9">
-                        <div class="row common_filter_top rounded py-3 px-3 align-items-center">
+                        <div class="row common_filter_top rounded py-2 px-3 align-items-center">
                             <div class="col-xl-4 col-lg-12 col-sm-12 col-md-12">
                                 <div class="input-group bg-white pe-3 mb-2 mt-2">
                                     <input type="search" id="search-input" placeholder="Search by title..."
                                         aria-describedby="button-addon1"
-                                        class="form-control border-0 placeholder_search py-3 px-4">
+                                        class="form-control border-0 placeholder_search py-2 placeholder_search px-4">
                                     <div class="input-group-append align-self-center">
                                         <button id="clsifiedbtn" type="submit"
                                             class="btn btn-link text-white bg-danger">
@@ -176,24 +171,46 @@
                                 <div id="matro"></div>
                             </div>
                             <div class="col-xl-4 col-lg-6 col-sm-6 col-md-6 d-flex align-items-center">
-                                <div class="input-group bg-white py-3 justify-content-center rounded mb-2 mt-2">
-                                    <label for="number" class="number_filter_label">SHOW : <select name="text"
-                                            id="classifyShow" class="py-2 px-5 bg-white border-1 sortByNumberClassify">
-                                            <option value="">Select</option>
-                                            <option value="10">10</option>
-                                            <option value="20">20</option>
-                                            <option value="50">50</option>
-                                        </select>
+                                <div class="input-group bg-white py-2 justify-content-center rounded mb-2 mt-2">
+                                    <div class="row g-1">
+                                        <label for="number" class="number_filter_label col-sm-4 filter_title_2">SHOW
+                                            :
+                                        </label>
+                                        <div class="col-sm-6">
+                                            <select class="form-select filter_form_2 sortByNumberClassify" name="text"
+                                                id="classifyShow" aria-label="Default select example">
+                                                <option selected>Select</option>
+                                                <option value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="50">50</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                 
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-6 col-sm-6 col-md-6">
-                                <div class="input-group bg-white py-3 justify-content-center rounded mb-2 mt-2">
-                                    <label for="number" class="number_filter_label">SORT BY : <select name="text2"
+                                <div class="input-group bg-white py-2 justify-content-center rounded mb-2 mt-2">
+
+                                    <div class="row g-1">
+                                        <label for="number" class="number_filter_label col-sm-4 filter_title_2">SHORT BY
+                                            : </label>
+                                        <div class="col-sm-6">
+                                            <select class="form-select filter_form_2 fs-6 sortByClassify" name="text2"
+                                                id="classifySort" aria-label="Default select example">
+                                                <option selected>Select</option>
+                                                <option value="old">Oldest</option>
+                                                <option value="new">Latest</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    {{-- <label for="number" class="number_filter_label">SORT BY : <select name="text2"
                                             id="classifySort" class="py-2 px-5 bg-white border-1 sortByClassify">
                                             <option value="">Select</option>
                                             <option value="old">Oldest</option>
                                             <option value="new">Latest</option>
-                                        </select>
+                                        </select> --}}
                                 </div>
                             </div>
                         </div>
@@ -592,4 +609,8 @@
             });
         });
     });
+
+
+    //---------------------Price Filter-----------------------
 </script>
+

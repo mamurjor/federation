@@ -12,15 +12,15 @@
         <div id="matro" class="row mt-5">
 
             @foreach ($matromonial as $data)
-                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3 mb-4">
                    <a href="{{ route('matromonial.single', $data->id) }}">
-                    <div class="card border-0 mb-3">
+                    <div class="border-0 mb-3 home_classified bg-white">
                         <div class="text-center">
                             <img src="{{ $data->matromonialimage }}" class="card-img-top matrimonial_img"
                                 alt="...">
                         </div>
                         <div class="card-body text-center">
-                            <div class="card_date d-flex justify-content-between">
+                            <div class="card_date d-flex justify-content-between mt-3">
                                 <h6 class="card_age_year">{{ $data->age }}</h6>
                                 <h6 class="card_age_year bg-warning">{{ $data->height }}</h6>
                                 <h6 class="card_age_year bg-danger">{{ $data->religion }}</h6>
@@ -46,7 +46,7 @@
                                 <a
                                     href="mailto:{{ $data->email }}?subject=Your%20Subject&body=Your%20Message%20Here">
 
-                                    <h6 class="fw-bold matrimonial_add_btn"><i
+                                    <h6 class="fw-bold matrimonial_add_btn matro_phone"><i
                                             class="fa-solid fa-phone"></i>
                                         contact</h6>
                                 </a>

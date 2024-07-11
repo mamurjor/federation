@@ -10,8 +10,8 @@
                         </div>
                     </div>
                 </div>
-{{-- 
-                <div class="row card_main">
+
+                {{-- <div class="row card_main">
                     @foreach ($uniqueUserResults as $single)
                         
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4">
