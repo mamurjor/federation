@@ -913,6 +913,7 @@ td:last-child {
 .number_filter_label {
     font-size: 12px;
     font-weight: 600;
+    color: #6f6c6c;;
 }
 
 /* pagination csss */
@@ -1157,7 +1158,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .single_add_box1 h6 {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--secondary-color);
 }
@@ -1185,7 +1186,7 @@ input[type="range"]::-moz-range-thumb {
         height: 100px;
         margin: 10px;
         cursor: pointer;
-
+    }
         @media only screen and (max-width: 480px) {
             width: 50px;
             height: 50px;
@@ -1197,7 +1198,7 @@ input[type="range"]::-moz-range-thumb {
             transform: scale(1.05);
         }
     }
-}
+
 
 #mainCarosel {
     width: 100%;
@@ -1356,26 +1357,31 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .single_blog_heading h4 {
-    font-size: 28px;
-    line-height: 38px;
-    color: var(--white);
+   
+        font-size: 24px;
+        line-height: 38px;
+        color: var(--white);
+        margin-bottom: 10px;
+      
 }
 
 .single_blog_heading {
-    bottom: 70px;
-    padding: 30px 20px;
+    bottom: 97px;
+    padding: 0px 20px;
     background: rgba(0, 0, 0, 20%) !important;
     backdrop-filter: blur(8px);
     border-radius: 0 0 9px 9px;
 }
 
 .single_blog_heading h6 {
-    font-size: 14px;
-    padding: 10px 20px 10px 0;
+    font-size: 12px;
+    padding: 8px 8px 8px 0px;
     background: var(--white);
     color: var(--primary-color);
     display: inline;
-    border-radius: 30px;
+    border-radius: 17px;
+    display: inline-block;
+  margin-top: 16px !important;
 }
 
 .politics {
@@ -1682,6 +1688,62 @@ input[type="range"]::-moz-range-thumb {
     font-weight: bold;
     color: #ffff;
 }
+.mtsingel{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.matro_desc{
+    font-size: 13px;
+    color: #626060;
+}
+.blogcard_date{
+    font-size: 11px;
+}
+.bog_title{
+    font-size: 16px;
+}
+.blog_text{
+    font-size: 12px;
+}
+.blog_btn{
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+.con_top_title{
+font-size: 14px !important;
+}
+.con_title{
+    font-size: 34px !important;
+    line-height: 30px !important;
+}
+.con_icon{
+    width: 3rem !important;
+    height: 3rem !important;
+    border-radius: 50%;
+    display: inline-block;
+}
+.cont_i{
+    margin-top: 13px;
+  margin-left: 14px;
+}
+.contact_phone_icon{
+    width: 42px;
+}
+.contact_label{
+    font-size: 15px !important;
+}
+.contact_text{
+    font-size: 14px !important;
+    line-height: 14px !important;
+}
 
 
-
+/* ------------price filter--------------- */
+.form-label.p_lavel {
+    font-size: 16px;
+    color: #6d7373;
+}
+.p_form{
+    color: #6d7373;
+}

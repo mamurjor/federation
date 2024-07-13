@@ -87,7 +87,7 @@
                         </form>
                         <div class="common_filter_tehsil">
                             <h4 class="fw-bold common_filter_heading mb-4">FILTER BY TEHSIL</h4>
-                            <input class="form-control py-3 search_input mb-4" type="search" name="search"
+                            <input class="form-control py-2 search_input mb-4" type="search" name="search"
                                 placeholder="search">
                             <div class="common_filter_check">
 

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.front')
 @section('title', 'Blog')
 @section('content')
 
@@ -10,8 +10,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="breadcrumd_heading text-center">
-                            <h2 class="fw-bold">Blog</h2>
-                            <span><a href="#" class="text-black">Home</a> / Blog</span>
+                            <h2 class="fw-bold fs-2">Blog</h2>
+                            <span class="mtsingel"><a href="#" class="text-black mtsingel">Home</a> / Blog</span>
                         </div>
                     </div>
                 </div>
@@ -25,12 +25,12 @@
                     <div class="col-md-12 col-lg-4 col-xl-3">
                         <div class="common_filter_tehsil">
                             <h4 class="fw-bold common_filter_heading mb-4">FILTER BY TEHSIL</h4>
-                            <input class="form-control py-3 search_input mb-4" type="search" name="search"
+                            <input class="form-control py-2 search_input mb-4" type="search" name="search"
                                 placeholder="search">
                             <div class="common_filter_check">
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Islamabad</span>
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Rawalpindi</span>
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Faisalabad</span>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Lahore</span>
@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Dera Ghazi Khan</span>
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Larkana</span>
@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Kandhkot</span>
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Quetta</span>
@@ -110,17 +110,17 @@
                                 </div>
                             </div>
                             <div class="common_button mt-5 text-center">
-                                <a href="#" class="bg-white text-black">CLEAR FILTER</a>
+                                <a href="#" class="bg-white text-black filter_btn">CLEAR FILTER</a>
                             </div>
                         </div>
                         <div class="common_filter_tehsil mt-4">
                             <h4 class="fw-bold common_filter_heading mb-4">FILTER BY PROFESSION</h4>
-                            <input class="form-control py-3 search_input mb-4" type="search" name="search"
+                            <input class="form-control py-2 search_input mb-4" type="search" name="search"
                                 placeholder="search">
                             <div class="common_filter_check">
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Doctor</span>
@@ -130,7 +130,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Teacher</span>
@@ -140,7 +140,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Banker</span>
@@ -150,7 +150,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Politician </span>
@@ -160,7 +160,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Advocate</span>
@@ -170,7 +170,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 mcheck_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Businessmen</span>
@@ -180,7 +180,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Mechanic</span>
@@ -190,7 +190,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Engineer</span>
@@ -200,7 +200,7 @@
                                 </div>
                             </div>
                             <div class="common_button mt-5 text-center">
-                                <a href="#" class="bg-white text-black">CLEAR FILTER</a>
+                                <a href="#" class="bg-white text-black filter_btn">CLEAR FILTER</a>
                             </div>
                         </div>
                         <div class="common_join_heading common_filter_tehsil py-3 ps-3 mb-4 mt-4">
@@ -218,32 +218,49 @@
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-8 col-xl-9">
-                        <div class="row common_filter_top rounded py-3 px-3 align-items-center">
+                        <div class="row common_filter_top rounded py-2 px-3 align-items-center">
                             <div class="col-xl-5 col-lg-12 col-sm-12 col-md-12">
-                                <div class="input-group  bg-white pe-3 mb-2 mt-2">
-                                    <input type="search" placeholder="Write email....." aria-describedby="button-addon1"
-                                        class="form-control border-0 placeholder_search py-3 px-4">
+                                <div class="input-group bg-white pe-3 mb-2 mt-2">
+                                    <input type="search" id="search-input" placeholder="Search by title..."
+                                        aria-describedby="button-addon1"
+                                        class="form-control border-0 placeholder_search py-2 placeholder_search px-4">
                                     <div class="input-group-append align-self-center">
-                                        <button id="button-plane" type="submit"
-                                            class="btn btn-link text-white bg-danger"><i
-                                                class="fa-solid fa-magnifying-glass"></i></button>
+                                        <button id="clsifiedbtn" type="submit"
+                                            class="btn btn-link text-white bg-danger">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-sm-6 col-md-6 d-flex align-items-center">
-                                <div class="input-group bg-white py-3 justify-content-center rounded mb-2 mt-2">
-                                    <label for="number" class="number_filter_label">SHOW :<input type="number"
-                                            name="number" value="120" class="py-2 ms-3">
+                                <div class="input-group bg-white py-2 justify-content-center rounded mb-2 mt-2">
+                                    <div class="row g-1">
+                                        <label for="number"
+                                            class="number_filter_label col-sm-4 filter_title  col-form-label">SHOW
+                                            :</label>
+
+                                        <div class="col-sm-6">
+                                            <input type="number" name="number" value="12"
+                                                class="form-control filter_form">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-6 col-sm-6 col-md-6">
-                                <div class="input-group bg-white py-3 justify-content-center rounded mb-2 mt-2">
-                                    <label for="number" class="number_filter_label">SHORT BY : <select name="text"
-                                            id="short_bye" class="py-2 px-5 bg-white border-1">
-                                            <option value="">Defualt</option>
-                                            <option value="">Defualt</option>
-                                            <option value="">Defualt</option>
-                                        </select>
+                                <div class="input-group bg-white py-2 justify-content-center rounded mb-2 mt-2">
+                                    
+                                    <div class="row g-1">
+                                        <label for="number" class="number_filter_label col-sm-4 filter_title_2">SHORT BY
+                                            : </label>
+                                        <div class="col-sm-6">
+                                            <select class="form-select filter_form_2 fs-6 sortByClassify" name="text2"
+                                                id="classifySort" aria-label="Default select example">
+                                                <option selected>Select</option>
+                                                <option value="old">Oldest</option>
+                                                <option value="new">Latest</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -253,7 +270,7 @@
                                     <div class="card border-0 mb-3">
                                         <img src="{{ $single->image }}" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <div class="card_date d-flex justify-content-between">
+                                            <div class="card_date d-flex justify-content-between blogcard_date">
                                                 <div class="card_date_common mb-2"><i
                                                         class="fa-regular fa-circle-user me-2"></i>
                                                     @if ($user->role_id == 1)
@@ -265,15 +282,15 @@
                                                     @endif
 
                                                 </div>
-                                                <div class="card_date_common mb-2"><i
+                                                <div class="card_date_common mb-2 blogcard_date"><i
                                                         class="fa-solid fa-calendar-days me-2"></i>{{ $single->created_at }}
                                                 </div>
                                             </div>
-                                            <h5 class="card-title mt-4">{{ $single->title }}</h5>
-                                            <p class="card-text">{{ $single->description }}
+                                            <h5 class="card-title mt-1 bog_title">{{ $single->title }}</h5>
+                                            <p class="card-text blog_text">{{ $single->description }}
                                             </p>
-                                            <div class="common_button mt-5 mb-3 blog_post_btn">
-                                                <a href="{{ route('blog.single', $single->id) }}" class="py-3">Read
+                                            <div class="common_button mt-5 mb-1 blog_post_btn">
+                                                <a href="{{ route('blog.single', $single->id) }}" class="py-1 blog_btn">Read
                                                     More<i class="fa-solid fa-arrow-right ms-3"></i></a>
                                             </div>
                                         </div>
@@ -282,7 +299,7 @@
                             @endforeach
 
                             <nav aria-label="Page navigation example">
-                                <ul class="pagination">
+                                <ul class="pagination justify-content-center">
                                     <li class="page-item">
                                         <a class="page-link arrow_btn_bg text-white" href="#"
                                             aria-label="Previous">

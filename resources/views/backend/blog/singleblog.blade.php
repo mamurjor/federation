@@ -11,8 +11,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="breadcrumd_heading text-center">
-                            <h2 class="fw-bold">Single Blog</h2>
-                            <span><a href="#" class="text-black">Home</a> / <a href="#" class="text-black">Cast
+                            <h2 class="fw-bold fs-2">Single Blog</h2>
+                            <span class="mtsingel"><a href="#" class="text-black mtsingel">Home</a> / <a href="#" class="text-black mtsingel">Cast
                                     List </a> / Single Blog</span>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                             @endphp
                             <img src="{{ $src }}" class="card-img-top mb-2" alt="...">
                             <div class="card-body">
-                                <div class="card_date d-flex justify-content-between pb-4 pt-5 mt-2">
+                                <div class="card_date d-flex justify-content-between pb-2">
                                     <div class="card_date_common mb-2 pt-2"><i class="fa-regular fa-circle-user me-2"></i>
                                         @if ($user->role_id == 1)
                                             Admin
@@ -50,7 +50,7 @@
                                             User
                                         @endif
                                     </div>
-                                    <div class="card_date_common mb-2 pt-2"><i
+                                    <div class="card_date_common mb-2 pt-2 "><i
                                             class="fa-solid fa-calendar-days me-2"></i>{{ $singleblog->created_at }}</div>
                                     <div class="card_date_common mb-2 pt-2"><i
                                             class="fa-solid fa-tag me-2"></i>{{ $category->name }}</div>
@@ -79,9 +79,9 @@
                                 );
                             @endphp
 
-                            <p class="fw-normal">
+                            {{-- <p class="fw-normal">
                                 {{ $content }}
-                            </p>
+                            </p> --}}
                         </div>
 
 
@@ -107,15 +107,15 @@
                             <img src="{{ $singleblog->image }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <div class="card_date d-flex justify-content-between">
-                                    <div class="card_date_common mb-2"><i class="fa-regular fa-circle-user me-2"></i>Admin
+                                    <div class="card_date_common mb-2 blogcard_date"><i class="fa-regular fa-circle-user me-2"></i>Admin
                                     </div>
-                                    <div class="card_date_common mb-2"><i
+                                    <div class="card_date_common mb-2 blogcard_date"><i
                                             class="fa-solid fa-calendar-days me-2"></i>December 04, 2023</div>
                                 </div>
-                                <h5 class="card-title mt-4">There Are Many Variations</h5>
-                                <p class="card-text">There Are Many Variations For<br> Passages Available Suffer.</p>
-                                <div class="common_button mt-5 mb-3 blog_post_btn">
-                                    <a href="#" class="py-3">Read More<i
+                                <h5 class="card-title mt-1 bog_title">There Are Many Variations</h5>
+                                <p class="card-text blog_text">There Are Many Variations For<br> Passages Available Suffer.</p>
+                                <div class="common_button mt-3 mb-3  blog_post_btn">
+                                    <a href="#" class="py-2 blog_btn">Read More<i
                                             class="fa-solid fa-arrow-right ms-3"></i></a>
                                 </div>
                             </div>
@@ -124,15 +124,15 @@
                             <img src="{{ $singleblog->image }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <div class="card_date d-flex justify-content-between">
-                                    <div class="card_date_common mb-2"><i class="fa-regular fa-circle-user me-2"></i>Admin
+                                    <div class="card_date_common mb-2 blogcard_date"><i class="fa-regular fa-circle-user me-2"></i>Admin
                                     </div>
-                                    <div class="card_date_common mb-2"><i
+                                    <div class="card_date_common mb-2 blogcard_date"><i
                                             class="fa-solid fa-calendar-days me-2"></i>December 04, 2023</div>
                                 </div>
-                                <h5 class="card-title mt-4">There Are Many Variations</h5>
-                                <p class="card-text">There Are Many Variations For<br> Passages Available Suffer.</p>
-                                <div class="common_button mt-5 mb-3 blog_post_btn">
-                                    <a href="#" class="py-3">Read More<i
+                                <h5 class="card-title mt-1 bog_title">There Are Many Variations</h5>
+                                <p class="card-text blog_text">There Are Many Variations For<br> Passages Available Suffer.</p>
+                                <div class="common_button mt-3 mb-3  blog_post_btn">
+                                    <a href="#" class="py-2 blog_btn">Read More<i
                                             class="fa-solid fa-arrow-right ms-3"></i></a>
                                 </div>
                             </div>
@@ -141,19 +141,20 @@
                             <img src="{{ $singleblog->image }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <div class="card_date d-flex justify-content-between">
-                                    <div class="card_date_common mb-2"><i class="fa-regular fa-circle-user me-2"></i>Admin
+                                    <div class="card_date_common mb-2 blogcard_date"><i class="fa-regular fa-circle-user me-2"></i>Admin
                                     </div>
-                                    <div class="card_date_common mb-2"><i
+                                    <div class="card_date_common mb-2 blogcard_date"><i
                                             class="fa-solid fa-calendar-days me-2"></i>December 04, 2023</div>
                                 </div>
-                                <h5 class="card-title mt-4">There Are Many Variations</h5>
-                                <p class="card-text">There Are Many Variations For<br> Passages Available Suffer.</p>
-                                <div class="common_button mt-5 mb-3 blog_post_btn">
-                                    <a href="#" class="py-3">Read More<i
+                                <h5 class="card-title mt-1 bog_title">There Are Many Variations</h5>
+                                <p class="card-text blog_text">There Are Many Variations For<br> Passages Available Suffer.</p>
+                                <div class="common_button mt-3 mb-3  blog_post_btn">
+                                    <a href="#" class="py-2 blog_btn">Read More<i
                                             class="fa-solid fa-arrow-right ms-3"></i></a>
                                 </div>
                             </div>
                         </div>
+                       
                     </div>
                 </div>
             </div>
