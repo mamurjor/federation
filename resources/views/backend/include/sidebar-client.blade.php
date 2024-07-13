@@ -26,55 +26,142 @@
 
     <div class="menu-inner-shadow"></div>
 
-    <ul class="menu-inner py-1">
+    <ul class="menu-inner py-1" id="layout-menu">
         <!-- Dashboards -->
-        <li class="menu-item active open">
-            <a href="{{ route('client.dashboard') }}" class="menu-link menu-toggle">
+        <li class="menu-item">
+            <a href="{{ route('client.dashboard') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
             </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{ route('classified.index') }}" class="menu-link">
-                        <div data-i18n="Analytics">Classified ads</div>
-                    </a>
-                </li>
-                <!-- Other menu items -->
-                
-            </ul>
-    
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{ route('matromonial.index') }}" class="menu-link">
-                        <div data-i18n="Analytics">Matrimonial</div>
-                    </a>
-                </li>
-                <!-- Other menu items -->
-            </ul>
         </li>
+
+        <li class="menu-item">
+            <a href="{{ route('classified.index') }}" class="menu-link">
+                <div data-i18n="CRM">Classified ads </div>
+            </a>
+        </li>
+
+        <li class="menu-item">
+            <a href="{{ route('matromonial.index') }}" class="menu-link">
+                <div data-i18n="CRM">Matrimonial </div>
+            </a>
+        </li>
+
+
+        <!-- Other submenu items -->
+
+
+        <!-- Other top-level menu items -->
     </ul>
-    
 
 
-</aside>
-    <style>
-        .menu-sub {
-            display: none;
-        }
-    
-        .menu-sub.show {
-            display: block;
-        }
-    </style>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var menuToggles = document.querySelectorAll('.menu-toggle');
-        
-        menuToggles.forEach(function(toggle) {
-            toggle.addEventListener('click', function() {
-                var submenu = toggle.nextElementSibling;
-                submenu.classList.toggle('show');
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded and parsed');
+            const templateName = 'defaultTemplateName'; // Replace with your actual template name
+
+            // Fetch the showDropdownOnHover setting
+            const showDropdownOnHover = localStorage.getItem('templateCustomizer-' + templateName +
+                    '--ShowDropdownOnHover') ?
+                localStorage.getItem('templateCustomizer-' + templateName + '--ShowDropdownOnHover') === 'true' :
+                window.templateCustomizer !== undefined ?
+                window.templateCustomizer.settings.defaultShowDropdownOnHover :
+                true;
+            console.log('showDropdownOnHover:', showDropdownOnHover);
+
+            // Function to handle menu item clicks
+            function handleMenuItemClick(item) {
+                console.log('Clicked item:', item);
+                const clickedMenuItem = item.parentElement;
+                const isAlreadyOpen = clickedMenuItem.classList.contains('open');
+                console.log('Is already open:', isAlreadyOpen);
+
+                // Close all other open menus
+                document.querySelectorAll('.menu-item.open').forEach(function(openItem) {
+                    if (!openItem.contains(clickedMenuItem)) {
+                        slideUp(openItem.querySelector('.menu-sub'));
+                        openItem.classList.remove('open');
+                    }
+                });
+
+                // Toggle the clicked item
+                if (!isAlreadyOpen) {
+                    clickedMenuItem.classList.add('open');
+                    slideDown(clickedMenuItem.querySelector('.menu-sub'));
+                } else {
+                    clickedMenuItem.classList.remove('open');
+                    slideUp(clickedMenuItem.querySelector('.menu-sub'));
+                }
+            }
+
+            // Slide down function
+            function slideDown(element) {
+                if (!element) return; // Prevent errors if element is null
+                element.style.display = 'block';
+                const height = element.scrollHeight;
+                element.style.maxHeight = '0';
+                element.style.transition = 'none';
+
+                requestAnimationFrame(function() {
+                    element.style.maxHeight = height + 'px';
+                    element.style.transition = 'max-height 0.3s ease-in-out';
+                });
+            }
+
+            // Slide up function
+            function slideUp(element) {
+                if (!element) return; // Prevent errors if element is null
+                element.style.maxHeight = element.scrollHeight + 'px';
+                element.style.transition = 'none';
+
+                requestAnimationFrame(function() {
+                    element.style.maxHeight = '0';
+                    element.style.transition = 'max-height 0.3s ease-in-out';
+                });
+
+                element.addEventListener('transitionend', function() {
+                    element.style.display = 'none';
+                }, {
+                    once: true
+                });
+            }
+
+            // Function to set the active menu based on current URL or route
+            function setActiveMenu() {
+                const currentUrl = window.location.href;
+                console.log('Current URL:', currentUrl);
+                document.querySelectorAll('.menu-item').forEach(function(menuItem) {
+                    const menuLink = menuItem.querySelector('.menu-link');
+                    if (menuLink && menuLink.href === currentUrl) {
+                        menuItem.classList.add('active');
+                        openParentMenus(menuItem);
+                    }
+                });
+            }
+
+            // Function to open parent menus up to the top level
+            function openParentMenus(menuItem) {
+                let parent = menuItem.parentElement;
+                while (parent) {
+                    if (parent.classList.contains('menu-item')) {
+                        parent.classList.add('open');
+                        slideDown(parent.querySelector('.menu-sub'));
+                    }
+                    parent = parent.parentElement;
+                }
+            }
+
+            // Add click event listeners to menu-toggle links
+            document.querySelectorAll('.menu-toggle').forEach(function(item) {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    handleMenuItemClick(item);
+                });
             });
+
+            // Set the active menu on page load
+            setActiveMenu();
         });
-    });
-</script>
+    </script>
+</aside>
