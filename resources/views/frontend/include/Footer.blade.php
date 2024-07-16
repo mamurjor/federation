@@ -1,5 +1,5 @@
 <footer id="footer_section" class="footer_section">
-    <div class="container pb-5">
+    <div class="container pb-2">
         <div class="row">
             <div class="col-md-6 col-lg-3 mb-5">
                 <div class="footer_heading">
@@ -64,7 +64,7 @@
             </div>
             <div class="col-md-6 col-lg-3 mb-5">
                 <div class="footer_items footer_itemsone">
-                    <h3 class="mb-4">Compnay</h3>
+                    <h3 class="mb-4 fs-5 ">Compnay</h3>
                     <img class="mb-5 footer_title_border_img"
                         src="{{ asset('frontend/assets/img/home_page/footer/footer_menu_border.png') }}" alt="">
                     <ul>
@@ -86,7 +86,7 @@
             </div>
             <div class="col-md-6 col-lg-3 mb-5">
                 <div class="footer_items footer_itemsone">
-                    <h3 class="mb-4">Quick Link</h3>
+                    <h3 class="mb-4 fs-5">Quick Link</h3>
                     <img class="mb-5 footer_title_border_img"
                         src="{{ asset('frontend/assets/img/home_page/footer/footer_menu_border.png') }}" alt="">
                     <ul>
@@ -112,17 +112,17 @@
 
             <div class="col-md-6 col-lg-3 mb-5">
                 <div class="footer_items">
-                    <h3 class="mb-4">Newsletter</h3>
+                    <h3 class="mb-4 fs-5">Newsletter</h3>
                     <img class="mb-5 footer_title_border_img"
                         src="{{ asset('frontend/assets/img/home_page/footer/footer_menu_border.png') }}" alt="">
                     <div class="subcribe_text mb-4">
                         <h4>Subscribe Our Newsletter To Get Latest Update And News</h4>
                     </div>
                     <form action="#">
-                        <div class="p-1 bg-light rounded-1 shadow-sm mb-5">
+                        <div class="p-1 bg-light rounded-1 shadow-sm mb-3">
                             <div class="input-group pe-3">
                                 <input type="search" placeholder="Write email....." aria-describedby="button-addon1"
-                                    class="form-control border-0 bg-light placeholder_search py-3 px-2">
+                                    class="form-control border-0 bg-light placeholder_search py-2 px-2">
                                 <div class="input-group-append align-self-center">
                                     <button id="button-plane" type="submit"
                                         class="btn btn-link text-white bg-danger"><i
@@ -131,7 +131,7 @@
                             </div>
                         </div>
                     </form>
-                    <h3 class="mb-4">
+                    <h3 class="mb-2">
                         We Accept</h3>
                     <div class="footer_card_account_image">
                         <img src="{{ config('settings.paymentmethod') }}" alt="paypal">

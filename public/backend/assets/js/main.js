@@ -47,6 +47,8 @@ if (document.getElementById('layout-menu')) {
     window.Helpers.mainMenu = menu;
   });
 
+  
+
   // Initialize menu togglers and bind click on each
   let menuToggler = document.querySelectorAll('.layout-menu-toggle');
   menuToggler.forEach(item => {

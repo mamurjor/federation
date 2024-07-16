@@ -73,7 +73,7 @@
                                 </div>
                               <h5 class="card-title mt-4">There Are Many Variations</h5>
                               <p class="card-text">There Are Many Variations For<br> Passages Available Suffer.</p>
-                              <div class="common_button mt-5 mb-3 blog_post_btn">
+                              <div class="common_button text-cente">
                                 <a href="#" class="py-3">Read More<i class="fa-solid fa-arrow-right ms-3"></i></a>
                             </div>
                             </div>

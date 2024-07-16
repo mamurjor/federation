@@ -299,8 +299,7 @@
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-
-                        <img src="assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                        <img src="{{ Auth::user()->userimage ? Auth::user()->userimage : asset('backend/assets/img/icons/blank_profile/blank_profile.png') }}" alt class="h-auto rounded-circle" />
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -309,12 +308,11 @@
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
-
-                                        <img src="assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                                        <img src="{{ Auth::user()->userimage ? Auth::user()->userimage : asset('backend/assets/img/icons/blank_profile/blank_profile.png') }}" alt class="h-auto rounded-circle" />
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-medium d-block"></span>
+                                    <span class="fw-medium d-block">{{ Auth::user()->fname }}</span>
                                     <small class="text-muted">
                                     </small>
                                 </div>

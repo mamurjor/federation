@@ -284,7 +284,8 @@
             } else {
                 var index = selectedTehsils.indexOf(tehsilName);
                 if (index !== -1) {
-                    selectedTehsils.splice(index, 1); // Remove the tehsil name from the array if unchecked
+                    selectedTehsils.splice(index,
+                        1); // Remove the tehsil name from the array if unchecked
                 }
             }
 
@@ -315,7 +316,9 @@
 
                     $('.filtertehsil').each(function() {
                         var tehsilName = $(this).val();
-                        var countElement = $(this).closest('.form-group').find('#totaldata'); // Find the corresponding count display element
+                        var countElement = $(this).closest('.form-group').find(
+                            '#totaldata'
+                        ); // Find the corresponding count display element
 
                         // Find the count of results for the current tehsil in the response
                         var tehsilCount = response.filter(function(item) {
@@ -352,8 +355,11 @@
                                         <p class="card-text"><i class="fa-solid fa-location-dot"></i> ${data.location}</p>
                                         <p class="card-text mt-2"><i class="fa-regular fa-clock"></i>${calculateDaysAgo(data.created_at)}</p>
                                         <div class="classified_add_btn d-flex justify-content-between align-items-center">
-                                            <h6 class="fw-bold">$${data.price}</h6>
-                                            <a href="/classified/single/${data.id}" class="py-3">Read More<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                            <h6 class="fw-bold">${data.price}</h6>
+                                            <a href="{{ route('classified.single', $data->id) }}"
+                                                        class="py-3">Read
+                                                        More<i class="fa-solid fa-arrow-right ms-3"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -403,7 +409,7 @@
                                             <p class="card-text"><i class="fa-solid fa-location-dot"></i> ${data.location}</p>
                                             <p class="card-text mt-2"><i class="fa-regular fa-clock"></i>${calculateDaysAgo(data.created_at)}</p>
                                             <div class="classified_add_btn d-flex justify-content-between align-items-center">
-                                                <h6 class="fw-bold">$${data.price}</h6>
+                                                <h6 class="fw-bold">${data.price}</h6>
                                                 <a href="/classified/single/${data.id}" class="py-3">Read More<i class="fa-solid fa-arrow-right ms-3"></i></a>
                                             </div>
                                         </div>
@@ -587,4 +593,3 @@
         });
     });
 </script>
-

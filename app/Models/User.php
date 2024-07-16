@@ -48,7 +48,8 @@ class User extends Authenticatable
         'bio',
         'short_bio',
         'status',
-        'userimage'
+        'userimage',
+        'total_users'
     ];
 
     /**

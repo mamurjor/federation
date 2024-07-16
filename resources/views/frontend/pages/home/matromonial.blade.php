@@ -15,7 +15,7 @@
                 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
                    <a href="{{ route('matromonial.single', $data->id) }}">
                     <div class="card border-0 mb-3">
-                        <div class="text-center py-3">
+                        <div class="text-center">
                             <img src="{{ $data->matromonialimage }}" class="card-img-top matrimonial_img"
                                 alt="...">
                         </div>
@@ -60,7 +60,7 @@
                 </div>
             @endforeach
 
-            <div class="text-center border border-black p-3">
+            <div class="common_button text-center">
                 <a href="{{ route('classified') }}" class="py-3">See
                     More<i class="fa-solid fa-arrow-right ms-3"></i></a>
             </div>

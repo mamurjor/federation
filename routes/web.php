@@ -12,7 +12,6 @@ use App\Http\Controllers\ExcelCSVController;
 use App\Http\Controllers\AllNotifiController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\CastController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\VerifyUserController;
 use App\Http\Controllers\Admin\GenderController;
 use App\Http\Controllers\Admin\TehsilController;
@@ -33,6 +32,8 @@ use App\Http\Controllers\Admin\SliersectionController;
 use App\Http\Controllers\Frontend\MainIndexController;
 use App\Http\Controllers\Admin\InternationalController;
 use App\Http\Controllers\Admin\MissionSectionController;
+use App\Http\Controllers\Admin\UserController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -197,6 +198,12 @@ Route::post('herosection/store', [HeroSectionController::class, 'store'])->name(
 Route::post('herosection/update', [HeroSectionController::class, 'update'])->name('herosection.update');
 Route::get('herosection/edit/{id}', [HeroSectionController::class, 'edit'])->name('herosection.edit');
 Route::get('herosection/Divisiondelete/{id}', [HeroSectionController::class, 'delete'])->name('herosection.delete');
+
+Route::get('user/index', [UserController::class, 'index'])->name('user.index');
+Route::get('user/create', [UserController::class, 'create'])->name('user.create');
+
+Route::get( 'user/active/{id}', [UserController::class, 'active'])->name('user.active');
+Route::get( 'user/cancel/{id}', [UserController::class, 'cancel'])->name('user.cancel');
 
 Route::get('missionsection/index', [MissionSectionController::class, 'index'])->name('missionsection.index');
 Route::get('missionsection/create', [MissionSectionController::class, 'create'])->name('missionsection.create');

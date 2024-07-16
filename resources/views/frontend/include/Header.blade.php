@@ -47,7 +47,7 @@
             </div>
 
 
-            <div class="col-md-6 col-sm-7 col-lg-7 d-flex gap-5 justify-content-end align-items-center">
+            <div class="col-md-6 col-sm-7 col-lg-7 d-flex gap-3 justify-content-end align-items-center">
                 {{-- 
                 <div class="dropdown">
                     <a class="dropdown-toggle" type="button" id="Division" data-bs-toggle="dropdown"
@@ -106,14 +106,14 @@
                 <div>
                     {{-- <label for="district">District:</label> --}}
                     <select class="dropdown_style" id="district">
-                        <option value="">District</option>
+                        <option  value="">District</option>
                     </select>
                 </div>
                 <span class="text-white">|</span>
                 <div>
                     {{-- <label for="tehsil">Tehsil:</label> --}}
                     <select class="dropdown_style" id="tehsil">
-                        <option value="">Tehsil</option>
+                        <option  value="">Tehsil</option>
                     </select>
                 </div>
 

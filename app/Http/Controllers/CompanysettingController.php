@@ -13,89 +13,11 @@ class CompanysettingController extends Controller
          // $this->middleware('auth');
     }
 
-    // public function companysettingform(){
-  
-    //     $this->setPageTitle('Company Setting');
-    //     return view("backend.page.companysetting.compnaysettingform");
-    // }
-
-
-    public function companysetting(Request $request){
-
-        Setting::updateOrCreate(['key' => 'blogtitle'], ['value' => $request->blogtitle]);
-        Setting::updateOrCreate(['key' => 'blogslogan'], ['value' => $request->blogslogan]);
-        Setting::updateOrCreate(['key' => 'casttitle'], ['value' => $request->casttitle]);
-        Setting::updateOrCreate(['key' => 'castslogan'], ['value' => $request->blogslogan]);
-        Setting::updateOrCreate(['key' => 'matromonialtitle'], ['value' => $request->matromonialtitle]);
-        Setting::updateOrCreate(['key' => 'matromonialslogan'], ['value' => $request->matromonialslogan]);
-        Setting::updateOrCreate(['key' => 'Divisiontitle'], ['value' => $request->Divisiontitle]);
-        Setting::updateOrCreate(['key' => 'Divisionslogan'], ['value' => $request->Divisionslogan]);
-        Setting::updateOrCreate(['key' => 'tehsiltitle'], ['value' => $request->tehsiltitle]);
-        Setting::updateOrCreate(['key' => 'tehsilslogan'], ['value' => $request->tehsilslogan]);
-        Setting::updateOrCreate(['key' => 'districttitle'], ['value' => $request->districttitle]);
-        Setting::updateOrCreate(['key' => 'districtslogan'], ['value' => $request->districtslogan]);
-        Setting::updateOrCreate(['key' => 'contacttitle'], ['value' => $request->contacttitle]);
-        Setting::updateOrCreate(['key' => 'contactslogan'], ['value' => $request->contactslogan]);
-        Setting::updateOrCreate(['key' => 'abouttitle'], ['value' => $request->abouttitle]);
-        Setting::updateOrCreate(['key' => 'aboutslogan'], ['value' => $request->aboutslogan]);
-        Setting::updateOrCreate(['key' => 'wingstitle'], ['value' => $request->wingstitle]);
-        Setting::updateOrCreate(['key' => 'wingsslogan'], ['value' => $request->wingsslogan]);
-
-        return redirect()->route('company.setting')->with('success','Created successfully.');
-    }
-    public function companysettingfooter(Request $request){
-
-     
-   
-        Setting::updateOrCreate(['key' => 'copyright'], ['value' => $request->copyright]);
-        Setting::updateOrCreate(['key' => 'footerdescription'], ['value' => $request->footerdescription]);
-        Setting::updateOrCreate(['key' => 'footertelnumber'], ['value' => $request->footertelnumber]);
-        Setting::updateOrCreate(['key' => 'footeremail'], ['value' => $request->footeremail]);
-        Setting::updateOrCreate(['key' => 'footeraddress'], ['value' => $request->footeraddress]);
-        Setting::updateOrCreate(['key' => 'homeurl'], ['value' => $request->homeurl]);
-        Setting::updateOrCreate(['key' => 'abouturl'], ['value' => $request->abouturl]);
-        Setting::updateOrCreate(['key' => 'serviceurl'], ['value' => $request->serviceurl]);
-        Setting::updateOrCreate(['key' => 'contacturl'], ['value' => $request->contacturl]);
-        Setting::updateOrCreate(['key' => 'helpcenterurl'], ['value' => $request->helpcenterurl]);
-        Setting::updateOrCreate(['key' => 'howitworksurl'], ['value' => $request->howitworksurl]);
-        Setting::updateOrCreate(['key' => 'registrationurl'], ['value' => $request->registrationurl]);
-        Setting::updateOrCreate(['key' => 'loginurl'], ['value' => $request->loginurl]);
-        Setting::updateOrCreate(['key' => 'privacyurl'], ['value' => $request->privacyurl]);
-        Setting::updateOrCreate(['key' => 'termsconditionurl'], ['value' => $request->termsconditionurl]);
-        Setting::updateOrCreate(['key' => 'professionurl'], ['value' => $request->professionurl]);
-        Setting::updateOrCreate(['key' => 'Divisionpageurl'], ['value' => $request->Divisionpageurl]);
-        Setting::updateOrCreate(['key' => 'tehsilurl'], ['value' => $request->tehsilurl]);
-        Setting::updateOrCreate(['key' => 'footerlastsectiontext'], ['value' => $request->footerlastsectiontext]);
-      
-
-
-        if ($request->hasFile('flogo')) {
-            $image     = $request->file('flogo');
-            $flogopath = '/admin/setting/' . time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('admin/setting'), $flogopath);
-            Setting::updateOrCreate(['key' => 'flogo'], ['value' => $flogopath]);
-        }
-
-
-        if ($request->hasFile('paymentmethod')) {
-            $imagepaymentmethod = $request->file('paymentmethod');
-            $paymentmethodpath  = '/admin/setting/' . time() . '.' . $imagepaymentmethod->getClientOriginalExtension();
-            $imagepaymentmethod->move(public_path('admin/setting'), $paymentmethodpath);
-            Setting::updateOrCreate(['key' => 'paymentmethod'], ['value' => $paymentmethodpath]);
-        }
-
-  
-
-        return redirect()->route('company.setting')->with('success','Created successfully.');
-    }
-
-
     public function companysettingform(){
   
         $this->setPageTitle('Company Setting');
         return view("backend.page.companysetting.compnaysettingform");
     }
-
     public function companyheader(){
   
         $this->setPageTitle('Header Setting');
@@ -151,6 +73,76 @@ class CompanysettingController extends Controller
     }
 
 
+    public function companysetting(Request $request){
+
+        Setting::updateOrCreate(['key' => 'blogtitle'], ['value' => $request->blogtitle]);
+        Setting::updateOrCreate(['key' => 'blogslogan'], ['value' => $request->blogslogan]);
+        Setting::updateOrCreate(['key' => 'casttitle'], ['value' => $request->casttitle]);
+        Setting::updateOrCreate(['key' => 'castslogan'], ['value' => $request->blogslogan]);
+        Setting::updateOrCreate(['key' => 'matromonialtitle'], ['value' => $request->matromonialtitle]);
+        Setting::updateOrCreate(['key' => 'matromonialslogan'], ['value' => $request->matromonialslogan]);
+        Setting::updateOrCreate(['key' => 'Divisiontitle'], ['value' => $request->Divisiontitle]);
+        Setting::updateOrCreate(['key' => 'Divisionslogan'], ['value' => $request->Divisionslogan]);
+        Setting::updateOrCreate(['key' => 'tehsiltitle'], ['value' => $request->tehsiltitle]);
+        Setting::updateOrCreate(['key' => 'tehsilslogan'], ['value' => $request->tehsilslogan]);
+        Setting::updateOrCreate(['key' => 'districttitle'], ['value' => $request->districttitle]);
+        Setting::updateOrCreate(['key' => 'districtslogan'], ['value' => $request->districtslogan]);
+        Setting::updateOrCreate(['key' => 'contacttitle'], ['value' => $request->contacttitle]);
+        Setting::updateOrCreate(['key' => 'contactslogan'], ['value' => $request->contactslogan]);
+        Setting::updateOrCreate(['key' => 'abouttitle'], ['value' => $request->abouttitle]);
+        Setting::updateOrCreate(['key' => 'aboutslogan'], ['value' => $request->aboutslogan]);
+        Setting::updateOrCreate(['key' => 'wingstitle'], ['value' => $request->wingstitle]);
+        Setting::updateOrCreate(['key' => 'wingsslogan'], ['value' => $request->wingsslogan]);
+
+        return redirect()->route('pagesettings.show')->with('success','Created successfully.');
+    }
+    public function companysettingfooter(Request $request){
+
+     
+   
+        Setting::updateOrCreate(['key' => 'copyright'], ['value' => $request->copyright]);
+        Setting::updateOrCreate(['key' => 'footerdescription'], ['value' => $request->footerdescription]);
+        Setting::updateOrCreate(['key' => 'footertelnumber'], ['value' => $request->footertelnumber]);
+        Setting::updateOrCreate(['key' => 'footeremail'], ['value' => $request->footeremail]);
+        Setting::updateOrCreate(['key' => 'footeraddress'], ['value' => $request->footeraddress]);
+        Setting::updateOrCreate(['key' => 'homeurl'], ['value' => $request->homeurl]);
+        Setting::updateOrCreate(['key' => 'abouturl'], ['value' => $request->abouturl]);
+        Setting::updateOrCreate(['key' => 'serviceurl'], ['value' => $request->serviceurl]);
+        Setting::updateOrCreate(['key' => 'contacturl'], ['value' => $request->contacturl]);
+        Setting::updateOrCreate(['key' => 'helpcenterurl'], ['value' => $request->helpcenterurl]);
+        Setting::updateOrCreate(['key' => 'howitworksurl'], ['value' => $request->howitworksurl]);
+        Setting::updateOrCreate(['key' => 'registrationurl'], ['value' => $request->registrationurl]);
+        Setting::updateOrCreate(['key' => 'loginurl'], ['value' => $request->loginurl]);
+        Setting::updateOrCreate(['key' => 'privacyurl'], ['value' => $request->privacyurl]);
+        Setting::updateOrCreate(['key' => 'termsconditionurl'], ['value' => $request->termsconditionurl]);
+        Setting::updateOrCreate(['key' => 'professionurl'], ['value' => $request->professionurl]);
+        Setting::updateOrCreate(['key' => 'Divisionpageurl'], ['value' => $request->Divisionpageurl]);
+        Setting::updateOrCreate(['key' => 'tehsilurl'], ['value' => $request->tehsilurl]);
+        Setting::updateOrCreate(['key' => 'footerlastsectiontext'], ['value' => $request->footerlastsectiontext]);
+      
+
+
+        if ($request->hasFile('flogo')) {
+            $image     = $request->file('flogo');
+            $flogopath = '/admin/setting/' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('admin/setting'), $flogopath);
+            Setting::updateOrCreate(['key' => 'flogo'], ['value' => $flogopath]);
+        }
+
+
+        if ($request->hasFile('paymentmethod')) {
+            $imagepaymentmethod = $request->file('paymentmethod');
+            $paymentmethodpath  = '/admin/setting/' . time() . '.' . $imagepaymentmethod->getClientOriginalExtension();
+            $imagepaymentmethod->move(public_path('admin/setting'), $paymentmethodpath);
+            Setting::updateOrCreate(['key' => 'paymentmethod'], ['value' => $paymentmethodpath]);
+        }
+
+  
+
+        return redirect()->route('footer.show')->with('success','Created successfully.');
+    }
+
+
     public function companysettingheader(Request $request){
 
       
@@ -179,8 +171,10 @@ class CompanysettingController extends Controller
             $imagehlogo->move(public_path('admin/setting'), $hlogopath);
             Setting::updateOrCreate(['key' => 'hlogo'], ['value' => $hlogopath]);
         }
+        
+        return redirect()->route('company.setting.header.show')->with('success','Created successfully.');
+       
 
-        return redirect()->route('company.setting')->with('success','Created successfully.');
 
     }
 
@@ -214,7 +208,7 @@ class CompanysettingController extends Controller
 
 
      
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('contact.show')->with('success','Created successfully.');
 
     }
     
@@ -224,7 +218,7 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'psubtitle'], ['value' => $request->psubtitle]);
 
      
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('president.show')->with('success','Created successfully.');
 
     }
     public function companysettingfaq(Request $request){  
@@ -233,7 +227,7 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'fsubtitle'], ['value' => $request->fsubtitle]);
 
      
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('faq.show')->with('success','Created successfully.');
 
     }
     public function companysettingblog(Request $request){  
@@ -244,7 +238,7 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'burl'], ['value' => $request->burl]);
 
      
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('blog.show')->with('success','Created successfully.');
 
     }
     public function companysettingjoinus(Request $request){  
@@ -256,7 +250,7 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'jurl'], ['value' => $request->jurl]);
 
      
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('join.show')->with('success','Created successfully.');
 
     }
     public function companysettingclassified(Request $request){  
@@ -275,7 +269,7 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'curl'], ['value' => $request->curl]);
 
      
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('classified.show')->with('success','Created successfully.');
 
     }
     public function companysettingmatro(Request $request){  
@@ -294,7 +288,7 @@ class CompanysettingController extends Controller
         Setting::updateOrCreate(['key' => 'murl'], ['value' => $request->murl]);
 
      
-        return redirect()->route('company.setting')->with('success','Created successfully.');
+        return redirect()->route('matromonial.show')->with('success','Created successfully.');
 
     }
     

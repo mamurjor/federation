@@ -26,7 +26,7 @@
                         <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 mb-4 tehsil_bottom">
                             <a href="#">
                                 <div class="card tehsil_card">
-                                    <div class="card_image m-5">
+                                    <div class="card_image m-3">
                                         <img src="{{ $single->wingsnomini->user->userimage }}" class="card-img-top"
                                             alt="...">
                                     </div>
@@ -35,22 +35,22 @@
                                         <p class="card-text text-white">{{ $single->votepositiontype }}</p>
                                     </div>
                                 </div>
-                                <div class="social_icon tehsil_social py-5 text-center  mt-5">
-                                    <a href="#" class=" p-3 rounded-circle fw-normal me-3 bg-primary text-white"><i
+                                <div class="social_icon tehsil_social py-3 text-center   mt-3">
+                                    <a href="#" class="wing_icon rounded-circle fw-normal me-3 bg-primary text-white"><i
                                             class="fa-brands fa-facebook"></i></a>
-                                    <a href="#" class=" p-3 rounded-circle fw-normal me-3 bg-black text-white"><i
+                                    <a href="#" class=" wing_icon rounded-circle fw-normal me-3 bg-black text-white"><i
                                             class="fa-brands fa-twitter"></i></a>
-                                    <a href="#" class=" p-3 rounded-circle fw-normal me-3 bg-info text-white"><i
+                                    <a href="#" class=" wing_icon rounded-circle fw-normal me-3 bg-info text-white"><i
                                             class="fa-brands fa-linkedin-in"></i></a>
-                                    <a href="#" class=" p-3 rounded-circle fw-normal bg-danger text-white"><i
+                                    <a href="#" class="wing_icon rounded-circle fw-normal bg-danger text-white"><i
                                             class="fa-brands fa-youtube"></i></a>
                                 </div>
                             </a>
                         </div>
                         <div class="col-xl-9 col-lg-6 col-md-12 col-sm-12 mb-4">
                             <div class="common_heading tehsil_main">
-                                <h6>Meet Our President!</h6>
-                                <h2 class="fw-bold mb-3 mt-3">Mike Hardson</h2>
+                                <h6 class="top_line p-0" style="font-size: 13px">Meet Our President!</h6>
+                                <h2 class="fw-bold mb-3 mt-3 fs-2">Mike Hardson</h2>
                                 <p class="fw-normal">“ Meet the people redesigning the design process. See who’s
                                     answering your
                                     calls, optimizing your experience, and constantly obsessing over your designs.Meet
@@ -75,9 +75,9 @@
                                 </p>
                                 <div class="row align-items-center mb-5 mt-5">
                                     <div class="col-md-5"><img class="p_leftRight_image"
-                                            src="./img/home_page/our_misson_section/rightimg.png" alt=""></div>
+                                            src="{{ asset('frontend/assets/img/home_page/our_misson_section/rightimg.png') }}" alt=""></div>
                                     <div class="col-md-5"><img class="p_leftRight_image"
-                                            src="./img/home_page/our_misson_section/leftiimg.png" alt=""></div>
+                                            src="{{ asset('frontend/assets/img/home_page/our_misson_section/leftimg.png') }}" alt=""></div>
                                 </div>
 
                                 <h4 class="mb-3">Contact Info: </h4>
@@ -91,27 +91,28 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4">
                         <a href="#">
                             <div class="card">
-                                <div class="card_image">
-                                    <img src="./img/home_page/presidents_and_secretaries_section/team5.png"
+                                <div class="card_image text-center">
+                                    <img src="{{asset('backend/assets/img/avatars/1.png')  }}"
                                         class="card-img-top" alt="...">
                                 </div>
                                 <div class="card-body text-center">
                                     <h5 class="card-title">Mike Hardson</h5>
                                     <p class="card-text">Chairman</p>
-                                    <div class="social_icon mt-5">
+                                    <div class="social_icon  d-flex presi_icon_all">
                                         <a href="#"
-                                            class=" p-3 rounded-circle fw-normal me-3 bg-primary text-white"><i
-                                                class="fa-brands fa-facebook"></i></a>
-                                        <a href="#" class=" p-3 rounded-circle fw-normal me-3 bg-black text-white"><i
-                                                class="fa-brands fa-twitter"></i></a>
-                                        <a href="#" class=" p-3 rounded-circle fw-normal bg-info text-white"><i
-                                                class="fa-brands fa-linkedin-in"></i></a>
+                                            class="presi_icon rounded-circle fw-norma me-3 bg-primary text-white"><i
+                                                class="fa-brands fa-facebook wing_icon"></i></a>
+                                        <a href="#"
+                                            class=" presi_icon rounded-circle fw-normal me-3 bg-black text-white"><i
+                                                class="fa-brands fa-twitter wing_icon"></i></a>
+                                        <a href="#" class="presi_icon rounded-circle fw-normal me-3 bg-info text-white"><i
+                                                class="fa-brands fa-linkedin-in wing_icon"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4">
+                    {{-- <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4">
                         <a href="#">
                             <div class="card">
                                 <div class="card_image">
@@ -181,7 +182,7 @@
                                 </div>
                             </div>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
 
 

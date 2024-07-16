@@ -14,7 +14,8 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{asset('backend/assets/img/favicon/favicon.ico')}}">
+    {{-- <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" /> --}}
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,6 +58,7 @@
     <script src="{{ asset('backend/assets/vendor/js/template-customizer.js') }}"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     {{-- <script src="{{ asset('backend/assets/js/config.js') }}"></script> --}}
+    
 </head>
 
 <body>

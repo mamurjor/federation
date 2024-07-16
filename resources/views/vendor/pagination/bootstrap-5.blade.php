@@ -78,7 +78,7 @@
                         </li>
                     @else
                         <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
-                            <span class="page-link" aria-hidden="true">&rsaquo;</span>
+                            <i class="fa-solid fa-arrow-right-long page-link"></i>
                         </li>
                     @endif
                 </ul>
