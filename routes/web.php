@@ -436,7 +436,7 @@ Route::get('blogpost/edit/{id}', [BlogController::class, 'blogpostedit'])->name(
 Route::get('blogpost/delete/{id}', [BlogController::class, 'blogpostdelete'])->name('blogpost.delete');
 
 
-Route::get('blog', [MainIndexController::class, 'blog'])->name('blog');
+Route::get('blog_page', [MainIndexController::class, 'blog'])->name('blog');
 Route::get('blogsingle/{id}',[MainIndexController::class,'blogsingle'])->name('blog.single');
 
 // Contact

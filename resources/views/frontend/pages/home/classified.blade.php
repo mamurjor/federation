@@ -13,17 +13,18 @@
         <div id="classify" class="row mt-5">
 
             @foreach ($classified as $data)
-                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
+            
+                <div class="col-md-4 col-sm-6 col-lg-6 col-xl-3 mb-4">
 
                     <a href="{{ route('classified.single', $data->id) }}">
-                        <div class="card position-relative border-0 mb-3">
+                        <div class=" position-relative home_classified border-0 mb-3">
                             <h6 class="classified_position_heading position-absolute">New</h6>
                             <div class="hart_postion position-absolute">
                                 <i class="fa-solid fa-heart"></i>
                             </div>
                             <img src="{{ $data->image }}" class="" alt="...">
                             <div class="card-body">
-                                <div class="card_date d-flex justify-content-between">
+                                <div class="card_date d-flex justify-content-between mt-2">
                                     <div class="card_date_common mb-4 mobile_bg"><i
                                             class="fa-solid fa-mobile-screen-button me-2 text-white"></i>Mobiles
                                     </div>

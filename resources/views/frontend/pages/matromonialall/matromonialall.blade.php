@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="breadcrumd_heading text-center">
-                            <h2 class="fw-bold">Matrimonial</h2>
+                            <h2 class="fw-bold fs-2">Matrimonial</h2>
                             <span><a href="#" class="text-black">Home</a> / Matrimonial</span>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
 
                                 <div class="form-gorup mb-3">
                                     <label for="form-label" class="form-label looking_filter_label">MARITAL STATUS</label>
-                                    <select id="Single" class="form-control looking_filter_input" name="Single">
+                                    <select id="Single" class="form-select looking_filter_input" name="Single">
                                         @foreach ($marital as $single)
                                             <option value="{{ $single->name }}">{{ $single->name }}</option>
                                         @endforeach
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="form-gorup mb-3">
                                     <label for="form-label" class="form-label looking_filter_label">RELIGION</label>
-                                    <select id="religion" class="form-control looking_filter_input" name="religion">
+                                    <select id="religion" class="form-select looking_filter_input" name="religion">
                                         @foreach ($allreligion as $single)
                                             <option value="{{ $single->name }}">{{ $single->name }}</option>
                                         @endforeach
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="form-gorup mb-3">
                                     <label for="form-label" class="form-label looking_filter_label">CASTE / SECT</label>
-                                    <select id="caste_sect" class="form-control looking_filter_input" name="caste_sect">
+                                    <select id="caste_sect" class="form-select looking_filter_input" name="caste_sect">
                                         @foreach ($allcast as $single)
                                             <option value="{{ $single->name }}">{{ $single->name }}</option>
                                         @endforeach
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="form-gorup mb-3">
                                     <label for="form-label" class="form-label looking_filter_label">PROFESSION</label>
-                                    <select id="Teacher" class="form-control looking_filter_input" name="profession">
+                                    <select id="Teacher" class="form-select looking_filter_input" name="profession">
                                         @foreach ($allprofession as $single)
                                             <option value="{{ $single->name }}">{{ $single->name }}</option>
                                         @endforeach
@@ -79,7 +79,7 @@
                                     </div> --}}
                                 <div class="common_button mt-5 text-center">
 
-                                    <button class="btn btn-success waves-effect waves-light" type="submit"> Search Now
+                                    <button class="matro_btn" type="submit"> Search Now
                                     </button>
                                     {{-- // <a href="{{ route('getmatromonialbysearch')}}">Search Now</a> --}}
                                 </div>
@@ -87,14 +87,14 @@
                         </form>
                         <div class="common_filter_tehsil">
                             <h4 class="fw-bold common_filter_heading mb-4">FILTER BY TEHSIL</h4>
-                            <input class="form-control py-3 search_input mb-4" type="search" name="search"
+                            <input class="form-control py-2 search_input mb-4" type="search" name="search"
                                 placeholder="search">
                             <div class="common_filter_check">
 
                                 @foreach ($getalltehsil as $singlevalue)
                                     <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                         <div>
-                                            <input class="form-check-input p-3 filter-checkbox" type="checkbox"
+                                            <input class="form-check-input p-2 check_style filter-checkbox" type="checkbox"
                                                 value="{{ $singlevalue->name }}" id="flexCheckChecked">
                                             <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                                 {{ $singlevalue->name }}</span>
@@ -107,8 +107,8 @@
 
                             </div>
                             <div class="common_button mt-5 text-center">
-                                <button type="submit" class="btn btn-danger waves-effect waves-light clearFilterBtn">CLEAR
-                                    FILTER</button>
+                                <a type="submit" class="bg-white filter_btn">CLEAR
+                                    FILTER</a>
                             </div>
                         </div>
                         <div class="common_filter_tehsil mt-4">
@@ -119,7 +119,7 @@
                                 @foreach ($allprofession as $single)
                                     <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                         <div>
-                                            <input class="form-check-input p-3 filterProfession" type="checkbox"
+                                            <input class="form-check-input p-2 check_style filterProfession" type="checkbox"
                                                 value="{{ $single->name }}" id="flexCheckChecked">
                                             <label class="form-check-label pt-1 ms-2 filter_size" for="flexCheckChecked">
                                                 {{ $single->name }}</span>
@@ -130,20 +130,20 @@
                                 @endforeach
                             </div>
                             <div class="common_button mt-5 text-center">
-                                <button type="submit" id=""
-                                    class="btn btn-danger waves-effect waves-light clearFilterBtn">CLEAR FILTER</button>
+                                <a type="submit" id=""
+                                    class="bg-white filter_btn">CLEAR FILTER</a>
                             </div>
                         </div>
                     </div>
 
 
                     <div class="col-md-12 col-lg-8 col-xl-9">
-                        <div class="row common_filter_top rounded py-3 px-3 align-items-center">
+                        <div class="row common_filter_top rounded py-2 px-3 align-items-center">
                             <div class="col-xl-4 col-lg-12 col-sm-12 col-md-12">
                                 <div class="input-group  bg-white pe-3 mb-2 mt-2">
                                     <input type="search" id="search-input" placeholder="Search by title.."
                                         aria-describedby="button-addon1"
-                                        class="form-control border-0 placeholder_search py-3 px-4">
+                                        class="form-control border-0 placeholder_search py-2 px-4">
                                     <div class="input-group-append align-self-center">
                                         <button id="button-plane" type="submit"
                                             class="btn btn-link text-white bg-danger"><i
@@ -153,23 +153,45 @@
                             </div>
                             <div class="col-xl-4 col-lg-6 col-sm-6 col-md-6 d-flex align-items-center">
                                 <div class="input-group bg-white py-3 justify-content-center rounded mb-2 mt-2">
-                                    <label for="number" class="number_filter_label">SHOW : <select name="text"
-                                            id="short_bye" class="py-2 px-5 bg-white border-1 showByNumber">
-                                            <option value="">Select</option>
-                                            <option value="10">10</option>
-                                            <option value="20">20</option>
-                                            <option value="50">50</option>
-                                        </select>
+                                    <div class="row g-1">
+                                        <label for="number" class="number_filter_label col-sm-4 filter_title_2">SHOW
+                                            :
+                                        </label>
+                                        <div class="col-sm-6">
+                                            <select class="form-select filter_form_2 showByNumber" name="text"
+                                            id="short_bye" aria-label="Default select example">
+                                                <option selected>Select</option>
+                                                <option value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="50">50</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                   
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-6 col-sm-6 col-md-6">
                                 <div class="input-group bg-white py-3 justify-content-center rounded mb-2 mt-2">
-                                    <label for="number" class="number_filter_label">SORT BY : <select name="text"
+
+                                    <div class="row g-1">
+                                        <label for="number" class="number_filter_label col-sm-4 filter_title_2">SHORT BY
+                                            : </label>
+                                        <div class="col-sm-6">
+                                            <select class="form-select filter_form_2 fs-6 sortBy" name="text"
+                                                id="short_bye" aria-label="Default select example">
+                                                <option selected>Select</option>
+                                                <option value="old">Oldest</option>
+                                                <option value="new">Latest</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    {{-- <label for="number" class="number_filter_label">SORT BY : <select name="text"
                                             id="short_bye" class="py-2 px-5 bg-white border-1 sortBy">
                                             <option value="">Select</option>
                                             <option value="old">Oldest</option>
                                             <option value="new">Latest</option>
-                                        </select>
+                                        </select> --}}
                                 </div>
                             </div>
                         </div>
@@ -212,7 +234,7 @@
                                                     <a
                                                         href="mailto:{{ $data->email }}?subject=Your%20Subject&body=Your%20Message%20Here">
 
-                                                        <h6 class="fw-bold matrimonial_add_btn"><i
+                                                        <h6 class="fw-bold matrimonial_add_btn matro_phone"><i
                                                                 class="fa-solid fa-phone"></i>
                                                             contact</h6>
                                                     </a>

@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="breadcrumd_heading text-center">
-                            <h2 class="fw-bold">Classified Ads</h2>
+                            <h2 class="fw-bold fs-2">Classified Ads</h2>
                             <span><a href="#" class="text-black">Home</a> / Classified Ads</span>
                         </div>
                     </div>
@@ -22,42 +22,43 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-lg-4 col-xl-3">
-
                         <div class="common_filter_tehsil mb-4">
                             <h4 class="fw-bold common_filter_heading mb-4">FILTER BY PRICE</h4>
+                            <div class="slider">
+                                <div class="progress"></div>
+                            </div>
+                            <div class="range-input">
+                                <input type="range" class=" range-min" min="0" max="10000" value="2500"
+                                    step="100">
+                                <input type="range" class="range-max" min="0" max="10000" value="7500"
+                                    step="100">
+                            </div>
                             <div class="price-input">
-                                <div class="field">
-                                    <label class="form-label">Min</label>
-                                    <input type="number" class="input-min form-control" value="0">
-                                </div>
-                                <div class="separator">-</div>
-                                <div class="field">
-                                    <label class="form-label">Max</label>
-                                    <input type="number" class="input-max form-control" value="7500">
-                                </div>
+                                <form class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label p_lavel">Min</label>
+                                        <input type="text" class="form-control input-min p_form" value="0">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label p_lavel">Max</label>
+                                        <input type="text" class="form-control input-max p_form" value="100">
+                                    </div>
+
+                                </form>
                             </div>
 
-                            {{-- slider  --}}
 
-                            <div class="price-range-slider">
-                                <p class="range-value">
-                                    <input type="text" id="amount" readonly>
-                                </p>
-                                <div id="slider-range" class="range-bar"></div>
-                            </div>
 
                         </div>
-
-
                         <div class="common_filter_tehsil">
                             <h4 class="fw-bold common_filter_heading mb-4">FILTER BY TEHSIL</h4>
-                            <input class="form-control py-3 search_input mb-4" type="search" name="search"
+                            <input class="form-control py-2 search_input mb-4" type="search" name="search"
                                 placeholder="search">
                             <div class="common_filter_check">
                                 @foreach ($getalltehsil as $single)
                                     <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                         <div>
-                                            <input class="form-check-input p-3 filtertehsil" type="checkbox"
+                                            <input class="form-check-input p-2 check_style filtertehsil" type="checkbox"
                                                 value="{{ $single->name }}" id="flexCheckChecked">
                                             <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                                 {{ $single->name }}</span>
@@ -69,9 +70,9 @@
 
 
                             </div>
-                            <div class="common_button mt-5 text-center">
+                            <div class="common_button mt-4 text-center">
                                 <button type="submit" id="clearFilterBtn"
-                                    class="btn btn-danger waves-effect waves-light">CLEAR FILTER</button>
+                                    class=" fw-bold bg-white py-2 rounded-1 filter_btn">CLEAR FILTER</button>
                             </div>
                         </div>
 
@@ -81,7 +82,25 @@
 
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
+                                            id="flexCheckChecked">
+                                        <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="ratings">
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                </div>
+
+                                            </div></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
+                                    <div>
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             <div class="d-flex justify-content-between align-items-center">
@@ -99,7 +118,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             <div class="d-flex justify-content-between align-items-center">
@@ -107,7 +126,7 @@
                                                     <i class="fa fa-star rating-color"></i>
                                                     <i class="fa fa-star rating-color"></i>
                                                     <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star "></i>
                                                     <i class="fa fa-star"></i>
                                                 </div>
 
@@ -117,15 +136,15 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="ratings">
                                                     <i class="fa fa-star rating-color"></i>
                                                     <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                 </div>
 
@@ -135,15 +154,15 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="ratings">
                                                     <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star "></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                 </div>
 
@@ -157,108 +176,128 @@
 
                         </div>
                     </div>
+                
 
-
-                    <div class="col-md-12 col-lg-8 col-xl-9">
-                        <div class="row common_filter_top rounded py-3 px-3 align-items-center">
-                            <div class="col-xl-4 col-lg-12 col-sm-12 col-md-12">
-                                <div class="input-group bg-white pe-3 mb-2 mt-2">
-                                    <input type="search" id="search-input" placeholder="Search by title..."
-                                        aria-describedby="button-addon1"
-                                        class="form-control border-0 placeholder_search py-3 px-4">
-                                    <div class="input-group-append align-self-center">
-                                        <button id="clsifiedbtn" type="submit"
-                                            class="btn btn-link text-white bg-danger">
-                                            <i class="fa-solid fa-magnifying-glass"></i>
-                                        </button>
-                                    </div>
+                <div class="col-md-12 col-lg-8 col-xl-9">
+                    <div class="row common_filter_top rounded py-2 px-3 align-items-center">
+                        <div class="col-xl-4 col-lg-12 col-sm-12 col-md-12">
+                            <div class="input-group bg-white pe-3 mb-2 mt-2">
+                                <input type="search" id="search-input" placeholder="Search by title..."
+                                    aria-describedby="button-addon1"
+                                    class="form-control border-0 placeholder_search py-2 placeholder_search px-4">
+                                <div class="input-group-append align-self-center">
+                                    <button id="clsifiedbtn" type="submit" class="btn btn-link text-white bg-danger">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
                                 </div>
-                                <div id="matro"></div>
                             </div>
-                            <div class="col-xl-4 col-lg-6 col-sm-6 col-md-6 d-flex align-items-center">
-                                <div class="input-group bg-white py-3 justify-content-center rounded mb-2 mt-2">
-                                    <label for="number" class="number_filter_label">SHOW : <select name="text"
-                                            id="classifyShow" class="py-2 px-5 bg-white border-1 sortByNumberClassify">
-                                            <option value="">Select</option>
+                            <div id="matro"></div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-sm-6 col-md-6 d-flex align-items-center">
+                            <div class="input-group bg-white py-2 justify-content-center rounded mb-2 mt-2">
+                                <div class="row g-1">
+                                    <label for="number" class="number_filter_label col-sm-4 filter_title_2">SHOW
+                                        :
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <select class="form-select filter_form_2 sortByNumberClassify" name="text"
+                                            id="classifyShow" aria-label="Default select example">
+                                            <option selected>Select</option>
                                             <option value="10">10</option>
                                             <option value="20">20</option>
                                             <option value="50">50</option>
                                         </select>
+                                    </div>
                                 </div>
+
                             </div>
-                            <div class="col-xl-4 col-lg-6 col-sm-6 col-md-6">
-                                <div class="input-group bg-white py-3 justify-content-center rounded mb-2 mt-2">
-                                    <label for="number" class="number_filter_label">SORT BY : <select name="text2"
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-sm-6 col-md-6">
+                            <div class="input-group bg-white py-2 justify-content-center rounded mb-2 mt-2">
+
+                                <div class="row g-1">
+                                    <label for="number" class="number_filter_label col-sm-4 filter_title_2">SHORT BY
+                                        : </label>
+                                    <div class="col-sm-6">
+                                        <select class="form-select filter_form_2 fs-6 sortByClassify" name="text2"
+                                            id="classifySort" aria-label="Default select example">
+                                            <option selected>Select</option>
+                                            <option value="old">Oldest</option>
+                                            <option value="new">Latest</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {{-- <label for="number" class="number_filter_label">SORT BY : <select name="text2"
                                             id="classifySort" class="py-2 px-5 bg-white border-1 sortByClassify">
                                             <option value="">Select</option>
                                             <option value="old">Oldest</option>
                                             <option value="new">Latest</option>
-                                        </select>
-                                </div>
+                                        </select> --}}
                             </div>
                         </div>
+                    </div>
 
 
-                        <div id="classify" class="row mt-5">
+                    <div id="classify" class="row mt-5">
 
-                            @foreach ($classified as $data)
-                                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
+                        @foreach ($classified as $data)
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 mb-4">
 
-                                    <a href="{{ route('classified.single', $data->id) }}">
-                                        <div class="card position-relative border-0 mb-3">
-                                            <h6 class="classified_position_heading position-absolute">New</h6>
-                                            <div class="hart_postion position-absolute">
-                                                <i class="fa-solid fa-heart"></i>
+                                <a href="{{ route('classified.single', $data->id) }}">
+                                    <div class="card position-relative border-0 mb-3">
+                                        <h6 class="classified_position_heading position-absolute">New</h6>
+                                        <div class="hart_postion position-absolute">
+                                            <i class="fa-solid fa-heart"></i>
+                                        </div>
+                                        <img src="{{ $data->image }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <div class="card_date d-flex justify-content-between">
+                                                <div class="card_date_common mb-4 mobile_bg"><i
+                                                        class="fa-solid fa-mobile-screen-button me-2 text-white"></i>Mobiles
+                                                </div>
+                                                <div class="card_date_common mb-4"><i
+                                                        class="fa fa-star rating-color me-2"></i>4.5
+                                                </div>
                                             </div>
-                                            <img src="{{ $data->image }}" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <div class="card_date d-flex justify-content-between">
-                                                    <div class="card_date_common mb-4 mobile_bg"><i
-                                                            class="fa-solid fa-mobile-screen-button me-2 text-white"></i>Mobiles
-                                                    </div>
-                                                    <div class="card_date_common mb-4"><i
-                                                            class="fa fa-star rating-color me-2"></i>4.5
-                                                    </div>
-                                                </div>
-                                                <h5 class="card-title mt-4">{{ $data->title }}</h5>
-                                                <p class="card-text"><i class="fa-solid fa-location-dot "></i>
-                                                    {{ $data->location }}</p>
-                                                <p class="card-text mt-2"><i class="fa-regular fa-clock"></i>
-                                                    <?php
-                                                    
-                                                    $currentDate = date('Y-m-d'); // Add a semicolon here
-                                                    $date2 = new DateTime($data->created_at);
-                                                    
-                                                    $interval = $date2->diff(new DateTime($currentDate)); // Call diff() on $date2
-                                                    
-                                                    echo $interval->format(' %a days ago'); // Output: -9 days
-                                                    ?>
-                                                </p>
+                                            <h5 class="card-title mt-4">{{ $data->title }}</h5>
+                                            <p class="card-text"><i class="fa-solid fa-location-dot "></i>
+                                                {{ $data->location }}</p>
+                                            <p class="card-text mt-2"><i class="fa-regular fa-clock"></i>
+                                                <?php
+                                                
+                                                $currentDate = date('Y-m-d'); // Add a semicolon here
+                                                $date2 = new DateTime($data->created_at);
+                                                
+                                                $interval = $date2->diff(new DateTime($currentDate)); // Call diff() on $date2
+                                                
+                                                echo $interval->format(' %a days ago'); // Output: -9 days
+                                                ?>
+                                            </p>
 
-                                                <div
-                                                    class="classified_add_btn d-flex justify-content-between align-items-center">
-                                                    <h6 class="fw-bold">${{ $data->price }}</h6>
-                                                    <a href="{{ route('classified.single', $data->id) }}"
-                                                        class="py-3">Read
-                                                        More<i class="fa-solid fa-arrow-right ms-3"></i></a>
-                                                </div>
+                                            <div
+                                                class="classified_add_btn d-flex justify-content-between align-items-center">
+                                                <h6 class="fw-bold">${{ $data->price }}</h6>
+                                                <a href="{{ route('classified.single', $data->id) }}" class="py-3">Read
+                                                    More<i class="fa-solid fa-arrow-right ms-3"></i></a>
                                             </div>
                                         </div>
-                                    </a>
+                                    </div>
+                                </a>
 
-                                </div>
-                            @endforeach
-
-                            <div class="d-flex justify-content-center">
-                                {{ $classified->links('vendor.pagination.bootstrap-4') }}
                             </div>
+                        @endforeach
 
+                        <div class="d-flex justify-content-center">
+                            {{ $classified->links('vendor.pagination.bootstrap-4') }}
                         </div>
 
-
-
                     </div>
+
+
+
                 </div>
+            </div>
             </div>
         </section>
         <!-- member list section end -->
@@ -591,5 +630,102 @@
                 }
             });
         });
+    });
+
+
+    //---------------------Price Filter-----------------------
+    // let rangeMin = 100;
+    // const range = document.querySelector(".range-selected");
+    // const rangeInput = document.querySelectorAll(".range-input input");
+    // const rangePrice = document.querySelectorAll(".range-price input");
+    // rangeInput.forEach((input) => {
+    //     input.addEventListener("input", (e) => {
+    //         let minRange = parseInt(rangeInput[0].value);
+    //         let maxRange = parseInt(rangeInput[1].value);
+    //         if (maxRange - minRange < rangeMin) {
+    //             if (e.target.className === "min") {
+    //                 rangeInput[0].value = maxRange - rangeMin;
+    //             } else {
+    //                 rangeInput[1].value = minRange + rangeMin;
+    //             }
+    //         } else {
+    //             rangePrice[0].value = minRange;
+    //             rangePrice[1].value = maxRange;
+    //             range.style.left = (minRange / rangeInput[0].max) * 100 + "%";
+    //             range.style.right = 100 - (maxRange / rangeInput[1].max) * 100 + "%";
+    //         }
+    //     });
+    // });
+    // rangePrice.forEach((input) => {
+    //     input.addEventListener("input", (e) => {
+    //         let minPrice = rangePrice[0].value;
+    //         let maxPrice = rangePrice[1].value;
+    //         if (maxPrice - minPrice >= rangeMin && maxPrice <= rangeInput[1].max) {
+    //             if (e.target.className === "min") {
+    //                 rangeInput[0].value = minPrice;
+    //                 range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+    //             } else {
+    //                 rangeInput[1].value = maxPrice;
+    //                 range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+    //             }
+    //         }
+    //     });
+    // });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const rangeInput = document.querySelectorAll(".range-input input"),
+            priceInput = document.querySelectorAll(".price-input input"),
+            range = document.querySelector(".slider .progress");
+        let priceGap = 1000;
+
+        const updateRange = () => {
+            const minVal = parseInt(rangeInput[0].value),
+                maxVal = parseInt(rangeInput[1].value);
+            priceInput[0].value = minVal;
+            priceInput[1].value = maxVal;
+            range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+            range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+        };
+
+        priceInput.forEach((input) => {
+            input.addEventListener("input", (e) => {
+                let minPrice = parseInt(priceInput[0].value),
+                    maxPrice = parseInt(priceInput[1].value);
+
+                if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
+                    if (e.target.className.includes("input-min")) {
+                        rangeInput[0].value = minPrice;
+                        range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+                    } else {
+                        rangeInput[1].value = maxPrice;
+                        range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+                    }
+                }
+            });
+        });
+
+        rangeInput.forEach((input) => {
+            input.addEventListener("input", (e) => {
+                let minVal = parseInt(rangeInput[0].value),
+                    maxVal = parseInt(rangeInput[1].value);
+
+                if (maxVal - minVal < priceGap) {
+                    if (e.target.className.includes("range-min")) {
+                        rangeInput[0].value = maxVal - priceGap;
+                    } else {
+                        rangeInput[1].value = minVal + priceGap;
+                    }
+                } else {
+                    priceInput[0].value = minVal;
+                    priceInput[1].value = maxVal;
+                    range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+                    range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+                }
+            });
+        });
+
+        updateRange(); // Initialize range on page load
     });
 </script>

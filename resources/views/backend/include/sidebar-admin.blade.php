@@ -345,28 +345,29 @@
 
 
     <!-- Other top-level menu items -->
-   
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             console.log('DOM fully loaded and parsed');
             const templateName = 'defaultTemplateName'; // Replace with your actual template name
-    
+
             // Fetch the showDropdownOnHover setting
-            const showDropdownOnHover = localStorage.getItem('templateCustomizer-' + templateName + '--ShowDropdownOnHover') 
-                ? localStorage.getItem('templateCustomizer-' + templateName + '--ShowDropdownOnHover') === 'true' 
-                : window.templateCustomizer !== undefined 
-                    ? window.templateCustomizer.settings.defaultShowDropdownOnHover 
-                    : true;
+            const showDropdownOnHover = localStorage.getItem('templateCustomizer-' + templateName +
+                    '--ShowDropdownOnHover') ?
+                localStorage.getItem('templateCustomizer-' + templateName + '--ShowDropdownOnHover') === 'true' :
+                window.templateCustomizer !== undefined ?
+                window.templateCustomizer.settings.defaultShowDropdownOnHover :
+                true;
             console.log('showDropdownOnHover:', showDropdownOnHover);
-    
+
             // Function to handle menu item clicks
             function handleMenuItemClick(item) {
                 console.log('Clicked item:', item);
                 const clickedMenuItem = item.parentElement;
                 const isAlreadyOpen = clickedMenuItem.classList.contains('open');
                 console.log('Is already open:', isAlreadyOpen);
-    
+
                 // Close all other open menus
                 document.querySelectorAll('.menu-item.open').forEach(function(openItem) {
                     if (!openItem.contains(clickedMenuItem)) {
@@ -374,7 +375,7 @@
                         openItem.classList.remove('open');
                     }
                 });
-    
+
                 // Toggle the clicked item
                 if (!isAlreadyOpen) {
                     clickedMenuItem.classList.add('open');
@@ -384,7 +385,7 @@
                     slideUp(clickedMenuItem.querySelector('.menu-sub'));
                 }
             }
-    
+
             // Slide down function
             function slideDown(element) {
                 if (!element) return; // Prevent errors if element is null
@@ -392,29 +393,31 @@
                 const height = element.scrollHeight;
                 element.style.maxHeight = '0';
                 element.style.transition = 'none';
-    
+
                 requestAnimationFrame(function() {
                     element.style.maxHeight = height + 'px';
                     element.style.transition = 'max-height 0.3s ease-in-out';
                 });
             }
-    
+
             // Slide up function
             function slideUp(element) {
                 if (!element) return; // Prevent errors if element is null
                 element.style.maxHeight = element.scrollHeight + 'px';
                 element.style.transition = 'none';
-    
+
                 requestAnimationFrame(function() {
                     element.style.maxHeight = '0';
                     element.style.transition = 'max-height 0.3s ease-in-out';
                 });
-    
+
                 element.addEventListener('transitionend', function() {
                     element.style.display = 'none';
-                }, { once: true });
+                }, {
+                    once: true
+                });
             }
-    
+
             // Function to set the active menu based on current URL or route
             function setActiveMenu() {
                 const currentUrl = window.location.href;
@@ -427,7 +430,7 @@
                     }
                 });
             }
-    
+
             // Function to open parent menus up to the top level
             function openParentMenus(menuItem) {
                 let parent = menuItem.parentElement;
@@ -439,7 +442,7 @@
                     parent = parent.parentElement;
                 }
             }
-    
+
             // Add click event listeners to menu-toggle links
             document.querySelectorAll('.menu-toggle').forEach(function(item) {
                 item.addEventListener('click', function(e) {
@@ -447,11 +450,11 @@
                     handleMenuItemClick(item);
                 });
             });
-    
+
             // Set the active menu on page load
             setActiveMenu();
         });
-        </script>
+    </script>
 
 
 

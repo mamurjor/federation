@@ -9,8 +9,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="breadcrumd_heading text-center">
-                            <h2 class="fw-bold">Member list</h2>
-                            <span><a href="#" class="text-black">Home</a> / Member list</span>
+                            <h2 class="fw-bold fs-2">Member list</h2>
+                            <span><a href="#" class="text-black fs-6">Home</a> / Member list</span>
                         </div>
                     </div>
                 </div>
@@ -198,7 +198,7 @@
                                     <span class="filter_size">(50)</span>
                                 </div>
                             </div>
-                            <div class="common_button mt-5 text-center">
+                            <div class="common_button mt-4 text-center">
                                 <a href="#" class="bg-white filter_btn">CLEAR FILTER</a>
                             </div>
                         </div>

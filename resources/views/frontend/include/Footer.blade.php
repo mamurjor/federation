@@ -4,8 +4,11 @@
             <div class="col-md-6 col-lg-3 mb-5">
                 <div class="footer_heading">
                     <div class="footer_logo mb-4">
-                        <img src="{{ asset('frontend/assets/img/home_page/footer/footer_logo.png') }}" class="img-fluid"
+                        <a href="{{ route('index') }}">
+                            <img src="{{ asset('frontend/assets/img/home_page/footer/footer_logo.png') }}" class="img-fluid"
                             alt="logo" style="width: 35%;">
+                        </a>
+                        
                     </div>
                     <p class="footer_p mb-4">
 
@@ -33,7 +36,7 @@
                     </a>
                     <a href="mailto:juttfederationksa@gmail.com"
                         class="mb-4 text-decoration-none d-block footer_contacts"><i
-                            class="fa-solid fa-envelope"></i>
+                            class="fa-solid fa-envelope me-2"></i>
 
 
 

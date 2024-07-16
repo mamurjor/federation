@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="breadcrumd_heading text-center">
-                            <h2 class="fw-bold">Single Ads</h2>
+                            <h2 class="fw-bold fs-2">Single Ads</h2>
                             <span><a href="#" class="text-black">Home </a> / <a href="#" class="text-black">Ads
                                 </a> / Single Ads</span>
                         </div>
@@ -24,22 +24,40 @@
                 <div class="row justify-content-between">
                     <div class="col-md-12 col-lg-8 col-xl-9">
                         <div class="common_single_bg bg-white py-5 px-5 rounded">
-                            
+
                             @php
-                                  $classifiedsingle->multipleimage = json_decode($classifiedsingle->multipleimage);
+                                $classifiedsingle->multipleimage = json_decode($classifiedsingle->multipleimage);
                             @endphp
-                      
+
+                            {{-- <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{{ $classifiedsingle->multipleimage[0] }}" id="mainCarosel" class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                                    data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                                    data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div> --}}
+
                             <img src="{{ $classifiedsingle->multipleimage[0] }}" id="mainCarosel">
 
-                   
-                                <div id="thumbnailscarosel">
-                                    <img src=" {{ $classifiedsingle->multipleimage[0] }}">
-                                    <img src=" {{ $classifiedsingle->multipleimage[1] }}">
-                                    <img src=" {{ $classifiedsingle->multipleimage[2] }}">
-                                    <img src=" {{ $classifiedsingle->multipleimage[3] }}">
-                                    <img src=" {{ $classifiedsingle->multipleimage[4] }}">
-                                </div>
-                  
+
+                            <div id="thumbnailscarosel">
+                                <img src=" {{ $classifiedsingle->multipleimage[0] }}">
+                                <img src=" {{ $classifiedsingle->multipleimage[1] }}">
+                                <img src=" {{ $classifiedsingle->multipleimage[2] }}">
+                                <img src=" {{ $classifiedsingle->multipleimage[3] }}">
+                                <img src=" {{ $classifiedsingle->multipleimage[4] }}">
+                            </div>
+
 
 
                         </div>
@@ -52,32 +70,32 @@
                             <div class="single_add_box mt-5">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 col-lg-6">
-                                        <div class="single_add_box1 py-4 px-3 border rounded mb-3">
+                                        <div class="single_add_box1 py-3 px-3 border rounded mb-3">
                                             <h6>Category: <span class="ms-3">Electronics Accessories</span></h6>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-lg-6">
-                                        <div class="single_add_box1 py-4 px-3 border rounded mb-3">
+                                        <div class="single_add_box1 py-3 px-3 border rounded mb-3">
                                             <h6>Subcategory: <span class="ms-3">Mobile</span></h6>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-lg-6">
-                                        <div class="single_add_box1 py-4 px-3 border rounded mb-3">
+                                        <div class="single_add_box1 py-3 px-3 border rounded mb-3">
                                             <h6>Location: <span class="ms-3">{{ $classifiedsingle->location }}</span></h6>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-lg-6">
-                                        <div class="single_add_box1 py-4 px-3 border rounded mb-3">
+                                        <div class="single_add_box1 py-3 px-3 border rounded mb-3">
                                             <h6>District: <span class="ms-3">Lahore</span></h6>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-lg-6">
-                                        <div class="single_add_box1 py-4 px-3 border rounded mb-3">
+                                        <div class="single_add_box1 py-3  px-3 border rounded mb-3">
                                             <h6>Tehsil: <span class="ms-3"> Lahore</span></h6>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-lg-6">
-                                        <div class="single_add_box1 py-4 px-3 border rounded mb-3">
+                                        <div class="single_add_box1 py-3 px-3 border rounded mb-3">
                                             <h6>Post Time: <span class="ms-3">Lahore</span></h6>
                                         </div>
                                     </div>
@@ -89,30 +107,30 @@
 
                             </div>
                         </div>
-                        <div class="common_single_bg bg-white py-5 px-5 rounded mt-5">
+                        <div class="common_single_bg bg-white py-3 px-5 rounded mt-5">
                             <div class="single_add_heading">
                                 <h3 class="fw-bold mb-2">{{ $classifiedsingle->title }}</h3>
                             </div>
                             <div class="single_add_box mt-5">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="single_add_box1 py-4 px-3 border rounded mb-3">
+                                        <div class="single_add_box1 py-3 px-3 border rounded mb-3">
                                             <h6>Price: <span
                                                     class="ms-3">${{ $classifiedsingle->price }} Negotiable</span></h6>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="single_add_box1 py-4 px-3 border rounded mb-3">
+                                        <div class="single_add_box1 py-3 px-3 border rounded mb-3">
                                             <h6>Phone: <span class="ms-3">+9234567899</span></h6>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="single_add_box1 py-4 px-3 border rounded mb-3">
+                                        <div class="single_add_box1 py-3 px-3 border rounded mb-3">
                                             <h6>Email: <span class="ms-3"> {{ $classifiedsingle->email }}</span></h6>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="single_add_box1 py-4 px-3 border rounded mb-3">
+                                        <div class="single_add_box1 py-3 px-3 border rounded mb-3">
                                             <h6>Address: <span class="ms-3">Birmingham, Washington state, USA</span></h6>
                                         </div>
                                     </div>
@@ -141,7 +159,7 @@
                             <div class="relative_categoris">
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Private Car</span>
@@ -151,7 +169,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Bike</span>
@@ -161,7 +179,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             By Cycle</span>
@@ -171,7 +189,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Television</span>
@@ -181,7 +199,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Camera</span>
@@ -191,7 +209,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Laptop</span>
@@ -201,7 +219,7 @@
                                 </div>
                                 <div class="form-group align-items-center d-flex justify-content-between mb-2 me-3">
                                     <div>
-                                        <input class="form-check-input p-3" type="checkbox" value=""
+                                        <input class="form-check-input p-2 check_style" type="checkbox" value=""
                                             id="flexCheckChecked">
                                         <label class="form-check-label pt-1 ms-3 filter_size" for="flexCheckChecked">
                                             Computer</span>
@@ -220,7 +238,7 @@
                             <div class="hart_postion position-absolute">
                                 <i class="fa-solid fa-heart"></i>
                             </div>
-                            <img src="./img/classified_page/image2.png" class="card-img-top" alt="...">
+                            <img src="{{asset('frontend/assets/img/classified_page/image2.png')  }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <div class="card_date d-flex justify-content-between">
                                     <div class="card_date_common mb-4 mobile_bg"><i
@@ -244,7 +262,7 @@
                             <div class="hart_postion position-absolute">
                                 <i class="fa-solid fa-heart"></i>
                             </div>
-                            <img src="./img/classified_page/image3.png" class="card-img-top" alt="...">
+                            <img src="{{asset('frontend/assets/img/classified_page/image3.png')  }} " class="card-img-top" alt="...">
                             <div class="card-body">
                                 <div class="card_date d-flex justify-content-between">
                                     <div class="card_date_common mb-4 mobile_bg"><i
@@ -269,6 +287,20 @@
         </section>
         <!-- member list section end -->
     </main>
+    <script>
+        var thumbnails = document.getElementById("thumbnailscarosel")
+var imgs = thumbnails.getElementsByTagName("img")
+var main = document.getElementById("mainCarosel")
+var counter=0;
 
-
+for(let i=0;i<imgs.length;i++){
+  let img=imgs[i]
+  
+  
+  img.addEventListener("click",function(){
+  main.src=this.src
+})
+  
+}
+       </script>
 @endsection

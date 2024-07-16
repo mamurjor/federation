@@ -320,4 +320,7 @@
     #presidents_and_secretaries .card {
         padding: 40px 26px !important;
     }
+    .home_classified     {
+        padding: 10px !important;
+    }
  }
