@@ -33,6 +33,7 @@ use App\Http\Controllers\Frontend\MainIndexController;
 use App\Http\Controllers\Admin\InternationalController;
 use App\Http\Controllers\Admin\MissionSectionController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\EasyPaisaController;
 use App\Models\User;
 
 /*
@@ -481,6 +482,7 @@ Route::post('disvoteannounce/update', [DistrictController::class, 'disvoteannoun
 Route::get('disvoteannounce/edit/{id}', [DistrictController::class, 'disvoteannounceedit'])->name('disvoteannounce.edit');
 Route::get('disvoteannounce/delete/{id}', [DistrictController::class, 'disvoteannouncedelete'])->name('disvoteannounce.delete');
 
-
+Route::post('/initiate-payment', [EasyPaisaController::class, 'initiatePayment']);
+Route::post('/verify-payment', [EasyPaisaController::class, 'verifyPayment']);
 
 
